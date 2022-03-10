@@ -1,4 +1,4 @@
 id,variant,tags,tier,rarity,fleet pts,op cost,formation,range,attackRunRange,attackPositionOffset,num,role,role desc,refit,base value,,,,,,,,,,,,,number
 alkemia_deluxe_wing,alkemia_deluxe_fighter,"fighter4, fighter, hightech_bp, alkemia_customs_bp",3,1,7,15,V,3000,500,,3,FIGHTER,Fighter,15,11400,,,,,,,,,,,,,30045
 alkemia_deluxe_super_wing,alkemia_deluxe_super,"fighter4, fighter, hightech_bp, alkemia_customs_bp",3,1,7,17,V,3000,500,,3,FIGHTER,Fighter,15,14400,,,,,,,,,,,,,30046
-alkemia_deluxe_bomber_wing,alkemia_deluxe_bomber,"fighter4, fighter, hightech_bp, alkemia_customs_bp",3,1,7,16,V,3000,500,,3,BOMBER,Bomber,15,12400,,,,,,,,,,,,,30046
+alkemia_deluxe_strike_wing,alkemia_deluxe_strike,"fighter4, fighter, hightech_bp, alkemia_customs_bp",3,1,7,16,V,3000,500,,3,BOMBER,Bomber,15,12400,,,,,,,,,,,,,30046

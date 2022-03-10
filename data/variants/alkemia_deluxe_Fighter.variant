@@ -1,9 +1,9 @@
 {
   "variantId": "alkemia_deluxe_fighter",
   "hullId": "alkemia_deluxe",
-  "displayName": "Custom Fighter",
+  "displayName": "Superiority Fighter",
   "goalVariant": false,
-  "fluxCapacitors": 0,
+  "fluxCapacitors": 4,
   "fluxVents": 0,
   "quality": 1,
   "permaMods": [],
@@ -23,14 +23,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "lightag"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "WS0001": "vulcan"
+        "WS0001": "vulcan",
+        "WS0002": "vulcan"
       }
     }
   ]

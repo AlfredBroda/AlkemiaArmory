@@ -1,9 +1,9 @@
 {
 	"hullId": "alkemia_deluxe",
-	"variantId": "alkemia_deluxe_bomber",
-	"displayName": "Fighter-Bomber",
+	"variantId": "alkemia_deluxe_strike",
+	"displayName": "Strike Fighter",
 	"fluxCapacitors": 0,
-	"fluxVents": 0,
+	"fluxVents": 4,
 	"quality": 1,
 	"hullMods": [
 		"eccm"
@@ -19,7 +19,7 @@
 		{
 			"mode": "LINKED",
 			"weapons": {
-				"WS0002": "railgun"
+				"WS0002": "amblaster"
 			}
 		},
 		{

@@ -1,9 +1,9 @@
 {
 	"hullId": "alkemia_deluxe",
 	"variantId": "alkemia_deluxe_super",
-	"displayName": "Superiority Fighter",
-	"fluxCapacitors": 0,
-	"fluxVents": 0,
+	"displayName": "Interceptor",
+	"fluxCapacitors": 2,
+	"fluxVents": 2,
 	"quality": 1,
 	"hullMods": [
 		"hardenedshieldemitter", "auxiliarythrusters"
