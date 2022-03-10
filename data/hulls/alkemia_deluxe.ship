@@ -1,0 +1,137 @@
+{
+    "hullId": "alkemia_deluxe",
+    "hullName": "Deluxe",
+    "hullSize": "FIGHTER",
+    "style": "HIGH_TECH",
+    "spriteName": "graphics/fighters/alkemia_deluxe.png",
+    "height": 40,
+    "width": 38,
+    "center": [
+        19,
+        17
+    ],
+    "collisionRadius": 28,
+    "shieldCenter": [
+        3,
+        -0
+    ],
+    "shieldRadius": 25,
+    "viewOffset": 0,
+    "builtInMods": [
+        "no_weapon_flux"
+    ],
+    "weaponSlots": [
+        {
+            "id": "WS0001",
+            "size": "SMALL",
+            "type": "SYNERGY",
+            "mount": "HIDDEN",
+            "arc": 10,
+            "angle": 0,
+            "locations": [
+                16.5,
+                6
+            ]
+        },
+        {
+            "id": "WS0002",
+            "size": "SMALL",
+            "type": "SYNERGY",
+            "mount": "HIDDEN",
+            "arc": 10,
+            "angle": -0,
+            "locations": [
+                16.5,
+                -6
+            ]
+        },
+        {
+            "id": "WS0003",
+            "size": "SMALL",
+            "type": "MISSILE",
+            "mount": "HIDDEN",
+            "arc": 5,
+            "angle": -0,
+            "locations": [
+                5,
+                -12.5
+            ]
+        },
+        {
+            "id": "WS0004",
+            "size": "SMALL",
+            "type": "MISSILE",
+            "mount": "HIDDEN",
+            "arc": 5,
+            "angle": 0,
+            "locations": [
+                5,
+                12.5
+            ]
+        },
+        {
+            "id": "SYSTEM1",
+            "size": "SMALL",
+            "type": "SYSTEM",
+            "mount": "HIDDEN",
+            "arc": 5,
+            "angle": 170,
+            "locations": [
+                -14,
+                -12.5
+            ]
+        },
+        {
+            "id": "SYSTEM2",
+            "size": "SMALL",
+            "type": "SYSTEM",
+            "mount": "HIDDEN",
+            "arc": 5,
+            "angle": 190,
+            "locations": [
+                -14,
+                12.5
+            ]
+        }
+    ],
+    "engineSlots": [
+        {
+            "location": [
+                -16,
+                -8.5
+            ],
+            "length": 20.5,
+            "width": 10,
+            "angle": 180,
+            "contrailSize": 10,
+            "style": "LOW_TECH"
+        },
+        {
+            "location": [
+                -16,
+                8.5
+            ],
+            "length": 20.5,
+            "width": 10,
+            "angle": -180,
+            "contrailSize": 10,
+            "style": "LOW_TECH"
+        }
+    ],
+    "bounds": [
+        10.5,
+        9.5,
+        -8,
+        18,
+        -12.5,
+        10.5,
+        -12.5,
+        -10.5,
+        -8,
+        -18,
+        10.5,
+        -9.5,
+        16.5,
+        -0
+    ]
+}

@@ -1,0 +1,13 @@
+id,type,text1,text2,text3,notes
+alkemia_pilumpod,WEAPON,"A two-stage missile suited for long-range support by backline combat ships. The second stage has a higher top speed, giving it a better chance of defeating point-defense systems.
+
+A technologically mature weapon system, the Pilum-class missile is the obvious choice for long-range strikes by cautious captains. The warhead consists of a device capable of causing spot failures in active shields, and an EMP generator to deliver a modest punch through these gaps. Neither device is particularly effective due to the constraints imposed by the missile's outsized fuel tanks.
+
+A sizable combat-rated autoloader and missile nanoforge system ensures continued usefulness in protracted engagements.",,,
+alkemia_deluxe,SHIP,"A heavily customizable fighter boasting two hybrid and two missile hardpoints, allowing for a wide variety of missions. The basic loadout a decoy flare launcher.
+
+The fighter variant is fitted with an Assault Gun, a Vulcan Cannon, and two Salamander missiles suppllemented by an ECCM package.
+
+The Fighter-Bomber variant carries a Railgun, a Vulcan Cannon, and two Harpoon missiles, also retaining the ECCM package.
+
+The Superiority Fighter variant has hardened shields, improved RCS thrusters and carries both Locust and Breach SRMs along with two accurate Lasers.",,,

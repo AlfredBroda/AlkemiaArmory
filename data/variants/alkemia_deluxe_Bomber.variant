@@ -1,0 +1,34 @@
+{
+	"hullId": "alkemia_deluxe",
+	"variantId": "alkemia_deluxe_bomber",
+	"displayName": "Fighter-Bomber",
+	"fluxCapacitors": 0,
+	"fluxVents": 0,
+	"quality": 1,
+	"hullMods": [
+		"eccm"
+	],
+	"weaponGroups": [
+		{
+			"mode": "LINKED",
+			"autofire": true,
+			"weapons": {
+				"WS0001": "vulcan"
+			}
+		},
+		{
+			"mode": "LINKED",
+			"weapons": {
+				"WS0002": "railgun"
+			}
+		},
+		{
+			"mode": "ALTERNATING",
+			"autofire": false,
+			"weapons": {
+				"WS0003": "harpoon_single",
+				"WS0004": "harpoon_single"
+			}
+		}
+	]
+}

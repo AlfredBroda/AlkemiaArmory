@@ -1,0 +1,6 @@
+name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sprite
+Drone Bay Conversion,alkemia_drone_conversion,3,1,,"special, non_phase, merc",Fighters,12000,,,,0,10,15,20,data.hullmods.AlkemiaDroneConversion,"Removing the need for crew makes room for additional drone fighters and a dedicated C&C core. This improves drone speed by %s, and decreases damage taken by %s.
+
+Decreases the minimum crew required by %s per bay to account for pilots and bay crews. Decreases the ordnance point cost of drones by %s.
+
+Can not be installed on frigates, phase ships, or ships that don't already have proper fighter bays.",Drone bay conversion for carriers.,graphics/hullmods/eccm_package.png

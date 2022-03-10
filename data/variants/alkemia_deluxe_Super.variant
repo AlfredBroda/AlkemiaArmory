@@ -1,0 +1,29 @@
+{
+	"hullId": "alkemia_deluxe",
+	"variantId": "alkemia_deluxe_super",
+	"displayName": "Superiority Fighter",
+	"fluxCapacitors": 0,
+	"fluxVents": 0,
+	"quality": 1,
+	"hullMods": [
+		"hardenedshieldemitter", "auxiliarythrusters"
+	],
+	"weaponGroups": [
+		{
+			"mode": "ALTERNATING",
+			"autofire": true,
+			"weapons": {
+				"WS0001": "pdlaser",
+				"WS0002": "pdlaser"
+			}
+		},
+		{
+			"mode": "LINKED",
+			"autofire": false,
+			"weapons": {
+				"WS0003": "alkemia_locust_fighter",
+				"WS0004": "alkemia_breach_fighter"
+			}
+		}
+	]
+}
