@@ -1,137 +1,115 @@
 {
-    "hullId": "alkemia_deluxe",
     "hullName": "Deluxe",
+    "hullId": "alkemia_deluxe",
     "hullSize": "FIGHTER",
-    "style": "HIGH_TECH",
     "spriteName": "graphics/fighters/alkemia_deluxe.png",
-    "height": 40,
-    "width": 38,
-    "center": [
-        19,
-        17
-    ],
+    "style": "HIGH_TECH",
+    "height": 44,
+    "width": 41,
+    "center": [21, 18],
     "collisionRadius": 28,
-    "shieldCenter": [
-        3,
-        -0
-    ],
+    "shieldCenter": [2.5, -0],
     "shieldRadius": 25,
     "viewOffset": 0,
-    "builtInMods": [
-        "no_weapon_flux"
-    ],
+    "builtInMods": [],
     "weaponSlots": [
-        {
-            "id": "WS0001",
-            "size": "SMALL",
-            "type": "SYNERGY",
-            "mount": "HIDDEN",
-            "arc": 10,
-            "angle": 0,
-            "locations": [
-                16.5,
-                6
-            ]
-        },
-        {
-            "id": "WS0002",
-            "size": "SMALL",
-            "type": "SYNERGY",
-            "mount": "HIDDEN",
-            "arc": 10,
-            "angle": -0,
-            "locations": [
-                16.5,
-                -6
-            ]
-        },
-        {
-            "id": "WS0003",
-            "size": "SMALL",
-            "type": "MISSILE",
-            "mount": "HIDDEN",
-            "arc": 5,
-            "angle": -0,
-            "locations": [
-                5,
-                -12.5
-            ]
-        },
-        {
-            "id": "WS0004",
-            "size": "SMALL",
-            "type": "MISSILE",
-            "mount": "HIDDEN",
-            "arc": 5,
-            "angle": 0,
-            "locations": [
-                5,
-                12.5
-            ]
-        },
-        {
-            "id": "SYSTEM1",
-            "size": "SMALL",
-            "type": "SYSTEM",
-            "mount": "HIDDEN",
-            "arc": 5,
-            "angle": 170,
-            "locations": [
-                -14,
-                -12.5
-            ]
-        },
-        {
-            "id": "SYSTEM2",
-            "size": "SMALL",
-            "type": "SYSTEM",
-            "mount": "HIDDEN",
-            "arc": 5,
-            "angle": 190,
-            "locations": [
-                -14,
-                12.5
-            ]
-        }
+      {
+        "id": "WS0001",
+        "size": "SMALL",
+        "type": "HYBRID",
+        "mount": "HIDDEN",
+        "arc": 20,
+        "angle": -0,
+        "locations": [8, 7.5]
+      },
+      {
+        "id": "WS0002",
+        "size": "SMALL",
+        "type": "HYBRID",
+        "mount": "HIDDEN",
+        "arc": 20,
+        "angle": 0,
+        "locations": [8, -6.5]
+      },
+      {
+        "id": "WS0003",
+        "size": "SMALL",
+        "type": "MISSILE",
+        "mount": "HIDDEN",
+        "arc": 5,
+        "angle": -0,
+        "locations": [-4.5, -14.5]
+      },
+      {
+        "id": "WS0004",
+        "size": "SMALL",
+        "type": "MISSILE",
+        "mount": "HIDDEN",
+        "arc": 5,
+        "angle": 0,
+        "locations": [-4.5, 16]
+      },
+      {
+        "id": "SYSTEM1",
+        "size": "SMALL",
+        "type": "SYSTEM",
+        "mount": "HIDDEN",
+        "arc": 5,
+        "angle": 180,
+        "locations": [-6, -5.5]
+      },
+      {
+        "id": "SYSTEM2",
+        "size": "SMALL",
+        "type": "SYSTEM",
+        "mount": "HIDDEN",
+        "arc": 5,
+        "angle": 180,
+        "locations": [-6, 7]
+      }
     ],
     "engineSlots": [
-        {
-            "location": [
-                -16,
-                -8.5
-            ],
-            "length": 20.5,
-            "width": 10,
-            "angle": 180,
-            "contrailSize": 10,
-            "style": "LOW_TECH"
-        },
-        {
-            "location": [
-                -16,
-                8.5
-            ],
-            "length": 20.5,
-            "width": 10,
-            "angle": -180,
-            "contrailSize": 10,
-            "style": "LOW_TECH"
-        }
+      {
+        "location": [-12, -8.5],
+        "length": 20.5,
+        "width": 10,
+        "angle": 180,
+        "contrailSize": 10,
+        "style": "LOW_TECH"
+      },
+      {
+        "location": [-12, 8.5],
+        "length": 20.5,
+        "width": 10,
+        "angle": -180,
+        "contrailSize": 10,
+        "style": "LOW_TECH"
+      }
     ],
     "bounds": [
-        10.5,
-        9.5,
-        -8,
-        18,
-        -12.5,
-        10.5,
-        -12.5,
-        -10.5,
-        -8,
-        -18,
-        10.5,
-        -9.5,
-        16.5,
-        -0
+      -12.5, -3.5,
+      -16, -4,
+      -16, -11,
+      -9, -16.5,
+      -8.5, -20.5,
+      5, -19.5,
+      3, -14,
+      11, -9,
+      16.5, -9,
+      17.5, -5,
+      24.5, -4,
+      26.5, -0.5,
+      26.5, 0.5,
+      24.5, 4,
+      17.5, 5,
+      16.5, 9,
+      11, 9,
+      3, 14,
+      5, 19.5,
+      -8.5, 20.5,
+      -9, 16.5,
+      -16, 11,
+      -16, 4,
+      -12.5, 3.5
     ]
-}
+  }
