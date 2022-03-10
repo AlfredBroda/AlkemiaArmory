@@ -2,8 +2,8 @@
 	"hullId": "alkemia_deluxe",
 	"variantId": "alkemia_deluxe_strike",
 	"displayName": "Strike Fighter",
-	"fluxCapacitors": 0,
-	"fluxVents": 4,
+	"fluxCapacitors": 4,
+	"fluxVents": 0,
 	"quality": 1,
 	"hullMods": [
 		"eccm"
@@ -19,15 +19,14 @@
 		{
 			"mode": "LINKED",
 			"weapons": {
-				"WS0002": "amblaster"
+				"WS0002": "alkemia_amblaster_fighter"
 			}
 		},
 		{
-			"mode": "ALTERNATING",
-			"autofire": false,
+			"mode": "LINKED",
 			"weapons": {
-				"WS0003": "harpoon_single",
-				"WS0004": "harpoon_single"
+				"WS0005": "alkemia_breach_fighter",
+				"WS0006": "alkemia_breach_fighter"
 			}
 		}
 	]

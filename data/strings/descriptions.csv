@@ -4,10 +4,14 @@ alkemia_pilumpod,WEAPON,"A two-stage missile suited for long-range support by ba
 A technologically mature weapon system, the Pilum-class missile is the obvious choice for long-range strikes by cautious captains. The warhead consists of a device capable of causing spot failures in active shields, and an EMP generator to deliver a modest punch through these gaps. Neither device is particularly effective due to the constraints imposed by the missile's outsized fuel tanks.
 
 A sizable combat-rated autoloader and missile nanoforge system ensures continued usefulness in protracted engagements.",,,
-alkemia_deluxe,SHIP,"A heavily customizable fighter boasting two hybrid and two missile hardpoints, allowing for a wide variety of missions. The basic loadout a decoy flare launcher.
+alkemia_deluxe,SHIP,"A heavily customizable single seat fighter chassis boasting two hybrid and two missile hardpoints, a decoy flare launcher and an Onmi shield.
 
-The fighter variant is fitted with an Assault Gun, a Vulcan Cannon, and two Salamander missiles suppllemented by an ECCM package.
+The basic loadout consists of two Vulcan Cannons, two Salamander launchers and Hardened Shields for maximum survivability.
 
-The Fighter-Bomber variant carries a Railgun, a Vulcan Cannon, and two Harpoon missiles, also retaining the ECCM package.
+The bomber variant is fitted with two Assault Guns, one Sabot missile and a bomb launcher supplemented by an Assault Package.
 
-The Superiority Fighter variant has hardened shields, improved RCS thrusters and carries both Locust and Breach SRMs along with two accurate Lasers.",,,
+The Strike variant carries an Anit-Matter Blaster, a Vulcan Cannon and Breach missiles supplemented by an ECCM package.
+
+The Superiority Fighter variant has improved RCS thrusters and carries two racks of EMP swarm missiles along with two accurate Lasers.",,,
+alkemia_locust,WEAPON,"Saturate targets with large numbers of low-yeld EMP warheads.",,,
+alkemia_locust_fighter,WEAPON,"Saturate targets with large numbers of low-yeld EMP warheads.",,,

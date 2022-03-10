@@ -1,0 +1,36 @@
+{
+  "variantId": "alkemia_deluxe_bomber",
+  "hullId": "alkemia_deluxe",
+  "displayName": "Bomber",
+  "goalVariant": false,
+  "fluxCapacitors": 2,
+  "fluxVents": 2,
+  "quality": 1,
+  "permaMods": [
+    "assault_package"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "lightag",
+        "WS0002": "lightag"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "sabot_fighter"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "bomb",
+      }
+    }
+  ]
+}

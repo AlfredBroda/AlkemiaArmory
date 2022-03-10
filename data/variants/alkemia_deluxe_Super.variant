@@ -6,7 +6,7 @@
 	"fluxVents": 2,
 	"quality": 1,
 	"hullMods": [
-		"hardenedshieldemitter", "auxiliarythrusters"
+		"auxiliarythrusters"
 	],
 	"weaponGroups": [
 		{
@@ -22,7 +22,7 @@
 			"autofire": false,
 			"weapons": {
 				"WS0005": "alkemia_locust_fighter",
-				"WS0006": "alkemia_breach_fighter"
+				"WS0006": "alkemia_locust_fighter"
 			}
 		}
 	]

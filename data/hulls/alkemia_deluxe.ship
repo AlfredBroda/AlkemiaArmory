@@ -55,7 +55,7 @@
       "mount": "HIDDEN",
       "arc": 5,
       "angle": 42.5,
-      "locations": [11, 15.5]
+      "locations": [9.5, 13]
     },
     {
       "id": "WS0006",
@@ -64,7 +64,7 @@
       "mount": "HIDDEN",
       "arc": 5,
       "angle": -42.5,
-      "locations": [11, -15.5]
+      "locations": [9.5, -13]
     },
     {
       "id": "SPECIAL1",

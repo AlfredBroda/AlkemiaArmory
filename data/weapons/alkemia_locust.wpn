@@ -1,5 +1,5 @@
 {
-	"id":"alkemia_locust_fighter",
+	"id":"alkemia_locust",
 	"specClass":"projectile",
 	"type":"MISSILE",
 	"size":"SMALL",

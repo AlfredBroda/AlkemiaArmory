@@ -2,13 +2,13 @@
   "variantId": "alkemia_deluxe_fighter",
   "hullId": "alkemia_deluxe",
   "displayName": "Superiority Fighter",
-  "goalVariant": false,
+  "goalVariant": true,
   "fluxCapacitors": 4,
   "fluxVents": 0,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "eccm"
+    "hardenedshieldemitter"
   ],
   "weaponGroups": [
     {
