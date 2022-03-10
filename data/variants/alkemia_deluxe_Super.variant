@@ -21,8 +21,8 @@
 			"mode": "LINKED",
 			"autofire": false,
 			"weapons": {
-				"WS0003": "alkemia_locust_fighter",
-				"WS0004": "alkemia_breach_fighter"
+				"WS0005": "alkemia_locust_fighter",
+				"WS0006": "alkemia_breach_fighter"
 			}
 		}
 	]
