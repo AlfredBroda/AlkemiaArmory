@@ -1,11 +1,11 @@
 {
-	"id":"alkemia",
+	"id":"alkemia-armoury",
 	"name":"Alkemia Armoury",
-	"author":"Guaranga",
-	"version":"0.0.1",
-	"description":"Weapons, hullmods and LPCs.",
+	"author":"Frederoo",
+	"version":"0.1.0",
+	"description":"Weapons, hulls, hullmods and LPCs.",
 	"gameVersion": "0.95.1a-RC6",
 	"totalConversion": "false",
-	"modPlugin":"data.scripts.AlkemiaModPlugin",
-	"utility": "false"
+	"utility": "false",
+	"modPlugin":"data.scripts.AlkemiaModPlugin"
 }

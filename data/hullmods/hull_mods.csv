@@ -1,7 +1,7 @@
 name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sprite
-Drone Bay Conversion,alkemia_drone_conversion,3,2,,"special, non_phase, carrier",Fighters,12000,,,,0,10,15,20,data.hullmods.AlkemiaDroneConversion,"Removing the need for crew makes room for additional drone fighters and a dedicated C&C core. This improves drone speed by %s, and decreases damage taken by %s.
+Converted Drone Bays,alkemia_droneonlybays,3,2,Alkemia,"special, non_phase, carrier",Fighters,12000,,,,0,6,12,18,data.hullmods.AlkemiaDroneConversion,"Converts all fighter bays exclusively for drone usage.
 
-Decreases the minimum crew required by %s per bay to account for pilots and bay crews. Decreases the ordnance point cost of drones by %s.
+Decreases the minimum crew required by %s per bay, increases bay space by %s, decreases rearm time by %s and ordnance point cost of drone LPCs by %s.
 
-Can not be installed on frigates, phase ships, or ships that don't already have proper fighter bays.",Drone bay conversion for carriers.,graphics/hullmods/eccm_package.png
-Drone Bay Conversion,alkemia_manufactory,2,1,,"special, non_phase, carrier",Fighters,6000,,,,0,10,15,20,data.hullmods.AlkemiaImprovedManufactory,"Upgrades the onboard manufactory to produce fighters that are %s faster and do % more damage.",Fighter manufactory upgrade.,graphics/hullmods/automated_repair_unit.png
+Can not be installed on frigates or phase ships.","Conversion to drone-only automated fighter bays.",graphics/hullmods/automated.png
+Improved Manufactory,alkemia_impmanufactory,2,1,Alkemia,"special, non_phase, carrier",Fighters,6000,,,,0,5,10,15,data.hullmods.AlkemiaImprovedManufactory,"Upgrades the onboard manufactory to produce fighters that are %s faster and do %s more damage.",Fighter manufactory upgrade.,graphics/hullmods/automated_repair_unit.png

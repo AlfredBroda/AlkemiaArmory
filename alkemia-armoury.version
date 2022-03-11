@@ -1,0 +1,12 @@
+{
+    "masterVersionFile":"https://raw.githubusercontent.com/AlfredBroda/AlkemiaArmory/master/alkemia-armoury.version",
+    "modName":"Alkemia Armoury",
+    "modNexusId":1,
+    "modThreadId":5444,
+    "modVersion":
+    {
+        "major":0,
+        "minor":1,
+        "patch":0
+    }
+}
