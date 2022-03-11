@@ -1,0 +1,46 @@
+{
+  "variantId": "alkemia_module_midline_support_damaged",
+  "hullId": "alkemia_module_midline_support",
+  "displayName": "Damaged",
+  "goalVariant": false,
+  "fluxCapacitors": 10,
+  "fluxVents": 10,
+  "quality": 0,
+  "permaMods": [],
+  "hullMods": [
+    "do_not_fire_through",
+    "supercomputer",
+    "always_detaches",
+    "defective_manufactory",
+    "comp_armor",
+    "comp_structure",
+    "damaged_deck"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 001": "pilum",
+        "WS 003": "pilum"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 009": "heatseeker"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 005": "vulcan",
+        "WS 007": "vulcan"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

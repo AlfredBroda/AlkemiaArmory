@@ -1,0 +1,18 @@
+{
+  "variantId": "alkemia_ox_junker_support",
+  "hullId": "alkemia_ox_junker",
+  "displayName": "Midline Support Module",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 0.5,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [],
+  "modules": [
+    {
+      "MODULE1": "alkemia_module_midline_support_damaged"
+    }
+  ],
+  "wings": ["mining_drone_wing", "mining_drone_wing"]
+}

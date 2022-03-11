@@ -1,0 +1,119 @@
+{
+  "hullName": "Ox Junker",
+  "hullId": "alkemia_ox_junker",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/ox/ox2.png",
+  "style": "LOW_TECH",
+  "height": 80,
+  "width": 80,
+  "center": [40, 37],
+  "collisionRadius": 55,
+  "shieldCenter": [1, 0],
+  "shieldRadius": 55,
+  "viewOffset": 0,
+  "builtInMods": [
+    "civgrade",
+    "shared_flux_sink"
+  ],
+  "weaponSlots": [
+    {
+      "id": "SYSTEM1",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "TURRET",
+      "arc": 10,
+      "angle": 180,
+      "locations": [-23, 1]
+    },
+    {
+      "id": "MODULE1",
+      "size": "LARGE",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": 33,
+      "locations": [3.5, 40.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-35, 25],
+      "length": 12,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-35, 22],
+      "length": 12,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-34, 20],
+      "length": 12,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-34, -19],
+      "length": 12,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-35, -22],
+      "length": 12,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-35, -24],
+      "length": 12,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-17.5, 33],
+      "length": 12,
+      "width": 6,
+      "angle": 129.5,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-17.5, -33],
+      "length": 12,
+      "width": 6,
+      "angle": -129.5,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    }
+  ],
+  "bounds": [
+    -33, 27,
+    -6, 39,
+    15, 27,
+    38, 21,
+    40, 10,
+    31, 0,
+    40, -9,
+    38, -19,
+    -6, -37,
+    -33, -26,
+    -31, -15,
+    -20, 0,
+    -31, 16
+  ]
+}
