@@ -22,11 +22,7 @@
     "comp_hull",
     "comp_structure"
   ],
-  "builtInWings": [
-    "mining_drone_wing",
-    "mining_drone_wing",
-    "mining_drone_wing"
-  ],
+  "builtInWings": [],
   "weaponSlots": [
     {
       "id": "WS0000",
