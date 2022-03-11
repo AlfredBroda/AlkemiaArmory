@@ -55,7 +55,8 @@ public class AlkemiaDroneConversion extends BaseHullMod {
 		stats.getDynamic().getMod(Stats.SUPPORT_COST_MOD).modifyPercent(id, ALL_DRONE_COST_REDUCTION);
 
 		// Make the ship only accept drones
-		// FIXME: It would be better to filter LPCs like Automated HullMod does (but no source is avaliable)
+		// FIXME: It would be better to filter LPCs like Automated HullMod does (but no
+		// source is avaliable)
 		ShipVariantAPI variant = stats.getVariant();
 		List<String> wings = variant.getWings();
 		removedWings.clear();
@@ -64,53 +65,48 @@ public class AlkemiaDroneConversion extends BaseHullMod {
 			if (currentWing != null && !currentWing.hasTag(Tags.AUTOMATED_FIGHTER)) {
 				variant.setWingId(i, null);
 				removedWings.add(currentWing.getId());
+				// this.addToCargo(ship, wing);
 			}
 		}
 
-		// listeners = stats.getListeners() maybe there is one for when wings are picked?
+		// listeners = stats.getListeners() maybe there is one for when wings are
+		// picked?
 		if (removedWings != null && !removedWings.isEmpty()) {
 			log.warn("Wings removed missing from cargo:");
 			for (String wing : removedWings) {
 				log.warn(wing);
-				this.addToCargo(ship, wing);
 			}
-			
+
 		}
 	}
 
 	public void applyEffectsAfterShipCreation(ShipAPI ship, String id) {
 		// ship.getVariant().addMod(HullMods.AUTOMATED);
 		if (removedWings != null && !removedWings.isEmpty()) {
-			log.warn("Wings removed missing from cargo:");
 			for (String wing : removedWings) {
-				log.warn(wing);
 				this.addToCargo(ship, wing);
 			}
-			
+
 		}
+	}
+
+	private void addToCargo(CargoAPI cargo, String wing) {
+		cargo.addFighters(wing, 1);
 	}
 
 	private void addToCargo(ShipAPI ship, String wing) {
 		FleetMemberAPI member = ship.getFleetMember(); // returns null :/
 		if (member != null) {
-			FleetDataAPI fleetData = member.getFleetData();
-			if (fleetData != null) {
-				CampaignFleetAPI fleet = fleetData.getFleet();
-				if (fleet != null) {
-					CargoAPI cargo = fleet.getCargo();
-					if (cargo != null) {
-						for (String wing : removedWings) {
-							cargo.addFighters(wing, 1);
-						}
-					}
-				} else {
-					log.error("applyEffectsAfterShipCreation: Cannot get CampaignFleetAPI for " + ship.getId());
-				}
+			CargoAPI cargo = member.getFleetData().getFleet().getCargo();
+			if (cargo != null) {
+				cargo.addFighters(wing, 1);
 			} else {
-				log.error("applyEffectsAfterShipCreation: Cannot get FleetDataAPI for " + ship.getId());
+				log.error("applyEffectsAfterShipCreation: Cannot get CargoAPI for " + ship.getId() + " "
+						+ ship.getHullSpec().getHullId());
 			}
 		} else {
-			log.error("applyEffectsAfterShipCreation: Cannot get FleetMemberAPI for " + ship.getId());
+			log.error("applyEffectsAfterShipCreation: Cannot get FleetMemberAPI for " + ship.getId() + " "
+					+ ship.getHullSpec().getHullId());
 		}
 	}
 
@@ -148,8 +144,9 @@ public class AlkemiaDroneConversion extends BaseHullMod {
 	public boolean affectsOPCosts() {
 		return true;
 	}
-	
+
 	@Override
-	public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
+	public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width,
+			boolean isForModSpec) {
 	}
 }
