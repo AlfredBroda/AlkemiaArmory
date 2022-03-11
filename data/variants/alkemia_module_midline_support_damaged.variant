@@ -18,26 +18,41 @@
   ],
   "weaponGroups": [
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS 001": "pilum",
-        "WS 003": "pilum"
+        "WS0000": "pilum",
+        "WS0003": "pilum"
       }
     },
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS 009": "heatseeker"
+        "WS0001": "miningblaster",
+        "WS0002": "miningblaster"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 005": "vulcan",
-        "WS 007": "vulcan"
+        "WS0009": "heatseeker"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "swarmer"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "vulcan",
+        "WS0007": "vulcan"
       }
     }
   ],
