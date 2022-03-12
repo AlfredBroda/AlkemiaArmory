@@ -1,2 +1,2 @@
 name,id,tags,rarity,base price,stack size,cargo space,icon,sound id,sound id drop,plugin,plugin params,desc,order
-Alkemia Custom Blueprint Package,alkemia_bp_package,package_bp,0.5,18000,1000,1,graphics/alkemia/icons/cargo/alkemia_bp.png,ui_chip_pickup,ui_bp_package_drop,com.fs.starfarer.api.campaign.impl.items.MultiBlueprintItemPlugin,alkemia_bp,"Enables heavy industry to construct Alkemia Customs ship hulls, weapons, and fighter LPCs.",221.1
+Alkemia Custom Blueprint Package,alkemia_bp_package,package_bp,0.5,18000,1000,1,graphics/icons/cargo/blueprint_midline.png,ui_chip_pickup,ui_bp_package_drop,com.fs.starfarer.api.campaign.impl.items.MultiBlueprintItemPlugin,alkemia_bp,"Enables heavy industry to construct Alkemia Customs ship hulls, weapons, and fighter LPCs.",221.1
