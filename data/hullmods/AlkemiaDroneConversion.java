@@ -55,10 +55,10 @@ public class AlkemiaDroneConversion extends BaseHullMod {
 		stats.getDynamic().getMod(Stats.SUPPORT_COST_MOD).modifyPercent(id, ALL_DRONE_COST_REDUCTION);
 
 		// Make the ship only accept drones
-		// FIXME: It would be better to filter LPCs like Automated HullMod does (but no
-		// source is avaliable)
+		// TODO: It would be better to filter LPCs like Automated HullMod does 
+		// (but no source is avaliable)
 		ShipVariantAPI variant = stats.getVariant();
-		List<String> wings = variant.getWings();
+		List<String> wings = variant.getNonBuiltInWings();
 		for (int i = 0; i < wings.size(); i++) {
 			FighterWingSpecAPI currentWing = variant.getWing(i);
 			if (currentWing != null && !currentWing.hasTag(Tags.AUTOMATED_FIGHTER)) {
@@ -78,9 +78,9 @@ public class AlkemiaDroneConversion extends BaseHullMod {
 
 	public void advanceInCampaign(FleetMemberAPI member, float amount) {
 		if (removedWings != null && !removedWings.isEmpty()) {
-			log.info("Wings to return:");
 			CargoAPI cargo = member.getFleetData().getFleet().getCargo();
 			if (cargo != null) {
+				log.info("Wings returned:");
 				for (String wing : removedWings) {
 					cargo.addFighters(wing, 1);
 					log.info(" - " + wing);
