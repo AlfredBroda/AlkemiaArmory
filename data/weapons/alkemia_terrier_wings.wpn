@@ -3,7 +3,7 @@
 	"specClass": "beam",
 	"type": "DECORATIVE",
 	"size": "SMALL",
-	"hardpointSprite": "graphics/ships/alkemia_terrier_mask.png",
+	"hardpointSprite": "graphics/alkemia/ships/terrier_mask.png",
 	"turretSprite": "",
 	"showDamageWhenDecorative":true,
 	"renderBelowAllWeapons":false,

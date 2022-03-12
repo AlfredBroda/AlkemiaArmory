@@ -2,7 +2,7 @@
   "hullName": "Terrier",
   "hullId": "alkemia_terrier",
   "hullSize": "FRIGATE",
-  "spriteName": "graphics/ships/alkemia_terrier.png",
+  "spriteName": "graphics/alkemia/ships/terrier.png",
   "style": "HIGH_TECH",
   "height": 100,
   "width": 120,

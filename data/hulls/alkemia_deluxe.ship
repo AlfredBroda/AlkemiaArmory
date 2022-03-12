@@ -2,7 +2,7 @@
   "hullName": "Deluxe",
   "hullId": "alkemia_deluxe",
   "hullSize": "FIGHTER",
-  "spriteName": "graphics/ships/fighters/alkemia_deluxe.png",
+  "spriteName": "graphics/alkemia/ships/fighters/deluxe.png",
   "style": "HIGH_TECH",
   "height": 50,
   "width": 50,

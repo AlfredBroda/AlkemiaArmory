@@ -1,0 +1,7 @@
+{
+    "graphics":{
+        "blueprint_packages":{
+            "alkemia_bp_package":"graphics/alkemia/icons/cargo/alkemia_bp.png"
+        }
+    }
+}
