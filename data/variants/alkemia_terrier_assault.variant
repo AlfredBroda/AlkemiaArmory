@@ -1,0 +1,47 @@
+{
+  "variantId": "alkemia_terrier_assault",
+  "hullId": "alkemia_terrier",
+  "displayName": "Assault",
+  "goalVariant": false,
+  "fluxCapacitors": 9,
+  "fluxVents": 8,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "hardenedshieldemitter"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "FRONT01": "irpulse",
+        "FRONT02": "irpulse"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "TURR03": "sabotpod"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WING05": "alkemia_locust_fighter",
+        "WING06": "alkemia_locust_fighter"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "REAR04": "vulcan"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

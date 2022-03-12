@@ -9,13 +9,15 @@
   "permaMods": [
     "assault_package"
   ],
+  "hullMods": [],
   "weaponGroups": [
     {
       "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
         "WS0001": "lightag",
-        "WS0002": "lightag"
+        "WS0002": "lightag",
+        "WS0004": "atropos_single"
       }
     },
     {
@@ -28,9 +30,9 @@
     {
       "autofire": false,
       "mode": "LINKED",
-      "weapons": {
-        "WS0004": "bomb",
-      }
+      "weapons": {}
     }
-  ]
+  ],
+  "modules": [],
+  "wings": []
 }

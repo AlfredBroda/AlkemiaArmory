@@ -15,8 +15,8 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0003": "heatseeker",
-        "WS0004": "heatseeker"
+        "WS0003": "alkemia_salamander_fighter",
+        "WS0004": "alkemia_salamander_fighter"
       }
     },
     {
@@ -27,5 +27,7 @@
         "WS0002": "vulcan"
       }
     }
-  ]
+  ],
+  "modules": [],
+  "wings": []
 }

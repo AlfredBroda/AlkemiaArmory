@@ -1,0 +1,47 @@
+{
+  "variantId": "alkemia_terrier_strike",
+  "hullId": "alkemia_terrier",
+  "displayName": "Strike",
+  "goalVariant": false,
+  "fluxCapacitors": 9,
+  "fluxVents": 10,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "fluxbreakers"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "FRONT01": "lightag",
+        "FRONT02": "lightag"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "TURR03": "breachpod"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WING05": "alkemia_harpoon_fighter",
+        "WING06": "alkemia_harpoon_fighter"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "REAR04": "vulcan"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

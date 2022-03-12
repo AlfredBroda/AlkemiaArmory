@@ -1,0 +1,180 @@
+{
+  "hullName": "Terrier",
+  "hullId": "alkemia_terrier",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/alkemia_terrier.png",
+  "style": "HIGH_TECH",
+  "height": 100,
+  "width": 120,
+  "center": [60, 53.5],
+  "collisionRadius": 0,
+  "shieldCenter": [-18, 0],
+  "shieldRadius": 71,
+  "viewOffset": 0,
+  "builtInMods": [
+    "missile_reload",
+    "ground_support"
+  ],
+  "builtInWeapons": {
+    "DECOR07": "alkemia_terrier_wings",
+    "DECOR08": "blinker_green",
+    "DECOR09": "blinker_red"
+  },
+  "weaponSlots": [
+    {
+      "id": "FRONT01",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": 0,
+      "locations": [6.5, 8.5]
+    },
+    {
+      "id": "FRONT02",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": -1,
+      "locations": [6.5, -7.5]
+    },
+    {
+      "id": "TURR03",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 52,
+      "angle": 0,
+      "locations": [-21.5, 0.5]
+    },
+    {
+      "id": "REAR04",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 200,
+      "angle": 180,
+      "locations": [-43.5, 0.5]
+    },
+    {
+      "id": "WING05",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": 0,
+      "locations": [-22, 46]
+    },
+    {
+      "id": "WING06",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": -0,
+      "locations": [-22, -46]
+    },
+    {
+      "id": "DECOR07",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": -1,
+      "locations": [-29, -0]
+    },
+    {
+      "id": "DECOR09",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HIDDEN",
+      "arc": 180,
+      "angle": 90,
+      "locations": [-26.5, 20.5]
+    },
+    {
+      "id": "DECOR08",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HIDDEN",
+      "arc": 180,
+      "angle": -90,
+      "locations": [-26.5, -18]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-39, 17],
+      "length": 44,
+      "width": 22,
+      "angle": 180,
+      "contrailSize": 30,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-39, -17],
+      "length": 44,
+      "width": 22,
+      "angle": -180,
+      "contrailSize": 30,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -46.5, -4,
+    -42.5, -7,
+    -38.5, -7.5,
+    -38.5, -8.5,
+    -41, -10.5,
+    -42.5, -22.5,
+    -45, -24.5,
+    -45, -27.5,
+    -41.5, -28.5,
+    -43, -33.5,
+    -47.5, -35,
+    -49, -38,
+    -49, -41.5,
+    -41.5, -55,
+    -41.5, -60,
+    -36.5, -60,
+    -34, -57.5,
+    -25.5, -58,
+    -4, -30,
+    -1.5, -29,
+    2.5, -26,
+    17, -26,
+    26, -24.5,
+    28.5, -33,
+    35.5, -33.5,
+    37.5, -19.5,
+    45.5, -14,
+    45.5, 14,
+    37.5, 19.5,
+    35.5, 33.5,
+    28.5, 33,
+    26, 24.5,
+    17, 26,
+    2.5, 26,
+    -1.5, 29,
+    -4, 30,
+    -25.5, 57,
+    -32.5, 57,
+    -36.5, 60,
+    -41.5, 60,
+    -41.5, 55,
+    -48.5, 43.5,
+    -48.5, 39,
+    -47, 36,
+    -43, 33.5,
+    -41.5, 29.5,
+    -45, 28.5,
+    -45, 25.5,
+    -42.5, 23.5,
+    -41.5, 11.5,
+    -38.5, 9,
+    -38.5, 8,
+    -42.5, 8,
+    -46.5, 4
+  ]
+}

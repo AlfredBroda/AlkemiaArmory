@@ -2,7 +2,7 @@
   "hullName": "Deluxe",
   "hullId": "alkemia_deluxe",
   "hullSize": "FIGHTER",
-  "spriteName": "graphics/fighters/alkemia_deluxe.png",
+  "spriteName": "graphics/ships/fighters/alkemia_deluxe.png",
   "style": "HIGH_TECH",
   "height": 50,
   "width": 50,
@@ -72,8 +72,8 @@
       "type": "SYSTEM",
       "mount": "HIDDEN",
       "arc": 5,
-      "angle": 0,
-      "locations": [6.5, 0]
+      "angle": 180,
+      "locations": [-6.5, 0]
     }
   ],
   "engineSlots": [

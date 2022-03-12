@@ -12,14 +12,12 @@ import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.impl.campaign.intel.bar.events.BarEventManager;
 import com.fs.starfarer.api.impl.campaign.shared.SharedData;
-import com.thoughtworks.xstream.XStream;
-import exerelin.campaign.SectorManager;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.dark.shaders.light.LightData;
-import org.dark.shaders.util.ShaderLib;
-import org.dark.shaders.util.TextureData;
+// import org.dark.shaders.light.LightData;
+// import org.dark.shaders.util.ShaderLib;
+// import org.dark.shaders.util.TextureData;
 
 public class AlkemiaModPlugin extends BaseModPlugin
 {
@@ -76,9 +74,6 @@ public class AlkemiaModPlugin extends BaseModPlugin
     public void onNewGame()
     {
         Global.getLogger(this.getClass()).info("On new game");
-        // Global.getSector().registerPlugin(new TiandongCampaignPlugin());
-        // tiandong_ModPluginAlt.initTiandong();
-        // SharedData.getData().getPersonBountyEventData().addParticipatingFaction("tiandong");
     }
 
     @Override
