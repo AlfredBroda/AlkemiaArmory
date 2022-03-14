@@ -1,0 +1,101 @@
+{
+  "hullName": "Orbital Station, Balanced",
+  "hullId": "alkemia_station1_balanced",
+  "hullSize": "CAPITAL_SHIP",
+  "spriteName": "graphics/ships/stations/station_level1_midline.png",
+  "style": "MIDLINE",
+  "height": 512,
+  "width": 512,
+  "center": [256, 256],
+  "collisionRadius": 200,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 200,
+  "viewOffset": 0,
+  "builtInMods": [
+    "vastbulk",
+    "axialrotation",
+    "supercomputer",
+    "shared_flux_sink"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS 000",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 15,
+      "locations": [40, 124]
+    },
+    {
+      "id": "WS 001",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": -15,
+      "locations": [38, -123]
+    },
+    {
+      "id": "WS 002",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 180,
+      "locations": [-67, 0]
+    },
+    {
+      "id": "WS 003",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 30,
+      "locations": [42, 215]
+    },
+    {
+      "id": "WS 004",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 150,
+      "locations": [-42, 215]
+    },
+    {
+      "id": "WS 005",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": -30,
+      "locations": [43, -215]
+    },
+    {
+      "id": "WS 006",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 210,
+      "locations": [-42, -214]
+    },
+    {
+      "id": "WS 007",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 0,
+      "locations": [58, 0]
+    }
+  ],
+  "engineSlots": [],
+  "bounds": [
+    -49, 192,
+    39, 191,
+    37, -192,
+    -50, -192
+  ]
+}

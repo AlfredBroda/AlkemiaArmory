@@ -2,7 +2,7 @@
   "variantId": "alkemia_terrier_strike",
   "hullId": "alkemia_terrier",
   "displayName": "Strike",
-  "goalVariant": false,
+  "goalVariant": true,
   "fluxCapacitors": 9,
   "fluxVents": 10,
   "quality": 1,

@@ -1,0 +1,101 @@
+{
+  "hullName": "Orbital Station, Salvaged",
+  "hullId": "alkemia_station1_junker",
+  "hullSize": "CAPITAL_SHIP",
+  "spriteName": "graphics/alkemia/ships/stations/station_level1_pirate.png",
+  "style": "LOW_TECH",
+  "height": 512,
+  "width": 512,
+  "center": [256, 256],
+  "collisionRadius": 200,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 200,
+  "viewOffset": 0,
+  "builtInMods": [
+    "vastbulk",
+    "axialrotation",
+    "supercomputer",
+    "shared_flux_sink"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 15,
+      "locations": [40, 124]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": -15,
+      "locations": [40.5, -126]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 180,
+      "locations": [-74, -0]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 30,
+      "locations": [42, 215]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 150,
+      "locations": [-42, 215]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": -30,
+      "locations": [43, -215]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 210,
+      "locations": [-43, -215.5]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 0,
+      "locations": [82, -0]
+    }
+  ],
+  "engineSlots": [],
+  "bounds": [
+    -49, 192,
+    39, 191,
+    37, -192,
+    -50, -192
+  ]
+}

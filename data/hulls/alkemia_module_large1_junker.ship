@@ -1,0 +1,303 @@
+{
+  "hullName": "Module, Heavy Salvaged",
+  "hullId": "alkemia_module_large1_junker",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/stations/module_large1_combat.png",
+  "style": "LOW_TECH",
+  "height": 200,
+  "width": 480,
+  "center": [240, 109],
+  "collisionRadius": 250,
+  "shieldCenter": [-180, -1],
+  "shieldRadius": 330,
+  "viewOffset": 0,
+  "moduleAnchor": [
+    -49,
+    0
+  ],
+  "builtInMods": [
+    "supercomputer",
+    "reduced_explosion"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS 000",
+      "size": "LARGE",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": 40,
+      "locations": [-49, 118]
+    },
+    {
+      "id": "WS 001",
+      "size": "LARGE",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 15,
+      "locations": [25, 22]
+    },
+    {
+      "id": "WS 002",
+      "size": "LARGE",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": -15,
+      "locations": [25, -22]
+    },
+    {
+      "id": "WS 003",
+      "size": "LARGE",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": -40,
+      "locations": [-49, -120]
+    },
+    {
+      "id": "WS 004",
+      "size": "MEDIUM",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 30,
+      "locations": [-42, 163]
+    },
+    {
+      "id": "WS 005",
+      "size": "MEDIUM",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 20,
+      "locations": [-6.5, 106.5]
+    },
+    {
+      "id": "WS 006",
+      "size": "MEDIUM",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 100,
+      "angle": 30,
+      "locations": [-34, 79.5]
+    },
+    {
+      "id": "WS 007",
+      "size": "MEDIUM",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 100,
+      "angle": -30,
+      "locations": [-34, -80]
+    },
+    {
+      "id": "WS 008",
+      "size": "MEDIUM",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": -20,
+      "locations": [-4.5, -106]
+    },
+    {
+      "id": "WS 009",
+      "size": "MEDIUM",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": -30,
+      "locations": [-42, -163]
+    },
+    {
+      "id": "WS 010",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [24.5, 106]
+    },
+    {
+      "id": "WS 011",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [21, 64]
+    },
+    {
+      "id": "WS 012",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [21, -64]
+    },
+    {
+      "id": "WS 013",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [24.5, -106]
+    },
+    {
+      "id": "WS 015",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 55,
+      "locations": [-22, 187]
+    },
+    {
+      "id": "WS 018",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": 20,
+      "locations": [16, 142]
+    },
+    {
+      "id": "WS 020",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 10,
+      "locations": [66.5, 34.5]
+    },
+    {
+      "id": "WS 021",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -10,
+      "locations": [66.5, -34.5]
+    },
+    {
+      "id": "WS 023",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": -20,
+      "locations": [16, -142]
+    },
+    {
+      "id": "WS 026",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": -55,
+      "locations": [-22, -187]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 55,
+      "locations": [-53, 196]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": -55,
+      "locations": [-53, -196]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 78,
+      "locations": [-32, 212.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": -78,
+      "locations": [-32, -212.5]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": -55,
+      "locations": [-13, -160]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 55,
+      "locations": [-13, 160]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 0,
+      "locations": [26, 86]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -0,
+      "locations": [26, -86]
+    }
+  ],
+  "engineSlots": [],
+  "bounds": [
+    72, 51,
+    72, -52,
+    37, -63,
+    37, -122,
+    23, -153,
+    -1, -154,
+    -1, -188,
+    -20, -197,
+    -29, -216,
+    -59, -205,
+    -81, -136,
+    -70, -78,
+    -43, -61,
+    -42, 61,
+    -72, 80,
+    -80, 133,
+    -61, 203,
+    -29, 214,
+    -17, 194,
+    0, 186,
+    0, 152,
+    23, 148,
+    36, 118,
+    36, 58
+  ]
+}

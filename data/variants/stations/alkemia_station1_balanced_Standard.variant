@@ -1,0 +1,39 @@
+{
+  "variantId": "alkemia_station1_balanced_Standard",
+  "hullId": "alkemia_station1_balanced",
+  "displayName": "Standard",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [],
+  "modules": [
+    {
+      "WS 000": "module_midline_citadel_Standard"
+    },
+    {
+      "WS 002": "module_midline_support_Standard"
+    },
+    {
+      "WS 007": "module_midline_citadel_Standard"
+    },
+    {
+      "WS 001": "module_midline_citadel_Standard"
+    },
+    {
+      "WS 003": "module_armour3_Standard"
+    },
+    {
+      "WS 004": "module_armour3_Standard"
+    },
+    {
+      "WS 005": "module_armour3_Standard"
+    },
+    {
+      "WS 006": "module_armour3_Standard"
+    }
+  ],
+  "wings": []
+}

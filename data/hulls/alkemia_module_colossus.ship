@@ -1,0 +1,175 @@
+{
+  "hullName": "Colossus Module",
+  "hullId": "alkemia_module_colossus",
+  "hullSize": "CRUISER",
+  "spriteName": "graphics/alkemia/ships/module_colossus_pirate.png",
+  "style": "LOW_TECH",
+  "height": 194,
+  "width": 184,
+  "center": [92, 27],
+  "collisionRadius": 180,
+  "shieldCenter": [95, 0],
+  "shieldRadius": 109.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "always_detaches",
+    "chassis_storage",
+    "turretgyros",
+    "supercomputer"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS 001",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": 80,
+      "locations": [113, 58]
+    },
+    {
+      "id": "WS 002",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": 90,
+      "locations": [65, 60.5]
+    },
+    {
+      "id": "WS 003",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": -80,
+      "locations": [113, -58]
+    },
+    {
+      "id": "WS 004",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": -90,
+      "locations": [65, -61]
+    },
+    {
+      "id": "WS 005",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 20,
+      "angle": 45,
+      "locations": [129, 65]
+    },
+    {
+      "id": "WS 006",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 20,
+      "angle": -45,
+      "locations": [129, -64]
+    },
+    {
+      "id": "WS 009",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": -90,
+      "locations": [89, -51]
+    },
+    {
+      "id": "WS 010",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": 90,
+      "locations": [89, 50.5]
+    },
+    {
+      "id": "WS 011",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 170,
+      "angle": -40,
+      "locations": [129, -40]
+    },
+    {
+      "id": "WS 012",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 170,
+      "angle": 50,
+      "locations": [129, 40]
+    },
+    {
+      "id": "WS 013",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 200,
+      "angle": -45,
+      "locations": [149.5, -54]
+    },
+    {
+      "id": "WS 014",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 200,
+      "angle": 45,
+      "locations": [150, 54]
+    },
+    {
+      "id": "WS 015",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 160,
+      "angle": 6.5,
+      "locations": [153.5, 28]
+    },
+    {
+      "id": "WS 016",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 160,
+      "angle": -6,
+      "locations": [153.5, -28]
+    },
+    {
+      "id": "WS 017",
+      "size": "SMALL",
+      "type": "LAUNCH_BAY",
+      "mount": "HIDDEN",
+      "arc": 8,
+      "angle": 0,
+      "locations": [
+        170, -6,
+        170, 8,
+        153, -7,
+        153, 8
+      ]
+    }
+  ],
+  "engineSlots": [],
+  "bounds": [
+    161.5, 60.5,
+    160.5, -61.5,
+    53.5, -69.5,
+    45, -43,
+    0.5, -42.5,
+    -15.5, -27.5,
+    -15.5, 27.5,
+    3.5, 43.5,
+    45, 43.5,
+    53.5, 67.5
+  ]
+}

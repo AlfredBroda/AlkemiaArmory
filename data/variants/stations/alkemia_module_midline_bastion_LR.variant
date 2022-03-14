@@ -1,0 +1,47 @@
+{
+  "variantId": "alkemia_module_midline_bastion_LR",
+  "hullId": "module_midline_bastion",
+  "displayName": "Long Range",
+  "goalVariant": false,
+  "fluxCapacitors": 10,
+  "fluxVents": 10,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "alkemia_pilumpod"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 000": "gauss",
+        "WS 002": "gauss"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 003": "pulselaser",
+        "WS 004": "pulselaser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 005": "vulcan",
+        "WS 006": "vulcan",
+        "WS 007": "vulcan"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

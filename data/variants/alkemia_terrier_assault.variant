@@ -2,7 +2,7 @@
   "variantId": "alkemia_terrier_assault",
   "hullId": "alkemia_terrier",
   "displayName": "Assault",
-  "goalVariant": false,
+  "goalVariant": true,
   "fluxCapacitors": 10,
   "fluxVents": 9,
   "quality": 1,

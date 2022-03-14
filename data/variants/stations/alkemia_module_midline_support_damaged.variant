@@ -3,8 +3,8 @@
   "hullId": "alkemia_module_midline_support",
   "displayName": "Damaged",
   "goalVariant": false,
-  "fluxCapacitors": 10,
-  "fluxVents": 10,
+  "fluxCapacitors": 6,
+  "fluxVents": 8,
   "quality": 0,
   "permaMods": [],
   "hullMods": [
@@ -22,15 +22,18 @@
       "mode": "ALTERNATING",
       "weapons": {
         "WS0000": "pilum",
-        "WS0003": "pilum"
+        "WS0002": "hveldriver",
+        "WS0003": "pilum",
+        "WS0004": "mininglaser",
+        "WS0006": "vulcan",
+        "WS0008": "fragbomb"
       }
     },
     {
       "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0001": "miningblaster",
-        "WS0002": "miningblaster"
+        "WS0001": "miningblaster"
       }
     },
     {
@@ -60,6 +63,6 @@
   "wings": [
     "mining_drone_wing",
     "mining_drone_wing",
-    "mining_drone_wing"
+    "talon_wing"
   ]
 }

@@ -1,0 +1,48 @@
+{
+  "variantId": "alkemia_module_colossus_pd",
+  "hullId": "alkemia_module_colossus",
+  "displayName": "Point Defense",
+  "goalVariant": true,
+  "fluxCapacitors": 0,
+  "fluxVents": 8,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "lightdualac",
+        "WS 003": "lightdualac",
+        "WS 012": "fragbomb",
+        "WS 015": "lightag",
+        "WS 016": "lightag"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 011": "fragbomb"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 002": "lightmg",
+        "WS 004": "lightmg",
+        "WS 009": "lightmg",
+        "WS 010": "lightmg",
+        "WS 013": "lightmg",
+        "WS 014": "lightmg"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": [
+    "talon_wing",
+    "perdition_wing"
+  ]
+}

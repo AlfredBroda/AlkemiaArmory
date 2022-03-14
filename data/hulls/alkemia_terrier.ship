@@ -7,7 +7,7 @@
   "height": 100,
   "width": 120,
   "center": [60, 53.5],
-  "collisionRadius": 0,
+  "collisionRadius": 100,
   "shieldCenter": [-18, 0],
   "shieldRadius": 71,
   "viewOffset": 0,
@@ -88,19 +88,19 @@
       "id": "DECOR09",
       "size": "SMALL",
       "type": "DECORATIVE",
-      "mount": "HIDDEN",
+      "mount": "HARDPOINT",
       "arc": 180,
       "angle": 90,
-      "locations": [-26.5, 20.5]
+      "locations": [-30, 56.5]
     },
     {
       "id": "DECOR08",
       "size": "SMALL",
       "type": "DECORATIVE",
-      "mount": "HIDDEN",
+      "mount": "HARDPOINT",
       "arc": 180,
       "angle": -90,
-      "locations": [-26.5, -18]
+      "locations": [-30, -56.5]
     }
   ],
   "engineSlots": [
