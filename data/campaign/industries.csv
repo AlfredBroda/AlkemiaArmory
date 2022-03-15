@@ -1,16 +1,9 @@
 id,name,cost mult,build time,income,upkeep,downgrade,upgrade,tags,data,image,plugin,desc,order,disruptDanger
-alkemia_workshop,Starship Workshop,60,30,,6,,heavyindustry,"unraidable, structure",,graphics/alkemia/icons/industry/starship_workshop.png,data.scripts.campaign.econ.AlkemiaWorkshop,"Small scale starship production and refit workshops. Production is small scale and local gravitational conditions affect it's output signifficantly.",3000,
-alkemia_orbitalstation_junker,Orbital Station - Balanced,30,30,,2,,alkemia_battlestation_junker,"station, sub_item, unraidable, structure","{
+alkemia_workshop,Starship Workshop,60,30,,6,,heavyindustry,"industrial, structure",,graphics/alkemia/icons/industry/starship_workshop.png,data.scripts.campaign.econ.AlkemiaWorkshop,"Small scale starship production and refit workshops. Production is small scale and local gravitational conditions affect it's output signifficantly.",3000,
+alkemia_orbitalstation_junker,Orbital Station - Salvaged,30,30,,4,,orbitalstation_mid,"station, sub_item, unraidable, structure","{
 radius:55,
-variant:alkemia_station1_Junker_Custom,
+variant:alkemia_station1_junker_Custom,
 fleetName:Orbital Station,
 }",graphics/icons/industry/orbital_station.png,com.fs.starfarer.api.impl.campaign.econ.impl.OrbitalStation,"A salvaged space station, featuring medium firepower and moderate armor.
-
-Must be reduced before invasions or bombardment can be attempted.",2040,
-alkemia_battlestation_junker,Orbital Station - Balanced,50,90,,3,alkemia_orbitalstation_junker,,"station, sub_item, unraidable, structure","{
-radius:55,
-variant:alkemia_station1_Junker_Custom,
-fleetName:Orbital Station,
-}",graphics/icons/industry/battlestation.png,com.fs.starfarer.api.impl.campaign.econ.impl.OrbitalStation,"A salvaged battlestation, featuring medium firepower and moderate armor.
 
 Must be reduced before invasions or bombardment can be attempted.",2040,

@@ -60,8 +60,8 @@ public class AlkemiaModPlugin extends BaseModPlugin
     // static void initShaderLib()
     // {
     //     ShaderLib.init();
-        // LightData.readLightDataCSV("data/lights/tiandong_light_data.csv");
-        // TextureData.readTextureDataCSV("data/lights/tiandong_texture_data.csv");
+        // LightData.readLightDataCSV("data/lights/alkemia_light_data.csv");
+        // TextureData.readTextureDataCSV("data/lights/alkemia_texture_data.csv");
     // }
 
     @Override
