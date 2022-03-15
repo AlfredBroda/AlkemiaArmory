@@ -12,6 +12,8 @@ import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.impl.campaign.intel.bar.events.BarEventManager;
 import com.fs.starfarer.api.impl.campaign.shared.SharedData;
+import com.fs.starfarer.api.loading.IndustrySpecAPI;
+
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -68,6 +70,10 @@ public class AlkemiaModPlugin extends BaseModPlugin
     public void onGameLoad(boolean newGame)
     {
         Global.getLogger(this.getClass()).info("On game load");
+        // TODO: An alternative to overwriting techmining
+        // if switched in ini file:
+        //IndustrySpecAPI tmining = Global.getSettings().getIndustrySpec("techmining");
+        //tmining.getTags(), remove "industry"
     }
 
     @Override

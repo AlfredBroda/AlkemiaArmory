@@ -1,5 +1,5 @@
 id,name,cost mult,build time,income,upkeep,downgrade,upgrade,tags,data,image,plugin,desc,order,disruptDanger
-alkemia_workshop,Starship Workshop,60,30,,6,,heavyindustry,"industrial, structure",,graphics/alkemia/icons/industry/starship_workshop.png,data.scripts.campaign.econ.AlkemiaWorkshop,"Small scale starship production and refit workshops. Production is small scale and local gravitational conditions affect it's output signifficantly.",3000,
+alkemia_workshop,Starship Workshop,60,30,,6,,heavyindustry,"industrial, structure",,graphics/alkemia/icons/industry/shuttle_hangar.png,data.scripts.campaign.econ.AlkemiaWorkshop,"Small scale starship production and refit workshops. Production is small scale and local gravitational conditions affect it's output signifficantly.",3000,
 alkemia_orbitalstation_junker,Orbital Station - Salvaged,30,30,,4,,orbitalstation_mid,"station, sub_item, unraidable, structure","{
 radius:55,
 variant:alkemia_station1_junker_Custom,
@@ -7,3 +7,4 @@ fleetName:Orbital Station,
 }",graphics/icons/industry/orbital_station.png,com.fs.starfarer.api.impl.campaign.econ.impl.OrbitalStation,"A salvaged space station, featuring medium firepower and moderate armor.
 
 Must be reduced before invasions or bombardment can be attempted.",2040,
+techmining,Tech-Mining,30,45,,2,,,"techmining",,graphics/icons/industry/techmining.png,com.fs.starfarer.api.impl.campaign.econ.impl.TechMining,"Techmining is the motley art of recovering valuable artifacts from Domain ruins. Requires special tools to deal with unique hazards and expert judgement to know where to look for a good haul of baubles. The oldest techminers are a strange lot, clutching luck-charms and refusing to work without their rituals.",400,MEDIUM

@@ -43,7 +43,7 @@
       "id": "TURR03",
       "size": "MEDIUM",
       "type": "UNIVERSAL",
-      "mount": "HARDPOINT",
+      "mount": "TURRET",
       "arc": 52,
       "angle": 0,
       "locations": [-23.5, 0.5]
