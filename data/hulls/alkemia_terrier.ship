@@ -64,7 +64,8 @@
       "mount": "HIDDEN",
       "arc": 5,
       "angle": 0,
-      "locations": [-22, 46]
+      "locations": [-22, 46],
+      "renderOrderMod": 1
     },
     {
       "id": "WING06",
@@ -73,7 +74,8 @@
       "mount": "HIDDEN",
       "arc": 5,
       "angle": -0,
-      "locations": [-22, -46]
+      "locations": [-22, -46],
+      "renderOrderMod": 3
     },
     {
       "id": "DECOR07",
@@ -82,7 +84,8 @@
       "mount": "HARDPOINT",
       "arc": 10,
       "angle": -1,
-      "locations": [-29, -0]
+      "locations": [-29, -0],
+      "renderOrderMod": 2
     },
     {
       "id": "DECOR09",
@@ -91,7 +94,8 @@
       "mount": "HARDPOINT",
       "arc": 180,
       "angle": 90,
-      "locations": [-30, 56.5]
+      "locations": [-30, 56.5],
+      "renderOrderMod": 11
     },
     {
       "id": "DECOR08",
@@ -100,7 +104,8 @@
       "mount": "HARDPOINT",
       "arc": 180,
       "angle": -90,
-      "locations": [-30, -56.5]
+      "locations": [-30, -56.5],
+      "renderOrderMod": 11
     }
   ],
   "engineSlots": [

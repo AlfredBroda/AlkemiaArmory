@@ -1,18 +1,19 @@
 package data.scripts.campaign.econ;
 
-import java.util.Collection;
-import java.util.List;
+import com.thoughtworks.xstream.XStream;
+import org.apache.log4j.Logger;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.SpecialItemData;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
-import com.fs.starfarer.api.campaign.econ.MarketConditionAPI;
 import com.fs.starfarer.api.impl.campaign.econ.impl.BaseIndustry;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
+import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 
-import com.thoughtworks.xstream.XStream;
-import org.apache.log4j.Logger;
+import data.scripts.AlkemiaIds;
+import data.scripts.AlkemiaStats;
 
 /**
  * Author: Frederoo
@@ -25,6 +26,7 @@ public class AlkemiaWorkshop extends BaseIndustry {
     public static final float ALPHA_DISCOUNT = 10f;
     public static final String INFODUMP_FLAG = "$market_infodump";
     private static final String TECTONIC_REASON = "Connot be built due to tectonic activity.";
+    
 
     @Override
     public void apply() {
@@ -32,48 +34,32 @@ public class AlkemiaWorkshop extends BaseIndustry {
 
         float accessability = 1.0f;
         if (this.market.hasCondition(Conditions.LOW_GRAVITY)) {
-            accessability = 1.5f;
+            accessability = AlkemiaStats.WORKSHOP_LOW_GRAVITY_MULT;
         }
         if (this.market.hasCondition(Conditions.HIGH_GRAVITY)) {
-            accessability = 0.5f;
+            accessability = AlkemiaStats.WORKSHOP_HIGH_GRAVITY_MULT;
         }
 
         int size = this.market.getSize();
         int baseProduction = Math.round((size - 2) * accessability);
 
-        supply(Commodities.SHIPS, baseProduction);
+        int bonusProduction = 0;
+        if (special != null) {
+            bonusProduction = AlkemiaStats.ALKEMIA_NANOFORGE_PROD;
+        }
+        supply(Commodities.SHIPS, baseProduction + bonusProduction);
 
-        demand(Commodities.RARE_METALS, baseProduction - 3);
-        demand(Commodities.HEAVY_MACHINERY, baseProduction - 2);
+        demand(Commodities.RARE_METALS, baseProduction - 2);
+        if (special == null) {
+            demand(Commodities.HEAVY_MACHINERY, baseProduction - 2);
+        }
+        
         int baseDemand = baseProduction - 1;
         if (baseDemand < 1) {
             baseDemand = 1;
         }
         demand(Commodities.METALS, baseDemand);
         demand(Commodities.CREW, baseDemand);
-
-        /*
-         * FIXME: this does not play well with janino:
-         * Caused by: org.codehaus.commons.compiler.CompileException: File
-         * 'data/scripts/campaign/econ/AlkemiaWorkshop.java', Line 39, Column 18: Cannot
-         * cast "java.lang.Object" to "int"
-         * 
-         * Pair<String, Integer> deficit = getMaxDeficit(
-         * Commodities.SUPPLIES,
-         * Commodities.SHIPS,
-         * Commodities.HEAVY_MACHINERY,
-         * Commodities.RARE_METALS);
-         * int maxDeficit = size - 2; // to allow *some* production so economy doesn't
-         * get into an unrecoverable state
-         * if (deficit.two > maxDeficit)
-         * deficit.two = maxDeficit;
-         * 
-         * applyDeficitToProduction(2, deficit,
-         * Commodities.SUPPLIES,
-         * Commodities.METALS,
-         * Commodities.HEAVY_MACHINERY,
-         * Commodities.RARE_METALS);
-         */
 
         super.apply(true);
 
@@ -85,7 +71,21 @@ public class AlkemiaWorkshop extends BaseIndustry {
 
     @Override
     protected void addPostDemandSection(TooltipMakerAPI tooltip, boolean hasDemand, IndustryTooltipMode mode) {
-        // if (mode != IndustryTooltipMode.NORMAL || isFunctional()) {
+        if (mode != IndustryTooltipMode.NORMAL || isFunctional()) {
+            float opad = 10f;
+            if (this.market.hasCondition(Conditions.LOW_GRAVITY)) {
+                tooltip.addPara("Low gravity of this planet increases ship production by %s.",
+                opad, Misc.getHighlightColor(), 
+                "" + (int) Math.round(AlkemiaStats.WORKSHOP_LOW_GRAVITY_MULT * 100f) + "%");
+
+            }
+            if (this.market.hasCondition(Conditions.HIGH_GRAVITY)) {
+                tooltip.addPara("High gravity of this planet decreases ship production by %s.",
+                opad, Misc.getHighlightColor(), 
+                "" + (int) Math.round(AlkemiaStats.WORKSHOP_HIGH_GRAVITY_MULT * 100f) + "%");
+            }
+        }
+        super.addPostDemandSection(tooltip, hasDemand, mode);
     }
 
     @Override
@@ -104,7 +104,7 @@ public class AlkemiaWorkshop extends BaseIndustry {
 
     @Override
     public boolean canImprove() {
-        return false;
+        return true;
     }
 
     @Override
@@ -123,12 +123,45 @@ public class AlkemiaWorkshop extends BaseIndustry {
         return super.getUnavailableReason();
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Cleanup code in various methods">
     @Override
-    public void advance(float amount) {
-        super.advance(amount);
-    }
+	public boolean wantsToUseSpecialItem(SpecialItemData data) {
+        Global.getLogger(this.getClass()).warn(special.getId());;
+		if (special != null && AlkemiaIds.ALKEMIA_NANOFORGE.equals(special.getId()) && data != null) {
+			return true;
+		}
+		return super.wantsToUseSpecialItem(data);
+	}
 
+	@Override
+	public void setSpecialItem(SpecialItemData special) {
+		super.setSpecialItem(special);
+	}
+
+    protected float daysWithNanoforge = 0f;
+
+    @Override
+	public void advance(float amount) {
+		super.advance(amount);
+		
+		if (special != null) {
+			float days = Global.getSector().getClock().convertToDays(amount);
+			daysWithNanoforge += days;
+		}
+	}
+
+    @Override
+	public String getCurrentImage() {
+        if (market.hasCondition(Conditions.LOW_GRAVITY)) {
+			return Global.getSettings().getSpriteName("industry", "alkemia_workshop_low");
+		}
+        if (this.market.hasCondition(Conditions.HIGH_GRAVITY)) {
+			return Global.getSettings().getSpriteName("industry", "alkemia_workshop_high");
+		}
+		
+		return super.getCurrentImage();
+	}
+
+    // <editor-fold defaultstate="collapsed" desc="Cleanup code in various methods">
     @Override
     public void unapply() {
         super.unapply();

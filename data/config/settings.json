@@ -2,6 +2,13 @@
     "graphics":{
         "blueprint_packages":{
             "alkemia_bp_package":"graphics/alkemia/icons/cargo/alkemia_bp.png"
+        },
+        "industry":{
+            "alkemia_workshop_normal":"graphics/alkemia/icons/industry/shuttle_hangar.png",
+            "alkemia_workshop_high":"graphics/alkemia/icons/industry/mecanica_cacho.png",
+            "alkemia_workshop_low":"graphics/alkemia/icons/industry/starship_workshop.png",
+            "alkemia_outpost_desert":"graphics/alkemia/icons/industry/desert_outpost.png",
+            "alkemia_tanker_desert":"graphics/alkemia/icons/industry/tanker_landing.png"
         }
     }
 }

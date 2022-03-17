@@ -5,14 +5,22 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.ModSpecAPI;
 import com.fs.starfarer.api.PluginPick;
 import com.fs.starfarer.api.campaign.CampaignPlugin;
+import com.fs.starfarer.api.campaign.SpecialItemData;
+import com.fs.starfarer.api.campaign.econ.Industry;
+import com.fs.starfarer.api.campaign.econ.InstallableIndustryItemPlugin.InstallableItemDescriptionMode;
 import com.fs.starfarer.api.combat.AutofireAIPlugin;
 import com.fs.starfarer.api.combat.MissileAIPlugin;
 import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
+import com.fs.starfarer.api.impl.campaign.econ.impl.BoostIndustryInstallableItemEffect;
+import com.fs.starfarer.api.impl.campaign.econ.impl.ItemEffectsRepo;
+import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.impl.campaign.intel.bar.events.BarEventManager;
 import com.fs.starfarer.api.impl.campaign.shared.SharedData;
 import com.fs.starfarer.api.loading.IndustrySpecAPI;
+import com.fs.starfarer.api.ui.TooltipMakerAPI;
+import com.fs.starfarer.api.util.Misc;
 
 import java.io.IOException;
 import org.json.JSONException;
@@ -20,6 +28,8 @@ import org.json.JSONObject;
 // import org.dark.shaders.light.LightData;
 // import org.dark.shaders.util.ShaderLib;
 // import org.dark.shaders.util.TextureData;
+
+import data.scripts.AlkemiaIds;
 
 public class AlkemiaModPlugin extends BaseModPlugin
 {
@@ -70,10 +80,32 @@ public class AlkemiaModPlugin extends BaseModPlugin
     public void onGameLoad(boolean newGame)
     {
         Global.getLogger(this.getClass()).info("On game load");
-        // TODO: An alternative to overwriting techmining
-        // if switched in ini file:
-        //IndustrySpecAPI tmining = Global.getSettings().getIndustrySpec("techmining");
-        //tmining.getTags(), remove "industry"
+
+        ItemEffectsRepo.ITEM_EFFECTS.put(AlkemiaIds.ALKEMIA_NANOFORGE, new BoostIndustryInstallableItemEffect(
+            AlkemiaIds.ALKEMIA_NANOFORGE, AlkemiaStats.ALKEMIA_NANOFORGE_PROD, 0) {
+			public void apply(Industry industry) {
+				super.apply(industry);
+				industry.getMarket().getStats().getDynamic().getMod(Stats.PRODUCTION_QUALITY_MOD)
+						.modifyFlat("nanoforge", AlkemiaStats.ALKEMIA_NANOFORGE_QUALITY, Misc.ucFirst(spec.getName().toLowerCase()));
+			}
+			public void unapply(Industry industry) {
+				super.unapply(industry);
+				industry.getMarket().getStats().getDynamic().getMod(Stats.PRODUCTION_QUALITY_MOD).unmodifyFlat("nanoforge");
+			}
+			protected void addItemDescriptionImpl(Industry industry, TooltipMakerAPI text, SpecialItemData data,
+					  						   	  InstallableItemDescriptionMode mode, String pre, float pad) {
+				String industryName = "starship workshop's ";
+				if (mode == InstallableItemDescriptionMode.MANAGE_ITEM_DIALOG_LIST) {
+					industryName = "";
+				}
+				text.addPara(pre + "Increases ship production quality by %s. " +
+						"Increases " + industryName + "production by %s unit." +
+                        "Removes demand for spare machinery.",
+						pad, Misc.getHighlightColor(), 
+						"" + (int) Math.round(AlkemiaStats.ALKEMIA_NANOFORGE_QUALITY * 100f) + "%",
+						"" + (int) AlkemiaStats.ALKEMIA_NANOFORGE_PROD);
+			}
+		});
     }
 
     @Override

@@ -1,5 +1,5 @@
 id,name,cost mult,build time,income,upkeep,downgrade,upgrade,tags,data,image,plugin,desc,order,disruptDanger
-alkemia_workshop,Starship Workshop,60,30,,6,,heavyindustry,"industrial, structure",,graphics/alkemia/icons/industry/shuttle_hangar.png,data.scripts.campaign.econ.AlkemiaWorkshop,"Small scale starship production and refit workshops. Production is small scale and local gravitational conditions affect it's output signifficantly.",3000,
+alkemia_workshop,Starship Workshop,60,30,,6,,,"industrial, structure",,graphics/alkemia/icons/industry/shuttle_hangar.png,data.scripts.campaign.econ.AlkemiaWorkshop,"Private starship production and refit workshops. Production is constrained by gravitational conditions of a planet.",3000,
 alkemia_orbitalstation_junker,Orbital Station - Salvaged,30,30,,4,,orbitalstation_mid,"station, sub_item, unraidable, structure","{
 radius:55,
 variant:alkemia_station1_junker_Custom,
