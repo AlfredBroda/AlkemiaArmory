@@ -1,8 +1,5 @@
 package data.scripts.campaign.econ;
 
-import com.thoughtworks.xstream.XStream;
-import org.apache.log4j.Logger;
-
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.SpecialItemData;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
@@ -14,24 +11,18 @@ import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 
 import data.scripts.AlkemiaIds;
 import data.scripts.AlkemiaStats;
+import data.scripts.AlkemiaStrings;
 
 /**
- * Author: Frederoo
+* Author: Frederoo
  */
 public class AlkemiaWorkshop extends BaseIndustry {
 
-    public static void aliasAttributes(XStream x) {
-    }
-
     public static final float ALPHA_DISCOUNT = 10f;
-    public static final String INFODUMP_FLAG = "$market_infodump";
-    private static final String TECTONIC_REASON = "Connot be built due to tectonic activity.";
-    
+    public static final String INFODUMP_FLAG = "$market_infodump";    
 
     @Override
     public void apply() {
-        Logger log = Global.getLogger(this.getClass());
-
         float accessability = 1.0f;
         if (this.market.hasCondition(Conditions.LOW_GRAVITY)) {
             accessability = AlkemiaStats.WORKSHOP_LOW_GRAVITY_MULT;
@@ -74,7 +65,7 @@ public class AlkemiaWorkshop extends BaseIndustry {
         if (mode != IndustryTooltipMode.NORMAL || isFunctional()) {
             float opad = 10f;
             if (this.market.hasCondition(Conditions.LOW_GRAVITY)) {
-                tooltip.addPara("Low gravity of this planet increases ship production by %s.",
+                tooltip.addPara("Low gravity of this planet increases ship production to %s.",
                 opad, Misc.getHighlightColor(), 
                 "" + (int) Math.round(AlkemiaStats.WORKSHOP_LOW_GRAVITY_MULT * 100f) + "%");
 
@@ -86,20 +77,6 @@ public class AlkemiaWorkshop extends BaseIndustry {
             }
         }
         super.addPostDemandSection(tooltip, hasDemand, mode);
-    }
-
-    @Override
-    protected void applyAlphaCoreModifiers() {
-        super.applyAlphaCoreModifiers();
-    }
-
-    @Override
-    protected void addAlphaCoreDescription(TooltipMakerAPI tooltip, AICoreDescriptionMode mode) {
-        super.addAlphaCoreDescription(tooltip, mode);
-
-        // tooltip.addPara("Reduces retrofit costs by %s.", 0f,
-        // Misc.getHighlightColor(),
-        // (int) ALPHA_DISCOUNT + "%");
     }
 
     @Override
@@ -118,7 +95,7 @@ public class AlkemiaWorkshop extends BaseIndustry {
     @Override
     public String getUnavailableReason() {
         if (this.market.hasCondition(Conditions.TECTONIC_ACTIVITY) || this.market.hasCondition(Conditions.EXTREME_TECTONIC_ACTIVITY)) {
-            return TECTONIC_REASON;
+            return AlkemiaStrings.TECTONIC_REASON;
         }
         return super.getUnavailableReason();
     }
