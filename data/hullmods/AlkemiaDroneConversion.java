@@ -1,10 +1,7 @@
 package data.hullmods;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Collections;
 
 import org.apache.log4j.Logger;
 
@@ -13,7 +10,6 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipVariantAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
-import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
@@ -23,9 +19,10 @@ import com.fs.starfarer.api.loading.HullModSpecAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.CargoAPI;
-import com.fs.starfarer.api.campaign.FleetDataAPI;
+import com.fs.starfarer.api.campaign.SectorAPI;
 
-//public class AlkemiaDroneConversion extends YunruShipAutomation {
+import org.lazywizard.lazylib.campaign.MessageUtils;
+
 public class AlkemiaDroneConversion extends BaseHullMod {
 
 	public static final int CREW_REQ = -10;
@@ -44,8 +41,9 @@ public class AlkemiaDroneConversion extends BaseHullMod {
 	}
 
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
+
 		stats.getFighterRefitTimeMult().modifyPercent(id, REARM_SPEEDUP_PERCENT);
-		stats.getNumFighterBays().modifyFlat(id, BAY_SPACE_GAIN, "Expanded bays by drone conversion.");
+		// stats.getNumFighterBays().modifyFlat(id, BAY_SPACE_GAIN, "Expanded bays by drone conversion.");
 
 		stats.getMinCrewMod().modifyFlat(id, CREW_REQ * stats.getNumFighterBays().getBaseValue());
 
@@ -55,20 +53,26 @@ public class AlkemiaDroneConversion extends BaseHullMod {
 		stats.getDynamic().getMod(Stats.SUPPORT_COST_MOD).modifyPercent(id, ALL_DRONE_COST_REDUCTION);
 
 		// Make the ship only accept drones
-		// TODO: It would be better to filter LPCs like Automated HullMod does 
+		// TODO: It would be better to filter LPCs like Automated HullMod does
 		// (but no source is avaliable)
 		ShipVariantAPI variant = stats.getVariant();
 		List<String> wings = variant.getNonBuiltInWings();
-		for (int i = 0; i < wings.size(); i++) {
+		for (int i = 0; i <= wings.size(); i++) {
 			FighterWingSpecAPI currentWing = variant.getWing(i);
 			if (currentWing != null && !currentWing.hasTag(Tags.AUTOMATED_FIGHTER)) {
 				variant.setWingId(i, null);
-				removedWings.add(currentWing.getId());
+				if (currentWing != null && isInPlayerFleet(stats)) {
+					removedWings.add(currentWing.getId());
+
+					log.info("Removed wing: " + currentWing.getId());
+					MessageUtils.showMessage("Removed non-drone wing: " + currentWing.getWingName());
+				}
 			}
 		}
+		returnWings(removedWings);
 
 		if (removedWings != null && !removedWings.isEmpty()) {
-			log.warn("Wings removed:");
+			log.warn("Wings not returned:");
 			for (String wing : removedWings) {
 				log.warn(" - " + wing);
 			}
@@ -76,24 +80,19 @@ public class AlkemiaDroneConversion extends BaseHullMod {
 		// stats.getListeners() maybe there is one for when wings are picked?
 	}
 
-	public void advanceInCampaign(FleetMemberAPI member, float amount) {
-		if (removedWings != null && !removedWings.isEmpty()) {
-			CargoAPI cargo = member.getFleetData().getFleet().getCargo();
-			if (cargo != null) {
-				log.info("Wings returned:");
-				for (String wing : removedWings) {
-					cargo.addFighters(wing, 1);
-					log.info(" - " + wing);
-				}
-				removedWings.clear();
+	@Override
+	public void applyEffectsAfterShipCreation(ShipAPI ship, String id) {
+		// Sanity check for number of bays if using BAY_SPACE_GAIN
+		/*
+		Boolean legal = checkModStillLegal(ship);
+		if (!legal) {
+			if (isInPlayerFleet(ship)) {
+				returnWings(removedWings);
 			} else {
-				log.error("advanceInCampaign: Cannot get CargoAPI for " + member.getHullId());
+				removedWings.clear();
 			}
-		}
-	}
-
-	private void addToCargo(CargoAPI cargo, String wing) {
-		cargo.addFighters(wing, 1);
+		} 
+		*/
 	}
 
 	public boolean isApplicableToShip(ShipAPI ship) {
@@ -116,9 +115,9 @@ public class AlkemiaDroneConversion extends BaseHullMod {
 	public String getDescriptionParam(int index, HullSize hullSize, ShipAPI ship) {
 		if (index == 0)
 			return "" + CREW_REQ;
+		// if (index == 1)
+		// 	return "" + BAY_SPACE_GAIN;
 		if (index == 1)
-			return "" + BAY_SPACE_GAIN;
-		if (index == 2)
 			return "" + REARM_SPEEDUP_PERCENT + "%";
 
 		return "" + ALL_DRONE_COST_REDUCTION + "%";
@@ -132,5 +131,69 @@ public class AlkemiaDroneConversion extends BaseHullMod {
 	@Override
 	public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width,
 			boolean isForModSpec) {
+	}
+
+	/*
+	private Boolean checkModStillLegal(ShipAPI ship) {
+		ShipVariantAPI variant = ship.getVariant();
+		String modId = this.spec.getId();
+		if (variant.hasHullMod(modId) && ship.getNumFighterBays() == BAY_SPACE_GAIN) {
+			log.warn("This hullmod is the only reason this ship still has any bays (" + variant.getWings().size()
+					+ ")! Removing.");
+			List<String> wings = variant.getNonBuiltInWings();
+			FighterWingSpecAPI currentWing = null;
+			for (int i = 0; i < wings.size(); i++) {
+				currentWing = variant.getWing(i);
+				if (currentWing != null) {
+					removedWings.add(currentWing.getId());
+					variant.setWingId(i, null);
+					log.warn("Removing wing: " + currentWing.getId());
+				}
+			}
+			MagicIncompatibleHullmods.removeHullmodWithWarning(ship.getVariant(),
+					this.spec.getId(), this.spec.getId());
+
+			return false;
+		}
+		return true;
+	}
+	*/
+
+	private boolean addFightersToCargo(String wing, int num) {
+		SectorAPI sector = Global.getSector();
+		String empty = "SectorAPI";
+		if (sector != null) {
+			empty = "CampaignFleetAPI";
+			CampaignFleetAPI fleet = sector.getPlayerFleet();
+			if (fleet != null) {
+				empty = "CargoAPI";
+				CargoAPI cargo = fleet.getCargo();
+				if (cargo != null) {
+					cargo.addFighters(wing, num);
+					return true;
+				}
+			}
+		}
+		log.error("addFightersToCargo: Cannot get " + empty + "!");
+		return false;
+	}
+
+	private void returnWings(List<String> removedWings) {
+		if (removedWings != null && !removedWings.isEmpty()) {
+			log.info("Returning wings:");
+			boolean errors = false;
+			for (String wing : removedWings) {
+				if (addFightersToCargo(wing, 1)) {
+					log.info(" - " + wing);
+				} else {
+					errors = true;
+					log.error(" # " + wing);
+				}
+			}
+			if (!errors) {
+				log.info("Clearing wing list.");
+				removedWings.clear();
+			}
+		}
 	}
 }
