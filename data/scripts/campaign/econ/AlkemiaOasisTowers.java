@@ -131,22 +131,13 @@ public class AlkemiaOasisTowers extends BaseIndustry implements MarketImmigratio
     @Override
     public String getUnavailableReason() {
         if (!this.market.hasCondition(Conditions.HOT) && !this.market.hasCondition(Conditions.VERY_HOT)) {
-            return String.format(AlkemiaStrings.NOT_CONDITIONS_FORMAT, getNeededConditions());
+            return String.format(AlkemiaStrings.NOT_CONDITIONS_FORMAT, AlkemiaStrings.getNeededConditions(NEEDED_CONDITIONS));
         }
         if (this.market.hasCondition(Conditions.TECTONIC_ACTIVITY)
                 || this.market.hasCondition(Conditions.EXTREME_TECTONIC_ACTIVITY)) {
             return AlkemiaStrings.TECTONIC_REASON;
         }
         return super.getUnavailableReason();
-    }
-    
-    protected String getNeededConditions() {
-        List<String> conditions = new ArrayList<String>();
-        for (String id : NEEDED_CONDITIONS) {
-            MarketConditionSpecAPI mc = Global.getSettings().getMarketConditionSpec(id);
-            conditions.add(mc.getName());
-        }
-        return Misc.getJoined("or", conditions);
     }
 
     protected float getPopulationGrowthBonus() {

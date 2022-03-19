@@ -1,5 +1,7 @@
 package data.scripts.campaign.econ;
 
+import java.util.Collections;
+
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.SpecialItemData;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
@@ -86,6 +88,9 @@ public class AlkemiaWorkshop extends BaseIndustry {
 
     @Override
     public boolean isAvailableToBuild() {
+        if (!this.market.hasCondition(Conditions.HABITABLE)) {
+            return false;
+        }
         if (this.market.hasCondition(Conditions.TECTONIC_ACTIVITY) || this.market.hasCondition(Conditions.EXTREME_TECTONIC_ACTIVITY)) {
             return false;
         }
@@ -94,6 +99,9 @@ public class AlkemiaWorkshop extends BaseIndustry {
 
     @Override
     public String getUnavailableReason() {
+        if (!this.market.hasCondition(Conditions.HABITABLE)) {
+            return AlkemiaStrings.getNeededConditions(Collections.singletonList(Conditions.HABITABLE));
+        }
         if (this.market.hasCondition(Conditions.TECTONIC_ACTIVITY) || this.market.hasCondition(Conditions.EXTREME_TECTONIC_ACTIVITY)) {
             return AlkemiaStrings.TECTONIC_REASON;
         }
