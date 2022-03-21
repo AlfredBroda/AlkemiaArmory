@@ -1,29 +1,33 @@
 {
-	"hullId": "alkemia_deluxe",
-	"variantId": "alkemia_deluxe_super",
-	"displayName": "Interceptor",
-	"fluxCapacitors": 2,
-	"fluxVents": 2,
-	"quality": 1,
-	"hullMods": [
-		"auxiliarythrusters"
-	],
-	"weaponGroups": [
-		{
-			"mode": "ALTERNATING",
-			"autofire": true,
-			"weapons": {
-				"WS0001": "pdlaser",
-				"WS0002": "pdlaser"
-			}
-		},
-		{
-			"mode": "LINKED",
-			"autofire": false,
-			"weapons": {
-				"WS0005": "alkemia_locust_fighter",
-				"WS0006": "alkemia_locust_fighter"
-			}
-		}
-	]
+  "variantId": "alkemia_deluxe_super",
+  "hullId": "alkemia_deluxe",
+  "displayName": "Interceptor",
+  "goalVariant": false,
+  "fluxCapacitors": 2,
+  "fluxVents": 2,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "auxiliarythrusters"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "pdlaser",
+        "WS0002": "pdlaser"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "alkemia_locust_fighter",
+        "WS0006": "alkemia_locust_fighter"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
 }

@@ -10,6 +10,7 @@ import com.fs.starfarer.api.util.Misc;
 public class AlkemiaStrings {
     public static final String TECTONIC_REASON = "Connot be built due to tectonic activity.";
     public static final String NOT_CONDITIONS_FORMAT = "Can only be built on %s planets.";
+    public static final String NOT_PLANET_REASON = "Can only be built on planets.";
 
     public static String getNeededConditions(List<String> conditionIDs) {
         List<String> conditions = new ArrayList<String>();

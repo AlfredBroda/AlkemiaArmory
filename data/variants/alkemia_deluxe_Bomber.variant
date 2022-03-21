@@ -15,7 +15,7 @@
       "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0001": "lightag",
+        "WS0001": "alkemia_vulcan",
         "WS0002": "lightag",
         "WS0004": "atropos_single"
       }

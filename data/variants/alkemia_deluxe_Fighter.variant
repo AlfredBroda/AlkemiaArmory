@@ -23,8 +23,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "vulcan",
-        "WS0002": "vulcan"
+        "WS0001": "alkemia_vulcan",
+        "WS0002": "alkemia_vulcan"
       }
     }
   ],

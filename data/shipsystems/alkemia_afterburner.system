@@ -18,8 +18,8 @@
 	"clampMaxSpeedAfter":true,
 	"alwaysAccelerate":true,
 
-	"useSound":"system_burn_drive_activate",
-	"loopSound":"system_burn_drive_loop",
+	"useSound":"hurricane_mirv_fire",
+	"loopSound":"maneuvering_jets_loop",
 	"deactivateSound":"system_burn_drive_deactivate",
 	"outOfUsesSound":"engine_disabled",
 	

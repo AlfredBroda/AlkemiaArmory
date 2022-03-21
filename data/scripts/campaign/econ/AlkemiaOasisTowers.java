@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.econ.MarketImmigrationModifier;
 import com.fs.starfarer.api.characters.MarketConditionSpecAPI;
@@ -70,9 +71,12 @@ public class AlkemiaOasisTowers extends BaseIndustry implements MarketImmigratio
     }
 
     protected String getDescriptionOverride() {
-        String planetType = market.getPlanetEntity().getSpec().getPlanetType();
-        if (!isAvailableToBuild()) {
-            planetType = "desert";
+        PlanetAPI planet = market.getPlanetEntity(); // Stations don't have a planet
+        String planetType = "desert";
+        if (planet != null) {
+            if (isAvailableToBuild()) {
+                planetType = planet.getSpec().getPlanetType();
+            }
         }
         String desc = spec.getDesc();
         return String.format(desc, planetType);
@@ -118,6 +122,9 @@ public class AlkemiaOasisTowers extends BaseIndustry implements MarketImmigratio
 
     @Override
     public boolean isAvailableToBuild() {
+        if (market.getPlanetEntity() == null) {
+            return false;
+        }
         if (!this.market.hasCondition(Conditions.HOT) && !this.market.hasCondition(Conditions.VERY_HOT)) {
             return false;
         }
@@ -130,12 +137,16 @@ public class AlkemiaOasisTowers extends BaseIndustry implements MarketImmigratio
 
     @Override
     public String getUnavailableReason() {
-        if (!this.market.hasCondition(Conditions.HOT) && !this.market.hasCondition(Conditions.VERY_HOT)) {
-            return String.format(AlkemiaStrings.NOT_CONDITIONS_FORMAT, AlkemiaStrings.getNeededConditions(NEEDED_CONDITIONS));
+        if (market.getPlanetEntity() == null) {
+            return AlkemiaStrings.NOT_PLANET_REASON;
         }
         if (this.market.hasCondition(Conditions.TECTONIC_ACTIVITY)
                 || this.market.hasCondition(Conditions.EXTREME_TECTONIC_ACTIVITY)) {
             return AlkemiaStrings.TECTONIC_REASON;
+        }
+        if (!this.market.hasCondition(Conditions.HOT) && !this.market.hasCondition(Conditions.VERY_HOT)) {
+            return String.format(AlkemiaStrings.NOT_CONDITIONS_FORMAT,
+                    AlkemiaStrings.getNeededConditions(NEEDED_CONDITIONS));
         }
         return super.getUnavailableReason();
     }
@@ -143,7 +154,7 @@ public class AlkemiaOasisTowers extends BaseIndustry implements MarketImmigratio
     protected float getPopulationGrowthBonus() {
         Pair<String, Integer> deficit = getMaxDeficit(Commodities.ORGANICS);
         float want = getDemand(Commodities.ORGANICS).getQuantity().getModifiedValue();
-        float def = ((Integer)deficit.two).floatValue();
+        float def = ((Integer) deficit.two).floatValue();
         if (def > want)
             def = want;
 

@@ -96,17 +96,17 @@
       "size": "MEDIUM",
       "type": "SYNERGY",
       "mount": "HIDDEN",
-      "arc": 30,
+      "arc": 0,
       "angle": 0,
-      "locations": [79, -0]
+      "locations": [80, -0]
     },
     {
       "id": "WS0010",
       "size": "SMALL",
       "type": "HYBRID",
       "mount": "TURRET",
-      "arc": 140,
-      "angle": -20,
+      "arc": 293,
+      "angle": -38,
       "locations": [87, 28]
     },
     {
@@ -114,8 +114,8 @@
       "size": "SMALL",
       "type": "HYBRID",
       "mount": "TURRET",
-      "arc": 140,
-      "angle": 20,
+      "arc": 293,
+      "angle": 38,
       "locations": [87, -28]
     },
     {
@@ -126,8 +126,8 @@
       "arc": 360,
       "angle": 0,
       "locations": [
-        -26, -50.5,
-        -26, -70.5
+        -26, -73,
+        -26, -50.5
       ]
     },
     {
@@ -138,8 +138,8 @@
       "arc": 360,
       "angle": 0,
       "locations": [
-        -26, 50.5,
-        -26, 73
+        -26, 73,
+        -26, 50.5
       ]
     },
     {
@@ -150,8 +150,8 @@
       "arc": 360,
       "angle": 0,
       "locations": [
-        52, -0,
-        89.5, -0
+        89.5, -0,
+        52, -0
       ]
     },
     {
@@ -161,7 +161,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [62, -0.5],
+      "locations": [62, -0],
       "renderOrderMod": 50
     }
   ],

@@ -79,7 +79,7 @@
     },
     {
       "id": "DECOR07",
-      "size": "SMALL",
+      "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 10,

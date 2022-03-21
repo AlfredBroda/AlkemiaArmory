@@ -15,16 +15,16 @@
   ],
   "weaponGroups": [
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "MISS01": "salamanderpod",
-        "WS0002": "lrpdlaser",
-        "WS0003": "lrpdlaser",
-        "WS0004": "pdlaser",
-        "WS0005": "pdlaser",
-        "WS0006": "dualflak",
-        "WS0007": "dualflak",
+        "MISS01": "salamanderpod"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
         "WS0010": "vulcan",
         "WS0011": "vulcan"
       }
@@ -32,24 +32,27 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0006": "dualflak",
+        "WS0007": "dualflak"
+      }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0002": "lrpdlaser",
+        "WS0003": "lrpdlaser"
+      }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
         "WS0000": "pdlaser",
-        "WS0001": "pdlaser"
+        "WS0001": "pdlaser",
+        "WS0004": "pdlaser",
+        "WS0005": "pdlaser"
       }
     }
   ],
