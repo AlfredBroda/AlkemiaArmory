@@ -19,6 +19,7 @@ public class AlkemiaImprovedManufactory extends BaseHullMod {
 		MutableShipStatsAPI stats = fighter.getMutableStats();
 		
 		stats.getMaxSpeed().modifyMult(id, 1f + SPEED_IMPROVEMENT * effect);
+		// stats.getFighterRefitTimeMult().modifyPercent(id, SPEED_IMPROVEMENT);
 
 		stats.getArmorDamageTakenMult().modifyPercent(id, DAMAGE_DECREASE * 100f * effect);
 		stats.getShieldDamageTakenMult().modifyPercent(id, DAMAGE_DECREASE * 100f * effect);
@@ -39,6 +40,8 @@ public class AlkemiaImprovedManufactory extends BaseHullMod {
 		
 		if (index == 0) return "" + (int) Math.round(SPEED_IMPROVEMENT * 100f * effect) + "%";
 		if (index == 1) return "" + (int) Math.round(DAMAGE_DECREASE * 100f * effect) + "%";
+		if (index == 2) return "" + (int) Math.round(DAMAGE_DECREASE * 100f * effect) + "%";
+		if (index == 3) return "" + (int) Math.round(DAMAGE_DECREASE * 100f * effect) + "%";
 		return null;
 	}
 }

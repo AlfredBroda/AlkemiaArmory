@@ -7,3 +7,4 @@ Harpoon SRM (Single),alkemia_harpoon_fighter,0,,100,800,,750,,15,30,2,1,,,HIGH_E
 Salamander SRM (Single),alkemia_salamander_fighter,0,,100,800,,100,1500,15,30,2,,,,FRAGMENTATION,0,,0,25,1,,0,0,0,,,400,50,15,150,,,"DO_NOT_AIM, HEATSEEKER","no_sell, utility13, missile0, missile_bp, merc",,,,Anti Engine,Fast,Excellent,,,,,,,TRUE,11.25
 Light Antimatter Blaster,alkemia_amblaster_fighter,1,0.7,700,400,,800,,0,30,6,4,,,ENERGY,900,,0.25,5,,,0,0,0,0,,1000,,,100,,,"STRIKE, USE_VS_FRIGATES, GROUP_ALTERNATING","no_sell, strike10, rare_bp, hist1t, merc",SR_strike_only,Alkemia,,Strike,,,,,,,,,,19.76
 Terrier Wings,alkemia_terrier_wings,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,45.1
+Perch Launchbay,alkemia_launchbay,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,45.2
