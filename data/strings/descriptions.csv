@@ -11,6 +11,6 @@ A sizable combat-rated autoloader and missile autoforge system ensures continued
 alkemia_locust_fighter,WEAPON,"Saturates targets with large numbers of low-yeld EMP warheads.
 
 This sigle rack must be reloaded after every use.",,,
-alkemia_terrier,SHIP,"Versatile trans-atmospheric dropship/gunship with a moderately sized cargo hold. Features a missile autoforge and a ground support package.",,,
+alkemia_dromader,SHIP,"Versatile trans-atmospheric dropship/gunship with a moderately sized cargo hold. Features a missile autoforge and a ground support package.",,,
 alkemia_afterburner,SHIP_SYSTEM,Temporarily engages an afterburner on the ship. Provides a massive speed boost for a fixed time at the expense of being able to manouver or fire. The ship runs the risk of full engine flameout on any significant collision.,Movement,Provides a massive speed boost at the expense of being unable to turn or fire. Collisions can cause a flameout while the system is active.,,
 alkemia_perch,SHIP,"A retrofit of the Champion, this heavy cruiser trades it's heavy turret and downsizes it's missile slot for three fighter bays. Remaining frontal turrets have been overhauled to fit a wider variety of armaments. The internal capacitors of the original were replaced with and improved fighter manufactory.",,,

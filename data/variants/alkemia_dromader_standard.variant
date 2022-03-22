@@ -1,37 +1,37 @@
 {
-  "variantId": "alkemia_terrier_assault",
-  "hullId": "alkemia_terrier",
-  "displayName": "Assault",
+  "variantId": "alkemia_dromader_standard",
+  "hullId": "alkemia_dromader",
+  "displayName": "Standard",
   "goalVariant": true,
   "fluxCapacitors": 10,
-  "fluxVents": 9,
+  "fluxVents": 7,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "hardenedshieldemitter"
+    "stabilizedshieldemitter"
   ],
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "FRONT01": "lightdualac",
-        "FRONT02": "lightdualac"
+        "FRONT01": "lightac",
+        "FRONT02": "lightac"
       }
     },
     {
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "TURR03": "chaingun"
+        "TURR03": "harpoonpod"
       }
     },
     {
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WING05": "atropos_single",
-        "WING06": "atropos_single"
+        "WING05": "sabot",
+        "WING06": "sabot"
       }
     },
     {

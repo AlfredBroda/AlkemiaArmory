@@ -1,8 +1,8 @@
 {
-  "hullName": "Terrier",
-  "hullId": "alkemia_terrier",
+  "hullName": "Dromader",
+  "hullId": "alkemia_dromader",
   "hullSize": "FRIGATE",
-  "spriteName": "graphics/alkemia/ships/terrier.png",
+  "spriteName": "graphics/alkemia/ships/dromader.png",
   "style": "HIGH_TECH",
   "height": 100,
   "width": 120,
@@ -12,11 +12,11 @@
   "shieldRadius": 71,
   "viewOffset": 0,
   "builtInMods": [
-    "missile_reload",
+    "missleracks",
     "ground_support"
   ],
   "builtInWeapons": {
-    "DECOR07": "alkemia_terrier_wings",
+    "DECOR07": "alkemia_dromader_wings",
     "DECOR08": "blinker_green",
     "DECOR09": "blinker_red"
   },
@@ -85,7 +85,7 @@
       "arc": 10,
       "angle": -1,
       "locations": [-29, -0],
-      "renderOrderMod": 2
+      "renderOrderMod": 50
     },
     {
       "id": "DECOR09",
@@ -94,7 +94,7 @@
       "mount": "HARDPOINT",
       "arc": 180,
       "angle": 90,
-      "locations": [-30, 56.5],
+      "locations": [-30, 56],
       "renderOrderMod": 11
     },
     {
@@ -111,6 +111,38 @@
   "engineSlots": [
     {
       "location": [-39, 17],
+      "length": 16,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-39, -17],
+      "length": 16,
+      "width": 8,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-36, 23],
+      "length": 16,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 8,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-36, -20.5],
+      "length": 16,
+      "width": 8,
+      "angle": -180,
+      "contrailSize": 8,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-36, 18],
       "length": 44,
       "width": 22,
       "angle": 180,
@@ -118,7 +150,7 @@
       "style": "HIGH_TECH"
     },
     {
-      "location": [-39, -17],
+      "location": [-36, -15.5],
       "length": 44,
       "width": 22,
       "angle": -180,

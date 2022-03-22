@@ -4,4 +4,4 @@ Converted Drone Bays,alkemia_droneonlybays,3,2,Alkemia,"special, non_phase, carr
 Decreases the minimum crew required by %s per bay, decreases rearm time by %s and ordnance point cost of drone LPCs by %s.
 
 Can not be installed on frigates or phase ships.","Conversion to drone-only automated fighter bays.",graphics/alkemia/hullmods/drone-bay.png
-Improved Manufactory,alkemia_impmanufactory,2,1,Alkemia,"non_phase, carrier",Fighters,9000,,,,0,5,10,15,data.hullmods.AlkemiaImprovedManufactory,"Upgrades the onboard manufactory to produce fighters that are %s faster, take %s less armor, %s shield and %s less hull damage.",Fighter manufactory upgrade.,graphics/hullmods/automated_repair_unit.png
+Improved Manufactory,alkemia_impmanufactory,2,1,Alkemia,"special, non_phase, carrier",Fighters,9000,,,,3,5,10,15,data.hullmods.AlkemiaImprovedManufactory,"Upgrades the onboard manufactory to produce fighters that are %s faster, take %s less armor, %s less shield and %s less hull damage. Also increases maintenance cost by %s monthly.",Fighter manufactory upgrade.,graphics/hullmods/automated_repair_unit.png

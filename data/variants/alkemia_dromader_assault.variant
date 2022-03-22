@@ -1,37 +1,37 @@
 {
-  "variantId": "alkemia_terrier_strike",
-  "hullId": "alkemia_terrier",
-  "displayName": "Strike",
+  "variantId": "alkemia_dromader_assault",
+  "hullId": "alkemia_dromader",
+  "displayName": "Assault",
   "goalVariant": true,
-  "fluxCapacitors": 9,
-  "fluxVents": 10,
+  "fluxCapacitors": 10,
+  "fluxVents": 9,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "fluxbreakers"
+    "hardenedshieldemitter"
   ],
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "FRONT01": "lightag",
-        "FRONT02": "lightag"
+        "FRONT01": "lightdualac",
+        "FRONT02": "lightdualac"
       }
     },
     {
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "TURR03": "breachpod"
+        "TURR03": "chaingun"
       }
     },
     {
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WING05": "alkemia_harpoon_fighter",
-        "WING06": "alkemia_harpoon_fighter"
+        "WING05": "atropos_single",
+        "WING06": "atropos_single"
       }
     },
     {
