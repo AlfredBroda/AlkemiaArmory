@@ -16,12 +16,12 @@ import data.scripts.AlkemiaStats;
 import data.scripts.AlkemiaStrings;
 
 /**
-* Author: Frederoo
+ * Author: Frederoo
  */
 public class AlkemiaWorkshop extends BaseIndustry {
 
     public static final float ALPHA_DISCOUNT = 10f;
-    public static final String INFODUMP_FLAG = "$market_infodump";    
+    public static final String INFODUMP_FLAG = "$market_infodump";
 
     @Override
     public void apply() {
@@ -46,7 +46,7 @@ public class AlkemiaWorkshop extends BaseIndustry {
         if (special == null) {
             demand(Commodities.HEAVY_MACHINERY, baseProduction - 2);
         }
-        
+
         int baseDemand = baseProduction - 1;
         if (baseDemand < 1) {
             baseDemand = 1;
@@ -68,14 +68,14 @@ public class AlkemiaWorkshop extends BaseIndustry {
             float opad = 10f;
             if (this.market.hasCondition(Conditions.LOW_GRAVITY)) {
                 tooltip.addPara("Low gravity of this planet increases ship production to %s.",
-                opad, Misc.getHighlightColor(), 
-                "" + (int) Math.round(AlkemiaStats.WORKSHOP_LOW_GRAVITY_MULT * 100f) + "%");
+                        opad, Misc.getHighlightColor(),
+                        "" + (int) Math.round(AlkemiaStats.WORKSHOP_LOW_GRAVITY_MULT * 100f) + "%");
 
             }
             if (this.market.hasCondition(Conditions.HIGH_GRAVITY)) {
                 tooltip.addPara("High gravity of this planet decreases ship production by %s.",
-                opad, Misc.getHighlightColor(), 
-                "" + (int) Math.round(AlkemiaStats.WORKSHOP_HIGH_GRAVITY_MULT * 100f) + "%");
+                        opad, Misc.getHighlightColor(),
+                        "" + (int) Math.round(AlkemiaStats.WORKSHOP_HIGH_GRAVITY_MULT * 100f) + "%");
             }
         }
         super.addPostDemandSection(tooltip, hasDemand, mode);
@@ -91,7 +91,8 @@ public class AlkemiaWorkshop extends BaseIndustry {
         if (!this.market.hasCondition(Conditions.HABITABLE)) {
             return false;
         }
-        if (this.market.hasCondition(Conditions.TECTONIC_ACTIVITY) || this.market.hasCondition(Conditions.EXTREME_TECTONIC_ACTIVITY)) {
+        if (this.market.hasCondition(Conditions.TECTONIC_ACTIVITY)
+                || this.market.hasCondition(Conditions.EXTREME_TECTONIC_ACTIVITY)) {
             return false;
         }
         return super.isAvailableToBuild();
@@ -100,51 +101,54 @@ public class AlkemiaWorkshop extends BaseIndustry {
     @Override
     public String getUnavailableReason() {
         if (!this.market.hasCondition(Conditions.HABITABLE)) {
-            return AlkemiaStrings.getNeededConditions(Collections.singletonList(Conditions.HABITABLE));
+            return String.format(AlkemiaStrings.NOT_CONDITIONS_FORMAT,
+                    AlkemiaStrings.getNeededConditions(Collections.singletonList(Conditions.HABITABLE)));
         }
-        if (this.market.hasCondition(Conditions.TECTONIC_ACTIVITY) || this.market.hasCondition(Conditions.EXTREME_TECTONIC_ACTIVITY)) {
+        if (this.market.hasCondition(Conditions.TECTONIC_ACTIVITY)
+                || this.market.hasCondition(Conditions.EXTREME_TECTONIC_ACTIVITY)) {
             return AlkemiaStrings.TECTONIC_REASON;
         }
         return super.getUnavailableReason();
     }
 
     @Override
-	public boolean wantsToUseSpecialItem(SpecialItemData data) {
-        Global.getLogger(this.getClass()).warn(special.getId());;
-		if (special != null && AlkemiaIds.ALKEMIA_NANOFORGE.equals(special.getId()) && data != null) {
-			return true;
-		}
-		return super.wantsToUseSpecialItem(data);
-	}
+    public boolean wantsToUseSpecialItem(SpecialItemData data) {
+        Global.getLogger(this.getClass()).warn(special.getId());
+        ;
+        if (special != null && AlkemiaIds.ALKEMIA_NANOFORGE.equals(special.getId()) && data != null) {
+            return true;
+        }
+        return super.wantsToUseSpecialItem(data);
+    }
 
-	@Override
-	public void setSpecialItem(SpecialItemData special) {
-		super.setSpecialItem(special);
-	}
+    @Override
+    public void setSpecialItem(SpecialItemData special) {
+        super.setSpecialItem(special);
+    }
 
     protected float daysWithNanoforge = 0f;
 
     @Override
-	public void advance(float amount) {
-		super.advance(amount);
-		
-		if (special != null) {
-			float days = Global.getSector().getClock().convertToDays(amount);
-			daysWithNanoforge += days;
-		}
-	}
+    public void advance(float amount) {
+        super.advance(amount);
+
+        if (special != null) {
+            float days = Global.getSector().getClock().convertToDays(amount);
+            daysWithNanoforge += days;
+        }
+    }
 
     @Override
-	public String getCurrentImage() {
+    public String getCurrentImage() {
         if (market.hasCondition(Conditions.LOW_GRAVITY)) {
-			return Global.getSettings().getSpriteName("industry", "alkemia_workshop_low");
-		}
+            return Global.getSettings().getSpriteName("industry", "alkemia_workshop_low");
+        }
         if (this.market.hasCondition(Conditions.HIGH_GRAVITY)) {
-			return Global.getSettings().getSpriteName("industry", "alkemia_workshop_high");
-		}
-		
-		return super.getCurrentImage();
-	}
+            return Global.getSettings().getSpriteName("industry", "alkemia_workshop_high");
+        }
+
+        return super.getCurrentImage();
+    }
 
     // <editor-fold defaultstate="collapsed" desc="Cleanup code in various methods">
     @Override
