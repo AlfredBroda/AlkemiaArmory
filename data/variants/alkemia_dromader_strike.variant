@@ -16,9 +16,7 @@
       "mode": "ALTERNATING",
       "weapons": {
         "FRONT01": "lightag",
-        "FRONT02": "lightag",
-        "WING05": "alkemia_salamander_fighter",
-        "WING06": "alkemia_salamander_fighter"
+        "FRONT02": "lightag"
       }
     },
     {
@@ -31,7 +29,10 @@
     {
       "autofire": false,
       "mode": "ALTERNATING",
-      "weapons": {}
+      "weapons": {
+        "WING05": "alkemia_salamander_fighter",
+        "WING06": "alkemia_salamander_fighter"
+      }
     },
     {
       "autofire": true,
