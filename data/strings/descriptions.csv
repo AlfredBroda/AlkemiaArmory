@@ -4,13 +4,18 @@ alkemia_pilumpod,WEAPON,"A two-stage missile suited for long-range support by ba
 A technologically mature weapon system, the Pilum-class missile is the obvious choice for long-range strikes by cautious captains. The warhead consists of a device capable of causing spot failures in active shields, and an EMP generator to deliver a modest punch through these gaps. Neither device is particularly effective due to the constraints imposed by the missile's outsized fuel tanks.
 
 A sizable combat-rated autoloader and missile autoforge system ensures continued usefulness in protracted engagements.",,,
-alkemia_deluxe,SHIP,"A customizable two seat heavily fighter boasting two hybrid and two reconfigurable missile hardpoints, an Onmi shield and a booster.",,,
-alkemia_locust,WEAPON,"Saturates targets with large numbers of low-yeld EMP warheads.
+alkemia_deluxe,SHIP,"A highly customizable two seat heavy fighter boasting two hybrid and two reconfigurable missile hardpoints and a booster.",,,
+alkemia_locust,WEAPON,"Saturation defense launcher with large numbers of guided low-yeld EMP warheads.
 
 A sizable combat-rated autoloader and missile autoforge system ensures continued usefulness in protracted engagements.",,,
-alkemia_locust_fighter,WEAPON,"Saturates targets with large numbers of low-yeld EMP warheads.
+alkemia_locust_fighter,WEAPON,"Saturation defense launcher with large numbers of guided low-yeld EMP warheads.
 
 This sigle rack must be reloaded after every use.",,,
+alkemia_vulcan,WEAPON,"A rapid fire weapon that is especially devastating to missiles and fighters at point-blank range. 
+
+This variant uses only a single set of long barrels to limit accuracy loss. A cooldown period prevents detrimental overheating during long bursts.
+
+An advanced timing mechanism beats in the heart of this multi-barrel weapon platform, generally manufactured only by licensed Hegemony Autofactories. Rounds typically use depleted uranium tips and are non explosive. Multiple barrels enable an extremely high rate of fire, which comes at a cost in flux.",,,,
 alkemia_dromader,SHIP,"Versatile trans-atmospheric dropship/gunship with a moderately sized cargo hold. Features a missile autoforge and a ground support package.",,,
 alkemia_afterburner,SHIP_SYSTEM,Temporarily engages an afterburner on the ship. Provides a massive speed boost for a fixed time at the expense of being able to manouver or fire. The ship runs the risk of full engine flameout on any significant collision.,Movement,Provides a massive speed boost at the expense of being unable to turn or fire. Collisions can cause a flameout while the system is active.,,
 alkemia_perch,SHIP,"A retrofit of the Champion, this heavy cruiser trades it's heavy turret and downsizes it's missile slot for three fighter bays. Remaining frontal turrets have been overhauled to fit a wider variety of armaments. The internal capacitors of the original were replaced with and improved fighter manufactory.",,,
