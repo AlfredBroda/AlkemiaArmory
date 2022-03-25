@@ -40,14 +40,14 @@ build {
 }
 
 def modName = "Alkemia Armoury"
-def jarName = "alkemia-armoury"
+def baseFileName = "alkemia-armoury"
 def modFolderName = "${project.name}"
 def starsectorDirectory = "D:/games/Starsector"
 
 def starsectorCoreDirectory = "${starsectorDirectory}/starsector-core"
 def starsectorModDirectory = "${starsectorDirectory}/mods"
 def modInModsFolder = "$starsectorModDirectory/${modFolderName}"
-def jarFileName =  "${jarName}.jar"
+def jarFileName =  "${baseFileName}.jar"
 
 
 jar {
@@ -85,10 +85,15 @@ dependencies {
 // custom tasks
 task release(type: Zip) {
     dependsOn build
-    archiveFileName = "alkemia-armoury-${readModInfoJson().version}.zip"
+    archiveFileName = "${baseFileName}-${readModInfoJson().version}.zip"
     destinationDirectory = file(rootDir)
-    from 'assets'
-    from jar
+    from fileTree(".").matching {
+        include("jars/*")
+        include("data/**/*")
+        include("graphics/**/*")
+        include("mod_info.json")
+        include("${baseFileName}.version")
+    }
     into project.name
 }
 
