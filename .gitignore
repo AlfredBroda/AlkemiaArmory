@@ -1,3 +1,10 @@
 *.xcf
 *.back
 *.jpg
+*.class
+*.bin
+*.jar
+
+.gradle
+build
+bin

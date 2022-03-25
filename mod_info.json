@@ -7,5 +7,6 @@
 	"gameVersion": "0.95.1a-RC6",
 	"totalConversion": "false",
 	"utility": "false",
-	"modPlugin":"data.scripts.AlkemiaModPlugin"
+	"modPlugin":"data.scripts.AlkemiaModPlugin",
+	"jars": ["jars/alkemia-armoury.jar"]
 }

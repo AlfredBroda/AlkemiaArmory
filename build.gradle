@@ -1,0 +1,100 @@
+import groovy.json.JsonSlurper
+
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("https://maven.pkg.github.com/OWNER/REPOSITORY")
+    }
+    ivy {
+        url 'https://github.com/'
+        patternLayout {
+            artifact '/[organization]/[module]/releases/download/[revision]/[ext]'
+        }
+        metadataSources {
+            artifact()
+        }
+    }
+}
+
+// project level config
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+// where to find sources
+sourceSets.main.java.srcDirs = ['src/']
+
+// build everything and make a jar
+build {
+    doLast {
+        copy {
+            from jar
+            into 'jars'
+        }
+    }
+}
+
+def modName = "Alkemia Armoury"
+def jarName = "alkemia-armoury"
+def modFolderName = "${project.name}"
+def starsectorDirectory = "D:/games/Starsector"
+
+def starsectorCoreDirectory = "${starsectorDirectory}/starsector-core"
+def starsectorModDirectory = "${starsectorDirectory}/mods"
+def modInModsFolder = "$starsectorModDirectory/${modFolderName}"
+def jarFileName =  "${jarName}.jar"
+
+
+jar {
+    archiveFileName = jarFileName
+}
+
+// compile time dependencies
+dependencies {
+    implementation "jaghaimo:starsector-api:0.95.1a-RC6@starfarer.api.jar"
+
+    // game dependencies
+    implementation group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.10'
+    implementation group: 'org.lwjgl.lwjgl', name: 'lwjgl', version: '2.9.3'
+    implementation group: 'org.lwjgl.lwjgl', name: 'lwjgl_util', version: '2.9.3'
+    implementation group: 'log4j', name: 'log4j', version: '1.2.9'
+    implementation group: 'org.json', name: 'json', version: '20090211'
+    implementation group: 'net.java.jinput', name: 'jinput', version: '2.0.7'
+    implementation group: 'org.codehaus.janino', name: 'janino', version: '3.0.7'
+    // implementation group: 'org.lazywizard.lazylib', name: 'lazylib', version: '2.7b'
+
+    // lombok
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    if (new File(starsectorModDirectory).exists()) {
+        compileOnly(fileTree(starsectorModDirectory).matching {
+            include("**/*.jar")
+            exclude("**/$jarFileName", "**/lib/*", "**/libs/*")
+        })
+    } else {
+        println("$starsectorModDirectory did not exist, not adding mod folder dependencies.")
+    }
+}
+
+// custom tasks
+task release(type: Zip) {
+    dependsOn build
+    archiveFileName = "alkemia-armoury-${readModInfoJson().version}.zip"
+    destinationDirectory = file(rootDir)
+    from 'assets'
+    from jar
+    into project.name
+}
+
+// methods
+def readModInfoJson() {
+    def jsonFile = file('mod_info.json')
+    def slurper = new JsonSlurper()
+    return slurper.parse(jsonFile)
+}
