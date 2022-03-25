@@ -1,0 +1,55 @@
+id,trigger,conditions,script,text,options,notes
+"#RULESET_NAME Alkemia",,,,,,
+,,,,,,
+# Upgrade Opportunity,,,,,,"Adds free built-in Alkemia hullmod to a ship"
+alkemia_oppBlurbFirst,alkemia_opportunity_blurbBar,,,"An unkempt mechanic wearing stained overalls rants to $hisOrHer companions at a corner table. You certainly heard ""experimental"" and ""unique"" there somewhere.",,
+alkemia_oppBlurb,alkemia_opportunity_blurbBar,"$player.alkemia_metMechanic",,"You hear a tidy mechanic boasting loudly about an ""experimental new carrier modification"" to a group of $hisOrHer companions at one of the tables.",,
+alkemia_oppBarOptionFirst,alkemia_opportunity_optionBar,,,,"alkemia_opportunity_startBar:Approach the mechanic with stained overalls",
+alkemia_oppBarOption,alkemia_opportunity_optionBar,"$player.alkemia_metMechanic",,,"alkemia_opportunity_startBar:Talk to the loud mechanic",
+alkemia_oppStart,DialogOptionSelected,"$option == alkemia_opportunity_startBar","$missionId = alkemia_opportunity
+FireBest alkemia_oppMet
+$player.alkemia_metMechanic = true
+FireBest alkemia_oppRant
+FireAll alkemia_oppOptions",,,
+alkemia_oppMetBeforeText,alkemia_oppMet,"$player.alkemia_metMechanic",,"The mechanic doesn't seem to recognize you.",,
+alkemia_oppNotMetText,alkemia_oppMet,,,"By the details $heOrShe reveals, you can tell the mechanic actually knows quite a lot about carrier modifications.",,
+alkemia_oppPickShip,alkemia_oppOptions,"!$alkemia_opp_requiresSP
+!$alkemia_opp_isInhosp","Call $alkemia_opportunity_ref canPick",,"alkemia_oppShowPicker:Show $HimOrHer to one of your carriers",
+alkemia_oppDecline,alkemia_oppOptions,"!$alkemia_opp_isInhosp
+!$alkemia_opp_requiresSP",,,"100:contact_declineBarNoContinue:Decline",
+alkemia_oppShowPickerSelected,DialogOptionSelected,"$option == alkemia_oppShowPicker","Call $alkemia_opportunity_ref showPicker",,,
+alkemia_oppPostTextDefault,alkemia_oppPostText,,,"The mechanic finishes $hisOrHer work. A clean job. $HeOrShe grins happily and concludes ""Another job done, I hope it serves you well!""",,
+alkemia_oppPostTextComplication,alkemia_oppPostText,"$alkemia_oppIllAdvised","Roider_ShowHullModDesc ill_advised","The mechanic finishes $hisOrHer work and slips off with some of the crew to go bar crawling. Shortly after, your chief engineer reports that the  installation has caused subtle but severe damage to the weapon systems and engines! You search high and low, but the mechanic is nowhere to be found.",,
+alkemia_oppExit,alkemia_oppPicked,"!$alkemia_oppPicked","BarCMD returnFromEvent false",,,
+alkemia_oppEnd,alkemia_oppPicked,"$alkemia_oppPicked",,,"contact_acceptBarNoText:Continue",
+"#END Upgrade Opportunity",,,,,,
+,,,,,,
+# OPP SP Branch,,,,,,
+alkemia_oppConvinceOption,alkemia_oppOptions,"$alkemia_opp_requiresSP
+!$alkemia_opp_isInhosp","SetStoryOption alkemia_oppConvince 1 alkemia_opp ui_char_spent_story_point ""Convinced the mechanic to work with you""",,"alkemia_oppConvince:Convince $alkemia_opp_himOrHer to work with you",
+alkemia_oppConvinceSelected1,DialogOptionSelected,"$option == alkemia_oppConvince","Call $alkemia_opportunity_ref spentSP
+FireBest alkemia_oppRant
+FireAll alkemia_oppOptions","You try to convince the mechanic. $HeOrShe stares at you for a few moments, considering $hisOrHer options. It takes you some effort to get $himOrHer to see things your way.",,
+alkemia_oppSPRant1,alkemia_oppRant,"$alkemia_opp_requiresSP
+!$alkemia_opp_isInhosp
+Alkemia_OpportunityRants sp","Alkemia_OpportunityRants sp set","""... I may get in trouble for this,"" $HeOrShe whispers. ""But what the heck, I need the data!""",,
+alkemia_oppSPLeave,alkemia_oppOptions,"$alkemia_opp_requiresSP",,,"100:contact_declineBarNoContinue:Leave",
+"#END OPP SP Branch",,,,,,
+,,,,,,
+# Standard Rants,,,,,,
+alkemia_oppRant1,alkemia_oppRant,"Alkemia_OpportunityRants","Alkemia_OpportunityRants set
+Roider_ShowHullModDesc $alkemia_opportunity_mod_ref","""It's really simple actually, I'm surprised nobody tried it before..."" $HeOrShe puts $hisOrHer glass down, stares into the distance. ""To think of all the Domain technology we are still trying to reacquire, yet we forgot to innovate ourselves. Not everything has already been done. Funny how we forget that, isn't it?""
+
+""If you let me take a look at one of your carriers I can upgrade it. Free of charge. It's not everyday I meet people willing to try something new and largely untested.""",,
+alkemia_oppRant2,alkemia_oppRant,"Alkemia_OpportunityRants","Alkemia_OpportunityRants set
+Roider_ShowHullModDesc $alkemia_opportunity_mod_ref","$HeOrShe turns to you with a wide smile, ""A willing test subject! Rare sight."" $HeOrShe winks.
+
+""We are still in closed testing phase, but I bet the company does not mind a little field test. That also means you get new toys for free! It wouldn't sit well with me if something broke and you'd also lose credits on this deal.""",,
+"#END Standard Rants",,,,,,
+,,,,,,
+# Inhospitable Rants,,,,,,
+alkemia_oppInhospRant1,alkemia_oppRant,"$alkemia_opp_isInhosp score:100
+Alkemia_OpportunityRants inhosp","Alkemia_OpportunityRants inhosp set","You see a change in $hisOrHer eyes as $heOrShe seems to vaguely recognize you. $HeOrShe says calmly, ""Your reputation precedes you, I'm not talking with the likes of you.""",,
+alkemia_oppInhospLeave,alkemia_oppOptions,"$alkemia_opp_isInhosp",,,"100:contact_declineBarNoContinue:Leave",
+"#END Inhospitable Rants",,,,,,
+
