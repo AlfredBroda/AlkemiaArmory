@@ -1,4 +1,10 @@
 {
+    "ruleCommandPackages":[
+		"data.scripts.campaign.rulecmd"
+    ],
+    "designTypeColors":{
+        "Alkemia":[255,130,0,255]
+    },
     "graphics":{
         "blueprint_packages":{
             "alkemia_bp_package":"graphics/alkemia/icons/cargo/alkemia_bp.png"

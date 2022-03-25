@@ -1,4 +1,4 @@
-package scripts.campaign.rulecmd;
+package data.scripts.campaign.rulecmd;
 
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
 import com.fs.starfarer.api.campaign.rules.MemKeys;

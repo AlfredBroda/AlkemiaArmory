@@ -76,8 +76,8 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     public void onGameLoad(boolean newGame) {
         Global.getLogger(this.getClass()).info("On game load");
 
-        ItemEffectsRepo.ITEM_EFFECTS.put(AlkemiaIds.ALKEMIA_NANOFORGE, new BoostIndustryInstallableItemEffect(
-                AlkemiaIds.ALKEMIA_NANOFORGE, AlkemiaStats.ALKEMIA_NANOFORGE_PROD, 0) {
+        ItemEffectsRepo.ITEM_EFFECTS.put(AlkemiaIds.ALKEMIA_HULLMOD_NANOFORGE, new BoostIndustryInstallableItemEffect(
+                AlkemiaIds.ALKEMIA_HULLMOD_NANOFORGE, AlkemiaStats.ALKEMIA_NANOFORGE_PROD, 0) {
             public void apply(Industry industry) {
                 super.apply(industry);
                 industry.getMarket().getStats().getDynamic().getMod(Stats.PRODUCTION_QUALITY_MOD)
