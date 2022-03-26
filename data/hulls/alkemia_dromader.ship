@@ -4,9 +4,9 @@
   "hullSize": "FRIGATE",
   "spriteName": "graphics/alkemia/ships/dromader.png",
   "style": "HIGH_TECH",
-  "height": 100,
-  "width": 120,
-  "center": [59, 39.5],
+  "height": 102,
+  "width": 122,
+  "center": [60, 40.5],
   "collisionRadius": 74,
   "shieldCenter": [-0.5, -0],
   "shieldRadius": 71,
@@ -16,7 +16,7 @@
     "ground_support"
   ],
   "builtInWeapons": {
-    "DECOR07": "alkemia_dromader_wings",
+    "DECOR07": "alkemia_dromader_bridge",
     "DECOR08": "blinker_green",
     "DECOR09": "blinker_red"
   },
@@ -28,7 +28,7 @@
       "mount": "HARDPOINT",
       "arc": 5,
       "angle": 0,
-      "locations": [20.5, 7.5]
+      "locations": [20.5, 8]
     },
     {
       "id": "FRONT02",
@@ -37,7 +37,7 @@
       "mount": "HARDPOINT",
       "arc": 5,
       "angle": -1,
-      "locations": [20.5, -8.5]
+      "locations": [20.5, -9]
     },
     {
       "id": "TURR03",
@@ -53,7 +53,7 @@
       "size": "SMALL",
       "type": "HYBRID",
       "mount": "TURRET",
-      "arc": 190,
+      "arc": 200,
       "angle": 180,
       "locations": [-29.5, -0.5]
     },
@@ -83,8 +83,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 10,
-      "angle": -1,
-      "locations": [-15, -1],
+      "angle": 0,
+      "locations": [36.5, -0.5],
       "renderOrderMod": 50
     },
     {
@@ -152,9 +152,9 @@
     -27.5, -29.5,
     -29, -34.5,
     -33.5, -36,
-    -36, -42.5,
-    -29, -56,
-    -28.5, -61,
+    -35.5, -42,
+    -27.5, -55.5,
+    -27.5, -61,
     -22.5, -61,
     -20, -58.5,
     -11.5, -59,

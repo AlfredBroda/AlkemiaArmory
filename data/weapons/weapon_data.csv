@@ -7,5 +7,5 @@ Breach SRM (Triple),alkemia_breach_fighter,1,0.5,200,600,,150,,15,10,1,3,,,HIGH_
 Harpoon SRM (Single),alkemia_harpoon_fighter,0,0.5,100,800,,750,,15,30,2,1,,,HIGH_EXPLOSIVE,0,,0,0,1,,0,0,0,,,300,100,12,150,,,"DO_NOT_AIM, CONSERVE_FOR_ANTI_ARMOR","no_drop, missile6, strike1, missile_bp, alkemia_bp",,Alkemia,,Finisher,Medium,Medium,,,,,,,TRUE,11.7
 Salamander SRM (Single),alkemia_salamander_fighter,0,0.5,100,800,,100,1500,15,30,1,,,,FRAGMENTATION,0,,0,25,1,,0,0,0,,,400,50,15,150,,,"DO_NOT_AIM, HEATSEEKER","no_drop, utility13, missile0, missile_bp, alkemia_bp, merc",,,,Anti Engine,Fast,Excellent,,,,,,,TRUE,11.25
 Light Antimatter Blaster,alkemia_amblaster_fighter,1,0.3,700,400,,800,,0,30,6,4,,,ENERGY,900,,0.25,5,,,0,0,0,0,,1000,,,100,,,"STRIKE, USE_VS_FRIGATES, GROUP_ALTERNATING","no_drop, strike10, hist1t, alkemia_bp, merc",SR_strike_only,Alkemia,,Strike,,,,,,,,,,19.76
-Dromader Wings,alkemia_dromader_wings,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,45.1
+Dromader Bridge,alkemia_dromader_bridge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,45.1
 Perch Launchbay,alkemia_launchbay,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,45.2
