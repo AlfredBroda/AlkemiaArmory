@@ -1,0 +1,30 @@
+{
+  "variantId": "alkemia_syreen_standard",
+  "hullId": "alkemia_syreen",
+  "displayName": "Standard",
+  "goalVariant": true,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "pdlaser"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "ARM_L": "alkemia_syreen_arm_l",
+        "ARM_R": "alkemia_syreen_arm_r"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

@@ -1,0 +1,30 @@
+{
+  "id": "alkemia_syreen_arm_l",
+  "specClass": "projectile",
+  "projectileSpecId": "alkemia_swarm",
+  "fireSoundTwo": "swarmer_fire",
+  "type": "MISSILE",
+  "size": "SMALL",
+  "turretSprite": "graphics/alkemia/ships/fighters/syreen-arm-l.png",
+  "hardpointSprite": "graphics/alkemia/ships/fighters/syreen-arm-l.png",
+  "renderHints": ["RENDER_LOADED_MISSILES"],
+  "turretOffsets": [-5.5, 24.5, -8.5, 28, -11.5, 31.5],
+  "turretAngleOffsets": [23, 23, 23],
+  "hardpointOffsets": [4.5, 24.5, 1.5, 28, -1.5, 31.5],
+  "hardpointAngleOffsets": [23, 23, 23],
+  "barrelMode": "ALTERNATING",
+  "animationType": "SMOKE",
+  "displayArcRadius": 300,
+  "smokeSpec": {
+    "particleSizeMin": 10,
+    "particleSizeRange": 16,
+    "cloudParticleCount": 3,
+    "cloudDuration": 0.9,
+    "cloudRadius": 8,
+    "blowbackParticleCount": 3,
+    "blowbackDuration": 1.1,
+    "blowbackLength": 20,
+    "blowbackSpread": 10,
+    "particleColor": [170, 160, 150, 100]
+  }
+}

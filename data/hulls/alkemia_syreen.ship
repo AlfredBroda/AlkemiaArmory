@@ -1,0 +1,80 @@
+{
+  "hullName": "Syreen",
+  "hullId": "alkemia_syreen",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/alkemia/ships/fighters/syreen.png",
+  "style": "MIDLINE",
+  "height": 56,
+  "width": 49,
+  "center": [24.5, 33.5],
+  "collisionRadius": 43,
+  "shieldCenter": [-2, -0],
+  "shieldRadius": 40,
+  "viewOffset": 0,
+  "builtInMods": ["eccm"],
+  "builtInWeapons": {
+    "ARM_L": "alkemia_syreen_arm_l",
+    "ARM_R": "alkemia_syreen_arm_r"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "HIDDEN",
+      "arc": 160,
+      "angle": 0,
+      "locations": [17.5, 0]
+    },
+    {
+      "id": "ARM_L",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 90,
+      "angle": 20,
+      "locations": [14, 8]
+    },
+    {
+      "id": "ARM_R",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 90,
+      "angle": -20,
+      "locations": [14, -8]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-32.5, 0],
+      "length": 60,
+      "width": 25,
+      "angle": -180,
+      "contrailSize": 30,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -32.5, -3.5,
+    -26.5, -3,
+    -23, -6.5,
+    -14, -6.5,
+    -5, -4,
+    -2, -7,
+    8, -7,
+    10, -9,
+    15.5, -8,
+    21.5, -2,
+    21.5, 2,
+    15.5, 8,
+    10, 9,
+    8, 7,
+    -2, 7,
+    -5, 4,
+    -14, 6.5,
+    -23, 6.5,
+    -26.5, 3,
+    -32.5, 3.5
+  ]
+}
