@@ -10,6 +10,7 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipVariantAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
+import com.fs.starfarer.api.combat.listeners.FighterOPCostModifier;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
@@ -52,9 +53,7 @@ public class AlkemiaDroneConversion extends BaseHullMod {
 		stats.getDynamic().getMod(Stats.INTERCEPTOR_COST_MOD).modifyPercent(id, ALL_DRONE_COST_REDUCTION);
 		stats.getDynamic().getMod(Stats.SUPPORT_COST_MOD).modifyPercent(id, ALL_DRONE_COST_REDUCTION);
 
-		// Make the ship only accept drones
-		// TODO: It would be better to filter LPCs like Automated HullMod does
-		// (but no source is avaliable)
+		// Filter out any installed non-drones and return them to cargo
 		ShipVariantAPI variant = stats.getVariant();
 		List<String> wings = variant.getNonBuiltInWings();
 		for (int i = 0; i <= wings.size(); i++) {
@@ -77,7 +76,16 @@ public class AlkemiaDroneConversion extends BaseHullMod {
 				log.warn(" - " + wing);
 			}
 		}
-		// stats.getListeners() maybe there is one for when wings are picked?
+
+		// Make the ship only accept drones
+		stats.addListener(new FighterOPCostModifier() {
+			public int getFighterOPCost(MutableShipStatsAPI stats, FighterWingSpecAPI fighter, int currCost) {
+				if (!fighter.hasTag(Tags.AUTOMATED_FIGHTER)) {
+					return 1000;
+				}
+				return currCost;
+			}
+		});
 	}
 
 	@Override
