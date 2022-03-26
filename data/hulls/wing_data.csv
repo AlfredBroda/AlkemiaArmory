@@ -3,5 +3,5 @@ alkemia_deluxe_wing,alkemia_deluxe_fighter,"fighter, alkemia_bp",3,0.75,7,14,V,3
 alkemia_deluxe_super_wing,alkemia_deluxe_super,"interceptor, alkemia_bp",3,0.75,7,16,V,3000,500,,3,INTERCEPTOR,Interceptor,5,14400,,,,,,,,,,,,,30046
 alkemia_deluxe_strike_wing,alkemia_deluxe_strike,"fighter, alkemia_bp",3,0.75,7,18,V,3000,500,,3,FIGHTER,Strike Fighter,5,12400,,,,,,,,,,,,,30046
 alkemia_deluxe_bomber_wing,alkemia_deluxe_bomber,"fighter, bomber, independent_of_carrier, alkemia_bp",3,0.75,7,20,V,5000,500,,3,BOMBER,Strike Bomber,5,14400,,,,,,,,,,,,,30046
-alkemia_deluxe_lrstrike_wing,alkemia_deluxe_lrstrike,"fighter, bomber, independent_of_carrier, alkemia_bp",3,0.75,7,18,V,10000,500,,3,BOMBER,Long Range Strike,5,14400,,,,,,,,,,,,,30046
-alkemia_syreen_wing,alkemia_syreen_standard,"interceptor, alkemia_bp, independent_of_carrier, auto_fighter",3,0.75,7,20,V,10000,500,,2,INTERCEPTOR,Interceptor,5,18000,,,,,,,,,,,,,30047
+alkemia_deluxe_lrstrike_wing,alkemia_deluxe_lrstrike,"fighter, bomber, independent_of_carrier, alkemia_bp",3,0.75,7,18,V,10000,500,,3,BOMBER,Long Range Strike,5,16400,,,,,,,,,,,,,30046
+alkemia_syreen_wing,alkemia_syreen_standard,"interceptor, alkemia_bp, independent_of_carrier",3,0.75,7,20,V,10000,500,,1,INTERCEPTOR,Interceptor,5,8000,,,,,,,,,,,,,30047
