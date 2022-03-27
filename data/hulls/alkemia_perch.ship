@@ -12,8 +12,7 @@
   "shieldRadius": 160,
   "viewOffset": 0,
   "builtInMods": [
-    "alkemia_impmanufactory",
-    "expanded_cargo_holds"
+    "alkemia_impmanufactory"
   ],
   "builtInWeapons": {
     "BAY0001": "alkemia_launchbay"
@@ -94,7 +93,7 @@
     {
       "id": "MISS01",
       "size": "MEDIUM",
-      "type": "SYNERGY",
+      "type": "MISSILE",
       "mount": "HIDDEN",
       "arc": 0,
       "angle": 0,

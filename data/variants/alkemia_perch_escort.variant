@@ -3,12 +3,11 @@
   "hullId": "alkemia_perch",
   "displayName": "Escort",
   "goalVariant": true,
-  "fluxCapacitors": 9,
-  "fluxVents": 3,
+  "fluxCapacitors": 13,
+  "fluxVents": 6,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "efficiency_overhaul",
     "adaptiveshields",
     "escort_package",
     "hiressensors"
@@ -58,8 +57,8 @@
   ],
   "modules": [],
   "wings": [
+    "alkemia_syreen_wing",
     "alkemia_deluxe_super_wing",
-    "alkemia_deluxe_wing",
-    "xyphos_wing"
+    "alkemia_deluxe_wing"
   ]
 }

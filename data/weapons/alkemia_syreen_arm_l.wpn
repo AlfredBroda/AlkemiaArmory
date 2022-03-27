@@ -4,7 +4,7 @@
   "projectileSpecId": "alkemia_swarm",
   "fireSoundTwo": "swarmer_fire",
   "type": "MISSILE",
-  "size": "SMALL",
+  "size": "MEDIUM",
   "turretSprite": "graphics/alkemia/ships/fighters/syreen-arm-l.png",
   "hardpointSprite": "graphics/alkemia/ships/fighters/syreen-arm-l.png",
   "renderHints": ["RENDER_LOADED_MISSILES"],

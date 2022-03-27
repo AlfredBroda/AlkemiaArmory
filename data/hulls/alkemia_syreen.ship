@@ -6,12 +6,15 @@
   "style": "MIDLINE",
   "height": 56,
   "width": 49,
-  "center": [24.5, 33.5],
-  "collisionRadius": 43,
-  "shieldCenter": [-2, -0],
-  "shieldRadius": 40,
+  "center": [24.5, 35.5],
+  "collisionRadius": 55,
+  "shieldCenter": [-1.5, -0],
+  "shieldRadius": 52,
   "viewOffset": 0,
-  "builtInMods": ["eccm"],
+  "builtInMods": [
+    "armoredweapons",
+    "eccm"
+  ],
   "builtInWeapons": {
     "ARM_L": "alkemia_syreen_arm_l",
     "ARM_R": "alkemia_syreen_arm_r"
@@ -24,30 +27,30 @@
       "mount": "HIDDEN",
       "arc": 160,
       "angle": 0,
-      "locations": [17.5, 0]
+      "locations": [15.5, 0]
     },
     {
       "id": "ARM_L",
-      "size": "SMALL",
+      "size": "MEDIUM",
       "type": "BUILT_IN",
       "mount": "TURRET",
-      "arc": 90,
+      "arc": 120,
       "angle": 20,
-      "locations": [14, 8]
+      "locations": [12, 8]
     },
     {
       "id": "ARM_R",
-      "size": "SMALL",
+      "size": "MEDIUM",
       "type": "BUILT_IN",
       "mount": "TURRET",
-      "arc": 90,
+      "arc": 120,
       "angle": -20,
-      "locations": [14, -8]
+      "locations": [12, -8]
     }
   ],
   "engineSlots": [
     {
-      "location": [-32.5, 0],
+      "location": [-34.5, 0],
       "length": 60,
       "width": 25,
       "angle": -180,
@@ -56,25 +59,25 @@
     }
   ],
   "bounds": [
-    -32.5, -3.5,
-    -26.5, -3,
-    -23, -6.5,
-    -14, -6.5,
-    -5, -4,
-    -2, -7,
-    8, -7,
-    10, -9,
-    15.5, -8,
-    21.5, -2,
-    21.5, 2,
-    15.5, 8,
-    10, 9,
-    8, 7,
-    -2, 7,
-    -5, 4,
-    -14, 6.5,
-    -23, 6.5,
-    -26.5, 3,
-    -32.5, 3.5
+    -34.5, -3.5,
+    -28.5, -3,
+    -25, -6.5,
+    -16, -6.5,
+    -7, -4,
+    -4, -7,
+    6, -7,
+    8, -9,
+    13.5, -8,
+    19.5, -2,
+    19.5, 2,
+    13.5, 8,
+    8, 9,
+    6, 7,
+    -4, 7,
+    -7, 4,
+    -16, 6.5,
+    -25, 6.5,
+    -28.5, 3,
+    -34.5, 3.5
   ]
 }

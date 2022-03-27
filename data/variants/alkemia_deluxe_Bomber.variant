@@ -1,7 +1,7 @@
 {
   "variantId": "alkemia_deluxe_bomber",
   "hullId": "alkemia_deluxe",
-  "displayName": "Bomber",
+  "displayName": "Heavy Bomber",
   "goalVariant": false,
   "fluxCapacitors": 2,
   "fluxVents": 2,
