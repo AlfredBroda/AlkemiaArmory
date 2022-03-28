@@ -1,2 +1,2 @@
 bar event id,tags,freq,prob,min dur,max dur,min timeout,max timeout,min accepted timeout,max accepted timeout,plugin
-alkemia_opportunity,,10,100,30,40,15,20,60,120,data.scripts.campaign.rulecmd.Alkemia_Opportunity
+alkemia_opportunity,,10,30,30,40,15,20,60,120,data.scripts.campaign.rulecmd.Alkemia_Opportunity

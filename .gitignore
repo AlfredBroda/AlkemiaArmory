@@ -7,5 +7,7 @@
 *.zip
 
 .gradle
+gradle.properties
+
 build
 bin

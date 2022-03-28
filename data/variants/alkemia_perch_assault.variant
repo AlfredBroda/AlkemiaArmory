@@ -16,29 +16,24 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "MISS01": "sabotpod",
-        "WS0004": "pdlaser",
-        "WS0005": "pdlaser",
-        "WS0006": "chaingun",
-        "WS0007": "chaingun",
-        "WS0010": "alkemia_vulcan",
-        "WS0011": "alkemia_vulcan"
+        "MISS01": "sabotpod"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0006": "chaingun",
+        "WS0007": "chaingun"
+      }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0010": "alkemia_vulcan",
+        "WS0011": "alkemia_vulcan"
+      }
     },
     {
       "autofire": true,
@@ -47,7 +42,9 @@
         "WS0000": "pdlaser",
         "WS0001": "pdlaser",
         "WS0002": "pdlaser",
-        "WS0003": "pdlaser"
+        "WS0003": "pdlaser",
+        "WS0004": "pdlaser",
+        "WS0005": "pdlaser"
       }
     }
   ],

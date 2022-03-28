@@ -2,7 +2,7 @@ package data.scripts;
 
 public class AlkemiaIds {
     // HullMods
-    public static final String ALKEMIA_HULLMOD_NANOFORGE = "alkemia_nanoforge";
+    public static final String ALKEMIA_HULLMOD_NANOFORGE = "alkemia_impmanufactory";
     public static final String ALKEMIA_HULLMOD_DRONEBAYS = "alkemia_droneonlybays";
 
     // Industries

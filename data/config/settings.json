@@ -1,4 +1,5 @@
 {
+    "colorAlkemia":[255,130,0,255],
     "ruleCommandPackages":[
 		"data.scripts.campaign.rulecmd"
     ],
@@ -15,6 +16,10 @@
             "alkemia_workshop_low":"graphics/alkemia/icons/industry/starship_workshop.png",
             "alkemia_outpost_desert":"graphics/alkemia/icons/industry/desert_outpost.png",
             "alkemia_tanker_desert":"graphics/alkemia/icons/industry/tanker_landing.png"
+        },
+        "characters":{
+			"female_mechanic":"graphics/alkemia/portraits/female_mechanic1.png",
+			"male_mechanic":"graphics/alkemia/portraits/male_mechanic1.png"
         }
     }
 }

@@ -1,13 +1,19 @@
 package data.scripts.campaign.rulecmd;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FleetMemberPickerListener;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
+import com.fs.starfarer.api.campaign.PersonImportance;
 import com.fs.starfarer.api.campaign.RepLevel;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.rules.MemKeys;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
+import com.fs.starfarer.api.characters.FullName.Gender;
 import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.combat.ShipVariantAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
@@ -20,11 +26,8 @@ import com.fs.starfarer.api.impl.campaign.ids.Voices;
 import com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithBarEvent;
 import com.fs.starfarer.api.impl.campaign.rulecmd.FireBest;
 import com.fs.starfarer.api.util.Misc;
-import data.scripts.AlkemiaIds;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import data.scripts.AlkemiaIds;
 
 /**
  * Author: Frederoo
@@ -53,7 +56,8 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
 
         // setGiverFaction(Factions.ALKEMIA);
         setGiverPost(Ranks.POST_CITIZEN);
-        setGiverVoice(Voices.BUSINESS);
+        setGiverImportance(PersonImportance.LOW);
+        setGiverVoice(Voices.SCIENTIST);
         findOrCreateGiver(createdAt, false, true);
 
         PersonAPI person = getPerson();
@@ -62,7 +66,10 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
 
         boolean refSet = setPersonMissionRef(person, "$alkemia_opportunity_ref");
         int modIndex = Math.round((float) Math.random());
-        Global.getSector().getMemoryWithoutUpdate().set("$alkemia_opportunity_mod_ref", POSSIBLE_MODS.get(modIndex));
+        String selectedMod = POSSIBLE_MODS.get(modIndex);
+        Global.getSector().getMemory().set("$alkemia_opportunity_mod_ref", selectedMod);
+        String modName = Global.getSettings().getHullModSpec(selectedMod).getDisplayName();
+        Global.getSector().getMemory().set("$alkemia_opportunity_mod_name", modName);
 
         if (!Global.getSector().getMemoryWithoutUpdate().contains(SP_REQUIRED)
                 && genRandom.nextFloat() < 0.1f)
@@ -77,8 +84,11 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
         if (person == null) {
             person = Global.getSector().getFaction(Factions.INDEPENDENT).createRandomPerson();
 
-            // person.setPortraitSprite(Global.getSettings().getSpriteName("intel",
-            // "repairs_finished"));
+            if (person.getGender() == Gender.MALE) {
+                person.setPortraitSprite(Global.getSettings().getSpriteName("characters", "male_mechanic"));
+            } else {
+                person.setPortraitSprite(Global.getSettings().getSpriteName("characters", "female_mechanic"));
+            }
 
             Global.getSector().getMemoryWithoutUpdate().set(GIVER_KEY, person);
         }
@@ -132,7 +142,7 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
 
         int rows = avail.size() / 7 + 1;
 
-        dialog.showFleetMemberPickerDialog("Pick ship for installation", "Ok", "Cancel", rows, COLUMNS, 58f,
+        dialog.showFleetMemberPickerDialog("Pick ship for mod integration", "Ok", "Cancel", rows, COLUMNS, 58f,
                 true, false, avail, new FleetMemberPickerListener() {
 
                     @Override
@@ -207,7 +217,7 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
     private boolean isCarrier(FleetMemberAPI member) {
         ShipVariantAPI variant = member.getVariant();
 
-        if (variant.isCarrier() || member.getHullSpec().getFighterBays() > 0) return true;
+        if (variant.getNonBuiltInWings().size() > 0) return true;
 
         return false;
     }
