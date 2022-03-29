@@ -39,12 +39,16 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
     public static final String SP_REQUIRED = "$alkemia_opp_requiresSP";
     public static final String SP_SPENT = "$alkemia_opp_spentSP";
     public static final String CREDITS_SPENT = "$alkemia_opp_paid";
-    public static final String CREDITS_MULT = "$alkemia_opp_costMult";
+    public static final String MOD_REF = "$alkemia_opportunity_mod_ref";
+
+    public static final float BASE_COMPLICATIONS = 0.3f;
     public static final float EVENT_DAYS = 60;
-    public static final float BASE_COST_MULT = 0.5f;
     protected static final int COLUMNS = 7;
 
     protected PersonAPI person = null;
+    protected float baseCostMultiplier = 0.5f;
+    protected float baseCost = 0.0f;
+    protected float complicationChance = BASE_COMPLICATIONS;
 
     public static List<String> POSSIBLE_MODS = new ArrayList<String>();
     static {
@@ -70,6 +74,8 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
 
         person = getPerson();
 
+        setGiverFaction(Factions.INDEPENDENT);
+
         setRepFactionChangesTiny();
 
         MemoryAPI globalMemory = Global.getSector().getMemoryWithoutUpdate();
@@ -77,12 +83,16 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
         boolean refSet = setPersonMissionRef(person, "$alkemia_opportunity_ref");
         globalMemory.set("$alkemia_oppGiverName", person.getName().getFirst(), 0);
 
-        int modIndex = Math.round((float) Math.random());
-        String selectedMod = POSSIBLE_MODS.get(modIndex);
-        globalMemory.set("$alkemia_opportunity_mod_ref", selectedMod, 0);
+        String selectedMod = globalMemory.getString(MOD_REF);
+        if (selectedMod == null) {
+            int modIndex = Math.round((float) Math.random() * (POSSIBLE_MODS.size() - 1));
+            selectedMod = POSSIBLE_MODS.get(modIndex);
+            globalMemory.set(MOD_REF, selectedMod, EVENT_DAYS);
+        }
 
         HullModSpecAPI modSpec = Global.getSettings().getHullModSpec(selectedMod);
         globalMemory.set("$alkemia_opportunity_mod_name", modSpec.getDisplayName(), 0);
+        baseCost = modSpec.getBaseValue();
 
         if (Global.getSector().getMemoryWithoutUpdate().contains(SP_SPENT)
                 || hasRepAll(person, RepLevel.INHOSPITABLE)) {
@@ -92,8 +102,6 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
         }
 
         globalMemory.set(CREDITS_SPENT, false);
-        globalMemory.set("$alkemia_opp_baseCost", modSpec.getBaseValue());
-        globalMemory.set(CREDITS_MULT, BASE_COST_MULT);
 
         return refSet;
     }
@@ -130,17 +138,13 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
         set(SP_REQUIRED, getSPRequired());
         set("$alkemia_opp_isInhosp", !hasRepAll(person, RepLevel.INHOSPITABLE));
         set("$alkemia_opp_liked", hasRepAny(person, RepLevel.WELCOMING));
-        
-        MemoryAPI globalMemory = Global.getSector().getMemoryWithoutUpdate();
-        Object mult = globalMemory.get(CREDITS_MULT);
-        if (mult != null) {
-            set("$alkemia_opp_cost", Misc.getWithDGS((float) mult * (float) globalMemory.get("$alkemia_opp_baseCost")));
-        }
+        set("$alkemia_opp_cost", Misc.getWithDGS(baseCostMultiplier * baseCost));
     }
 
     @Override
     protected boolean callAction(String action, String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params,
             Map<String, MemoryAPI> memoryMap) {
+
         if (action.equals("doPay")) {
             set(CREDITS_SPENT, true);
             return true;
@@ -150,8 +154,13 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
             showPicker(dialog, memoryMap);
             return true;
         }
+
         if (action.equals("spentSP")) {
-            set(SP_SPENT, true);
+            Global.getSector().getMemoryWithoutUpdate().set(SP_SPENT, true);
+            baseCostMultiplier = 1.0f;
+            complicationChance = 0.5f;
+            set("$alkemia_opp_cost", Misc.getWithDGS(baseCostMultiplier * baseCost));
+
             return true;
         }
 
@@ -184,18 +193,20 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
                         }
 
                         String availableMod = Global.getSector().getMemoryWithoutUpdate()
-                                .getString("$alkemia_opportunity_mod_ref");
+                                .getString(MOD_REF);
 
                         ShipVariantAPI variant = members.get(0).getVariant();
                         if (variant.getSMods().contains(availableMod)) {
                             variant.removePermaMod(availableMod);
                         }
                         variant.addPermaMod(availableMod);
-                        if (genRandom.nextBoolean()) {
-                            variant.addMod(HullMods.ILL_ADVISED);
+
+                        if (rollProbability(complicationChance)) {
+                            variant.addPermaMod(HullMods.ILL_ADVISED);
                             DModManager.setDHull(variant);
 
                             memoryMap.get(MemKeys.LOCAL).set("$alkemia_oppIllAdvised", true, 0);
+                            setDoNotAutoAddPotentialContactsOnSuccess();
                         }
 
                         FireBest.fire(null, dialog, memoryMap, "alkemia_oppPostText");
@@ -213,7 +224,7 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
 
     protected List<FleetMemberAPI> getAvailableShips() {
         CampaignFleetAPI pool = FleetFactoryV3.createEmptyFleet(Factions.PLAYER, FleetTypes.MERC_PRIVATEER, null);
-        String availableMod = Global.getSector().getMemoryWithoutUpdate().getString("$alkemia_opportunity_mod_ref");
+        String availableMod = Global.getSector().getMemoryWithoutUpdate().getString(MOD_REF);
         for (FleetMemberAPI m : Global.getSector().getPlayerFleet().getFleetData().getMembersListCopy()) {
             if (hasBuiltInMod(m, availableMod) || !isCarrier(m))
                 continue;
