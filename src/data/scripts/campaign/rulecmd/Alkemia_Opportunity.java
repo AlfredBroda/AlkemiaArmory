@@ -21,10 +21,12 @@ import com.fs.starfarer.api.impl.campaign.DModManager;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.FleetTypes;
+import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 import com.fs.starfarer.api.impl.campaign.ids.Voices;
 import com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithBarEvent;
 import com.fs.starfarer.api.impl.campaign.rulecmd.FireBest;
+import com.fs.starfarer.api.loading.HullModSpecAPI;
 import com.fs.starfarer.api.util.Misc;
 
 import data.scripts.AlkemiaIds;
@@ -34,9 +36,15 @@ import data.scripts.AlkemiaIds;
  */
 public class Alkemia_Opportunity extends HubMissionWithBarEvent {
     public static final String GIVER_KEY = "$alkemia_opportunityData";
-    public static final String SP_REQUIRED = "$alkemia_opportunitySPReq";
+    public static final String SP_REQUIRED = "$alkemia_opp_requiresSP";
+    public static final String SP_SPENT = "$alkemia_opp_spentSP";
+    public static final String CREDITS_SPENT = "$alkemia_opp_paid";
+    public static final String CREDITS_MULT = "$alkemia_opp_costMult";
     public static final float EVENT_DAYS = 60;
+    public static final float BASE_COST_MULT = 0.5f;
     protected static final int COLUMNS = 7;
+
+    protected PersonAPI person = null;
 
     public static List<String> POSSIBLE_MODS = new ArrayList<String>();
     static {
@@ -57,37 +65,50 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
         // setGiverFaction(Factions.ALKEMIA);
         setGiverPost(Ranks.POST_CITIZEN);
         setGiverImportance(PersonImportance.LOW);
-        setGiverVoice(Voices.SCIENTIST);
+        setGiverVoice(Voices.SPACER);
         findOrCreateGiver(createdAt, false, true);
 
-        PersonAPI person = getPerson();
+        person = getPerson();
 
         setRepFactionChangesTiny();
 
+        MemoryAPI globalMemory = Global.getSector().getMemoryWithoutUpdate();
+
         boolean refSet = setPersonMissionRef(person, "$alkemia_opportunity_ref");
+        globalMemory.set("$alkemia_oppGiverName", person.getName().getFirst(), 0);
+
         int modIndex = Math.round((float) Math.random());
         String selectedMod = POSSIBLE_MODS.get(modIndex);
-        Global.getSector().getMemory().set("$alkemia_opportunity_mod_ref", selectedMod);
-        String modName = Global.getSettings().getHullModSpec(selectedMod).getDisplayName();
-        Global.getSector().getMemory().set("$alkemia_opportunity_mod_name", modName);
+        globalMemory.set("$alkemia_opportunity_mod_ref", selectedMod, 0);
 
-        if (!Global.getSector().getMemoryWithoutUpdate().contains(SP_REQUIRED)
-                && genRandom.nextFloat() < 0.1f)
+        HullModSpecAPI modSpec = Global.getSettings().getHullModSpec(selectedMod);
+        globalMemory.set("$alkemia_opportunity_mod_name", modSpec.getDisplayName(), 0);
+
+        if (Global.getSector().getMemoryWithoutUpdate().contains(SP_SPENT)
+                || hasRepAll(person, RepLevel.INHOSPITABLE)) {
+            setSPRequired(false);
+        } else {
             setSPRequired(true);
+        }
+
+        globalMemory.set(CREDITS_SPENT, false);
+        globalMemory.set("$alkemia_opp_baseCost", modSpec.getBaseValue());
+        globalMemory.set(CREDITS_MULT, BASE_COST_MULT);
 
         return refSet;
     }
 
     @Override
     public PersonAPI getPerson() {
-        PersonAPI person = (PersonAPI) Global.getSector().getMemoryWithoutUpdate().get(GIVER_KEY);
         if (person == null) {
             person = Global.getSector().getFaction(Factions.INDEPENDENT).createRandomPerson();
 
             if (person.getGender() == Gender.MALE) {
-                person.setPortraitSprite(Global.getSettings().getSpriteName("characters", "male_mechanic"));
+                person.setPortraitSprite(Global.getSettings().getSpriteName("characters",
+                        String.format("male_mechanic%d", getRandom(1, 2))));
             } else {
-                person.setPortraitSprite(Global.getSettings().getSpriteName("characters", "female_mechanic"));
+                person.setPortraitSprite(Global.getSettings().getSpriteName("characters",
+                        String.format("female_mechanic%d", getRandom(1, 3))));
             }
 
             Global.getSector().getMemoryWithoutUpdate().set(GIVER_KEY, person);
@@ -106,22 +127,31 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
 
     @Override
     protected void updateInteractionDataImpl() {
-        set("$alkemia_opp_requiresSP", getSPRequired());
-        set("$alkemia_opp_isInhosp", Global.getSector().getPlayerFaction()
-                .getRelationshipLevel(Factions.INDEPENDENT)
-                .isAtBest(RepLevel.INHOSPITABLE));
+        set(SP_REQUIRED, getSPRequired());
+        set("$alkemia_opp_isInhosp", !hasRepAll(person, RepLevel.INHOSPITABLE));
+        set("$alkemia_opp_liked", hasRepAny(person, RepLevel.WELCOMING));
+        
+        MemoryAPI globalMemory = Global.getSector().getMemoryWithoutUpdate();
+        Object mult = globalMemory.get(CREDITS_MULT);
+        if (mult != null) {
+            set("$alkemia_opp_cost", Misc.getWithDGS((float) mult * (float) globalMemory.get("$alkemia_opp_baseCost")));
+        }
     }
 
     @Override
     protected boolean callAction(String action, String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params,
             Map<String, MemoryAPI> memoryMap) {
+        if (action.equals("doPay")) {
+            set(CREDITS_SPENT, true);
+            return true;
+        }
+
         if (action.equals("showPicker")) {
             showPicker(dialog, memoryMap);
             return true;
         }
         if (action.equals("spentSP")) {
-            set("$alkemia_opp_requiresSP", false);
-            setSPRequired(false);
+            set(SP_SPENT, true);
             return true;
         }
 
@@ -140,17 +170,21 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
     protected void showPicker(final InteractionDialogAPI dialog, final Map<String, MemoryAPI> memoryMap) {
         List<FleetMemberAPI> avail = getAvailableShips();
 
-        int rows = avail.size() / 7 + 1;
+        int rows = avail.size() / COLUMNS + 1;
 
-        dialog.showFleetMemberPickerDialog("Pick ship for mod integration", "Ok", "Cancel", rows, COLUMNS, 58f,
+        dialog.showFleetMemberPickerDialog(
+                "Pick a ship for mod integration", "Ok", "Cancel", rows, COLUMNS, 58f,
                 true, false, avail, new FleetMemberPickerListener() {
 
                     @Override
                     public void pickedFleetMembers(List<FleetMemberAPI> members) {
-                        if (members.isEmpty())
+                        if (members.isEmpty()) {
+                            FireBest.fire(null, dialog, memoryMap, "alkemia_oppBackout");
                             return;
+                        }
 
-                        String availableMod = Global.getSector().getMemoryWithoutUpdate().getString("$alkemia_opportunity_mod_ref");
+                        String availableMod = Global.getSector().getMemoryWithoutUpdate()
+                                .getString("$alkemia_opportunity_mod_ref");
 
                         ShipVariantAPI variant = members.get(0).getVariant();
                         if (variant.getSMods().contains(availableMod)) {
@@ -158,22 +192,21 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
                         }
                         variant.addPermaMod(availableMod);
                         if (genRandom.nextBoolean()) {
-                            variant.addMod("ill_advised");
+                            variant.addMod(HullMods.ILL_ADVISED);
                             DModManager.setDHull(variant);
-        
+
                             memoryMap.get(MemKeys.LOCAL).set("$alkemia_oppIllAdvised", true, 0);
                         }
-        
 
-                        FireBest.fire(null, dialog, memoryMap, "Alkemia_oppPostText");
+                        FireBest.fire(null, dialog, memoryMap, "alkemia_oppPostText");
                         memoryMap.get(MemKeys.LOCAL).set("$alkemia_oppPicked", true, 0);
-                        FireBest.fire(null, dialog, memoryMap, "Alkemia_oppPicked");
+                        FireBest.fire(null, dialog, memoryMap, "alkemia_oppPicked");
                     }
 
                     @Override
                     public void cancelledFleetMemberPicking() {
                         memoryMap.get(MemKeys.LOCAL).set("$alkemia_oppPicked", false, 0);
-                        FireBest.fire(null, dialog, memoryMap, "Alkemia_oppPicked");
+                        FireBest.fire(null, dialog, memoryMap, "alkemia_oppBackout");
                     }
                 });
     }
@@ -201,13 +234,14 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
      * Does not count S-mods as "built-in"
      * 
      * @param member the ship to check
-     * @param mod ID of the hullmod
+     * @param mod    ID of the hullmod
      * @return whether the ship has a mod built-in
      */
     private boolean hasBuiltInMod(FleetMemberAPI member, String mod) {
         ShipVariantAPI variant = member.getVariant();
 
-        if (variant.hasHullMod(mod)) return true;
+        if (variant.hasHullMod(mod))
+            return true;
 
         return variant.hasHullMod(mod)
                 && !(variant.getSMods().contains(mod)
@@ -217,9 +251,29 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
     private boolean isCarrier(FleetMemberAPI member) {
         ShipVariantAPI variant = member.getVariant();
 
-        if (variant.getNonBuiltInWings().size() > 0) return true;
+        if (variant.getNonBuiltInWings().size() > 0)
+            return true;
 
         return false;
     }
 
+    private int getRandom(int min, int max) {
+        double seed = Math.random() * (max - min);
+        long crop = Math.round(seed);
+        return min + (int) crop;
+    }
+
+    private boolean hasRepAll(PersonAPI person, RepLevel rep) {
+        return person.getRelToPlayer().isAtWorst(rep) &&
+                Global.getSector().getPlayerFaction()
+                        .getRelationshipLevel(person.getFaction())
+                        .isAtWorst(rep);
+    }
+
+    private boolean hasRepAny(PersonAPI person, RepLevel rep) {
+        return person.getRelToPlayer().isAtWorst(rep) ||
+                Global.getSector().getPlayerFaction()
+                        .getRelationshipLevel(person.getFaction())
+                        .isAtWorst(rep);
+    }
 }

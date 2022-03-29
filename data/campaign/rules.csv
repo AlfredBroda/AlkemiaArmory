@@ -2,58 +2,91 @@ id,trigger,conditions,script,text,options,notes
 "#RULESET_NAME Alkemia",,,,,,
 ,,,,,,
 # Upgrade Opportunity,,,,,,"Adds free built-in Alkemia hullmod to a ship"
-alkemia_oppBlurbFirst,alkemia_opportunity_blurbBar,,,"An unkempt mechanic wearing stained overalls rants excitedly to $hisOrHer companions at a corner table. You certainly heard $himOrHer say ""integration"" and ""carrier"".",,
-alkemia_oppBlurb,alkemia_opportunity_blurbBar,"$player.alkemia_metMechanic",,"You hear a tipsy mechanic boasting loudly about ""successful experimental integration"" of carrier modifications to a group of $hisOrHer companions at one of the tables.",,
-alkemia_oppBarOptionFirst,alkemia_opportunity_optionBar,,,,"alkemia_opportunity_startBar:Approach the mechanic with stained overalls",
-alkemia_oppBarOption,alkemia_opportunity_optionBar,"$player.alkemia_metMechanic",,,"alkemia_opportunity_startBar:Talk to the swaying mechanic",
+alkemia_oppBlurbFirst,alkemia_opportunity_blurbBar,,,"A group of unkempt mechanics wearing stained overalls talks excitedly at a corner table. You certainly heard someone say ""mod integration"" and ""success"".",,
+alkemia_oppBlurb,alkemia_opportunity_blurbBar,"$player.alkemia_metMechanic",,"You hear some mechanics boasting loudly about ""successful experimental carrier integration"" at one of the tables.",,
+alkemia_oppBarOptionFirst,alkemia_opportunity_optionBar,,,,"alkemia_opportunity_startBar:Approach the mechanics",
+alkemia_oppBarOption,alkemia_opportunity_optionBar,"$player.alkemia_metMechanic",,,"alkemia_opportunity_startBar:Ask one of the mechanics about their celebration",
 alkemia_oppStart,DialogOptionSelected,"$option == alkemia_opportunity_startBar","$missionId = alkemia_opportunity
 FireBest alkemia_oppMet
 $player.alkemia_metMechanic = true
 FireBest alkemia_oppRant
 FireAll alkemia_oppOptions",,,
-alkemia_oppMetBeforeText,alkemia_oppMet,"$player.alkemia_metMechanic","AddText ""The mechanic doesn't seem to recognize you. You remember them currently working on $alkemia_opportunity_mod_name integration.""
-SetTextHighlightColors hColor hColor
-SetTextHighlights mechanic $alkemia_opportunity_mod_name
-Alkemia_ShowHullModDesc $alkemia_opportunity_mod_ref",,,
-alkemia_oppNotMetText,alkemia_oppMet,,"AddText ""$HeOrShe passes you a TriPad with an Alkemia Customs logo. It appears that the carrier mod integration $heOrShe was talking about concerns $alkemia_opportunity_mod_name.""
-SetTextHighlightColors colorAlkemia hColor
-SetTextHighlights Alkemia $alkemia_opportunity_mod_name
-Alkemia_ShowHullModDesc $alkemia_opportunity_mod_ref",,,
+alkemia_oppMetBeforeText,alkemia_oppMet,"$player.alkemia_metMechanic","Alkemia_ShowHullModDesc $alkemia_opportunity_mod_ref","This mechanic doesn't seem to recognize you, but gladly tells you about what they are currently working on.
+
+""You want to try this too?"" $HeOrShe grins manically.",,
+alkemia_oppNotMetText,alkemia_oppMet,,"SetTextHighlightColors colorAlkemia
+SetTextHighlights Alkemia Customs
+Alkemia_ShowHullModDesc $alkemia_opportunity_mod_ref
+","One of them passes you a TriPad with an Alkemia Customs logo. It looks like schematics for integrating $alkemia_opportunity_mod_name into a carrier.",,
+alkemia_oppCreditsPay,alkemia_oppOptions,"!$alkemia_opp_requiresSP
+!$alkemia_opp_liked
+","DoCanAffordCheck $alkemia_opp_cost alkemia_opp_acceptPay false",,"alkemia_oppShowPicker:Pay the mechanics $alkemia_opp_cost credits",
 alkemia_oppPickShip,alkemia_oppOptions,"!$alkemia_opp_requiresSP
-!$alkemia_opp_isInhosp","Call $alkemia_opportunity_ref canPick",,"alkemia_oppShowPicker:Show $himOrHer to one of your carriers",
-alkemia_oppDecline,alkemia_oppOptions,"!$alkemia_opp_isInhosp
-!$alkemia_opp_requiresSP",,,"100:contact_declineBarNoContinue:Decline",
+$alkemia_opp_liked
+","Call $alkemia_opportunity_ref canPick",,"alkemia_oppShowPicker:Show them to one of your carriers",
+alkemia_oppDecline,alkemia_oppOptions,,,,"1:alkemia_oppBackout:Leave",
 alkemia_oppShowPickerSelected,DialogOptionSelected,"$option == alkemia_oppShowPicker","Call $alkemia_opportunity_ref showPicker",,,
-alkemia_oppPostTextDefault,Alkemia_oppPostText,,,"The mechanic finishes $hisOrHer work. A clean job. $HeOrShe grins happily and concludes ""Another job done, I hope it serves you well!""",,
-alkemia_oppPostTextComplication,Alkemia_oppPostText,"$alkemia_oppIllAdvised","Alkemia_ShowHullModDesc ill_advised","The mechanic finishes $hisOrHer work and slips off with some of the crew to go bar crawling. Shortly after, your chief engineer reports that the  installation has caused subtle but severe damage to the weapon systems and engines! You search high and low, but the mechanic is nowhere to be found.",,
-alkemia_oppExit,Alkemia_oppPicked,"!$alkemia_oppPicked","BarCMD returnFromEvent false",,,
-alkemia_oppEnd,Alkemia_oppPicked,"$alkemia_oppPicked",,,"contact_acceptBarNoText:Continue",
+alkemia_oppPostTextDefault,alkemia_oppPostText,,"SetTextHighlights $alkemia_oppGiverName","The mechanics finish their work. A solid job. $alkemia_oppGiverName grins happily and concludes:
+
+""Another one done, I hope it serves you well!""
+OR
+As the mechanics finish their work and turn to leave, you inspect the ship in question. $alkemia_oppGiverName approaches you: 
+
+""It was nice working with you Captain, burn bright!""",,
+alkemia_oppPostTextComplication,alkemia_oppPostText,"$alkemia_oppIllAdvised","Alkemia_ShowHullModDesc ill_advised","The mechanics finish their work and slip off with some of the crew to go bar crawling again. Shortly after, your chief engineer reports that the installation has caused subtle but severe damage to the weapon systems and engines! You search high and low, but the mechanics are nowhere to be found.",,
+alkemia_oppExit,alkemia_oppPicked,"!$alkemia_oppPicked","BarCMD returnFromEvent false",,,
+alkemia_oppEnd,alkemia_oppPicked,"$alkemia_oppPicked",,,"contact_acceptBarNoText:Continue",
+alkemia_oppBackout,DialogOptionSelected,"$option == alkemia_oppBackout",,"You decide to drop the subject for now. The mechanics don't seem to be going anywhere right now.","100:contact_declineBarNoContinue:Leave",
 "#END Upgrade Opportunity",,,,,,
 ,,,,,,
 # OPP SP Branch,,,,,,
 alkemia_oppConvinceOption,alkemia_oppOptions,"$alkemia_opp_requiresSP
-!$alkemia_opp_isInhosp","SetStoryOption alkemia_oppConvince 1 alkemia_opp ui_char_spent_story_point ""Convinced the mechanic to work with you""",,"alkemia_oppConvince:Convince $alkemia_opp_himOrHer to work with you",
-alkemia_oppConvinceSelected1,DialogOptionSelected,"$option == alkemia_oppConvince","Call $alkemia_opportunity_ref spentSP
+!$alkemia_opp_spentSP
+$alkemia_opp_isInhosp","SetStoryOption alkemia_oppConvince 1 alkemia_opp ui_char_spent_story_point ""Convinced the mechanics to work with you""",,"alkemia_oppConvince:Convince $himOrHer to work with you",
+alkemia_oppConvince,DialogOptionSelected,"$option == alkemia_oppConvince","Call $alkemia_opportunity_ref spentSP
 FireBest alkemia_oppRant
-FireAll alkemia_oppOptions","You try to convince the mechanic. $HeOrShe stares at you for a few moments, considering $hisOrHer options. It takes you some effort to get $himOrHer to see things your way.",,
-alkemia_oppSPRant1,alkemia_oppRant,"$alkemia_opp_requiresSP
-!$alkemia_opp_isInhosp
-Alkemia_OpportunityRants sp","Alkemia_OpportunityRants sp set","""...I may get in trouble for this,"" $HeOrShe whispers. ""But it will cost you.""",,
-alkemia_oppSPLeave,alkemia_oppOptions,"$alkemia_opp_requiresSP",,,"100:contact_declineBarNoContinue:Leave",
+FireAll alkemia_oppOptions","You try to convince the mechanic. $HeOrShe stares at you for a few moments, considering $hisOrHer options. It takes you some effort to get $himOrHer to see things your way.
+OR
+With the use of your best smile and the promise of payment you finally convince the mechanic.",,
+alkemia_oppRantSP,alkemia_oppRant,"$alkemia_opp_spentSP
+$alkemia_opp_isInhosp","$player.alkemia_opp_costMult = 1.0","""We may get in trouble for this..."" $heOrShe whispers, ""but I can convince the team. Just this once. It will cost you, though.""",,
+alkemia_oppSPPay,alkemia_oppOptions,"$alkemia_opp_spentSP
+!$alkemia_opp_paid","DoCanAffordCheck $alkemia_opp_cost alkemia_opp_acceptPay false",,"alkemia_opp_acceptPay:Pay the mechanics $alkemia_opp_cost credits",
+alkemia_oppConvinceDone,DialogOptionSelected,"$option == alkemia_opp_acceptPay
+","RemoveCommodity credits $alkemia_opp_cost
+Call $alkemia_opportunity_ref doPay
+Call $alkemia_opportunity_ref canPick",,"alkemia_oppShowPicker:Show them to one of your carriers",
 "#END OPP SP Branch",,,,,,
 ,,,,,,
 # Standard Rants,,,,,,
-alkemia_oppRant1,alkemia_oppRant,"Alkemia_OpportunityRants","Alkemia_OpportunityRants set","""It's really simple actually, I'm surprised nobody tried it before..."" $HeOrShe puts $hisOrHer glass down, stares into the distance. ""To think of all the Domain technology we are still trying to reacquire, yet we forgot to innovate ourselves. Not everything has already been done. Funny how we forget that, isn't it?""
+alkemia_oppRantLiked,alkemia_oppRant,"$alkemia_opp_liked",,"""We are still in closed testing phase, but I bet the company does not mind a little field test. Plus, we like you, so you get new toys - for free!"" $HeOrShe looks at you with a wide smile.
 
-""If you let me put my hands on one of your carriers I can integrate $alkemia_opportunity_mod_name into it. Free of charge. I need some hands on experience with this stuff...""",,
-alkemia_oppRant2,alkemia_oppRant,"Alkemia_OpportunityRants","Alkemia_OpportunityRants set","""We are still in closed testing phase, but I bet the company does not mind a little field test. That also means you get new toys for free! It wouldn't sit well with me if something broke and you'd also lose credits on this deal.""
+""Well, what do you say?""
+OR
+""Captain, if you let us put our hands on one of your carriers we can integrate any mod into it! Free of charge!"" You can almost see the excitement in $hisOrHer eyes.
 
-$HeOrShe turns to you with a wide smile, ""Well, what do you say?"" $HeOrShe winks.",,
+""So, you interested?""",,
+alkemia_oppRant,alkemia_oppRant,,,"""It's really simple actually, I'm surprised nobody tried it before..."" $HeOrShe puts $hisOrHer bottle down and stares into the distance for a second.
+
+""Maybe you have a new project for us?""
+OR
+""To think of all the Domain technology we are still trying to reacquire, yet we forgot to innovate ourselves. Not everything has already been done. Funny how we forget that, isn't it?"" $HeOrShe seems to wake up from the reverie.
+
+""And what do you have on your mind, Captain?""
+OR
+""I don't mean to boast, but you will not find anyone in this sector who can do it but us."" $HeOrShe looks at you expectantly:
+
+""Are you interested in our services Captain?""",,
 "#END Standard Rants",,,,,,
 ,,,,,,
 # Inhospitable Rants,,,,,,
-alkemia_oppInhospRant1,alkemia_oppRant,"$alkemia_opp_isInhosp score:100
-Alkemia_OpportunityRants inhosp","Alkemia_OpportunityRants inhosp set","You see a change in $hisOrHer eyes as $heOrShe seems to vaguely recognize you. $HeOrShe says calmly, ""Your reputation precedes you, I'm not talking with the likes of you.""",,
-alkemia_oppInhospLeave,alkemia_oppOptions,"$alkemia_opp_isInhosp",,,"100:contact_declineBarNoContinue:Leave",
+alkemia_oppInhospRant,alkemia_oppRant,"$alkemia_opp_isInhosp
+!$alkemia_opp_spentSP",,"Suddenly you see a change in $hisOrHer eyes as $heOrShe seems to vaguely recognize you:
+
+""I heard of you! We're not talking with the likes of you!""
+OR
+One of the mechanics keeps staring at you.
+
+""Someone here has some bad reputation, we don't want to be seen around this... Captain."" $HeOrShe tells the group.",,
 "#END Inhospitable Rants",,,,,,
 
