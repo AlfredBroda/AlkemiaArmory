@@ -1,6 +1,7 @@
 package data.scripts.campaign.rulecmd;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -35,11 +36,12 @@ import data.scripts.AlkemiaIds;
  * Author: Frederoo
  */
 public class Alkemia_Opportunity extends HubMissionWithBarEvent {
-    public static final String GIVER_KEY = "$alkemia_opportunityData";
+    public static final String GIVER_KEY = "$alkemia_mechanicsData";
     public static final String SP_REQUIRED = "$alkemia_opp_requiresSP";
     public static final String SP_SPENT = "$alkemia_opp_spentSP";
     public static final String CREDITS_SPENT = "$alkemia_opp_paid";
     public static final String MOD_REF = "$alkemia_opportunity_mod_ref";
+    public static final String DID_INSTALL = "$alkemia_oppPicked";
 
     public static final float BASE_COMPLICATIONS = 0.3f;
     public static final float EVENT_DAYS = 60;
@@ -94,22 +96,30 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
         globalMemory.set("$alkemia_opportunity_mod_name", modSpec.getDisplayName(), 0);
         baseCost = modSpec.getBaseValue();
 
-        if (Global.getSector().getMemoryWithoutUpdate().contains(SP_SPENT)
+        MemoryAPI playerMemory = Global.getSector().getPlayerPerson().getMemory();
+        if (playerMemory.contains(SP_SPENT)
                 || hasRepAll(person, RepLevel.INHOSPITABLE)) {
             setSPRequired(false);
         } else {
             setSPRequired(true);
         }
 
-        globalMemory.set(CREDITS_SPENT, false);
+        if (!playerMemory.contains(CREDITS_SPENT)) {
+            playerMemory.set(CREDITS_SPENT, false);
+        }
 
         return refSet;
     }
 
     @Override
     public PersonAPI getPerson() {
+        // If we always want the same person, we should check this first
+        // person = (PersonAPI) Global.getSector().getMemoryWithoutUpdate().get(GIVER_KEY);
         if (person == null) {
             person = Global.getSector().getFaction(Factions.INDEPENDENT).createRandomPerson();
+            person.setImportance(PersonImportance.LOW);
+            person.setRankId(Ranks.CITIZEN);
+            person.setVoice(Voices.SPACER);
 
             if (person.getGender() == Gender.MALE) {
                 person.setPortraitSprite(Global.getSettings().getSpriteName("characters",
@@ -145,23 +155,24 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
     protected boolean callAction(String action, String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params,
             Map<String, MemoryAPI> memoryMap) {
 
-        if (action.equals("doPay")) {
-            set(CREDITS_SPENT, true);
-            return true;
-        }
-
         if (action.equals("showPicker")) {
             showPicker(dialog, memoryMap);
             return true;
         }
 
         if (action.equals("spentSP")) {
-            Global.getSector().getMemoryWithoutUpdate().set(SP_SPENT, true);
-            baseCostMultiplier = 1.0f;
-            complicationChance = 0.5f;
+            float playerRel = person.getFaction().getRelToPlayer().getRel();
+            baseCostMultiplier -= playerRel; // If SP was required than this value is negative hence increase cost
+            complicationChance = Math.abs(playerRel); // the less the reputation, the bigger the chance for a nasty surprise
+            Global.getLogger(this.getClass()).info(String.format("complication chance: %g", complicationChance));
+            Global.getLogger(this.getClass()).info(String.format("new price: %s", Misc.getWithDGS(baseCostMultiplier * baseCost)));
             set("$alkemia_opp_cost", Misc.getWithDGS(baseCostMultiplier * baseCost));
 
             return true;
+        }
+
+        if (action.equals("giveIntel")) {
+            // setStageOnMemoryFlag(to, memory, flag);
         }
 
         if (action.equals("canPick")) {
@@ -201,22 +212,31 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
                         }
                         variant.addPermaMod(availableMod);
 
+                        boolean didComplication = false;
                         if (rollProbability(complicationChance)) {
                             variant.addPermaMod(HullMods.ILL_ADVISED);
                             DModManager.setDHull(variant);
 
                             memoryMap.get(MemKeys.LOCAL).set("$alkemia_oppIllAdvised", true, 0);
                             setDoNotAutoAddPotentialContactsOnSuccess();
+                            didComplication = true;
                         }
 
                         FireBest.fire(null, dialog, memoryMap, "alkemia_oppPostText");
-                        memoryMap.get(MemKeys.LOCAL).set("$alkemia_oppPicked", true, 0);
+                        memoryMap.get(MemKeys.LOCAL).set(DID_INSTALL, true, 0);
                         FireBest.fire(null, dialog, memoryMap, "alkemia_oppPicked");
+
+                        if (!didComplication) {
+                            float probability = 1.0f - complicationChance;
+                            Global.getLogger(this.getClass()).info(String.format("new contact chance: %g", probability));
+                            setPersonIsPotentialContactOnSuccess(person, -1.0f);
+                            addPotentialContacts(dialog);
+                        }
                     }
 
                     @Override
                     public void cancelledFleetMemberPicking() {
-                        memoryMap.get(MemKeys.LOCAL).set("$alkemia_oppPicked", false, 0);
+                        memoryMap.get(MemKeys.LOCAL).set(DID_INSTALL, false, 0);
                         FireBest.fire(null, dialog, memoryMap, "alkemia_oppBackout");
                     }
                 });
@@ -238,6 +258,15 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
     @Override
     public void accept(InteractionDialogAPI dialog, Map<String, MemoryAPI> memoryMap) {
         currentStage = new Object(); // so that the abort() assumes the mission was successful
+
+        Global.getSector().getMemory().set(MOD_REF, null);
+        MemoryAPI playerMemory = Global.getSector().getPlayerPerson().getMemory();
+        // This would make subsequent encounters get a "fresh start"
+        // playerMemory.set("$alkemia_metMechanics", false);
+        playerMemory.set(SP_SPENT, false);
+        playerMemory.set(CREDITS_SPENT, false);
+        Global.getLogger(this.getClass()).info("done accept");
+
         abort();
     }
 
