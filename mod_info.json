@@ -2,9 +2,19 @@
 	"id":"alkemia-armoury",
 	"name":"Alkemia Armoury",
 	"author":"Frederoo",
-	"version":"0.9.6",
+	"version":"0.9.7",
 	"description":"Weapons, hulls, hullmods and LPCs.",
 	"gameVersion": "0.95.1a-RC6",
+	"dependencies": [
+		{
+			"id": "lw_lazylib",
+			"name": "LazyLib"
+		},
+		{
+			"id": "MagicLib",
+			"name": "MagicLib"
+		}
+	],
 	"totalConversion": "false",
 	"utility": "false",
 	"modPlugin":"data.scripts.AlkemiaModPlugin",

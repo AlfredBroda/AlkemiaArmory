@@ -1,16 +1,22 @@
 package data.scripts.campaign.rulecmd;
 
+import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
+import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.FleetMemberPickerListener;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
+import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.PersonImportance;
 import com.fs.starfarer.api.campaign.RepLevel;
+import com.fs.starfarer.api.campaign.SectorEntityToken;
+import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.campaign.comm.IntelManagerAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.rules.MemKeys;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
@@ -24,11 +30,17 @@ import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.FleetTypes;
 import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
+import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.campaign.ids.Voices;
 import com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithBarEvent;
 import com.fs.starfarer.api.impl.campaign.rulecmd.FireBest;
 import com.fs.starfarer.api.loading.HullModSpecAPI;
+import com.fs.starfarer.api.ui.LabelAPI;
+import com.fs.starfarer.api.ui.SectorMapAPI;
+import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
+
+import org.apache.log4j.Logger;
 
 import data.scripts.AlkemiaIds;
 
@@ -41,22 +53,36 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
     public static final String SP_SPENT = "$alkemia_opp_spentSP";
     public static final String CREDITS_SPENT = "$alkemia_opp_paid";
     public static final String MOD_REF = "$alkemia_opportunity_mod_ref";
+    public static final String MOD_NAME = "$alkemia_opportunity_mod_name";
     public static final String DID_INSTALL = "$alkemia_oppPicked";
-
+    public static final String TAG_INTEL = "alkemia_opportunity";
     public static final float BASE_COMPLICATIONS = 0.3f;
-    public static final float EVENT_DAYS = 60;
-    protected static final int COLUMNS = 7;
+    public static final float EVENT_DAYS = 5.0f;
 
-    protected PersonAPI person = null;
-    protected float baseCostMultiplier = 0.5f;
-    protected float baseCost = 0.0f;
-    protected float complicationChance = BASE_COMPLICATIONS;
+    public static enum Stage {
+        ACTIVE,
+        PAID,
+        COMPLETED,
+        ENDED
+    }
 
     public static List<String> POSSIBLE_MODS = new ArrayList<String>();
     static {
         POSSIBLE_MODS.add(AlkemiaIds.ALKEMIA_HULLMOD_DRONEBAYS);
         POSSIBLE_MODS.add(AlkemiaIds.ALKEMIA_HULLMOD_NANOFORGE);
     }
+
+    protected static final int COLUMNS = 7;
+
+    protected float baseCostMultiplier = 0.5f;
+    protected float baseCost = 0.0f;
+    protected float complicationChance = BASE_COMPLICATIONS;
+
+    protected MarketAPI eventMarket;
+    protected LocationAPI eventSystem;
+
+    private static Logger log = Global.getLogger(Alkemia_Opportunity.class);
+    private static MemoryAPI globalMemory = Global.getSector().getMemoryWithoutUpdate();
 
     @Override
     protected boolean create(MarketAPI createdAt, boolean barEvent) {
@@ -68,35 +94,63 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
         if (!hasWorkshop)
             return false;
 
+        setPostingLocation(createdAt.getStarSystem().getCenter());
+
         // setGiverFaction(Factions.ALKEMIA);
         setGiverPost(Ranks.POST_CITIZEN);
         setGiverImportance(PersonImportance.LOW);
         setGiverVoice(Voices.SPACER);
+        setGiverFaction(Factions.INDEPENDENT);
+        setGiverIsPotentialContactOnSuccess();
         findOrCreateGiver(createdAt, false, true);
 
-        person = getPerson();
+        PersonAPI person = getPersonOverride();
+        if (person.getGender() == Gender.MALE) {
+            person.setPortraitSprite(Global.getSettings().getSpriteName("characters",
+                    String.format("male_mechanic%d", getRandom(1, 2))));
+        } else {
+            person.setPortraitSprite(Global.getSettings().getSpriteName("characters",
+                    String.format("female_mechanic%d", getRandom(1, 3))));
+        }
 
-        setGiverFaction(Factions.INDEPENDENT);
+        Global.getSector().getMemoryWithoutUpdate().set(GIVER_KEY, person, EVENT_DAYS);
+
+        eventMarket = createdAt;
+        eventSystem = createdAt.getContainingLocation();
 
         setRepFactionChangesTiny();
 
-        MemoryAPI globalMemory = Global.getSector().getMemoryWithoutUpdate();
+        setStartingStage(Stage.ACTIVE);
+        setSuccessStage(Stage.COMPLETED);
+        setFailureStage(Stage.ENDED);
+
+        PersonAPI captain = Global.getSector().getPlayerPerson();
+        setStageOnMemoryFlag(Stage.COMPLETED, captain, DID_INSTALL);
+        // setTimeLimit(Stage.ENDED, EVENT_DAYS, createdAt.getStarSystem()); // Won't
+        // expire while player is in-system
+        setTimeLimit(Stage.ENDED, EVENT_DAYS, null);
 
         boolean refSet = setPersonMissionRef(person, "$alkemia_opportunity_ref");
         globalMemory.set("$alkemia_oppGiverName", person.getName().getFirst(), 0);
 
-        String selectedMod = globalMemory.getString(MOD_REF);
-        if (selectedMod == null) {
+        String selectedMod = null;
+        if (globalMemory.contains(MOD_REF) && globalMemory.get(MOD_REF) != null) {
+            selectedMod = globalMemory.getString(MOD_REF);
+        } else {
             int modIndex = Math.round((float) Math.random() * (POSSIBLE_MODS.size() - 1));
             selectedMod = POSSIBLE_MODS.get(modIndex);
             globalMemory.set(MOD_REF, selectedMod, EVENT_DAYS);
         }
 
         HullModSpecAPI modSpec = Global.getSettings().getHullModSpec(selectedMod);
-        globalMemory.set("$alkemia_opportunity_mod_name", modSpec.getDisplayName(), 0);
-        baseCost = modSpec.getBaseValue();
+        if (modSpec != null) {
+            globalMemory.set(MOD_NAME, modSpec.getDisplayName(), EVENT_DAYS);
+            baseCost = modSpec.getBaseValue();
 
-        MemoryAPI playerMemory = Global.getSector().getPlayerPerson().getMemory();
+            setName(String.format("Installation - %s", modSpec.getDisplayName()));
+        }
+
+        MemoryAPI playerMemory = captain.getMemory();
         if (playerMemory.contains(SP_SPENT)
                 || hasRepAll(person, RepLevel.INHOSPITABLE)) {
             setSPRequired(false);
@@ -112,27 +166,19 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
     }
 
     @Override
-    public PersonAPI getPerson() {
-        // If we always want the same person, we should check this first
-        // person = (PersonAPI) Global.getSector().getMemoryWithoutUpdate().get(GIVER_KEY);
-        if (person == null) {
-            person = Global.getSector().getFaction(Factions.INDEPENDENT).createRandomPerson();
-            person.setImportance(PersonImportance.LOW);
-            person.setRankId(Ranks.CITIZEN);
-            person.setVoice(Voices.SPACER);
+    public SectorEntityToken getMapLocation(SectorMapAPI map, Object currentStage) {
+        MarketAPI entity = getPersonOverride().getMarket();
 
-            if (person.getGender() == Gender.MALE) {
-                person.setPortraitSprite(Global.getSettings().getSpriteName("characters",
-                        String.format("male_mechanic%d", getRandom(1, 2))));
-            } else {
-                person.setPortraitSprite(Global.getSettings().getSpriteName("characters",
-                        String.format("female_mechanic%d", getRandom(1, 3))));
-            }
-
-            Global.getSector().getMemoryWithoutUpdate().set(GIVER_KEY, person);
+        if (entity != null && entity.getStarSystem() != null) {
+            return entity.getStarSystem().getCenter();
         }
 
-        return person;
+        return null;
+    }
+
+    @Override
+    public String getIcon() {
+        return Global.getSettings().getSpriteName("intel", "repairs_finished");
     }
 
     public static boolean getSPRequired() {
@@ -143,12 +189,46 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
         Global.getSector().getMemoryWithoutUpdate().set(SP_REQUIRED, required, EVENT_DAYS);
     }
 
+    // protected String getMissionTypeNoun() {
+    // return "contract";
+    // }
+
     @Override
     protected void updateInteractionDataImpl() {
         set(SP_REQUIRED, getSPRequired());
-        set("$alkemia_opp_isInhosp", !hasRepAll(person, RepLevel.INHOSPITABLE));
-        set("$alkemia_opp_liked", hasRepAny(person, RepLevel.WELCOMING));
+        set("$alkemia_opp_isInhosp", !hasRepAll(getPersonOverride(), RepLevel.INHOSPITABLE));
+        set("$alkemia_opp_liked", hasRepAny(getPersonOverride(), RepLevel.WELCOMING));
         set("$alkemia_opp_cost", Misc.getWithDGS(baseCostMultiplier * baseCost));
+    }
+
+    public float getTimeRemainingFraction() {
+        if (!isAccepted())
+            return super.getTimeRemainingFraction();
+
+        float f = 1f - elapsed / EVENT_DAYS;
+        return f;
+    }
+
+    public float getDaysRemainig() {
+        return EVENT_DAYS - elapsed;
+    }
+
+    public boolean isCompleted() {
+        return currentStage == Stage.COMPLETED;
+    }
+
+    public boolean isAccepted() {
+        return currentStage == Stage.ACTIVE;
+    }
+
+    @Override
+    public Set<String> getIntelTags(SectorMapAPI map) {
+        Set<String> tags = super.getIntelTags(map);
+        tags.add(Tags.INTEL_LOCAL);
+
+        tags.add(getPersonOverride().getFaction().getId());
+
+        return tags;
     }
 
     @Override
@@ -161,18 +241,24 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
         }
 
         if (action.equals("spentSP")) {
-            float playerRel = person.getFaction().getRelToPlayer().getRel();
+            float playerRel = getPersonOverride().getFaction().getRelToPlayer().getRel();
             baseCostMultiplier -= playerRel; // If SP was required than this value is negative hence increase cost
-            complicationChance = Math.abs(playerRel); // the less the reputation, the bigger the chance for a nasty surprise
-            Global.getLogger(this.getClass()).info(String.format("complication chance: %g", complicationChance));
-            Global.getLogger(this.getClass()).info(String.format("new price: %s", Misc.getWithDGS(baseCostMultiplier * baseCost)));
+            complicationChance = Math.abs(playerRel); // the less the reputation, the bigger the chance for a nasty
+                                                      // surprise
+            log.info(String.format("complication chance: %g", complicationChance));
+            log.info(String.format("new price: %s", Misc.getWithDGS(baseCostMultiplier * baseCost)));
             set("$alkemia_opp_cost", Misc.getWithDGS(baseCostMultiplier * baseCost));
 
             return true;
         }
 
         if (action.equals("giveIntel")) {
-            // setStageOnMemoryFlag(to, memory, flag);
+            addTag(TAG_INTEL);
+            IntelManagerAPI intelManager = Global.getSector().getIntelManager();
+            if (!intelManager.hasIntelOfClass(Alkemia_Opportunity.class)) {
+                intelManager.addIntel(this, false);
+            }
+            // globalMemory.set(INTEL_REF, this);
         }
 
         if (action.equals("canPick")) {
@@ -185,6 +271,64 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
         }
 
         return true;
+    }
+
+    @Override
+    public void addDescriptionForNonEndStage(TooltipMakerAPI info, float width, float height) {
+        Color h = Misc.getHighlightColor();
+        Color tc = Misc.getTextColor();
+        Color ac = Global.getSettings().getColor("colorAlkemia");
+        float opad = 10f;
+
+        String modName = globalMemory.getString(MOD_NAME);
+        FactionAPI faction = getPerson().getFaction();
+        LocationAPI system = eventMarket.getContainingLocation();
+        if (system == null) {
+            log.warn("System is null!");
+        }
+
+        LabelAPI label = info.addPara(
+                String.format(
+                        "You met a group of Alkemia Customs mechanics %s %s in the %s that can integrate %s into one of your carriers.",
+                        eventMarket.getOnOrAt(), eventMarket.getName(), system.getNameWithLowercaseTypeShort(),
+                        modName),
+                opad, tc,
+                faction.getBaseUIColor(), modName);
+
+        label.setHighlight("Alkemia Customs", eventMarket.getName(), modName);
+        label.setHighlightColors(ac, eventMarket.getFaction().getBaseUIColor(), h);
+    }
+
+    @Override
+    public boolean addNextStepText(TooltipMakerAPI info, Color tc, float pad) {
+        float opad = 10f;
+
+        FactionAPI faction = getPerson().getFaction();
+
+        if (currentStage == Stage.ACTIVE && timeLimit != null) {
+            String days = getDaysString(timeLimit.days);
+            String marketName = eventMarket.getName();
+            LocationAPI system = eventMarket.getContainingLocation();
+            if (system == null) {
+                log.warn("System is null!");
+            }
+            String systemName = system.getNameWithLowercaseTypeShort();
+            Color factionColors = eventMarket.getFaction().getBaseUIColor();
+
+            LabelAPI label = info.addPara(
+                    String.format("You need to return to %s in the %s in %s time to complete the installation.",
+                            marketName, systemName, days),
+                    opad, tc, faction.getBaseUIColor(), days);
+            label.setHighlight(marketName, systemName);
+            label.setHighlightColors(factionColors, factionColors);
+
+            return true;
+        }
+        return false;
+    }
+
+    public String getStageDescriptionText() {
+        return null;
     }
 
     protected void showPicker(final InteractionDialogAPI dialog, final Map<String, MemoryAPI> memoryMap) {
@@ -223,20 +367,21 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
                         }
 
                         FireBest.fire(null, dialog, memoryMap, "alkemia_oppPostText");
-                        memoryMap.get(MemKeys.LOCAL).set(DID_INSTALL, true, 0);
+                        memoryMap.get(MemKeys.PLAYER).set(DID_INSTALL, true, 0);
                         FireBest.fire(null, dialog, memoryMap, "alkemia_oppPicked");
 
                         if (!didComplication) {
                             float probability = 1.0f - complicationChance;
-                            Global.getLogger(this.getClass()).info(String.format("new contact chance: %g", probability));
-                            setPersonIsPotentialContactOnSuccess(person, -1.0f);
-                            addPotentialContacts(dialog);
+                            log.info(String.format("new contact chance: %g", probability));
+                            setPersonIsPotentialContactOnSuccess(getPersonOverride(), probability);
+                            // addPotentialContacts(dialog);
                         }
+                        removeIntel();
                     }
 
                     @Override
                     public void cancelledFleetMemberPicking() {
-                        memoryMap.get(MemKeys.LOCAL).set(DID_INSTALL, false, 0);
+                        memoryMap.get(MemKeys.PLAYER).set(DID_INSTALL, false, 0);
                         FireBest.fire(null, dialog, memoryMap, "alkemia_oppBackout");
                     }
                 });
@@ -257,17 +402,37 @@ public class Alkemia_Opportunity extends HubMissionWithBarEvent {
 
     @Override
     public void accept(InteractionDialogAPI dialog, Map<String, MemoryAPI> memoryMap) {
-        currentStage = new Object(); // so that the abort() assumes the mission was successful
+        currentStage = Stage.COMPLETED;
 
-        Global.getSector().getMemory().set(MOD_REF, null);
-        MemoryAPI playerMemory = Global.getSector().getPlayerPerson().getMemory();
-        // This would make subsequent encounters get a "fresh start"
-        // playerMemory.set("$alkemia_metMechanics", false);
-        playerMemory.set(SP_SPENT, false);
-        playerMemory.set(CREDITS_SPENT, false);
-        Global.getLogger(this.getClass()).info("done accept");
+        log.info("done accept");
 
         abort();
+    }
+
+    @Override
+    public void abort() {
+        globalMemory.expire(MOD_REF, 0);
+        MemoryAPI playerMemory = Global.getSector().getPlayerPerson().getMemory();
+        // This would make subsequent encounters get a "fresh start"
+        // playerMemory.expire("$alkemia_metMechanics", 0);
+        playerMemory.expire(SP_SPENT, 0);
+        playerMemory.expire(CREDITS_SPENT, 0);
+
+        super.abort();
+    }
+
+    private void removeIntel() {
+        log.info("removing intel");
+        IntelManagerAPI intelManager = Global.getSector().getIntelManager();
+        while (intelManager.hasIntelOfClass(Alkemia_Opportunity.class)) {
+            Alkemia_Opportunity toRemove = (Alkemia_Opportunity) intelManager.getFirstIntel(Alkemia_Opportunity.class);
+            log.info(toRemove.getSmallDescriptionTitle());
+
+            toRemove.currentStage = Stage.COMPLETED;
+            toRemove.abort();
+            // intelManager.removeIntel(toRemove);
+        }
+        log.info("remove intel done");
     }
 
     /**

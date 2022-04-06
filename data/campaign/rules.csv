@@ -34,8 +34,8 @@ As the mechanics finish their work and turn to leave, you inspect the ship in qu
 
 ""It was nice working with you Captain, burn bright!""",,
 alkemia_oppPostTextComplication,alkemia_oppPostText,"$alkemia_oppIllAdvised","Alkemia_ShowHullModDesc ill_advised","The mechanics finish their work and slip off with some of the crew to go bar crawling again. Shortly after, your chief engineer reports that the installation has caused subtle but severe damage to the weapon systems and engines! You search high and low, but the mechanics are nowhere to be found.",,
-alkemia_oppExit,alkemia_oppPicked,"!$alkemia_oppPicked","BarCMD returnFromEvent false",,,
-alkemia_oppEnd,alkemia_oppPicked,"$alkemia_oppPicked",,,"contact_acceptBarNoText:Continue",
+alkemia_oppExit,alkemia_oppPicked,"!$player.alkemia_oppPicked","BarCMD returnFromEvent false",,,
+alkemia_oppEnd,alkemia_oppPicked,"$player.alkemia_oppPicked",,,"contact_acceptBarNoText:Continue",
 alkemia_oppBackout,DialogOptionSelected,"$option == alkemia_oppBackout","Call $alkemia_opportunity_ref giveIntel","You decide to drop the subject for now. The mechanics don't seem to be going anywhere right now.","10:contact_declineBarNoContinue:Leave",
 alkemia_oppResume,alkemia_oppOptions,"$player.alkemia_opp_paid",,"""Oh, you are back. Do you have a carrier for us to work on now?""
 OR
@@ -81,7 +81,7 @@ OR
 ""Captain, if you let us put our hands on one of your carriers we can integrate any mod into it! Free of charge!"" You can almost see the excitement in $hisOrHer eyes.
 
 ""So, you interested?""",,
-alkemia_oppRant,alkemia_oppRant,,,"""It's really simple actually, I'm surprised nobody tried it before..."" $HeOrShe puts $hisOrHer bottle down and stares into the distance for a second.
+alkemia_oppRant,alkemia_oppRant,"!$player.alkemia_opp_paid",,"""It's really simple actually, I'm surprised nobody tried it before..."" $HeOrShe puts $hisOrHer bottle down and stares into the distance for a second.
 
 ""Maybe you have a similar project for us?""
 OR
