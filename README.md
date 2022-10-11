@@ -2,6 +2,7 @@
 A mod for **Starsector** aiming to improve hull/fighter/weapon variety. Also a budding minor faction maybe?
 
 ![Get Starsector](https://fractalsoftworks.com)
+
 ![StarSector Forum Thread](https://fractalsoftworks.com/forum/index.php?topic=24341.0)
 
 ## Features
