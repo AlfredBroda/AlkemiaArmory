@@ -42,7 +42,7 @@ build {
 def modName = "Alkemia Armoury"
 def baseFileName = "alkemia-armoury"
 def modFolderName = "${project.name}"
-def starsectorDirectory = "D:/games/Starsector"
+def starsectorDirectory = "../../"
 
 def starsectorCoreDirectory = "${starsectorDirectory}/starsector-core"
 def starsectorModDirectory = "${starsectorDirectory}/mods"
