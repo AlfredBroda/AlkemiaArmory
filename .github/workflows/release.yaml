@@ -30,7 +30,7 @@ jobs:
                   distribution: "adopt"
 
             - name: Validate Gradle wrapper
-              uses: gradle/wrapper-validation-action
+              uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
 
             - name: Set Variables
               run: |
@@ -38,7 +38,7 @@ jobs:
                   git log --format=%B -n 1 $(git log -1 --pretty=format:"%h") | cat - > changes.txt
 
             - name: Create Mod Zipfile
-              uses: gradle/gradle-build-action
+              uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
               with:
                   arguments: build release
 
