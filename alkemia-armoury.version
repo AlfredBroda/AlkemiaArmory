@@ -1,5 +1,6 @@
 {
     "masterVersionFile":"https://raw.githubusercontent.com/AlfredBroda/AlkemiaArmory/master/alkemia-armoury.version",
+    "directDownloadURL":"https://github.com/AlfredBroda/AlkemiaArmory/releases/download/0.9.8/alkemia-armoury-0.9.8.zip",
     "modName":"Alkemia Armoury",
     "modNexusId":1,
     "modThreadId":24341.0,
