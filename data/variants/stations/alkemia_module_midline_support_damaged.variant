@@ -62,7 +62,6 @@
   "modules": [],
   "wings": [
     "mining_drone_wing",
-    "mining_drone_wing",
-    "talon_wing"
+    "borer_wing"
   ]
 }
