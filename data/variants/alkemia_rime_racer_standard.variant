@@ -3,12 +3,12 @@
   "hullId": "alkemia_rime_racer",
   "displayName": "Standard",
   "goalVariant": true,
-  "fluxCapacitors": 16,
-  "fluxVents": 14,
+  "fluxCapacitors": 10,
+  "fluxVents": 13,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "advancedshieldemitter"
+    "auxiliary_fuel_tanks"
   ],
   "weaponGroups": [
     {
@@ -23,15 +23,15 @@
       "mode": "LINKED",
       "weapons": {
         "WS0002": "alkemia_vulcan",
-        "WS0003": "alkemia_acdls"
+        "WS0003": "pdburst"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0004": "irpulse",
-        "WS0005": "irpulse"
+        "WS0004": "lrpdlaser",
+        "WS0005": "lrpdlaser"
       }
     },
     {
@@ -45,7 +45,7 @@
   ],
   "modules": [],
   "wings": [
-    "alkemia_syreen_wing",
-    "alkemia_deluxe_strike_wing"
+    "alkemia_repair_wing",
+    "alkemia_syreen_wing"
   ]
 }

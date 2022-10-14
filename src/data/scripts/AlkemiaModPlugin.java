@@ -10,12 +10,12 @@ import com.fs.starfarer.api.campaign.CampaignPlugin;
 import com.fs.starfarer.api.campaign.SpecialItemData;
 import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.InstallableIndustryItemPlugin.InstallableItemDescriptionMode;
-import com.fs.starfarer.api.combat.DroneLauncherShipSystemAPI;
 import com.fs.starfarer.api.combat.EngagementResultAPI;
 import com.fs.starfarer.api.combat.MissileAIPlugin;
 import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.ShipAIPlugin;
 import com.fs.starfarer.api.combat.ShipAPI;
+import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.econ.impl.BoostIndustryInstallableItemEffect;
 import com.fs.starfarer.api.impl.campaign.econ.impl.ItemEffectsRepo;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
@@ -24,6 +24,7 @@ import com.fs.starfarer.api.util.Misc;
 
 import data.scripts.ai.SCY_antiMissileAI;
 import data.scripts.ai.alkemia_SmartMissileAI;
+import data.scripts.ai.drone.RepairDroneAI;
 import data.scripts.plugins.SCY_projectilesEffectPlugin;
 
 // import org.dark.shaders.light.LightData;
@@ -62,7 +63,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
         // {
         // initShaderLib();
         // }
-
+        info("Alkemia onApplicationLoad()");
     }
 
     // static void initShaderLib()
@@ -72,9 +73,21 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     // TextureData.readTextureDataCSV("data/lights/alkemia_texture_data.csv");
     // }
 
+    public void info(String mesg) {
+        Global.getLogger(this.getClass()).info(mesg);
+    }
+
+    public void warn(String mesg) {
+        Global.getLogger(this.getClass()).warn(mesg);
+    }
+
+    public void debug(String mesg) {
+        Global.getLogger(this.getClass()).debug(mesg);
+    }
+
     @Override
     public void onGameLoad(boolean newGame) {
-        Global.getLogger(this.getClass()).info("On game load");
+        info("onGameLoad() start...");
 
         ItemEffectsRepo.ITEM_EFFECTS.put(AlkemiaIds.ALKEMIA_HULLMOD_NANOFORGE, new BoostIndustryInstallableItemEffect(
                 AlkemiaIds.ALKEMIA_HULLMOD_NANOFORGE, AlkemiaStats.ALKEMIA_NANOFORGE_PROD, 0) {
@@ -113,18 +126,12 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
     @Override
     public void onNewGame() {
-        Global.getLogger(this.getClass()).info("On new game");
+        info("Alkemia onNewGame()");
     }
 
     @Override
     public void onNewGameAfterEconomyLoad() {
     }
-
-    public static final String locust_ID = "alkemia_locust";
-    public static final String locustFighter_ID = "alkemia_locust_fighter";
-    public static final String harpoon_ID = "alkemia_harpoon_fighter";
-    public static final String pilum_pod_ID = "alkemia_pilumpod";
-    public static final String pilum_ID = "pilum";
 
     ////////////////////////////////////////
     // //
@@ -134,20 +141,37 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
     @Override
     public PluginPick<MissileAIPlugin> pickMissileAI(MissileAPI missile, ShipAPI launchingShip) {
-        if (missile.getProjectileSpecId() == locust_ID || missile.getProjectileSpecId() == locustFighter_ID) {
-            return new PluginPick<MissileAIPlugin>(new SCY_antiMissileAI(missile, launchingShip),
-                    CampaignPlugin.PickPriority.MOD_SPECIFIC);
+        String id = missile.getProjectileSpecId();
+        switch (id) {
+            case AlkemiaIds.ALKEMIA_LOCUST:
+            case AlkemiaIds.ALKEMIA_LOCUST_FIGHTER:
+                info(String.format("SCY_antiMissileAI assigned for %s", id));
+                return new PluginPick<MissileAIPlugin>(new SCY_antiMissileAI(missile, launchingShip),
+                        CampaignPlugin.PickPriority.MOD_SPECIFIC);
+            case AlkemiaIds.PILUM:
+            case AlkemiaIds.ALKEMIA_PILUM_POD:
+                info(String.format("alkemia_SmartMissileAI assigned for %s", id));
+                return new PluginPick<MissileAIPlugin>(new alkemia_SmartMissileAI(missile, launchingShip),
+                        CampaignPlugin.PickPriority.MOD_SPECIFIC);
         }
-        if (missile.getProjectileSpecId() == pilum_ID || missile.getProjectileSpecId() == pilum_pod_ID) {
-            return new PluginPick<MissileAIPlugin>(new alkemia_SmartMissileAI(missile, launchingShip),
-                    CampaignPlugin.PickPriority.MOD_SPECIFIC);
-        }
-        return null;
+        return super.pickMissileAI(missile, launchingShip);
     }
 
-    public PluginPick<ShipAIPlugin> pickDroneAI(ShipAPI drone,
-            ShipAPI mothership, DroneLauncherShipSystemAPI system) {
-        return null;
+    @Override
+    public PluginPick<ShipAIPlugin> pickShipAI(FleetMemberAPI member, ShipAPI ship) {
+        PluginPick<ShipAIPlugin> defaultAI = super.pickShipAI(member, ship);
+        if (ship.isFighter() && ship.getHullSpec() != null && ship.getWing() != null) {
+            String id = ship.getHullSpec().getHullId();
+            switch (id) {
+                case AlkemiaIds.ALKEMIA_REPAIR_DRONE:
+                    info(String.format("RepairDroneAI assigned for %s", id));
+
+                    ShipAPI mothership = ship.getWing().getSourceShip();
+                    return new PluginPick<ShipAIPlugin>(new RepairDroneAI(ship, mothership),
+                            CampaignPlugin.PickPriority.MOD_SPECIFIC);
+            }
+        }
+        return defaultAI;
     }
 
     private static class ReportPlayerEngagementCampaignEventListener extends BaseCampaignEventListener {

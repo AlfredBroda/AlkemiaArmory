@@ -61,7 +61,7 @@
   ],
   "modules": [],
   "wings": [
-    "mining_drone_wing",
+    "alkemia_repair_wing",
     "borer_wing"
   ]
 }

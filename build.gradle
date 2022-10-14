@@ -72,6 +72,9 @@ dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
 
+    compileOnly files('../LazyLib/jars/LazyLib.jar')
+    compileOnly files('../MagicLib/jars/MagicLib.jar')
+
     if (new File(starsectorModDirectory).exists()) {
         compileOnly(fileTree(starsectorModDirectory).matching {
             include("**/*.jar")

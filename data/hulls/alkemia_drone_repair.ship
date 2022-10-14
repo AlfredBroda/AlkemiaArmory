@@ -1,0 +1,49 @@
+{
+  "hullName": "Repair Drone",
+  "hullId": "alkemia_drone_repair",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/alkemia/ships/repair_drone.png",
+  "style": "LOW_TECH",
+  "height": 26,
+  "width": 30,
+  "center": [15.5, 11],
+  "collisionRadius": 14,
+  "shieldCenter": [-3, 6.5],
+  "shieldRadius": 12,
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "id": "WS 001",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "HIDDEN",
+      "arc": 70,
+      "angle": 0,
+      "locations": [-2, -1.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-8.5, -7.5],
+      "length": 12,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-8.5, 7.5],
+      "length": 12,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    }
+  ],
+  "bounds": [
+    10.5, -11.5,
+    -5.5, -11.5,
+    -5.5, 11.5,
+    10.5, 11.5
+  ]
+}

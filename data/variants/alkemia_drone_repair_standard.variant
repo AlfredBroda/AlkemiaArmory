@@ -1,0 +1,22 @@
+{
+  "variantId": "alkemia_drone_repair_standard",
+  "hullId": "alkemia_drone_repair",
+  "displayName": "Repair Drone",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "alkemia_repairbeam"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}
