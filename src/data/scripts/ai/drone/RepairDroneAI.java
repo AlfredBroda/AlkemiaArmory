@@ -64,7 +64,6 @@ public class RepairDroneAI extends BaseShipAI {
 
     static final Color SPARK_COLOR = new Color(255, 223, 128);
     static final String SPARK_SOUND_ID = "system_emp_emitter_loop";
-    static final String HULL_PREFIX = "alkemia_";
     static final float SPARK_DURATION = 0.2f;
     static final float SPARK_BRIGHTNESS = 1.0f;
     static final float SPARK_MAX_RADIUS = 7f;
@@ -73,7 +72,7 @@ public class RepairDroneAI extends BaseShipAI {
     static final float SPARK_VOLUME = 1.0f;
     static final float SPARK_PITCH = 1.0f;
 
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     public RepairDroneAI(ShipAPI drone, ShipAPI mothership) {
         super(drone);

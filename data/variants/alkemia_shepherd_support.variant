@@ -1,0 +1,29 @@
+{
+  "variantId": "alkemia_shepherd_support",
+  "hullId": "alkemia_shepherd",
+  "displayName": "Support",
+  "goalVariant": true,
+  "fluxCapacitors": 9,
+  "fluxVents": 5,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "alkemia_locust"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "lrpdlaser"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

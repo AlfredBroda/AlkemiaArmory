@@ -1,9 +1,9 @@
 {
-  "variantId": "gryphon_LR",
+  "variantId": "alkemia_gryphon_LR",
   "hullId": "gryphon",
   "displayName": "Long Range",
   "goalVariant": true,
-  "fluxCapacitors": 18,
+  "fluxCapacitors": 20,
   "fluxVents": 15,
   "quality": 1,
   "permaMods": [],
