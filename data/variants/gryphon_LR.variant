@@ -1,0 +1,66 @@
+{
+  "variantId": "gryphon_LR",
+  "hullId": "gryphon",
+  "displayName": "Long Range",
+  "goalVariant": true,
+  "fluxCapacitors": 18,
+  "fluxVents": 15,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "eccm",
+    "insulatedengine"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 010": "reaper",
+        "WS 011": "reaper",
+        "WS 012": "reaper"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 008": "harpoonpod",
+        "WS 009": "harpoonpod"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 002": "hveldriver"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 004": "lightneedler",
+        "WS 005": "lightneedler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 003": "vulcan",
+        "WS 006": "vulcan",
+        "WS 007": "vulcan"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "alkemia_pilumpod"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}
