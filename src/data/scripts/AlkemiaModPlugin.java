@@ -22,8 +22,8 @@ import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 
-import data.scripts.ai.SCY_antiMissileAI;
-import data.scripts.ai.alkemia_SmartMissileAI;
+import data.scripts.ai.alkemiaPDMissileAI;
+import data.scripts.ai.alkemiaSmartMissileAI;
 import data.scripts.ai.drone.RepairDroneAI;
 import data.scripts.plugins.SCY_projectilesEffectPlugin;
 
@@ -35,6 +35,8 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     public static final String SETTINGS_FILE = "alkemia_options.ini";
 
     public static final boolean isExerelin = Global.getSettings().getModManager().isModEnabled("nexerelin");
+
+    private static final boolean DEBUG = false;
     public static boolean versionCheckerNag;
     public static boolean vcNagDone = false;
 
@@ -82,13 +84,12 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     }
 
     public void debug(String mesg) {
-        Global.getLogger(this.getClass()).debug(mesg);
+        if (DEBUG)
+            Global.getLogger(this.getClass()).info(mesg);
     }
 
     @Override
     public void onGameLoad(boolean newGame) {
-        info("onGameLoad() start...");
-
         ItemEffectsRepo.ITEM_EFFECTS.put(AlkemiaIds.ALKEMIA_HULLMOD_NANOFORGE, new BoostIndustryInstallableItemEffect(
                 AlkemiaIds.ALKEMIA_HULLMOD_NANOFORGE, AlkemiaStats.ALKEMIA_NANOFORGE_PROD, 0) {
             public void apply(Industry industry) {
@@ -134,24 +135,22 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     }
 
     ////////////////////////////////////////
-    // //
-    // MISSILES AI OVERRIDES //
-    // //
+    //                                    //
+    // MISSILES AI OVERRIDES              //
+    //                                    //
     ////////////////////////////////////////
 
     @Override
     public PluginPick<MissileAIPlugin> pickMissileAI(MissileAPI missile, ShipAPI launchingShip) {
         String id = missile.getProjectileSpecId();
         switch (id) {
-            case AlkemiaIds.ALKEMIA_LOCUST:
-            case AlkemiaIds.ALKEMIA_LOCUST_FIGHTER:
-                info(String.format("SCY_antiMissileAI assigned for %s", id));
-                return new PluginPick<MissileAIPlugin>(new SCY_antiMissileAI(missile, launchingShip),
+            case AlkemiaIds.ALKEMIA_SWARM:
+                debug(String.format("antiMissileAI assigned for %s", id));
+                return new PluginPick<MissileAIPlugin>(new alkemiaPDMissileAI(missile, launchingShip),
                         CampaignPlugin.PickPriority.MOD_SPECIFIC);
-            case AlkemiaIds.PILUM:
-            case AlkemiaIds.ALKEMIA_PILUM_POD:
-                info(String.format("alkemia_SmartMissileAI assigned for %s", id));
-                return new PluginPick<MissileAIPlugin>(new alkemia_SmartMissileAI(missile, launchingShip),
+            case AlkemiaIds.ALKEMIA_PILUM:
+                debug(String.format("alkemia_SmartMissileAI assigned for %s", id));
+                return new PluginPick<MissileAIPlugin>(new alkemiaSmartMissileAI(missile, launchingShip),
                         CampaignPlugin.PickPriority.MOD_SPECIFIC);
         }
         return super.pickMissileAI(missile, launchingShip);
@@ -159,7 +158,6 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
     @Override
     public PluginPick<ShipAIPlugin> pickShipAI(FleetMemberAPI member, ShipAPI ship) {
-        PluginPick<ShipAIPlugin> defaultAI = super.pickShipAI(member, ship);
         if (ship.isFighter() && ship.getHullSpec() != null && ship.getWing() != null) {
             String id = ship.getHullSpec().getHullId();
             switch (id) {
@@ -171,7 +169,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
                             CampaignPlugin.PickPriority.MOD_SPECIFIC);
             }
         }
-        return defaultAI;
+        return super.pickShipAI(member, ship);
     }
 
     private static class ReportPlayerEngagementCampaignEventListener extends BaseCampaignEventListener {

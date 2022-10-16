@@ -2,7 +2,7 @@
 	"id":"alkemia-armoury",
 	"name":"Alkemia Armoury",
 	"author":"Frederoo",
-	"version":"0.9.9",
+	"version":"0.9.10",
 	"description":"PLanetary Structures, weapons, hulls, hullmods and LPCs. And a bar mission!",
 	"gameVersion": "0.95.1a-RC6",
 	"dependencies": [

@@ -414,18 +414,6 @@ public class RepairDroneAI extends BaseShipAI {
         Vector2f to = IceUtils.toAbsolute(target, targetOffset);
         float distance = MathUtils.getDistance(ship, to);
 
-        // if (doingRepairs) {
-        // if (distance < 100) {
-        // float f = (1 - distance / 100) * 0.2f;
-        // ship.getLocation().x = (to.x * f + ship.getLocation().x * (2 - f)) / 2;
-        // ship.getLocation().y = (to.y * f + ship.getLocation().y * (2 - f)) / 2;
-        // ship.getVelocity().x = (target.getVelocity().x * f + ship.getVelocity().x *
-        // (2 - f)) / 2;
-        // ship.getVelocity().y = (target.getVelocity().y * f + ship.getVelocity().y *
-        // (2 - f)) / 2;
-        // }
-        // }
-
         if (doingRepairs && distance < repairRange) {
             Global.getSoundPlayer().playLoop(SPARK_SOUND_ID, ship, SPARK_PITCH,
                     SPARK_VOLUME, ship.getLocation(), ship.getVelocity());
@@ -458,6 +446,10 @@ public class RepairDroneAI extends BaseShipAI {
 
             if (Math.abs(angleDif) < 30) {
                 accelerate();
+                if (ship.getSystem().getId() == AlkemiaIds.ALKEMIA_AFTERBURNER) {
+                    if (!ship.getSystem().isActive())
+                        ship.useSystem();
+                }
             } else {
                 turnToward(to);
                 decelerate();

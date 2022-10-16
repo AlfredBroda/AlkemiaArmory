@@ -29,6 +29,7 @@
 				 "blowbackLength":30.0,
 				 "blowbackSpread":10.0,
 				 "particleColor":[100,100,100,200]},
-	"projectileSpecId":"type_1_lrm",
-	"fireSoundTwo":"pilum_lrm_fire",
+	# "projectileSpecId":"type_1_lrm",
+	"projectileSpecId":"alkemia_type_2_lrm",
+	"fireSoundTwo":"pilum_lrm_fire"
 }
