@@ -3,7 +3,7 @@
   "hullId": "gryphon",
   "displayName": "Long Range",
   "goalVariant": true,
-  "fluxCapacitors": 20,
+  "fluxCapacitors": 18,
   "fluxVents": 15,
   "quality": 1,
   "permaMods": [],

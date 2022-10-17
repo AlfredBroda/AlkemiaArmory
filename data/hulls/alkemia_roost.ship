@@ -1,0 +1,218 @@
+{
+  "hullName": "Roost",
+  "hullId": "alkemia_roost",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/alkemia/ships/roost.png",
+  "style": "MIDLINE",
+  "height": 121,
+  "width": 140,
+  "center": [70, 58],
+  "collisionRadius": 115,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 110,
+  "viewOffset": 0,
+  "builtInWeapons": {
+    "WS0010": "alkemia_roost_lights"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 245,
+      "angle": 32,
+      "locations": [11, 58]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 4,
+      "angle": 0,
+      "locations": [36.5, 60]
+    },
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": 0,
+      "locations": [43, -0]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 245,
+      "angle": -32,
+      "locations": [11, -58]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 4,
+      "angle": 0,
+      "locations": [36.5, -60]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 4,
+      "angle": 135,
+      "locations": [-43, 62]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 4,
+      "angle": 225,
+      "locations": [-43, -61]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 4,
+      "angle": -45,
+      "locations": [19, -67]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 4,
+      "angle": 45,
+      "locations": [19, 68]
+    },
+    {
+      "id": "LB001",
+      "size": "MEDIUM",
+      "type": "LAUNCH_BAY",
+      "mount": "HIDDEN",
+      "arc": 30,
+      "angle": 0,
+      "locations": [
+        19, 42,
+        24, 26,
+        12, 30
+      ]
+    },
+    {
+      "id": "LB001",
+      "size": "MEDIUM",
+      "type": "LAUNCH_BAY",
+      "mount": "HIDDEN",
+      "arc": 30,
+      "angle": 0,
+      "locations": [
+        24, -26,
+        19, -42,
+        11, -37
+      ]
+    },
+    {
+      "id": "WS0010",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 360,
+      "angle": 0,
+      "locations": [-28, -0]
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 90,
+      "angle": 180,
+      "locations": [-12, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-58, 52],
+      "length": 30,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 44,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-57, 40],
+      "length": 40,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 50,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-56, 17],
+      "length": 50,
+      "width": 18,
+      "angle": 180,
+      "contrailSize": 54,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-58, -51],
+      "length": 30,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 44,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-57, -40],
+      "length": 40,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 50,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-56, -17],
+      "length": 50,
+      "width": 18,
+      "angle": 180,
+      "contrailSize": 54,
+      "style": "MIDLINE"
+    }
+  ],
+  "bounds": [
+    41.5, 63,
+    42, 50,
+    32, 45,
+    43.5, 26,
+    55, 14.5,
+    61.5, -0,
+    55, -14.5,
+    43.5, -26,
+    33, -45,
+    43, -50,
+    41.5, -63,
+    13.5, -67.5,
+    -10, -62,
+    -41, -63,
+    -53, -56,
+    -50, -11,
+    -38, 0,
+    -50, 12,
+    -52, 56,
+    -42, 63,
+    -10, 62,
+    13.5, 67.5
+  ]
+}

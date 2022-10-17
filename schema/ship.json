@@ -1,0 +1,180 @@
+
+
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "hullName": {
+        "type": "string"
+      },
+      "hullId": {
+        "type": "string"
+      },
+      "hullSize": {
+        "type": "string"
+      },
+      "spriteName": {
+        "type": "string"
+      },
+      "style": {
+        "type": "string"
+      },
+      "height": {
+        "type": "integer"
+      },
+      "width": {
+        "type": "integer"
+      },
+      "center": {
+        "type": "array",
+        "items": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer"
+          }
+        ]
+      },
+      "collisionRadius": {
+        "type": "integer"
+      },
+      "shieldCenter": {
+        "type": "array",
+        "items": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer"
+          }
+        ]
+      },
+      "shieldRadius": {
+        "type": "integer"
+      },
+      "viewOffset": {
+        "type": "integer"
+      },
+      "weaponSlots": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "size": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "mount": {
+                "type": "string"
+              },
+              "arc": {
+                "type": "integer"
+              },
+              "angle": {
+                "type": "integer"
+              },
+              "locations": {
+                "type": "array",
+                "items": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "size",
+              "type",
+              "mount",
+              "arc",
+              "angle",
+              "locations"
+            ]
+          }
+        ]
+      },
+      "engineSlots": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "array",
+                "items": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "length": {
+                "type": "integer"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "angle": {
+                "type": "integer"
+              },
+              "contrailSize": {
+                "type": "integer"
+              },
+              "style": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "location",
+              "length",
+              "width",
+              "angle",
+              "contrailSize",
+              "style"
+            ]
+          }
+        ]
+      },
+      "bounds": {
+        "type": "array",
+        "items": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "integer"
+          }
+        ]
+      }
+    },
+    "required": [
+      "hullName",
+      "hullId",
+      "hullSize",
+      "spriteName",
+      "style",
+      "height",
+      "width",
+      "center",
+      "collisionRadius",
+      "shieldCenter",
+      "shieldRadius",
+      "viewOffset",
+      "weaponSlots",
+      "engineSlots",
+      "bounds"
+    ]
+  }

@@ -22,9 +22,9 @@ import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 
-import data.scripts.ai.alkemiaPDMissileAI;
-import data.scripts.ai.alkemiaSmartMissileAI;
 import data.scripts.ai.drone.RepairDroneAI;
+import data.scripts.ai.missile.AlkemiaPDMissileAI;
+import data.scripts.ai.missile.AlkemiaLRMissileAI;
 import data.scripts.plugins.SCY_projectilesEffectPlugin;
 
 // import org.dark.shaders.light.LightData;
@@ -146,11 +146,11 @@ public class AlkemiaModPlugin extends BaseModPlugin {
         switch (id) {
             case AlkemiaIds.ALKEMIA_SWARM:
                 debug(String.format("antiMissileAI assigned for %s", id));
-                return new PluginPick<MissileAIPlugin>(new alkemiaPDMissileAI(missile, launchingShip),
+                return new PluginPick<MissileAIPlugin>(new AlkemiaPDMissileAI(missile, launchingShip),
                         CampaignPlugin.PickPriority.MOD_SPECIFIC);
             case AlkemiaIds.ALKEMIA_PILUM:
                 debug(String.format("alkemia_SmartMissileAI assigned for %s", id));
-                return new PluginPick<MissileAIPlugin>(new alkemiaSmartMissileAI(missile, launchingShip),
+                return new PluginPick<MissileAIPlugin>(new AlkemiaLRMissileAI(missile, launchingShip),
                         CampaignPlugin.PickPriority.MOD_SPECIFIC);
         }
         return super.pickMissileAI(missile, launchingShip);
