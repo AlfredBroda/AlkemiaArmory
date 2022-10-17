@@ -7,7 +7,7 @@ A mod for **Starsector** aiming to improve hull/fighter/weapon variety. Also a b
 
 ## Features
 
-Two new generally available ship hulls: **Dromader Dropship**, **Perch-class Heavy Carrier**
+Three new generally available ship hulls: **Dromader Dropship**, **Perch-class Heavy Carrier**, **Roost-class Carrier**
 <table>
 <tr>
 <td>
@@ -29,6 +29,15 @@ Perch-class Heavy Carrier
 A retrofit of the Champion, this heavy cruiser trades it's heavy turret and downsizes it's missile slot for three fighter bays. Remaining frontal turrets have been overhauled to fit a wider variety of armaments. The internal capacitors of the original were replaced with an improved fighter manufactory.
 </td>
 </tr>
+<tr>
+<td><img alt="Roost-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.11/graphics/alkemia/ships/roost.png?raw=true"/></td>
+<td>
+Roost-class Carrier
+
+A retrofit of the Drover, this destroyer now features a universal medium turret and a rear facing small hybrid turret. Remaining turrets have also been upgraded to hybrid.
+</td>
+</tr>
+
 <table>
 
 Six new fighter wings: **Deluxe Heavy Fighter** (in 5 flavors), **Syreen Interceptor** *(Wanzer?)*
