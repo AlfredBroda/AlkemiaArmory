@@ -30,7 +30,7 @@ A retrofit of the Drover, this destroyer now features a universal medium turret 
 </tr>
 
 <tr>
-<td><img alt="Roost-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.11/graphics/alkemia/ships/roost.png?raw=true"/></td>
+<td><img alt="Roost-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.12/graphics/alkemia/ships/da_rime/rime_racer.png?raw=true"/></td>
 <td>
 Rime-class Racer
 
