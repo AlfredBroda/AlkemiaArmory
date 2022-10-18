@@ -1,0 +1,24 @@
+{
+  "baseHullId": "alkemia_rime_racer",
+  "baseValueMult": 1.05,
+  "descriptionId": "alkemia_rime_racer",
+  "descriptionPrefix": "This Rime Racer has been painted with the official Alkemia colors.",
+  "tags":["alkemia_bp"],
+  "fighterBays": 2,
+  "fleetPoints": 12,
+  "fpMod": 0,
+  "hullDesignation": "Cruiser",
+  "hullName": "Rime (R)",
+  "manufacturer": "Alkemia",
+  "ordnancePoints": 100,
+  "restoreToBaseHull": false,
+	"removeBuiltInWeapons":["WS0006", "WS0007"],
+	"builtInWeapons":{
+    "WS0006": "alkemia_locust",
+    "WS0007": "alkemia_locust"
+    },
+  "skinHullId": "alkemia_rime_orange",
+  "spriteName": "graphics/alkemia/ships/da_rime/rime_orange.png",
+  "systemId": "alkemia_afterburner",
+  "tech": "MIDLIME"
+}

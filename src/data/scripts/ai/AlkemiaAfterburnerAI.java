@@ -19,14 +19,15 @@ import org.lwjgl.util.vector.Vector2f;
 import com.fs.starfarer.api.util.IntervalUtil;
 import org.lazywizard.lazylib.combat.CombatUtils;
 
-public class alkemia_AfterburnerAI implements ShipSystemAIScript {
+public class AlkemiaAfterburnerAI implements ShipSystemAIScript {
 
     private ShipAPI ship;
     private IntervalUtil tracker = new IntervalUtil(0.1f, 0.5f);
     private float range = 800f;
-    private final CollectionFilter filterGoals = new CollectionFilter() {
+    
+    private final CollectionFilter<CombatEntityAPI> filterGoals = new CollectionFilter<CombatEntityAPI>() {
         @Override
-        public boolean accept(Object t) {
+        public boolean accept(CombatEntityAPI t) {
             CombatEntityAPI entity = (CombatEntityAPI) t;
 
             // Exclude shots and missiles

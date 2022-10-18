@@ -11,7 +11,7 @@ import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
 
-import data.scripts.plugins.SCY_projectilesEffectPlugin;
+import data.scripts.plugins.AntiMissileEffectPlugin;
 import data.scripts.util.MagicTargeting;
 
 public class AlkemiaPDMissileAI extends BaseSmartMissileAI {
@@ -47,7 +47,7 @@ public class AlkemiaPDMissileAI extends BaseSmartMissileAI {
         ShipAPI launchingShip = missile.getSource();
         WeightedRandomPicker<MissileAPI> targets = new WeightedRandomPicker<>();
 
-        List<MissileAPI> TARGETTED = SCY_projectilesEffectPlugin.getAntimissiles();
+        List<MissileAPI> TARGETTED = AntiMissileEffectPlugin.getAntimissiles();
 
         // getRemainingRange(missile)
         for (MissileAPI m : AIUtils.getNearbyEnemyMissiles(launchingShip, missile.getWeapon().getRange())) {
@@ -86,7 +86,7 @@ public class AlkemiaPDMissileAI extends BaseSmartMissileAI {
 
         newTarget = targets.pick();
         if (newTarget != null) {
-            SCY_projectilesEffectPlugin.addAntimissiles(missile, newTarget);
+            AntiMissileEffectPlugin.addAntimissiles(missile, newTarget);
         }
 
         return newTarget;
@@ -95,7 +95,7 @@ public class AlkemiaPDMissileAI extends BaseSmartMissileAI {
     @Override
     public void postDetonate(Vector2f site, Vector2f direction) {
         // remove the missile from the master list
-        SCY_projectilesEffectPlugin.forceCheck();
+        AntiMissileEffectPlugin.forceCheck();
         engine.addSmoothParticle(site, direction, 20.0f, 0.9f, 5.0f, FLARE_COLOR);
     }
 
@@ -104,6 +104,6 @@ public class AlkemiaPDMissileAI extends BaseSmartMissileAI {
         super.lostTarget();
 
         // target has vanished, remove the missile from the master list
-        SCY_projectilesEffectPlugin.forceCheck();
+        AntiMissileEffectPlugin.forceCheck();
     }
 }

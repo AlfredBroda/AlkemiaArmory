@@ -25,7 +25,7 @@ import com.fs.starfarer.api.util.Misc;
 import data.scripts.ai.drone.RepairDroneAI;
 import data.scripts.ai.missile.AlkemiaPDMissileAI;
 import data.scripts.ai.missile.AlkemiaLRMissileAI;
-import data.scripts.plugins.SCY_projectilesEffectPlugin;
+import data.scripts.plugins.AntiMissileEffectPlugin;
 
 // import org.dark.shaders.light.LightData;
 // import org.dark.shaders.util.ShaderLib;
@@ -122,7 +122,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
         Global.getSector().addTransientListener(new ReportPlayerEngagementCampaignEventListener());
 
-        SCY_projectilesEffectPlugin.cleanSlate();
+        AntiMissileEffectPlugin.cleanSlate();
     }
 
     @Override
@@ -193,7 +193,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
         }
 
         private void clearState() {
-            SCY_projectilesEffectPlugin.cleanSlate();
+            AntiMissileEffectPlugin.cleanSlate();
         }
     }
 

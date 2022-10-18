@@ -19,6 +19,25 @@ Dromader-class Dropship
 Versatile trans-atmospheric dropship with a moderately sized cargo hold. Features a missile autoforge and a ground support package.
 </td>
 </tr>
+
+<tr>
+<td><img alt="Roost-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.11/graphics/alkemia/ships/roost.png?raw=true"/></td>
+<td>
+Roost-class Carrier
+
+A retrofit of the Drover, this destroyer now features a universal medium turret and a rear facing small hybrid turret, as well as a hybrid upgrade to the remaining turrets. This came at the cost of additional fighter capacity, but flare launchers were installed to improve protection.
+</td>
+</tr>
+
+<tr>
+<td><img alt="Roost-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.11/graphics/alkemia/ships/roost.png?raw=true"/></td>
+<td>
+Rime-class Racer
+
+When the Alkemia Customs managers were looking for a luxury yacht, the sleek Diable Avionics Rime caught their attention. Unfortunately, it lacked one crucial element - speed. To remedy this, engine systems were replaced and afterburners were installed. This ship is for racing rather than cruising!
+</td>
+</tr>
+
 <tr>
 <td>
 <img alt="Perch-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.5/graphics/alkemia/ships/champion_carrier.png?raw=true"/>
@@ -29,15 +48,6 @@ Perch-class Heavy Carrier
 A retrofit of the Champion, this heavy cruiser trades it's heavy turret and downsizes it's missile slot for three fighter bays. Remaining frontal turrets have been overhauled to fit a wider variety of armaments. The internal capacitors of the original were replaced with an improved fighter manufactory.
 </td>
 </tr>
-<tr>
-<td><img alt="Roost-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.11/graphics/alkemia/ships/roost.png?raw=true"/></td>
-<td>
-Roost-class Carrier
-
-A retrofit of the Drover, this destroyer now features a universal medium turret and a rear facing small hybrid turret. Remaining turrets have also been upgraded to hybrid.
-</td>
-</tr>
-
 <table>
 
 Six new fighter wings: **Deluxe Heavy Fighter** (in 5 flavors), **Syreen Interceptor** *(Wanzer?)*
