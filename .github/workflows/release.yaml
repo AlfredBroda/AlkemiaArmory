@@ -48,9 +48,12 @@ jobs:
               run: |
                 mkdir libs
                 cd libs
-                7z x ../LazyLib.zip
-                7z x ../MagicLib.zip
                 ls -la
+                unzip ../LazyLib.zip
+                ls -la LazyLib/jars
+                unzip ../MagicLib.zip
+                ls -la MagicLib/jars
+
 
             - name: Build Mod Zipfile
               uses: gradle/gradle-build-action@v2
