@@ -1,0 +1,11 @@
+id
+# NOTES
+# Ship IDs entered here will be allowed for duplication.
+# "This feature is very hard to get working in campaign as a player, and lorewise, allows for duplication of even the most complex hulls."
+
+# Specials - these are optional. They could go away if people complain about them being available. If you think they shouldn't be available, remove them.
+alkemia_shepherd
+alkemia_dromader
+alkemia_roost
+alkemia_rime_racer
+alkemia_perch

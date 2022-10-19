@@ -1,7 +1,7 @@
 id,variant,tags,tier,rarity,fleet pts,op cost,formation,range,attackRunRange,attackPositionOffset,num,role,role desc,refit,base value,,,,,,,,,,,,,number
-alkemia_deluxe_wing,alkemia_deluxe_fighter,"fighter, alkemia_bp",3,0.75,7,14,V,3000,500,,2,FIGHTER,Fighter,28,11400,,,,,,,,,,,,,30045
-alkemia_deluxe_super_wing,alkemia_deluxe_super,"interceptor, alkemia_bp",3,0.75,7,16,V,3000,500,,2,INTERCEPTOR,Interceptor,28,14400,,,,,,,,,,,,,30046
-alkemia_deluxe_strike_wing,alkemia_deluxe_strike,"fighter, alkemia_bp",3,0.75,7,18,V,3000,500,,2,ASSAULT,Strike Fighter,28,12400,,,,,,,,,,,,,30046
+alkemia_deluxe_wing,alkemia_deluxe_fighter,"fighter, alkemia_bp, merc",3,0.75,7,14,V,3000,500,,2,FIGHTER,Fighter,28,11400,,,,,,,,,,,,,30045
+alkemia_deluxe_super_wing,alkemia_deluxe_super,"interceptor, alkemia_bp, merc",3,0.75,7,16,V,3000,500,,2,INTERCEPTOR,Interceptor,28,14400,,,,,,,,,,,,,30046
+alkemia_deluxe_strike_wing,alkemia_deluxe_strike,"fighter, alkemia_bp, merc",3,0.75,7,18,V,3000,500,,2,ASSAULT,Strike Fighter,28,12400,,,,,,,,,,,,,30046
 alkemia_deluxe_bomber_wing,alkemia_deluxe_bomber,"fighter, bomber, independent_of_carrier, alkemia_bp",3,0.75,7,20,V,5000,500,,2,BOMBER,Strike Bomber,28,14400,,,,,,,,,,,,,30046
 alkemia_deluxe_lrstrike_wing,alkemia_deluxe_lrstrike,"fighter, bomber, independent_of_carrier, alkemia_bp",3,0.75,7,18,V,10000,500,,2,BOMBER,Long Range Strike,28,16400,,,,,,,,,,,,,30046
 alkemia_syreen_wing,alkemia_syreen_standard,"interceptor, alkemia_bp, independent_of_carrier",3,0.75,7,20,V,10000,500,,2,INTERCEPTOR,Interceptor,18,8000,,,,,,,,,,,,,30047

@@ -1,0 +1,35 @@
+{
+	"baseHullId": "brawler",
+	"skinHullId": "brawler_alkemia",
+	"hullName": "Brawler (AC)",
+	"descriptionId": "brawler",
+	"descriptionPrefix": "This ship has been thoroughly overhauled by the Alkemia Customs workshops.",
+	"tags": [ "alkemia_bp" ],
+	"manufacturer": "Alkemia",
+	"tech": "MIDLIME",
+	"spriteName": "graphics/ships/brawler.png",
+	"ordnancePoints": 54,
+	"baseValueMult": 1.2,
+	"systemId": "alkemia_afterburner",
+	"builtInMods": [ "insulatedengine" ],
+	"builtInWeapons": {
+	},
+	"weaponSlotChanges": {
+		"WS 001": { "type": "SYNERGY" },
+		"WS 002": { "type": "SYNERGY" },
+		"WS 003": {
+			"angle": 45,
+			"arc": 135,
+			"mount": "TURRET",
+			"size": "SMALL",
+			"type": "HYBRID"
+		},
+		"WS 004": {
+			"angle": -45,
+			"arc": 135,
+			"mount": "TURRET",
+			"size": "SMALL",
+			"type": "HYBRID"
+		}
+	}
+}

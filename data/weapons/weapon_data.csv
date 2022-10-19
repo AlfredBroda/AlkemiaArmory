@@ -9,7 +9,7 @@ Salamander SRM (one-shot),alkemia_salamander_fighter,0,0.5,100,800,,100,1500,15,
 Light Antimatter Blaster,alkemia_amblaster_fighter,1,0.3,700,400,,800,,0,30,6,4,,,ENERGY,900,,0.25,5,,,0,0,0,0,,1000,,,100,,,"STRIKE, USE_VS_FRIGATES, GROUP_ALTERNATING","no_drop, strike10, hist1t, alkemia_bp, merc",SR_strike_only,Alkemia,,Strike,,,,,,,,,,19.76
 EMP Swarmer Pod,alkemia_syreen_arm_l,1,0.7,300,1200,,75,75,10,5,6,6,0.7,1,FRAGMENTATION,0,,0,10,8,0.1,0,0,0,0,,400,50,6,30,,,"PD, ANTI_FTR, DO_NOT_AIM, MISSILE_SPREAD","no_drop, no_sell, no_drop_salvage",,Alkemia,,Anti Fighter,Fast,Excellent,,,"Saturation defense launcher with large numbers of guided low-yeld EMP warheads.",,,,,16.4
 EMP Swarmer Pod,alkemia_syreen_arm_r,1,0.7,300,1200,,75,75,10,5,6,6,0.7,1,FRAGMENTATION,0,,0,10,8,0.1,0,0,0,0,,400,50,6,30,,,"PD, ANTI_FTR, DO_NOT_AIM, MISSILE_SPREAD","no_drop, no_sell, no_drop_salvage",,Alkemia,,Anti Fighter,Fast,Excellent,,,"Saturation defense launcher with large numbers of guided low-yeld EMP warheads.",,,,,16.4
-ACDLS,alkemia_acdls,2,,800,500,500,,,0,100,7,4,1,,ENERGY,,200,0.1,0.1,0.5,0.1,,,,,10000,,,,,,,"PD_ALSO, ANTI_FTR","pd9, beam5, alkemia_bp, merc",,Alkemia,,Point Defense,,,,,,,,,,19.10
+ACDLS,alkemia_acdls,2,,800,500,500,,,0,100,7,4,1,,ENERGY,,200,0.1,0.1,0.5,0.1,,,,,10000,,,,,,,"PD_ALSO, ANTI_FTR","pd9, beam5, alkemia_bp",,Alkemia,,Point Defense,,,,,,,,,,19.10
 Welder,alkemia_repairbeam,2,,100,20,150,,,0,100,1,4,1,,ENERGY,,200,0.1,0.1,0.5,0.1,,,,,10000,,,,,,,"FIRE_WHEN_INEFFICIENT","alkemia_bp",,Alkemia,,Repair,,,,,,,,,,19.11
 Dromader Bridge,alkemia_dromader_bridge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,45.1
 Perch Launchbay,alkemia_launchbay,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,45.2

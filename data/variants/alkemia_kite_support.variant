@@ -1,0 +1,28 @@
+{
+    "displayName": "Support",
+    "fluxCapacitors": 6,
+    "fluxVents": 6,
+    "goalVariant": true,
+    "hullId": "kite_alkemia",
+    "hullMods": [ ],
+    "permaMods": [ ],
+    "quality": 0.5,
+    "variantId": "alkemia_kite_support",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 001": "heatseeker",
+                "WS 002": "heatseeker"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "alkemia_vulcan"
+            }
+        }
+    ]
+}

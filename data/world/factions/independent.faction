@@ -1,0 +1,23 @@
+{
+	"id":"independent",
+	"knownShips":{
+		"tags":[],
+		"hulls":[
+			"alkemia_dromader",
+			"alkemia_shepherd",
+			"alkemia_roost"
+		]
+	},
+	"knownFighters":{
+		"tags":[],
+		"fighters":[
+			"alkemia_deluxe_wing",
+			"alkemia_deluxe_super_wing",
+			"alkemia_deluxe_strike_wing",
+			"alkemia_repair_wing"
+		]
+	},
+	"knownWeapons":{
+		"tags":["alkemia_bp"]
+	}
+}

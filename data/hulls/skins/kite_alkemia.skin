@@ -1,0 +1,21 @@
+{
+	"baseHullId": "kite",
+	"skinHullId": "kite_alkemia",
+	"hullName": "Kite (AC)",
+	"descriptionId": "kite",
+	"descriptionPrefix": "One of the most ubiqutous ships in the Sector and a frequent visitor to the workshops of the Company. After years of repairs and running maintenance on these ships, it is no wonder that the mechanics came up with several upgrades and improvements.",
+	"tags": [ "alkemia_bp" ],
+	"manufacturer": "Alkemia",
+	"tech": "MIDLIME",
+	"spriteName": "graphics/alkemia/ships/aeroshuttle.png",
+	"fleetPoints": 4,
+	"baseValueMult": 1.5,
+	"removeHints": [ "CIVILIAN" ],
+	"addHints": [ ],
+	"removeWeaponSlots": [ ],
+	"removeEngineSlots": [ ],
+	"removeBuiltInMods": [ "civgrade" ],
+	"removeBuiltInWeapons": [ ],
+	"builtInMods": [ "frontemitter" ],
+	"builtInWeapons": { }
+}
