@@ -39,21 +39,12 @@ jobs:
               with:
                 args: -O LazyLib.zip https://github.com/LazyWizard/lazylib/releases/download/2.7b/LazyLib.2.7b.zip
 
-            - name: Download MagicLib
-              uses: wei/wget@v1
-              with:
-                args: -O MagicLib.zip https://www.patreon.com/file?h=62002109&i=10010143
-
             - name: Extract Libs
               run: |
-                mkdir libs
                 cd libs
                 ls -la
                 unzip ../LazyLib.zip
                 ls -la LazyLib/jars
-                unzip ../MagicLib.zip
-                ls -la MagicLib/jars
-
 
             - name: Build Mod Zipfile
               uses: gradle/gradle-build-action@v2
