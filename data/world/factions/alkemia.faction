@@ -5,10 +5,11 @@
 	"displayNameWithArticle": "the Alkemia Customs",
 	"displayNameLong": "Alkemia Customs Company",
 	"displayNameLongWithArticle": "the Alkemia Customs Company",
-	"entityNamePrefix": "alkemia",
-	"personNamePrefix": "alkemia",
+	"entityNamePrefix": "",
+	"personNamePrefix": "employee",
 	"personNamePrefixAOrAn": "an",
 	"displayNameIsOrAre": "is",
+
 	"logo": "graphics/alkemia/factions/alkemia_logo_flag.png",
 	"crest": "graphics/alkemia/factions/alkemia_logo_crest.png",
 	"shipNamePrefix": "ACO",
@@ -48,11 +49,12 @@
 		"alkemia_impmanufactory"
 	],
 	"illegalCommodities": [
+		"organs"
 	],
-	"internalComms":"alkemia_internal",	
+	"internalComms": "alkemia_internal",
 	"showInIntelTab": true,
-	"tariffFraction":0.10,
-	"fineFraction":0.5,
+	"tariffFraction": 0.10,
+	"fineFraction": 0.5,
 	"portraits": {
 	},
 	"music": {
@@ -73,12 +75,12 @@
 		"AICoreValueMult": 1.7,
 		"AICoreRepMult": 1.7,
 		"buysSurveyData": false,
-		"punitiveExpeditionData":{
-            "vsCompetitors":true,
-            "vsFreePort":false,
-            "canBombard":false,
-            "territorial":false
-        }
+		"punitiveExpeditionData": {
+			"vsCompetitors": true,
+			"vsFreePort": false,
+			"canBombard": false,
+			"territorial": false
+		}
 	},
 	"shipRoles": {
 		"fastAttack": {
@@ -129,7 +131,7 @@
 		"combatCapital": {
 			"fallback": { "combatLarge": 2 }
 		},
-		
+
 		"combatFreighterSmall": {
 			"shepherd_Frontier": 4,
 			"alkemia_shepherd_support": 8,
@@ -146,7 +148,7 @@
 			"venture_Exploration": 3,
 			"fallback": { "combatFreighterMedium": 1 }
 		},
-	
+
 		"carrierSmall": {
 			"alkemia_shepherd_support": 8,
 			"alkemia_roost_standard": 10,
@@ -164,7 +166,7 @@
 		"carrierLarge": {
 			"fallback": { "carrierMedium": 2 }
 		},
-	
+
 		"freighterSmall": {
 			"mercury_Standard": 10,
 			"fallback": { "freighterMedium": 0.5 }
@@ -206,7 +208,7 @@
 		"personnelLarge": {
 			"fallback": { "personnelMedium": 2 }
 		},
-		
+
 		"tug": {
 			"ox_Standard": 10,
 			"fallback": { "utility": 1 }
@@ -234,19 +236,19 @@
 		"medium": 10,
 		"large": 5,
 		"capital": 1,
-		
+
 		"escortSmallFraction": 1,
 		"escortMediumFraction": 1,
-		
+
 		"combatFreighterProbability": 0.15,
-			
+
 		"minPointsForCombatCapital": 17,
 		"minPointsForLargeCarrier": 15,
-		
+
 		"smallCarrierProbability": 0.4,
 		"mediumCarrierProbability": 0.4,
 		"largeCarrierProbability": 0.4,
-			
+
 		"officersPerPoint": 0.45,
 		"officerLevelPerPoint": 0.4,
 		"officerLevelBase": 5,
@@ -265,34 +267,34 @@
 			"flux_regulation"
 		]
 	},
-	"fleetTypeNames":{
-		"trade":"Company Trader",
-		"tradeLiner":"Employee Transfer",
-		"tradeSmuggler":"Procurer",
-		"smallTrader":"Trade Representative",
-		
-		"patrolSmall":"Maintenance Fleet",
-		"patrolMedium":"Security Fleet",
-		"patrolLarge":"Peacekeeper Fleet",
-		
-		"inspectionFleet":"Investigator",
-		"taskForce":"Special Affairs Fleet",
-		
-		"foodReliefFleet":"Relief Convoy",
-		
-		"mercScout":"Contract Scout",
-		"mercBountyHunter":"Retrieval Contractor",
-		"mercPrivateer":"Security Contractor",
-		"mercPatrol":"Contractor Patrol",
-		"mercArmada":"Contracted Armada"
+	"fleetTypeNames": {
+		"trade": "Company Trader",
+		"tradeLiner": "Employee Transfer",
+		"tradeSmuggler": "Procurer",
+		"smallTrader": "Trade Representative",
+
+		"patrolSmall": "Maintenance Fleet",
+		"patrolMedium": "Security Fleet",
+		"patrolLarge": "Peacekeeper Fleet",
+
+		"inspectionFleet": "Investigator",
+		"taskForce": "Special Affairs Fleet",
+
+		"foodReliefFleet": "Relief Convoy",
+
+		"mercScout": "Contract Scout",
+		"mercBountyHunter": "Retrieval Contractor",
+		"mercPrivateer": "Security Contractor",
+		"mercPatrol": "Contractor Patrol",
+		"mercArmada": "Contracted Armada"
 	},
-	"knownShips":{
-		"tags":["alkemia_bp"]
+	"knownShips": {
+		"tags": [ "alkemia_bp" ]
 	},
-	"knownFighters":{
-		"tags":["alkemia_bp"]
+	"knownFighters": {
+		"tags": [ "alkemia_bp" ]
 	},
-	"knownWeapons":{
-		"tags":["alkemia_bp"]
+	"knownWeapons": {
+		"tags": [ "alkemia_bp" ]
 	}
 }
