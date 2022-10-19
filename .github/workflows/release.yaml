@@ -37,18 +37,19 @@ jobs:
             - name: Download LazyLib
               uses: wei/wget@v1
               with:
-                args: -O libs/LazyLib.zip https://github.com/LazyWizard/lazylib/releases/download/2.7b/LazyLib.2.7b.zip
+                args: -O LazyLib.zip https://github.com/LazyWizard/lazylib/releases/download/2.7b/LazyLib.2.7b.zip
 
             - name: Download MagicLib
               uses: wei/wget@v1
               with:
-                args: -O libs/MagicLib.zip https://www.patreon.com/file?h=62002109&i=10010143
+                args: -O MagicLib.zip https://www.patreon.com/file?h=62002109&i=10010143
 
             - name: Extract Libs
               run: |
+                mkdir libs
                 cd libs
-                7z x LazyLib.zip
-                7z x MagicLib.zip
+                7z x ../LazyLib.zip
+                7z x ../MagicLib.zip
                 ls -la
 
             - name: Build Mod Zipfile
