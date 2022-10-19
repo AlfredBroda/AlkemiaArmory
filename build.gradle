@@ -51,7 +51,8 @@ def libDir = "${starsectorModDirectory}"
 if (new File(starsectorModDirectory).exists()) {
     println("$starsectorModDirectory exists, adding mod folder dependencies.")
 } else {
-    libDir = "./libs"
+    libDir = "libs"
+    println("$starsectorModDirectory does not exist, using $libDir for dependencies.")
 }
 
 def modInModsFolder = "$starsectorModDirectory/${modFolderName}"
