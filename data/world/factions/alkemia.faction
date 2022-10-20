@@ -1,12 +1,20 @@
 {
 	"id": "alkemia",
-	"color": [ 255, 130, 0, 255 ],
+	"color": [ 255, 209, 0, 255 ],
+
+	"baseUIColor": [ 255, 209, 0, 255 ],
+	"darkUIColor": [ 0, 0, 0, 175 ],
+	"gridUIColor": [ 50, 150, 225, 75 ],
+
+	"secondaryUIColor": [ 200, 200, 200, 255 ],
+	"secondarySegments": 8,
+
 	"displayName": "Alkemia Customs",
 	"displayNameWithArticle": "the Alkemia Customs",
 	"displayNameLong": "Alkemia Customs Company",
 	"displayNameLongWithArticle": "the Alkemia Customs Company",
-	"entityNamePrefix": "",
-	"personNamePrefix": "employee",
+	"entityNamePrefix": "Alkemia",
+	"personNamePrefix": "Shareholder",
 	"personNamePrefixAOrAn": "an",
 	"displayNameIsOrAre": "is",
 
@@ -26,6 +34,46 @@
 		"world": 1,
 		"fringe": 1
 	},
+	"ranks": {
+		"ranks": {
+			"factionLeader": { "name": "First Engineer" },
+			"spaceSailor": { "name": "Spacer" },
+			"spaceChief": { "name": "Spacer Chief" },
+			"spaceEnsign": { "name": "Flying Officer" },
+			"spaceLieutenant": { "name": "Wing Commander" },
+			"spaceCommander": { "name": "Squadron Commander" },
+			"spaceCaptain": { "name": "Fleet Commander" },
+			"spaceAdmiral": { "name": "Space Commander" },
+			"spaceMarshal": { "name": "Space Overseer" }
+		},
+		"posts": {
+			"factionLeader": { "name": "First Engineer" },
+			"patrolCommander": { "name": "Wing Commander" },
+			"fleetCommander": { "name": "Fleet Commander" },
+			"stationCommander": { "name": "Chief Engineer" },
+			"portmaster": { "name": "Chief Technician" },
+			"administrator": { "name": "Overseer" },
+			"supplyOfficer": { "name": "Procurer" },
+			"supplyManager": { "name": "Warehouse Manager" },
+			"medicalSupplier": { "name": "Medical Technician" }
+		}
+	},
+	"voices": {
+		"LOW": {
+			"spacer": 10,
+			"citizen": 5
+		},
+		"MEDIUM": {
+			"soldier": 10,
+			"official": 5
+		},
+		"HIGH": {
+			"soldier": 5,
+			"official": 10,
+			"aristo": 3
+		}
+	},
+
 	"hullMods": [
 		"turretgyros",
 		"armoredweapons",
@@ -56,6 +104,49 @@
 	"tariffFraction": 0.10,
 	"fineFraction": 0.5,
 	"portraits": {
+		"standard_female":
+		[
+			"graphics/alkemia/portraits/female_mechanic1.png",
+			"graphics/alkemia/portraits/female_mechanic2.png",
+			"graphics/alkemia/portraits/female_mechanic3.png",
+            "graphics/portraits/portrait_corporate02.png",
+            "graphics/portraits/portrait_corporate04.png",
+            "graphics/portraits/portrait_corporate07.png",
+			"graphics/portraits/portrait_corporate09.png",
+            "graphics/portraits/portrait_mercenary02.png",
+			"graphics/portraits/portrait_mercenary05.png",
+			"graphics/portraits/portrait16.png",
+			"graphics/portraits/portrait22.png",
+			"graphics/portraits/portrait27.png",
+			"graphics/portraits/portrait28.png",
+			"graphics/portraits/portrait29.png",
+			"graphics/portraits/portrait32.png",
+			"graphics/portraits/portrait37.png",
+            "graphics/portraits/portrait41.png"
+		],
+		"standard_male": [
+			"graphics/alkemia/portraits/male_mechanic1.png",
+			"graphics/alkemia/portraits/male_mechanic2.png",
+            "graphics/portraits/portrait_corporate01.png",
+            "graphics/portraits/portrait_corporate03.png",
+            "graphics/portraits/portrait_corporate05.png",
+            "graphics/portraits/portrait_corporate08.png",
+			"graphics/portraits/portrait_mercenary01.png",
+			"graphics/portraits/portrait_mercenary03.png",
+			"graphics/portraits/portrait_mercenary06.png",
+			"graphics/portraits/portrait13.png",
+            "graphics/portraits/portrait15.png",
+			"graphics/portraits/portrait17.png",
+            "graphics/portraits/portrait18.png",
+			"graphics/portraits/portrait20.png",
+			"graphics/portraits/portrait23.png",
+            "graphics/portraits/portrait26.png",
+			"graphics/portraits/portrait31.png",
+			"graphics/portraits/portrait33.png",
+			"graphics/portraits/portrait35.png",
+			"graphics/portraits/portrait36.png",
+            "graphics/portraits/portrait38.png"
+		]
 	},
 	"music": {
 		"theme": "music_none",
@@ -69,12 +160,12 @@
 	"custom": {
 		"ignoreTradeWithEnemiesForReputation": true,
 		"allowsTransponderOffTrade": true,
-		"offersCommissions": false,
-		"engagesInHostilities": false,
+		"offersCommissions": true,
+		"engagesInHostilities": true,
 		"buysAICores": true,
-		"AICoreValueMult": 1.7,
+		"AICoreValueMult": 1.5,
 		"AICoreRepMult": 1.7,
-		"buysSurveyData": false,
+		"buysSurveyData": true,
 		"punitiveExpeditionData": {
 			"vsCompetitors": true,
 			"vsFreePort": false,
@@ -113,6 +204,7 @@
 			"hammerhead_Balanced": 10,
 			"hammerhead_Support": 10,
 			"alkemia_gryphon_LR": 10,
+			"alkemia_rime_racer_standard": 5,
 			"alkemia_rime_orange_standard": 7,
 			"alkemia_rime_orange_assault": 6,
 			"sunder_CS": 4,
@@ -124,23 +216,29 @@
 			"alkemia_perch_assault": 10,
 			"alkemia_perch_escort": 10,
 			"alkemia_perch_standard": 10,
+			"champion_Escort": 8,
+			"champion_Support": 8,
 			"gryphon_FS": 8,
 			"gryphon_Standard": 8,
 			"fallback": { "combatMedium": 2 }
 		},
 		"combatCapital": {
+			"alkemia_conquest_lr": 10,
+			"conquest_Standard": 10,
 			"fallback": { "combatLarge": 2 }
 		},
 
 		"combatFreighterSmall": {
-			"shepherd_Frontier": 4,
-			"alkemia_shepherd_support": 8,
-			"wayfarer_Standard": 10,
+			"shepherd_Frontier": 2,
+			"alkemia_shepherd_support": 3,
+			"wayfarer_Standard": 5,
+			"alkemia_lifter_Standard":6,
 			"fallback": { "freighterSmall": 1 }
 		},
 		"combatFreighterMedium": {
 			"alkemia_rime_orange_standard": 10,
 			"mule_Standard": 10,
+			"gemini_Standard": 6,
 			"fallback": { "combatFreighterSmall": 2 }
 		},
 		"combatFreighterLarge": {
@@ -159,7 +257,7 @@
 		"carrierMedium": {
 			"heron_Strike": 5,
 			"heron_Attack": 5,
-			"alkemia_perch_escort": 10,
+			"alkemia_perch_escort": 9,
 			"alkemia_perch_standard": 10,
 			"fallback": { "carrierSmall": 2 }
 		},
@@ -168,20 +266,20 @@
 		},
 
 		"freighterSmall": {
-			"mercury_Standard": 10,
+			"mercury_Standard": 2,
 			"fallback": { "freighterMedium": 0.5 }
 		},
 		"freighterMedium": {
-			"tarsus_Standard": 10,
+			"tarsus_Standard": 2,
 			"fallback": { "freighterSmall": 2 }
 		},
 		"freighterLarge": {
-			"colossus_Standard": 10,
+			"colossus_Standard": 2,
 			"fallback": { "freighterMedium": 2 }
 		},
 
 		"tankerSmall": {
-			"dram_Light": 10,
+			"dram_Light": 2,
 			"fallback": { "tankerMedium": 0.5 }
 		},
 		"tankerMedium": {
@@ -194,7 +292,8 @@
 		},
 
 		"personnelSmall": {
-			"mercury_d_Standard": 8,
+			"kite_original_Stock": 8,
+			"mercury_d_Standard": 6,
 			"mercury_Attack": 3,
 			"mercury_PD": 3,
 			"mercury_Standard": 3,
@@ -206,6 +305,7 @@
 			"fallback": { "personnelSmall": 2 }
 		},
 		"personnelLarge": {
+			"starliner_Standard": 10,
 			"fallback": { "personnelMedium": 2 }
 		},
 
@@ -289,12 +389,12 @@
 		"mercArmada": "Contracted Armada"
 	},
 	"knownShips": {
-		"tags": [ "alkemia_bp" ]
+		"tags": [ "alkemia_bp", "midline_bp" ]
 	},
 	"knownFighters": {
-		"tags": [ "alkemia_bp" ]
+		"tags": [ "alkemia_bp", "midline_bp" ]
 	},
 	"knownWeapons": {
-		"tags": [ "alkemia_bp" ]
+		"tags": [ "base_bp", "midline_bp", "missile_bp", "independent", "alkemia_bp" ]
 	}
 }

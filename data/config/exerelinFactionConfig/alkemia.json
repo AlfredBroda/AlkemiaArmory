@@ -1,0 +1,105 @@
+{
+    "playableFaction": true,
+    "corvusCompatible": true,
+
+    "rebelFleetSuffix": "Misfit",
+
+    "directoryUseShortName": true,
+
+    "startRelationships": {
+        "diableavionics": 0.6,
+        "roider": 0.4,
+        "hegemony": 0.2,
+        "persean": 0.2,
+        "ORA": -0.6,
+        "sindrian_diktat": 0.2,
+        "luddic_church": -0.4
+    },
+
+    "morality": "neutral",
+
+    "diplomacyTraits": [ "helps_allies", "likes_ai", "lowprofile", "neutralist", "anarchist" ],
+
+    "alignments": {
+        "corporate": 0.8,
+        "technocratic": 0.8,
+        "militarist": 0.4,
+        "diplomatic": 0.4,
+        "ideological": -0.5
+    },
+
+    "isPirateNeutral": true,
+
+    "vengeanceLevelNames": [ "Response", "Self-Defense", "Liquidation" ],
+    "vengeanceFleetNames": [ "Response", "Self-Defense", "Liquidation" ],
+
+    "vengeanceFleetNamesSingle": [ "a Response Fleet", "a Self-Defense Force", "a Liquidation Force" ],
+
+    "miningVariantsOrWings": [ "shepherd_Frontier", "alkemia_gemini_miner", "mining_drone_wing" ],
+
+    "startShipsSolo": [
+        [ "alkemia_dromader_standard" ],
+        [ "wayfarer_Starting", "shepherd_Starting" ],
+        [ "brawler_Starting", "alkemia_lifter_Standard" ]
+    ],
+
+    "startShipsCombatSmall": [
+        [ "alkemia_dromader_standard", "centurion_Starting", "brawler_Starting" ],
+        [ "alkemia_dromader_strike", "kite_Starting", "alkemia_kite_support" ],
+        [ "vigilance_Starting", "alkemia_brawler_support", "alkemia_kite_support" ],
+        [ "hammerhead_Balanced", "vigilance_Starting", "alkemia_kite_support" ]
+    ],
+
+    "startShipsCombatLarge": [
+        [ "alkemia_gryphon_LR", "alkemia_brawler_ranger", "alkemia_dromader_standard" ]
+    ],
+
+    "startShipsTradeSmall": [
+        [ "wayfarer_Starting", "alkemia_dromader_standard", "alkemia_shepherd_support" ],
+        [ "alkemia_lifter_Standard", "alkemia_brawler_ranger", "alkemia_shepherd_support" ]
+    ],
+
+    "startShipsTradeLarge": [
+        [ "alkemia_rime_orange_standard", "alkemia_brawler_support" ],
+        [ "alkemia_rime_racer_standard", "alkemia_brawler_support" ],
+        [ "gemini_Standard", "alkemia_brawler_support" ]
+    ],
+
+    "startShipsCarrierSmall": [
+        [ "drover_Starting", "alkemia_dromader_strike" ], 
+        [ "alkemia_roost_standard", "alkemia_brawler_support"]
+    ],
+
+    "startShipsCarrierLarge": [
+        [ "alkemia_perch_standard", "alkemia_brawler_ranger", "vigilance_Starting" ],
+        [ "alkemia_perch_assault", "alkemia_brawler_support", "vigilance_Starting" ],
+        [ "alkemia_gryphon_LR", "alkemia_brawler_ranger", "alkemia_dromader_standard" ]
+    ],
+
+    "startShipsSuper": [
+        [ "alkemia_rime_orange_standard" ],
+        [ "alkemia_ox_junker_support" ]
+    ],
+
+    "defenceStations": [
+        { "ids": [ "alkemia_orbitalstation_junker" ] }
+    ],
+
+    "startSpecialItems": [
+        [ [ "alkemia_bp_package", "" ], ["midline_package", ""], ["missile_package", ""] ]
+    ],
+
+    "industrySeeds": [
+        { "id": "militarybase", "mult": 0.2 },
+        { "id": "alkemia_workshop", "mult": 0.2 },
+        { "id": "fuelprod", "mult": 0.05 }
+    ],
+
+    "bonusSeeds": [
+        { "id": "alkemia_nanoforge", "count": 1 },
+        { "id": "aiCore_station", "count": 2, "mult": 0.2 },
+        { "id": "aiCore_military", "mult": 0.4 },
+        { "id": "aiCore_heavyindustry", "count": 1 },
+        { "id": "aiCore_any", "mult": 1.5 }
+    ]
+}

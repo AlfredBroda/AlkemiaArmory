@@ -1,0 +1,106 @@
+{
+	"combatSmallForSmallFleet":{
+		"alkemia_dromader_assault": 3,
+		"alkemia_dromader_standard": 3,
+		"alkemia_dromader_strike": 2,
+		"alkemia_brawler_ranger": 2,
+		"alkemia_brawler_support": 1
+	},
+	"combatSmall":{
+		"alkemia_dromader_assault": 2,
+		"alkemia_dromader_standard": 4,
+		"alkemia_dromader_strike": 3,
+		"alkemia_brawler_ranger": 3,
+		"alkemia_brawler_support": 2
+	},
+	"combatMedium":{
+		"hammerhead_Balanced": 4,
+		"hammerhead_Support": 5,
+		"alkemia_gryphon_LR": 6,
+		"alkemia_rime_orange_standard": 4,
+		"alkemia_rime_orange_assault": 3,
+		"sunder_CS": 4,
+		"sunder_Assault": 4
+	},
+	"combatLarge":{
+		"alkemia_gryphon_LR": 5,
+		"alkemia_perch_assault": 4,
+		"alkemia_perch_escort": 10,
+		"alkemia_perch_standard": 6,
+		"champion_Escort": 5,
+		"champion_Support": 5,
+		"gryphon_FS": 5,
+		"gryphon_Standard": 4
+	},
+	"combatCapital":{
+		"alkemia_conquest_lr": 3,
+		"conquest_Standard": 3
+	},
+
+	"carrierSmall":{
+		"alkemia_shepherd_support": 2,
+		"alkemia_roost_standard": 5,
+		"gemini_Standard": 4,
+		"drover_Strike": 4
+	},
+	"carrierMedium":{
+		"heron_Strike": 3,
+		"heron_Attack": 2,
+		"alkemia_perch_escort": 4,
+		"alkemia_perch_standard": 5
+	},
+	
+	"civilianRandom":{
+		"kite_original_Stock":2,
+		"mercury_Standard":2,
+		"ox_Standard": 3,
+		"crig_Standard": 3,
+		"shepherd_Frontier": 4,
+		"alkemia_gemini_miner": 4
+	},
+	
+	"combatFreighterSmall":{
+		"alkemia_dromader_standard":2,
+		"wayfarer_Standard": 2
+	},
+	
+	"combatFreighterLarge":{
+		"venture_Balanced": 4,
+		"venture_Exploration": 3
+	},
+	
+	"freighterSmall":{
+		"mercury_Standard": 2
+	},
+	"freighterMedium":{
+		"tarsus_Standard": 2
+	},
+	"freighterLarge":{
+		"colossus_Standard": 2
+	},
+	
+	"tankerSmall":{
+		"dram_Light": 2
+	},
+	"tankerMedium":{
+		"phaeton_Standard": 6
+	},
+	"tankerLarge":{
+		"prometheus_Super": 8
+	},
+	
+	"personnelLarge":{
+		"starliner_Standard": 4
+	},
+	
+	"tug":{
+		"ox_Standard": 10
+	},
+	"crig":{
+		"crig_Standard": 10
+	},
+	"utility":{
+		"crig_Standard": 10,
+		"ox_Standard": 10
+	}
+}

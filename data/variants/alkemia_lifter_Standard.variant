@@ -1,0 +1,32 @@
+{
+  "variantId": "alkemia_lifter_Standard",
+  "hullId": "alkemia_lifter",
+  "displayName": "Standard",
+  "goalVariant": true,
+  "fluxCapacitors": 5,
+  "fluxVents": 10,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "hardenedshieldemitter"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "pdlaser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 002": "vulcan",
+        "WS 003": "vulcan"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

@@ -1,0 +1,26 @@
+{
+	"defaultChannels": [
+		"alkemia_public"
+	],
+
+	"alkemia_public": {
+		"name": "Alkemia Customs Bulletin",
+		"logo": "graphics/icons/intel/comms64.png",
+		"icon": "graphics/icons/intel/comms46.png",
+		"image": "graphics/alkemia/factions/alkemia_logo_flag.png",
+		"sound": "ui_channel_news",
+		"faction": "alkemia",
+		"type": "News Report",
+		"shortType": "News"
+	},
+	"alkemia_internal": {
+		"name": "Alkemia Customs Secured",
+		"logo": "graphics/icons/intel/comms_secure64.png",
+		"icon": "graphics/icons/intel/comms_secure64.png",
+		"image": "graphics/alkemia/factions/alkemia_logo_flag.png",
+		"sound": "ui_channel_comm_secure",
+		"faction": "alkemia",
+		"type": "Intelligence Report",
+		"shortType": "Intel"
+	}
+}

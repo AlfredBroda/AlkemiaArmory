@@ -1,0 +1,23 @@
+{
+	"baseHullId": "conquest",
+	"skinHullId": "conquest_alkemia",
+	"hullName": "Conquest (AC)",
+	"descriptionId": "conquest",
+	"descriptionPrefix": "",
+	"tags": [ "alkemia_bp" ],
+	"manufacturer": "Alkemia",
+	"tech": "MIDLIME",
+	"spriteName": "graphics/alkemia/ships/conquest_alkemia.png",
+	"baseValueMult": 1.2,
+	"removeHints": [ ],
+	"addHints": [ ],
+	"removeWeaponSlots": [ ],
+	"removeEngineSlots": [ ],
+	"removeBuiltInMods": [ ],
+	"removeBuiltInWeapons": [ ],
+	"builtInWeapons": { },
+	"fighterBays": 1,
+	"builtInWings": [
+		"alkemia_repair_wing"
+	]
+}

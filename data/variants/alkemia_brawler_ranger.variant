@@ -3,8 +3,8 @@
   "hullId": "brawler_alkemia",
   "displayName": "Ranger",
   "goalVariant": true,
-  "fluxCapacitors": 8,
-  "fluxVents": 8,
+  "fluxCapacitors": 10,
+  "fluxVents": 10,
   "quality": 0.25,
   "permaMods": [],
   "hullMods": [

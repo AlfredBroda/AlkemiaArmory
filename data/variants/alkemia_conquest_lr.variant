@@ -1,0 +1,82 @@
+{
+  "variantId": "alkemia_conquest_lr",
+  "hullId": "conquest_alkemia",
+  "displayName": "Long Range",
+  "goalVariant": true,
+  "fluxCapacitors": 26,
+  "fluxVents": 42,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "targetingunit",
+    "extendedshieldemitter"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 019": "atropos",
+        "WS 020": "atropos"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 011": "gauss",
+        "WS 012": "gauss",
+        "WS 013": "gauss",
+        "WS 014": "gauss",
+        "WS 016": "hveldriver",
+        "WS 018": "hveldriver"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 003": "taclaser",
+        "WS 004": "taclaser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 022": "heavyburst",
+        "WS 023": "heavyburst"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 005": "lrpdlaser",
+        "WS 006": "lrpdlaser",
+        "WS 007": "lrpdlaser",
+        "WS 008": "lrpdlaser",
+        "WS 009": "pdlaser",
+        "WS 010": "pdlaser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 015": "dualflak",
+        "WS 017": "dualflak"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "alkemia_pilumpod",
+        "WS 002": "alkemia_pilumpod"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}
