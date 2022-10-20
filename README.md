@@ -7,8 +7,19 @@ A mod for **Starsector** aiming to improve hull/fighter/weapon variety. Also a b
 
 ## Features
 
-Three new generally available ship hulls: **Dromader Dropship**, **Perch-class Heavy Carrier**, **Roost-class Carrier**
+Many new generally available ship hulls: **Dromader Dropship**, **Perch-class Heavy Carrier**, **Roost-class Carrier**, **Lifter Cargo Courier**
 <table>
+<tr>
+<td>
+<img alt="Lifter" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.15/graphics/alkemia/ships/lifter.png?raw=true"/>
+</td>
+<td>
+Lifter-class Cargo Courier
+
+No description... yet. ;)
+</td>
+</tr>
+
 <tr>
 <td>
 <img alt="Dromader" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.5/graphics/alkemia/ships/dromader.png?raw=true"/>
@@ -40,12 +51,23 @@ When the Alkemia Customs managers were looking for a luxury yacht, the sleek Dia
 
 <tr>
 <td>
-<img alt="Perch-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.5/graphics/alkemia/ships/champion_carrier.png?raw=true"/>
+<img alt="Perch-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.15/graphics/alkemia/ships/champion_carrier.png?raw=true"/>
 </td>
 <td>
 Perch-class Heavy Carrier
 
 A retrofit of the Champion, this heavy cruiser trades it's heavy turret and downsizes it's missile slot for three fighter bays. Remaining frontal turrets have been overhauled to fit a wider variety of armaments. The internal capacitors of the original were replaced with an improved fighter manufactory.
+</td>
+</tr>
+
+<tr>
+<td>
+<img alt="Conquest-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.15/graphics/alkemia/ships/conquest_alkemia.png?raw=true"/>
+</td>
+<td>
+Conquest-class Battleship
+
+No description... yet. ;)
 </td>
 </tr>
 <table>
