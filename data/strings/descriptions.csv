@@ -30,6 +30,7 @@ alkemia_rime_racer,SHIP,"When the Alkemia Customs managers were looking for a lu
 alkemia_shepherd,SHIP,"A refit of the classic Ko Combine r450 focusing on actual military use. The integrated wing was replaced with Repair Drones and all systems were upgraded according to modern military standards. This unfortunately necessitated the removal of Surveying Equipment. 
 
 This is one of Alkemia Customs' flagship products.",,,
+alkemia_lifter,SHIP,"This ship was built out of necessity as Alkemia manufactories had no access to blueprints of ships other than Midline. So their choice of small cargo ships was very slim. To solve this logistical problem the workshops came back with a design based on the readily available Brawler chassis and a few cargo containers.",,,
 alkemia_afterburner,SHIP_SYSTEM,"Temporarily engages an afterburner on the ship. Provides a massive speed boost for a fixed time at the expense of being able to manouver or fire. The ship runs the risk of full engine flameout on any significant collision.",Movement,"Provides a massive speed boost at the expense of being unable to turn or fire. Collisions can cause a flameout while the system is active.",,
 alkemia_emp,SHIP_SYSTEM,"Activates an EMP generator. Nearby missiles, fighters, weapon emplacements and engines of enemy ships are all targeted and can be disabled in short order.
 

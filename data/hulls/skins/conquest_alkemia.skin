@@ -3,7 +3,7 @@
 	"skinHullId": "conquest_alkemia",
 	"hullName": "Conquest (AC)",
 	"descriptionId": "conquest",
-	"descriptionPrefix": "",
+	"descriptionPrefix": "This refit done by Alkemia Customs includes an integrated bay for repair drones. Combat ships get dammaged often and, as few as there are in AC fleet, hauling them to docks everytime would be a waste of valuable time.",
 	"tags": [ "alkemia_bp" ],
 	"manufacturer": "Alkemia",
 	"tech": "MIDLIME",

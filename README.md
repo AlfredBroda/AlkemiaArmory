@@ -16,7 +16,7 @@ Many new generally available ship hulls: **Dromader Dropship**, **Perch-class He
 <td>
 Lifter-class Cargo Courier
 
-No description... yet. ;)
+This ship was built out of necessity as Alkemia manufactories had no access to blueprints of ships other than Midline. So their choice of small cargo ships was very slim. To solve this logistical problem the workshops came back with a design based on the readily available Brawler chassis and a few cargo containers.
 </td>
 </tr>
 
@@ -67,7 +67,7 @@ A retrofit of the Champion, this heavy cruiser trades it's heavy turret and down
 <td>
 Conquest-class Battleship
 
-No description... yet. ;)
+This refit done by Alkemia Customs includes an integrated bay for repair drones. Combat ships get dammaged often and, as few as there are in AC fleet, hauling them to docks everytime would be a waste of valuable time.
 </td>
 </tr>
 <table>
