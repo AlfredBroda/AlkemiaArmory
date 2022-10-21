@@ -1,0 +1,182 @@
+{
+  "hullName": "Falcon",
+  "hullId": "alkemia_falcon_cargo",
+  "hullSize": "CRUISER",
+  "spriteName": "graphics/alkemia/ships/falcon_cargo.png",
+  "style": "MIDLINE",
+  "height": 222,
+  "width": 182,
+  "center": [91, 127.5],
+  "collisionRadius": 145.5,
+  "shieldCenter": [-17, 0],
+  "shieldRadius": 133,
+  "viewOffset": 0,
+  "builtInMods": [
+    "civgrade",
+    "rugged"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS 003",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 190,
+      "angle": 155,
+      "locations": [-100, 26]
+    },
+    {
+      "id": "WS 004",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 190,
+      "angle": 205,
+      "locations": [-100, -26]
+    },
+    {
+      "id": "WS 005",
+      "size": "MEDIUM",
+      "type": "SYNERGY",
+      "mount": "TURRET",
+      "arc": 170,
+      "angle": 60,
+      "locations": [-26, 38]
+    },
+    {
+      "id": "WS 006",
+      "size": "MEDIUM",
+      "type": "SYNERGY",
+      "mount": "TURRET",
+      "arc": 170,
+      "angle": -60,
+      "locations": [-26, -38]
+    },
+    {
+      "id": "WS 009",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": 65,
+      "locations": [14, 29]
+    },
+    {
+      "id": "WS 010",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": -65,
+      "locations": [14, -29]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-122, 37.5],
+      "length": 80,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-123.5, 27],
+      "length": 80,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-124, 16],
+      "length": 80,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-124, -16],
+      "length": 80,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-123.5, -27],
+      "length": 80,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-122, -37.5],
+      "length": 80,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-89, 60],
+      "length": 28,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-91, 49],
+      "length": 32,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-89, -60],
+      "length": 28,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-91, -49],
+      "length": 32,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    }
+  ],
+  "bounds": [
+    76.5, -10.5,
+    91, -21.5,
+    76, -32.5,
+    75.5, -50.5,
+    9.5, -50.5,
+    -27.5, -62.5,
+    -30, -70,
+    -76, -82.5,
+    -88, -40,
+    -116, -45.5,
+    -119, -8,
+    -88, -7,
+    -88, 7,
+    -119, 8,
+    -116, 45.5,
+    -88, 40,
+    -76, 82.5,
+    -30, 70,
+    -27.5, 62.5,
+    9.5, 50.5,
+    75.5, 50.5,
+    76, 32.5,
+    91, 21.5,
+    76.5, 10.5
+  ]
+}

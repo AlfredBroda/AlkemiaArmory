@@ -62,7 +62,7 @@
     "startShipsTradeLarge": [
         [ "alkemia_rime_orange_standard", "alkemia_brawler_support" ],
         [ "alkemia_rime_racer_standard", "alkemia_brawler_support" ],
-        [ "gemini_Standard", "alkemia_brawler_support" ]
+        [ "alkemia_falcon_cargo_Heavy", "alkemia_brawler_support" ]
     ],
 
     "startShipsCarrierSmall": [
@@ -73,7 +73,7 @@
     "startShipsCarrierLarge": [
         [ "alkemia_perch_standard", "alkemia_brawler_ranger", "vigilance_Starting" ],
         [ "alkemia_perch_assault", "alkemia_brawler_support", "vigilance_Starting" ],
-        [ "alkemia_gryphon_LR", "alkemia_brawler_ranger", "alkemia_dromader_standard" ]
+        [ "heron_Strike", "alkemia_brawler_ranger", "alkemia_dromader_strike" ]
     ],
 
     "startShipsSuper": [

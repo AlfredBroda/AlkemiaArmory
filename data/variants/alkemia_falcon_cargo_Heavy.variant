@@ -1,0 +1,28 @@
+{
+  "variantId": "alkemia_falcon_cargo_Heavy",
+  "hullId": "alkemia_falcon_cargo",
+  "displayName": "Heavy",
+  "goalVariant": false,
+  "fluxCapacitors": 21,
+  "fluxVents": 8,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "expanded_cargo_holds",
+    "additional_berthing"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 003": "pdlaser",
+        "WS 004": "pdlaser",
+        "WS 009": "pdlaser",
+        "WS 010": "pdlaser"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

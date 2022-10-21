@@ -50,6 +50,15 @@ When the Alkemia Customs managers were looking for a luxury yacht, the sleek Dia
 </tr>
 
 <tr>
+<td><img alt="Roost-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.16/graphics/alkemia/ships/falcon_cargo.png?raw=true"/></td>
+<td>
+Falcon Cargo-class Armed Freighter
+
+Another repurposed military hull in Alkemia Customs's fleet, the Falcon Cargo was born of necessity. It turned out almost as capable as a Colossus, but signifficantly better armed, despite the necessary removal of some hardpoints. Unsurprisingly, goods deliveries done by Company convoys reached new hights in reliability.
+</td>
+</tr>
+
+<tr>
 <td>
 <img alt="Perch-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.15/graphics/alkemia/ships/champion_carrier.png?raw=true"/>
 </td>
@@ -67,7 +76,7 @@ A retrofit of the Champion, this heavy cruiser trades it's heavy turret and down
 <td>
 Conquest-class Battleship
 
-This refit done by Alkemia Customs includes an integrated bay for repair drones. Combat ships get dammaged often and, as few as there are in AC fleet, hauling them to docks everytime would be a waste of valuable time.
+This refit done by Alkemia Customs includes an integrated bay for repair drones. Combat ships get dammaged often and, as few as there are in Company fleet, hauling them to docks everytime would be a waste of valuable time.
 </td>
 </tr>
 <table>

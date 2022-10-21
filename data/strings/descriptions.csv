@@ -31,6 +31,7 @@ alkemia_shepherd,SHIP,"A refit of the classic Ko Combine r450 focusing on actual
 
 This is one of Alkemia Customs' flagship products.",,,
 alkemia_lifter,SHIP,"This ship was built out of necessity as Alkemia manufactories had no access to blueprints of ships other than Midline. So their choice of small cargo ships was very slim. To solve this logistical problem the workshops came back with a design based on the readily available Brawler chassis and a few cargo containers.",,,
+alkemia_falcon_cargo,SHIP,"Another repurposed military hull in Alkemia Customs's fleet, the Falcon Cargo was born of necessity. It turned out almost as capable as a Colossus, but signifficantly better armed, despite the necessary removal of some hardpoints. Unsurprisingly, goods deliveries done by Company convoys reached new hights in reliability.",,,
 alkemia_afterburner,SHIP_SYSTEM,"Temporarily engages an afterburner on the ship. Provides a massive speed boost for a fixed time at the expense of being able to manouver or fire. The ship runs the risk of full engine flameout on any significant collision.",Movement,"Provides a massive speed boost at the expense of being unable to turn or fire. Collisions can cause a flameout while the system is active.",,
 alkemia_emp,SHIP_SYSTEM,"Activates an EMP generator. Nearby missiles, fighters, weapon emplacements and engines of enemy ships are all targeted and can be disabled in short order.
 

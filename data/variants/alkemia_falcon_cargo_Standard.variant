@@ -1,0 +1,35 @@
+{
+  "variantId": "alkemia_falcon_cargo_Standard",
+  "hullId": "alkemia_falcon_cargo",
+  "displayName": "Standard",
+  "goalVariant": false,
+  "fluxCapacitors": 16,
+  "fluxVents": 8,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "reinforcedhull"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 005": "salamanderpod",
+        "WS 006": "salamanderpod"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 003": "pdlaser",
+        "WS 004": "pdlaser",
+        "WS 009": "pdlaser",
+        "WS 010": "pdlaser"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

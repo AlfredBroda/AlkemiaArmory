@@ -3,7 +3,7 @@
 	"color": [ 255, 209, 0, 255 ],
 
 	"baseUIColor": [ 255, 209, 0, 255 ],
-	"darkUIColor": [ 0, 0, 0, 175 ],
+	"darkUIColor": [ 100, 100, 100, 175 ],
 	"gridUIColor": [ 50, 150, 225, 75 ],
 
 	"secondaryUIColor": [ 200, 200, 200, 255 ],
@@ -14,7 +14,7 @@
 	"displayNameLong": "Alkemia Customs Company",
 	"displayNameLongWithArticle": "the Alkemia Customs Company",
 	"entityNamePrefix": "Alkemia",
-	"personNamePrefix": "Shareholder",
+	"personNamePrefix": "Company",
 	"personNamePrefixAOrAn": "an",
 	"displayNameIsOrAre": "is",
 
@@ -37,23 +37,27 @@
 	"ranks": {
 		"ranks": {
 			"factionLeader": { "name": "First Engineer" },
+
 			"spaceSailor": { "name": "Spacer" },
 			"spaceChief": { "name": "Spacer Chief" },
-			"spaceEnsign": { "name": "Flying Officer" },
-			"spaceLieutenant": { "name": "Wing Commander" },
-			"spaceCommander": { "name": "Squadron Commander" },
-			"spaceCaptain": { "name": "Fleet Commander" },
-			"spaceAdmiral": { "name": "Space Commander" },
-			"spaceMarshal": { "name": "Space Overseer" }
+			"spaceEnsign": { "name": "Junior Mechanic" },
+			"spaceLieutenant": { "name": "Mechanic" },
+			"spaceCommander": { "name": "Senior Mechanic" },
+			"spaceCaptain": { "name": "Engineer" },
+			"spaceAdmiral": { "name": "Master Engineer" },
+			"spaceMarshal": { "name": "Fleet Overseer" },
+
+			"groundGeneral":{ "name": "Senior Engineer" }
 		},
 		"posts": {
 			"factionLeader": { "name": "First Engineer" },
 			"patrolCommander": { "name": "Wing Commander" },
 			"fleetCommander": { "name": "Fleet Commander" },
-			"stationCommander": { "name": "Chief Engineer" },
-			"portmaster": { "name": "Chief Technician" },
+			"stationCommander": { "name": "Chief Overseer" },
+			"baseCommander": { "name": "Chief Overseer" },
+			"portmaster": { "name": "Contractor Liason" },
 			"administrator": { "name": "Overseer" },
-			"supplyOfficer": { "name": "Procurer" },
+			"supplyOfficer": { "name": "Chief Procurer" },
 			"supplyManager": { "name": "Warehouse Manager" },
 			"medicalSupplier": { "name": "Medical Technician" }
 		}
@@ -242,8 +246,8 @@
 			"fallback": { "combatFreighterSmall": 2 }
 		},
 		"combatFreighterLarge": {
-			"venture_Balanced": 4,
-			"venture_Exploration": 3,
+			"alkemia_falcon_cargo_Assault": 1,
+			"alkemia_falcon_cargo_Standard": 4,
 			"fallback": { "combatFreighterMedium": 1 }
 		},
 
@@ -266,15 +270,17 @@
 		},
 
 		"freighterSmall": {
-			"mercury_Standard": 2,
+			"alkemia_lifter_Standard": 2,
+			"gemini_Standard": 1,
 			"fallback": { "freighterMedium": 0.5 }
 		},
 		"freighterMedium": {
-			"tarsus_Standard": 2,
+			"alkemia_falcon_cargo_Heavy": 4,
 			"fallback": { "freighterSmall": 2 }
 		},
 		"freighterLarge": {
-			"colossus_Standard": 2,
+			"alkemia_falcon_cargo_Heavy": 4,
+			"alkemia_falcon_cargo_Standard": 2,
 			"fallback": { "freighterMedium": 2 }
 		},
 
