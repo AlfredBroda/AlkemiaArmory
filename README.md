@@ -41,7 +41,7 @@ A retrofit of the Drover, this destroyer now features a universal medium turret 
 </tr>
 
 <tr>
-<td><img alt="Roost-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.12/graphics/alkemia/ships/da_rime/rime_racer.png?raw=true"/></td>
+<td><img alt="Rime Racer-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.12/graphics/alkemia/ships/da_rime/rime_racer.png?raw=true"/></td>
 <td>
 Rime-class Racer
 
@@ -50,11 +50,11 @@ When the Alkemia Customs managers were looking for a luxury yacht, the sleek Dia
 </tr>
 
 <tr>
-<td><img alt="Roost-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.16/graphics/alkemia/ships/falcon_cargo.png?raw=true"/></td>
+<td><img alt="Falcon Cargo-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.16/graphics/alkemia/ships/falcon_cargo.png?raw=true"/></td>
 <td>
 Falcon Cargo-class Armed Freighter
 
-Another repurposed military hull in Alkemia Customs's fleet, the Falcon Cargo was born of necessity. It turned out almost as capable as a Colossus, but signifficantly better armed, despite the necessary removal of some hardpoints. Unsurprisingly, goods deliveries done by Company convoys reached new hights in reliability.
+Another repurposed military hull in Alkemia Customs' fleet, the Falcon Cargo was born of necessity. It turned out almost as capable as a Colossus, but signifficantly better armed, despite the necessary removal of some hardpoints. Unsurprisingly, goods deliveries done by Company convoys reached new hights in reliability.
 </td>
 </tr>
 

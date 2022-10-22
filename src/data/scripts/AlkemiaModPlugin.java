@@ -148,7 +148,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
                 debug(String.format("antiMissileAI assigned for %s", id));
                 return new PluginPick<MissileAIPlugin>(new AlkemiaPDMissileAI(missile, launchingShip),
                         CampaignPlugin.PickPriority.MOD_SPECIFIC);
-            case AlkemiaIds.PILUM:
+            // case AlkemiaIds.PILUM:
             case AlkemiaIds.ALKEMIA_PILUM:
                 debug(String.format("alkemia_SmartMissileAI assigned for %s", id));
                 return new PluginPick<MissileAIPlugin>(new AlkemiaLRMissileAI(missile, launchingShip),

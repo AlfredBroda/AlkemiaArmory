@@ -1,5 +1,5 @@
 {
-	"id": "alkemia_lrm_second_stage",
+	"id": "pilum_second_stage",
 	"specClass": "missile",
 	"missileType": "MISSILE",
 	"sprite": "graphics/missiles/pilum_stage2.png",
