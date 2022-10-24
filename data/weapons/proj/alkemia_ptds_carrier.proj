@@ -10,7 +10,7 @@
 	"explosionColor": [ 255, 100, 100, 255 ],
 	"explosionRadius": 150,
 	"engineSpec": {
-		"turnAcc": 600,
+		"turnAcc": 150,
 		"turnRate": 300,
 		"acc": 500,
 		"dec": 500
