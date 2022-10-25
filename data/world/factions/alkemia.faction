@@ -13,7 +13,7 @@
 	"displayNameWithArticle": "the Alkemia Customs",
 	"displayNameLong": "Alkemia Customs Company",
 	"displayNameLongWithArticle": "the Alkemia Customs Company",
-	"entityNamePrefix": "Techie",
+	"entityNamePrefix": "Alkemia",
 	"personNamePrefix": "Techie",
 	"personNamePrefixAOrAn": "an",
 	"displayNameIsOrAre": "is",
@@ -188,13 +188,16 @@
 			"alkemia_dromader_standard": 10,
 			"alkemia_brawler_ranger": 10,
 			"alkemia_brawler_support": 10,
+			"vigilance_Standard": 6,
+			"vigilance_Strike": 6,
 			"fallback": { "combatSmall": 1 }
 		},
 		"escortMedium": {
-			"hammerhead_Balanced": 10,
-			"hammerhead_Support": 10,
-			"alkemia_gryphon_LR": 10,
-			"alkemia_perch_escort": 10,
+			"hammerhead_Balanced": 6,
+			"hammerhead_Support": 6,
+			"alkemia_gryphon_LR": 7,
+			"alkemia_perch_escort": 4,
+			"champion_Escort": 3,
 			"fallback": { "combatMedium": 1 }
 		},
 		"combatSmall": {
@@ -205,21 +208,22 @@
 			"fallback": { "escortSmall": 1 }
 		},
 		"combatMedium": {
-			"hammerhead_Balanced": 10,
-			"hammerhead_Support": 10,
-			"alkemia_gryphon_LR": 10,
+			"hammerhead_Balanced": 8,
+			"hammerhead_Support": 7,
 			"alkemia_rime_racer_standard": 5,
 			"alkemia_rime_orange_standard": 7,
 			"alkemia_rime_orange_assault": 6,
-			"sunder_CS": 4,
-			"sunder_Assault": 4,
+			"sunder_CS": 7,
+			"sunder_Assault": 5,
+			"falcon_Attack": 8,
+			"falcon_CS": 7,
+			"eagle_Balanced": 4,
 			"fallback": { "combatSmall": 2 }
 		},
 		"combatLarge": {
-			"alkemia_gryphon_LR": 10,
-			"alkemia_perch_assault": 10,
-			"alkemia_perch_escort": 10,
-			"alkemia_perch_standard": 10,
+			"alkemia_gryphon_LR": 8,
+			"alkemia_perch_assault": 6,
+			"alkemia_perch_standard": 5,
 			"champion_Escort": 8,
 			"champion_Support": 8,
 			"gryphon_FS": 8,
@@ -275,12 +279,12 @@
 			"fallback": { "freighterMedium": 0.5 }
 		},
 		"freighterMedium": {
-			"alkemia_falcon_cargo_Heavy": 4,
+			"tarsus_Standard": 1,
+			"alkemia_falcon_cargo_Heavy": 6,
+			"alkemia_falcon_cargo_Standard": 4,
 			"fallback": { "freighterSmall": 2 }
 		},
 		"freighterLarge": {
-			"alkemia_falcon_cargo_Heavy": 4,
-			"alkemia_falcon_cargo_Standard": 2,
 			"fallback": { "freighterMedium": 2 }
 		},
 
@@ -307,7 +311,8 @@
 			"fallback": { "personnelMedium": 0.5 }
 		},
 		"personnelMedium": {
-			"nebula_Standard": 10,
+			"nebula_Standard": 8,
+			"valkyrie_Elite": 2,
 			"fallback": { "personnelSmall": 2 }
 		},
 		"personnelLarge": {
@@ -346,7 +351,7 @@
 		"escortSmallFraction": 1,
 		"escortMediumFraction": 1,
 
-		"combatFreighterProbability": 0.15,
+		"combatFreighterProbability": 0.35,
 
 		"minPointsForCombatCapital": 17,
 		"minPointsForLargeCarrier": 15,
