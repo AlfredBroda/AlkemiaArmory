@@ -12,7 +12,6 @@
   "shieldRadius": 133,
   "viewOffset": 0,
   "builtInMods": [
-    "civgrade",
     "rugged"
   ],
   "weaponSlots": [

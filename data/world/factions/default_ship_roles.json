@@ -49,6 +49,7 @@
 	},
 	
 	"freighterSmall":{
+		"alkemia_lifter_Standard": 4
 	},
 	"freighterMedium":{
 		"alkemia_falcon_cargo_Heavy": 4,
@@ -60,6 +61,7 @@
 	"tankerSmall":{
 	},
 	"tankerMedium":{
+		"alkemia_hammer_tanker_std": 2
 	},
 	"tankerLarge":{
 	},

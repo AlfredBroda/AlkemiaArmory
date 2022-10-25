@@ -181,6 +181,7 @@
 		"fastAttack": {
 			"alkemia_kite_standard": 8,
 			"alkemia_kite_support": 8,
+			"centurion_Assault": 4,
 			"fallback": { "combatSmall": 1 }
 		},
 
@@ -205,6 +206,7 @@
 			"alkemia_dromader_standard": 10,
 			"alkemia_dromader_strike": 10,
 			"alkemia_brawler_ranger": 8,
+			"centurion_Assault": 4,
 			"fallback": { "escortSmall": 1 }
 		},
 		"combatMedium": {
@@ -293,7 +295,7 @@
 			"fallback": { "tankerMedium": 0.5 }
 		},
 		"tankerMedium": {
-			"phaeton_Standard": 10,
+			"alkemia_hammer_tanker_std": 10,
 			"fallback": { "tankerSmall": 2 }
 		},
 		"tankerLarge": {

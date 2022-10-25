@@ -1,0 +1,188 @@
+{
+  "hullName": "Hammer Tanker",
+  "hullId": "alkemia_hammer_tanker",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/alkemia/ships/hammer_tanker.png",
+  "style": "MIDLINE",
+  "coversColor": "255,255,255,255",
+  "height": 170,
+  "width": 110,
+  "center": [55, 81.5],
+  "collisionRadius": 103,
+  "shieldCenter": [0.5, -0],
+  "shieldRadius": 120,
+  "viewOffset": 0,
+  "builtInMods": [
+    "shielded_holds"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 270,
+      "angle": 45,
+      "locations": [63.5, 32]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 270,
+      "angle": -45,
+      "locations": [63.5, -32]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 324,
+      "angle": 90,
+      "locations": [46.5, 16]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 324,
+      "angle": -90,
+      "locations": [46.5, -16]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 215,
+      "angle": 115,
+      "locations": [-25.5, 39]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 215,
+      "angle": -115,
+      "locations": [-25.5, -39]
+    },
+    {
+      "id": "FS0001",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": 82,
+      "locations": [5.5, 45.5]
+    },
+    {
+      "id": "FS0002",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": -82,
+      "locations": [5.5, -45.5]
+    },
+    {
+      "id": "FS0003",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": 130,
+      "locations": [-44, 43.5]
+    },
+    {
+      "id": "FS0004",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": -130,
+      "locations": [-44, -43.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-80.5, 39],
+      "length": 75,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 80,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-79.5, 28],
+      "length": 65,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 60,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-78.5, 16],
+      "length": 55,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 80,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-78.5, -14],
+      "length": 55,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 80,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-79.5, -25],
+      "length": 65,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 80,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-80.5, -37],
+      "length": 75,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 80,
+      "style": "MIDLINE"
+    }
+  ],
+  "bounds": [
+    65, 50.5,
+    68.5, 53,
+    74.5, 50,
+    75, 44.5,
+    85.5, 9,
+    85, -0,
+    85.5, -9,
+    75, -44.5,
+    74.5, -50,
+    68.5, -53,
+    65, -50.5,
+    17, -51,
+    -1, -39,
+    -28, -52.5,
+    -43, -41,
+    -77, -43,
+    -72.5, -6,
+    -45.5, -6,
+    -41.5, 0,
+    -45.5, 6,
+    -72.5, 6,
+    -77, 43,
+    -43, 41,
+    -28, 52.5,
+    -1, 39,
+    17, 51
+  ]
+}

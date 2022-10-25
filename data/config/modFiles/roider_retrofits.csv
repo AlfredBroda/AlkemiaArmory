@@ -1,3 +1,6 @@
 id,fitter,source,target,cost,time,reputation,commission
 alkemia_perch_champion,"roider_full, roider_argos, roider_all",champion,alkemia_perch,,7,3,TRUE
-
+alkemia_roost_drover,"roider_full, roider_argos, roider_all",drover,alkemia_roost,,4,2,TRUE
+alkemia_loader_brawler,"roider_full, roider_argos, roider_all",brawler,alkemia_loader,,2,1,TRUE
+alkemia_falcon_cargo,"roider_full, roider_argos, roider_all",falcon,alkemia_falcon_cargo,,4,2,TRUE
+alkemia_hammer_tanker,"roider_full, roider_argos, roider_all",hammerhead,alkemia_hammer_tanker,,3,2,TRUE
