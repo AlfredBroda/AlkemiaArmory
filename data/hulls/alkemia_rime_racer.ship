@@ -18,9 +18,7 @@
     "BLINK01": "blinker_green",
     "BLINK02": "blinker_red",
     "BLINK03": "blinker_green",
-    "BLINK04": "blinker_red",
-    "WS0006": "swarmer_fighter",
-    "WS0007": "swarmer_fighter"
+    "BLINK04": "blinker_red"
   },
   "weaponSlots": [
     {
@@ -71,7 +69,7 @@
     {
       "id": "WS0006",
       "size": "SMALL",
-      "type": "BUILT_IN",
+      "type": "MISSILE",
       "mount": "HIDDEN",
       "arc": 20,
       "angle": -90,
@@ -80,7 +78,7 @@
     {
       "id": "WS0007",
       "size": "SMALL",
-      "type": "BUILT_IN",
+      "type": "MISSILE",
       "mount": "HIDDEN",
       "arc": 20,
       "angle": 90,

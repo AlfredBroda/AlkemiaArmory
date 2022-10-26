@@ -3,13 +3,11 @@
   "hullId": "alkemia_rime_orange",
   "displayName": "Custom",
   "goalVariant": true,
-  "fluxCapacitors": 12,
-  "fluxVents": 13,
+  "fluxCapacitors": 14,
+  "fluxVents": 14,
   "quality": 1,
   "permaMods": [],
-  "hullMods": [
-    "auxiliary_fuel_tanks"
-  ],
+  "hullMods": [],
   "weaponGroups": [
     {
       "autofire": false,
