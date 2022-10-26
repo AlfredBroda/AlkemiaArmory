@@ -82,7 +82,7 @@
     ],
 
     "defenceStations": [
-        { "ids": [ "alkemia_orbitalstation_junker" ] }
+        { "ids": [ "alkemia_orbitalstation_junker", "alkemia_battlestation_mid_junker", "alkemia_starfortress_mid_junker" ] }
     ],
 
     "startSpecialItems": [

@@ -1,0 +1,48 @@
+{
+  "variantId": "alkemia_module_midline_support_Balanced",
+  "hullId": "module_midline_support",
+  "displayName": "Balanced",
+  "goalVariant": false,
+  "fluxCapacitors": 10,
+  "fluxVents": 10,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 001": "hveldriver",
+        "WS 002": "hveldriver"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 000": "pilum",
+        "WS 003": "pilum",
+        "WS 004": "alkemia_locust",
+        "WS 009": "alkemia_locust"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 005": "alkemia_vulcan",
+        "WS 006": "vulcan",
+        "WS 007": "vulcan",
+        "WS 008": "alkemia_vulcan"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": [
+    "alkemia_deluxe_super_wing",
+    "alkemia_deluxe_strike_wing",
+    "alkemia_syreen_wing",
+    "alkemia_repair_wing"
+  ]
+}
