@@ -10,6 +10,7 @@ public class AlkemiaIds {
 
     // Ships
     public static final String ALKEMIA_REPAIR_DRONE = "alkemia_drone_repair";
+    public static final String ALKEMIA_RIME_PREFIX = "alkemia_rime_";
 
     // Weapons
     public static final String ALKEMIA_SWARM = "alkemia_swarm";
