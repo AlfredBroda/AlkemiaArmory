@@ -34,7 +34,7 @@
     },
     {
       "autofire": true,
-      "mode": "ALTERNATING",
+      "mode": "LINKED",
       "weapons": {
         "WS0006": "alkemia_locust",
         "WS0007": "alkemia_locust"

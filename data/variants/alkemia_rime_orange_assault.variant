@@ -18,7 +18,7 @@
     },
     {
       "autofire": false,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
       "weapons": {
         "WS0006": "swarmer",
         "WS0007": "swarmer"
