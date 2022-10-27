@@ -14,19 +14,25 @@
       "WS0001": "alkemia_module_large1_junker_Custom"
     },
     {
-      "WS0006": "alkemia_module_colossus_pd"
+      "WS0006": "alkemia_module_midline_bastion_LR"
     },
     {
-      "WS0003": "module_blocker2_Standard"
+      "WS0003": "module_blocker2b_Standard"
     },
     {
-      "WS0002": "module_blocker2_Standard"
+      "WS0002": "module_blocker2b_Standard"
     },
     {
-      "WS0005": "alkemia_module_bastion_pd1_salvage"
+      "WS0005": "module_midline_bastion_Standard1"
     },
     {
-      "WS0007": "alkemia_module_bastion_pd1_salvage"
+      "WS0007": "module_midline_bastion_Standard2"
+    },
+    {
+      "WS0004": "module_blocker2b_Standard"
+    },
+    {
+      "WS0008": "module_blocker2b_Standard"
     }
   ],
   "wings": []

@@ -11,7 +11,7 @@
   "weaponGroups": [],
   "modules": [
     {
-      "WS 000": "module_midline_citadel_Standard"
+      "WS 000": "module_midline_bastion_Standard1"
     },
     {
       "WS 002": "module_midline_support_Standard"
@@ -20,7 +20,7 @@
       "WS 007": "module_midline_citadel_Standard"
     },
     {
-      "WS 001": "module_midline_citadel_Standard"
+      "WS 001": "module_midline_bastion_Standard1"
     },
     {
       "WS 003": "module_armour3_Standard"

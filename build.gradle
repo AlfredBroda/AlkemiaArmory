@@ -82,6 +82,7 @@ dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
 
+    compileOnly files("$libDir/lw_lazylib/jars/LazyLib.jar")
     compileOnly files("$libDir/LazyLib/jars/LazyLib.jar")
     compileOnly files("$libDir/MagicLib/jars/MagicLib.jar")
 }

@@ -3,12 +3,11 @@
   "hullId": "alkemia_rime_racer",
   "displayName": "Standard",
   "goalVariant": true,
-  "fluxCapacitors": 11,
-  "fluxVents": 14,
+  "fluxCapacitors": 18,
+  "fluxVents": 15,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "auxiliarythrusters",
     "fluxbreakers"
   ],
   "weaponGroups": [
@@ -20,18 +19,18 @@
       }
     },
     {
-      "autofire": true,
+      "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS0006": "swarmer_fighter",
-        "WS0007": "swarmer_fighter"
+        "WS0006": "swarmer",
+        "WS0007": "swarmer"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "pdlaser",
+        "WS0002": "lrpdlaser",
         "WS0003": "pdburst",
         "WS0004": "pdlaser",
         "WS0005": "pdlaser"

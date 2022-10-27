@@ -3,13 +3,11 @@
   "hullId": "alkemia_rime_orange",
   "displayName": "Custom",
   "goalVariant": true,
-  "fluxCapacitors": 10,
-  "fluxVents": 13,
+  "fluxCapacitors": 14,
+  "fluxVents": 14,
   "quality": 1,
   "permaMods": [],
-  "hullMods": [
-    "auxiliary_fuel_tanks"
-  ],
+  "hullMods": [],
   "weaponGroups": [
     {
       "autofire": false,
@@ -22,14 +20,14 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "alkemia_acdls",
-        "WS0003": "alkemia_vulcan"
+        "WS0002": "irpulse"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "WS0003": "alkemia_vulcan",
         "WS0004": "lrpdlaser",
         "WS0005": "lrpdlaser"
       }
