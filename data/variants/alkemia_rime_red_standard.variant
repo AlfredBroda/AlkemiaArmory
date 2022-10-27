@@ -1,10 +1,10 @@
 {
   "variantId": "alkemia_rime_red_standard",
   "hullId": "alkemia_rime_red",
-  "displayName": "Standard",
+  "displayName": "Diable Avionics",
   "goalVariant": true,
   "fluxCapacitors": 18,
-  "fluxVents": 15,
+  "fluxVents": 16,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
@@ -15,8 +15,7 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "heavyneedler",
-        "WS0003": "pdlaser"
+        "WS0001": "pulselaser"
       }
     },
     {
@@ -32,6 +31,7 @@
       "mode": "LINKED",
       "weapons": {
         "WS0002": "lrpdlaser",
+        "WS0003": "pdlaser",
         "WS0004": "pdlaser",
         "WS0005": "pdlaser"
       }
@@ -39,7 +39,7 @@
   ],
   "modules": [],
   "wings": [
-    "broadsword_wing",
-    "hoplon_wing"
+    "piranha_wing",
+    "alkemia_deluxe_wing"
   ]
 }
