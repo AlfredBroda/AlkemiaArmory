@@ -3,13 +3,14 @@
   "hullId": "conquest_alkemia",
   "displayName": "Long Range",
   "goalVariant": true,
-  "fluxCapacitors": 26,
+  "fluxCapacitors": 24,
   "fluxVents": 42,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
     "targetingunit",
-    "extendedshieldemitter"
+    "extendedshieldemitter",
+    "magazines"
   ],
   "weaponGroups": [
     {
@@ -25,11 +26,11 @@
       "mode": "ALTERNATING",
       "weapons": {
         "WS 011": "gauss",
-        "WS 012": "gauss",
+        "WS 012": "hephag",
         "WS 013": "gauss",
-        "WS 014": "gauss",
-        "WS 016": "hveldriver",
-        "WS 018": "hveldriver"
+        "WS 014": "hephag",
+        "WS 016": "alkemia_rapidhvel",
+        "WS 018": "alkemia_rapidhvel"
       }
     },
     {
@@ -52,10 +53,10 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 005": "lrpdlaser",
-        "WS 006": "lrpdlaser",
-        "WS 007": "lrpdlaser",
-        "WS 008": "lrpdlaser",
+        "WS 005": "pdlaser",
+        "WS 006": "pdlaser",
+        "WS 007": "pdlaser",
+        "WS 008": "pdlaser",
         "WS 009": "pdlaser",
         "WS 010": "pdlaser"
       }

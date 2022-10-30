@@ -18,6 +18,7 @@ alkemia_harpoon_fighter,WEAPON,"A short range high payload guided missile: one-s
 alkemia_salamander_fighter,WEAPON,"Homes in on the target's engines and disables them with a powerful EMP burst. One-shot only.",,,
 alkemia_amblaster_fighter,WEAPON,"A slow-firing, high damage energy gun meant to pose a threat to the largest ships in the Sector. Can only be used at close-range.",,,
 alkemia_acdls,WEAPON,"The main weapon of the Syreen is the Active Close Defense Laser System (ACDLS), a four-lens laser weapon. As well as being an effective ranged armament, it automatically targets enemies close by, providing effective melee defense.",,,
+alkemia_rapidhvel,WEAPON,"Every engineer feels the need to make things better - with this Rapid Hypervelocity Driver it was the desire to improve on the firing speed. Unfortunately the improved rate of fire comes at the cost of smaller projectiles and high flux.",,,
 alkemia_drone_repair,SHIP,"A common remote controlled repair drone.",,,
 alkemia_deluxe,SHIP,"A highly customizable two seat heavy fighter boasting two hybrid and two reconfigurable missile hardpoints, plus an afterburner.",,,
 alkemia_syreen,SHIP,"The Syreen represents an effective interceptor unit, capable of taking out whole enemy fighter formations on its own.",,,
