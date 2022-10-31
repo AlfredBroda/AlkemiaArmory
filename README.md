@@ -60,7 +60,7 @@ Another repurposed military hull in Alkemia Customs' fleet, the Falcon Cargo was
 
 <tr>
 <td>
-<img alt="Perch-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Perch-armed.png?raw=true"/>
+<img alt="Perch-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Perch.png?raw=true"/>
 </td>
 <td>
 Perch-class Heavy Carrier
