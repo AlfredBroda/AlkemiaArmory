@@ -22,7 +22,7 @@ This ship was built out of necessity as Alkemia manufactories had no access to b
 
 <tr>
 <td>
-<img alt="Dromader" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.5/graphics/alkemia/ships/dromader.png?raw=true"/>
+<img alt="Dromader" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Dromader.png?raw=true"/>
 </td>
 <td>
 Dromader-class Dropship
@@ -32,7 +32,7 @@ Versatile trans-atmospheric dropship with a moderately sized cargo hold. Feature
 </tr>
 
 <tr>
-<td><img alt="Roost-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.11/graphics/alkemia/ships/roost.png?raw=true"/></td>
+<td><img alt="Roost-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Roost.png?raw=true"/></td>
 <td>
 Roost-class Carrier
 
@@ -41,7 +41,7 @@ A retrofit of the Drover, this destroyer now features a universal medium turret 
 </tr>
 
 <tr>
-<td><img alt="Rime Racer-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.12/graphics/alkemia/ships/da_rime/rime_racer.png?raw=true"/></td>
+<td><img alt="Rime Racer-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Rime.png?raw=true"/></td>
 <td>
 Rime-class Racer
 
@@ -50,7 +50,7 @@ When the Alkemia Customs managers were looking for a luxury yacht, the sleek Dia
 </tr>
 
 <tr>
-<td><img alt="Falcon Cargo-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.16/graphics/alkemia/ships/falcon_cargo.png?raw=true"/></td>
+<td><img alt="Falcon Cargo-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Falcon-Cargo.png?raw=true"/></td>
 <td>
 Falcon Cargo-class Armed Freighter
 
@@ -60,7 +60,7 @@ Another repurposed military hull in Alkemia Customs' fleet, the Falcon Cargo was
 
 <tr>
 <td>
-<img alt="Perch-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.15/graphics/alkemia/ships/champion_carrier.png?raw=true"/>
+<img alt="Perch-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Perch-armed.png?raw=true"/>
 </td>
 <td>
 Perch-class Heavy Carrier
@@ -71,7 +71,7 @@ A retrofit of the Champion, this heavy cruiser trades it's heavy turret and down
 
 <tr>
 <td>
-<img alt="Conquest-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.15/graphics/alkemia/ships/conquest_alkemia.png?raw=true"/>
+<img alt="Conquest-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Conquest.png?raw=true"/>
 </td>
 <td>
 Conquest-class Battlecruiser
@@ -82,7 +82,7 @@ This refit done by Alkemia Customs includes an integrated bay for repair drones.
 
 <tr>
 <td>
-<img alt="Consolidation-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.21/graphics/alkemia/ships/consolidation.png?raw=true"/>
+<img alt="Consolidation-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Consolidation.png?raw=true"/>
 </td>
 <td>
 Consolidation-class Battlecruiser
