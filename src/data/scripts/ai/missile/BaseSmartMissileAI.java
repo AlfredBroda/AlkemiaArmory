@@ -333,7 +333,7 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
         engine.removeEntity(missile);
     }
 
-    private void createFlare() {
+    public void createFlare() {
         Vector2f offset = new Vector2f(FLARE_OFFSET, 0f);
         VectorUtils.rotate(offset, missile.getFacing(), offset);
         Vector2f.add(offset, missile.getLocation(), offset);
@@ -346,7 +346,7 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
                 target,
                 target.getLocation(),
                 missile.getDamageAmount(),
-                DamageType.FRAGMENTATION,
+                missile.getDamageType(),
                 missile.getEmpAmount(),
                 false,
                 false,

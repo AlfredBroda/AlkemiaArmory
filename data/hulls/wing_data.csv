@@ -5,4 +5,4 @@ alkemia_deluxe_strike_wing,alkemia_deluxe_strike,"fighter, alkemia_bp, merc",3,0
 alkemia_deluxe_bomber_wing,alkemia_deluxe_bomber,"fighter, bomber, independent_of_carrier, alkemia_bp",3,0.75,7,20,V,5000,500,,2,BOMBER,Strike Bomber,28,14400,,,,,,,,,,,,,30046
 alkemia_deluxe_lrstrike_wing,alkemia_deluxe_lrstrike,"fighter, bomber, independent_of_carrier, alkemia_bp",3,0.75,7,18,V,10000,500,,2,BOMBER,Long Range Strike,28,16400,,,,,,,,,,,,,30046
 alkemia_syreen_wing,alkemia_syreen_standard,"interceptor, alkemia_bp, independent_of_carrier",3,0.75,7,20,V,10000,500,,2,INTERCEPTOR,Interceptor,18,8000,,,,,,,,,,,,,30047
-alkemia_repair_wing,alkemia_drone_repair_standard,"alkemia_bp",1,0.75,2,9,BOX,800,50,,4,SUPPORT,Repair Drone,5,1800,,,,,,,,,,,,,30045
+alkemia_repair_wing,alkemia_drone_repair_standard,"alkemia_bp, auto_fighter, merc",1,0.75,2,9,BOX,800,50,,4,SUPPORT,Repair Drone,5,1800,,,,,,,,,,,,,30045

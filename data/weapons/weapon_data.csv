@@ -11,7 +11,7 @@ Light Antimatter Blaster,alkemia_amblaster_fighter,3,0.3,700,400,,800,,0,30,4,10
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 EMP Swarmer Arm L,alkemia_syreen_arm_l,1,0.7,,1200,,75,75,10,5,6,6,0.7,1,FRAGMENTATION,0,,0,10,8,0.1,0,0,0,0,,400,50,6,30,,,"PD, ANTI_FTR, DO_NOT_AIM, MISSILE_SPREAD","no_drop, no_sell, no_drop_salvage",,Alkemia,,Anti Fighter,Fast,Excellent,,,"Saturation defense launcher with large numbers of guided low-yeld EMP warheads.",,,,,16.4
 EMP Swarmer Arm R,alkemia_syreen_arm_r,1,0.7,,1200,,75,75,10,5,6,6,0.7,1,FRAGMENTATION,0,,0,10,8,0.1,0,0,0,0,,400,50,6,30,,,"PD, ANTI_FTR, DO_NOT_AIM, MISSILE_SPREAD","no_drop, no_sell, no_drop_salvage",,Alkemia,,Anti Fighter,Fast,Excellent,,,"Saturation defense launcher with large numbers of guided low-yeld EMP warheads.",,,,,16.4
-ACDLS,alkemia_acdls,1,,200,500,700,,,0,100,5,4,0.5,,ENERGY,,200,0,0.75,0.3,0.1,,,,,10000,,,,,,,"PD_ALSO,ANTI_FTR","pd9, energy13, no_drop, no_sell, no_drop_salvage",,Alkemia,,Anti Fighter,Fast,Excellent,,,,,,,,19.10
+ACDLS,alkemia_acdls,1,,200,500,700,,,0,100,5,4,0.5,,ENERGY,,200,0,0.75,0.3,0.1,,,,,10000,,,,,,,"PD_ALSO, ANTI_FTR","pd9, energy13, no_drop, no_sell, no_drop_salvage",,Alkemia,,Anti Fighter,Fast,Excellent,,,,,,,,19.10
 Welder,alkemia_repairbeam,2,,100,20,150,,,0,100,1,4,1,,ENERGY,,200,0.1,0.1,0.5,0.1,,,,,10000,,,,,,,"FIRE_WHEN_INEFFICIENT","no_drop, no_sell, no_drop_salvage",,Alkemia,,Repair,,,,,,,,,,19.11
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Dromader Bridge,alkemia_dromader_bridge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,45.1
@@ -20,3 +20,4 @@ Roost Lights,alkemia_roost_lights,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Pilum LRM Pod,alkemia_pilumpod,1,0.3,7500,4000,,500,500,50,10,14,36,0.5,2,FRAGMENTATION,0,,0,15,12,0.1,0,5,0,0,,126,100,32,150,,,"DO_NOT_AIM, ANTI_FTR, CONSERVE_1, MISSILE_SPREAD","utility13, missile15, missile_bp, merc",,Alkemia,,Long Range Support,Very Slow,Poor,,,"Second-stage hits on shields have a chance to arc through to weapons and engines, dealing %s EMP damage. The chance to pierce the shields is based on the target's hard flux level.",500,,,,12.8
 Porcupine TDS,alkemia_porcupine_tds,2,,4500,4500,,500,,50,10,20,12,,,HIGH_EXPLOSIVE,0,,0,10,2,,0,0,0,0,,350,50,18,350,,,"DO_NOT_AIM, CONSERVE_5","missile18, strike15, alkemia_bp",,Alkemia,,Finisher,Fast,Good,,,,,,,TRUE,16
+Artillery EMP Missile,alkemia_emp_artillery,3,,0,10000,,1600,1000,250,10,28,1,0.05,1,ENERGY,0,,1,6,,,,,,,,320,300,900,2000,,,"DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT","energy20, no_dealer, restricted, no_drop, no_drop_salvage",,Alkemia,,Long Range Support,Fast,Poor,,,,,,,,25.02

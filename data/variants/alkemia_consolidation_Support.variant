@@ -1,0 +1,85 @@
+{
+  "variantId": "alkemia_consolidation_Support",
+  "hullId": "alkemia_consolidation",
+  "displayName": "Support",
+  "goalVariant": true,
+  "fluxCapacitors": 23,
+  "fluxVents": 26,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "advancedshieldemitter",
+    "autorepair",
+    "insulatedengine"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "alkemia_emp_artillery"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0011": "hurricane",
+        "WS0013": "hurricane"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0002": "heavymauler",
+        "WS0021": "heavymauler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0015": "alkemia_rapidhvel",
+        "WS0016": "dualflak",
+        "WS0017": "alkemia_rapidhvel",
+        "WS0018": "dualflak"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0012": "alkemia_pilumpod",
+        "WS0014": "alkemia_pilumpod"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0019": "ionbeam",
+        "WS0020": "ionbeam"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "pdlaser",
+        "WS0004": "pdlaser",
+        "WS0005": "pdlaser",
+        "WS0006": "pdlaser",
+        "WS0007": "pdlaser",
+        "WS0008": "pdlaser",
+        "WS0009": "pdlaser",
+        "WS0010": "pdlaser"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": [
+    "mining_drone_wing",
+    "alkemia_repair_wing"
+  ]
+}

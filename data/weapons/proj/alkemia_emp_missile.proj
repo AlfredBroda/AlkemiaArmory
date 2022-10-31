@@ -1,0 +1,73 @@
+{
+    "id": "alkemia_emp_missile",
+    "specClass": "missile",
+    "missileType": "MISSILE",
+    "sprite": "graphics/alkemia/missiles/artillery_missile.png",
+    "size": [ 26, 93 ],
+    "center": [ 13, 46 ],
+    "collisionRadius": 50,
+    "collisionClass": "MISSILE_NO_FF",
+    "explosionColor": [ 175, 125, 255, 255 ],
+    "explosionRadius": 800,
+    "explosionSpec": {
+        "duration": 0.1,
+        "radius": 500,
+        "coreRadius": 200,
+        "collisionClass": "HITS_SHIPS_AND_ASTEROIDS",
+        "collisionClassByFighter": "HITS_SHIPS_AND_ASTEROIDS",
+        "particleSizeMin": 6.0,
+        "particleSizeRange": 8.0,
+        "particleDuration": 2,
+        "particleCount": 600,
+        "particleColor": [ 200, 150, 255, 255 ]
+    },
+    "engineSpec": {
+        "turnAcc": 15,
+        "turnRate": 30,
+        "acc": 100,
+        "dec": 10 },
+    "engineSlots": [
+        {
+            "id": "ES1",
+            "loc": [ -45, -4 ],
+            "style": "CUSTOM",
+            "styleSpec": {
+                "mode": "QUAD_STRIP",
+                "engineColor": [ 255, 145, 75, 255 ],
+                "contrailDuration": 5,
+                "contrailWidthMult": 1.5,
+                "contrailWidthAddedFractionAtEnd": -1,
+                "contrailMinSeg": 15,
+                "contrailMaxSpeedMult": 0,
+                "contrailAngularVelocityMult": 0.5,
+                "contrailSpawnDistMult": 0.33,
+                "contrailColor": [ 155, 100, 255, 155 ],
+                "type": "GLOW"
+            },
+            "width": 10.0,
+            "length": 75.0,
+            "angle": 180.0
+        },
+        {
+            "id": "ES2",
+            "loc": [ -45, 4 ],
+            "style": "CUSTOM",
+            "styleSpec": {
+                "mode": "QUAD_STRIP",
+                "engineColor": [ 255, 145, 75, 255 ],
+                "contrailDuration": 5,
+                "contrailWidthMult": 1.5,
+                "contrailWidthAddedFractionAtEnd": -1,
+                "contrailMinSeg": 15,
+                "contrailMaxSpeedMult": 0,
+                "contrailAngularVelocityMult": 0.5,
+                "contrailSpawnDistMult": 0.33,
+                "contrailColor": [ 155, 100, 255, 155 ],
+                "type": "GLOW"
+            },
+            "width": 10.0,
+            "length": 75.0,
+            "angle": 180.0
+        }
+    ]
+}

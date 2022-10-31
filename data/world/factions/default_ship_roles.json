@@ -25,7 +25,8 @@
 		"alkemia_perch_standard": 6
 	},
 	"combatCapital":{
-		"alkemia_conquest_lr": 3
+		"alkemia_conquest_lr": 3,
+		"alkemia_consolidation_Support": 2
 	},
 
 	"carrierSmall":{

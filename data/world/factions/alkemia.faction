@@ -233,8 +233,9 @@
 			"fallback": { "combatMedium": 2 }
 		},
 		"combatCapital": {
-			"alkemia_conquest_lr": 10,
-			"conquest_Standard": 10,
+			"alkemia_conquest_lr": 8,
+			"alkemia_consolidation_Support":7,
+			"conquest_Standard": 6,
 			"fallback": { "combatLarge": 2 }
 		},
 

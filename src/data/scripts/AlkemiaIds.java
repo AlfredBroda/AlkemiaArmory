@@ -15,7 +15,8 @@ public class AlkemiaIds {
     // Weapons
     public static final String ALKEMIA_SWARM = "alkemia_swarm";
     public static final String ALKEMIA_HARPOON = "alkemia_harpoon_fighter";
-    public static final String ALKEMIA_PILUM = "alkemia_type_2_lrm";
+    public static final String ALKEMIA_LRM = "alkemia_type_2_lrm";
+    public static final String ALKEMIA_EMP = "alkemia_emp_missile";
     public static final String PILUM = "type_1_lrm";
 
     // Systems
