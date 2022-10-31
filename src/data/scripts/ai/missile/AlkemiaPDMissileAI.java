@@ -35,7 +35,7 @@ public class AlkemiaPDMissileAI extends BaseSmartMissileAI {
                     (int) missile.getWeapon().getRange(), SEARCH_CONE, 3, 2, 1, 1, 1, true);
         }
 
-        if (DEBUG && (newTarget != null)) {
+        if (DEBUG_TARGET && (newTarget != null)) {
             engine.addFloatingText(newTarget.getLocation(), "o", 20.0F,
                     COLOR_RED, newTarget, 0.2f, 0.8f);
         }

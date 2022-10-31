@@ -74,9 +74,20 @@ A retrofit of the Champion, this heavy cruiser trades it's heavy turret and down
 <img alt="Conquest-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.15/graphics/alkemia/ships/conquest_alkemia.png?raw=true"/>
 </td>
 <td>
-Conquest-class Battleship
+Conquest-class Battlecruiser
 
 This refit done by Alkemia Customs includes an integrated bay for repair drones. Combat ships get dammaged often and, as few as there are in Company fleet, hauling them to docks everytime would be a waste of valuable time.
+</td>
+</tr>
+
+<tr>
+<td>
+<img alt="Consolidation-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.21/graphics/alkemia/ships/consolidation.png?raw=true"/>
+</td>
+<td>
+Consolidation-class Battlecruiser
+
+The Consolidation-class is the pinnacle of Alkemia Customs technological knowledge. It integrates one of the largest missile systems found anywhere in the Sector, and retains a lot of the features of the Conquest-class. Repair drone bays were also fitted for on-site repairs making this one of the largest and most expensive mobile repair docks ever built.
 </td>
 </tr>
 <table>

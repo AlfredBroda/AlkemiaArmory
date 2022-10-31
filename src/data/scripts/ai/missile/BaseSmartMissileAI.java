@@ -1,5 +1,16 @@
 package data.scripts.ai.missile;
 
+import java.awt.Color;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.lazywizard.lazylib.MathUtils;
+import org.lazywizard.lazylib.VectorUtils;
+import org.lazywizard.lazylib.combat.AIUtils;
+import org.lwjgl.util.vector.Vector2f;
+
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.CollisionClass;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
@@ -15,18 +26,6 @@ import com.fs.starfarer.api.util.IntervalUtil;
 
 import data.scripts.util.MagicRender;
 import data.scripts.util.MagicTargeting;
-
-import java.awt.Color;
-import java.util.List;
-
-import org.apache.log4j.Logger;
-import org.json.JSONException;
-import org.json.JSONObject;
-// import org.lazywizard.lazylib.CollisionUtils;
-import org.lazywizard.lazylib.MathUtils;
-import org.lazywizard.lazylib.VectorUtils;
-import org.lazywizard.lazylib.combat.AIUtils;
-import org.lwjgl.util.vector.Vector2f;
 
 //Based on Anti-missile missile AI v2 by Tartiflette
 public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
@@ -45,10 +44,14 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
     // Glow particle visual when second stage is litup
     public boolean STAGE_ONE_FLARE;
     public float PROXIMITY_FUSE_DISTANCE;
+    public float PROXIMITY_LAST_CHECK;
 
-    public boolean DEBUG;
+    public final float BIAS;
 
-    private final float OVERSHOT_ANGLE = 90, WAVE_TIME = 2, WAVE_AMPLITUDE = 5, DAMPING = 0.1f, MAX_SPEED, OFFSET, BIAS;
+    public boolean DEBUG_TARGET;
+    public boolean DEBUG_DAMAGE;
+
+    private final float OVERSHOT_ANGLE = 60, WAVE_TIME = 2, WAVE_AMPLITUDE = 5, DAMPING = 0.1f, MAX_SPEED, OFFSET;
     private float PRECISION_RANGE = 400;
     private static final Vector2f ZERO_VELOCITY = new Vector2f();
 
@@ -104,7 +107,8 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
 
         this.missile = missile;
 
-        DEBUG = false;
+        DEBUG_TARGET = false;
+        DEBUG_DAMAGE = false;
         SEARCH_CONE = 360;
         STAGE_ONE_EXPLODE = false;
         STAGE_ONE_FLARE = false;
@@ -119,7 +123,7 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
         // calculate the precision range factor
         PRECISION_RANGE = (float) Math.pow((2 * PRECISION_RANGE), 2);
         OFFSET = (float) (Math.random() * MathUtils.FPI * 2);
-        BIAS = MathUtils.getRandomNumberInRange(-15, 15);
+        BIAS = MathUtils.getRandomNumberInRange(-5, 5);
 
         if (missile.isMirv()) {
             try {
@@ -136,7 +140,7 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
                 log.error(String.format("Failed reading MIRV spec: %s", e.getMessage()));
             }
 
-            if (DEBUG) {
+            if (DEBUG_TARGET) {
                 Global.getLogger(BaseSmartMissileAI.class)
                         .warn(String.format("Missile %s is MIRV, split at: %.2f, projectiles: %d (%s)",
                                 missile.getProjectileSpecId(), splitRange, submunitionNum, secondaryProjectile));
@@ -153,13 +157,12 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
         }
 
         if (target != null) {
-            float targetDistance = MathUtils.getDistance(missile, lead);
+            float targetDistance = MathUtils.getDistance(missile, target);
 
             // mirv split
             if (missile.isMirv()) {
                 minSplitInterval.advance(amount);
                 if (targetDistance < splitRange && minSplitInterval.intervalElapsed()) {
-
                     launchSubmunitions();
                     return;
                 }
@@ -167,12 +170,15 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
 
             // proximity fuse
             if (PROXIMITY_FUSE_DISTANCE > 0) {
-                float dist = MathUtils.getDistanceSquared(missile.getLocation(), target.getLocation());
-                if (dist < PROXIMITY_FUSE_DISTANCE * PROXIMITY_FUSE_DISTANCE) {
+                // Check if moving away from target but still within explosion radious
+                if ((PROXIMITY_LAST_CHECK > 0) && (PROXIMITY_LAST_CHECK < targetDistance)
+                        && (PROXIMITY_FUSE_DISTANCE > targetDistance)) {
                     proximityFuse();
+                    PROXIMITY_LAST_CHECK = targetDistance;
                     return;
                 }
             }
+            PROXIMITY_LAST_CHECK = targetDistance;
         }
 
         // assigning a target if there is none or it got destroyed
@@ -264,7 +270,7 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
         ShipAPI newTarget = MagicTargeting.pickTarget(missile, MagicTargeting.targetSeeking.NO_RANDOM,
                 (int) missile.getWeapon().getRange(), SEARCH_CONE, 1, 2, 3, 4, 5, true);
 
-        if (DEBUG && newTarget != null) {
+        if (DEBUG_TARGET && newTarget != null) {
             engine.addFloatingText(newTarget.getLocation(), "locked", 30.0F,
                     COLOR_RED, newTarget, 0.1f, 0.5f);
         }
@@ -342,32 +348,66 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
 
     private void proximityFuse() {
         // damage the target
-        engine.applyDamage(
-                target,
-                target.getLocation(),
-                missile.getDamageAmount(),
-                missile.getDamageType(),
-                missile.getEmpAmount(),
-                false,
-                false,
-                missile.getSource());
+        missile.explode();
+
+        if (DEBUG_DAMAGE) {
+            engine.addFloatingText(target.getLocation(),
+                    String.format("BASE: %.1f/%.1f", missile.getDamageAmount(), missile.getEmpAmount()), 30.0F,
+                    FLARE_COLOR, missile, 0.3f, 3.5f);
+        }
 
         // damage nearby targets
-        List<MissileAPI> closeMissiles = AIUtils.getNearbyEnemyMissiles(missile, 100);
+        List<ShipAPI> closeTargets = AIUtils.getNearbyEnemies(missile, missile.getSpec().getExplosionRadius());
+        for (ShipAPI ct : closeTargets) {
+            if (ct != target) {
+                float damageMult = ((float) Math
+                        .cos(3000 / (MathUtils.getDistanceSquared(missile.getLocation(), target.getLocation()) + 1000))
+                        + 1);
+
+                float damageAmount = missile.getDamageAmount() * damageMult;
+                float empAmount = missile.getEmpAmount() * damageMult;
+                engine.applyDamage(
+                        ct,
+                        ct.getLocation(),
+                        damageAmount,
+                        DamageType.FRAGMENTATION,
+                        empAmount,
+                        false,
+                        true,
+                        missile.getSource());
+                if (DEBUG_DAMAGE) {
+                    engine.addFloatingText(ct.getLocation(),
+                            String.format("COL: %.1f/%.1f", damageAmount, empAmount), 20.0F,
+                            FLARE_COLOR, missile, 0.3f, 3.5f);
+                }
+            }
+        }
+
+        // damage nearby missiles
+        List<MissileAPI> closeMissiles = AIUtils.getNearbyEnemyMissiles(missile,
+                missile.getSpec().getExplosionRadius());
         for (MissileAPI cm : closeMissiles) {
             if (cm != target) {
                 float damageMult = ((float) Math
                         .cos(3000 / (MathUtils.getDistanceSquared(missile.getLocation(), target.getLocation()) + 1000))
                         + 1);
+
+                float damageAmount = missile.getDamageAmount() * damageMult;
+                float empAmount = missile.getEmpAmount() * damageMult;
                 engine.applyDamage(
                         cm,
                         cm.getLocation(),
-                        (2 * missile.getDamageAmount() / 3) - (missile.getDamageAmount() / 3) * damageMult,
+                        damageAmount,
                         DamageType.FRAGMENTATION,
-                        missile.getEmpAmount() * damageMult,
+                        empAmount,
                         false,
                         true,
                         missile.getSource());
+                if (DEBUG_DAMAGE) {
+                    engine.addFloatingText(cm.getLocation(),
+                            String.format("FRAG: %.1f/%.1f", damageAmount, empAmount), 20.0F,
+                            FLARE_COLOR, missile, 0.3f, 3.5f);
+                }
             }
         }
 
@@ -394,8 +434,6 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
             }
         }
 
-        postDetonate(target.getLocation(), missile.getVelocity());
-
         // kill the missile
         engine.applyDamage(
                 missile,
@@ -406,11 +444,13 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
                 false,
                 false,
                 missile);
+
+        postDetonate(target.getLocation(), missile.getVelocity());
     }
 
     public void postDetonate(Vector2f site, Vector2f dir) {
         // do cleanup when using target plugins
-        if (DEBUG) {
+        if (DEBUG_TARGET) {
             engine.addFloatingText(site, "BOOM!", 30.0F,
                     COLOR_RED, missile, 0.1f, 0.5f);
         }

@@ -23,7 +23,7 @@ public class AlkemiaLRMissileAI extends BaseSmartMissileAI {
         ShipAPI newTarget = MagicTargeting.pickTarget(missile, MagicTargeting.targetSeeking.NO_RANDOM,
                 (int) missile.getWeapon().getRange(), SEARCH_CONE, 0, 1, 2, 3, 3, true);
 
-        if (DEBUG && (newTarget != null)) {
+        if (DEBUG_TARGET && (newTarget != null)) {
             engine.addFloatingText(newTarget.getLocation(), "LOCK", 30.0F,
                     COLOR_RED, newTarget, 0.1f, 0.5f);
         }

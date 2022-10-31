@@ -3,6 +3,7 @@
     "specClass": "missile",
     "missileType": "MISSILE",
     "sprite": "graphics/alkemia/missiles/artillery_missile.png",
+    "onHitEffect":"com.fs.starfarer.api.impl.combat.PilumOnHitEffect",
     "size": [ 26, 93 ],
     "center": [ 13, 46 ],
     "collisionRadius": 50,
@@ -25,7 +26,8 @@
         "turnAcc": 15,
         "turnRate": 30,
         "acc": 100,
-        "dec": 10 },
+        "dec": 20
+    },
     "engineSlots": [
         {
             "id": "ES1",
@@ -41,7 +43,7 @@
                 "contrailMaxSpeedMult": 0,
                 "contrailAngularVelocityMult": 0.5,
                 "contrailSpawnDistMult": 0.33,
-                "contrailColor": [ 155, 100, 255, 155 ],
+                "contrailColor": [ 100, 100, 100, 150 ],
                 "type": "GLOW"
             },
             "width": 10.0,
@@ -62,7 +64,7 @@
                 "contrailMaxSpeedMult": 0,
                 "contrailAngularVelocityMult": 0.5,
                 "contrailSpawnDistMult": 0.33,
-                "contrailColor": [ 155, 100, 255, 155 ],
+                "contrailColor": [ 100, 100, 100, 150 ],
                 "type": "GLOW"
             },
             "width": 10.0,

@@ -3,46 +3,52 @@
   "hullId": "alkemia_consolidation",
   "displayName": "Support",
   "goalVariant": true,
-  "fluxCapacitors": 23,
-  "fluxVents": 26,
+  "fluxCapacitors": 33,
+  "fluxVents": 30,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
     "advancedshieldemitter",
-    "autorepair",
     "insulatedengine"
   ],
   "weaponGroups": [
     {
       "autofire": false,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
       "weapons": {
         "WS0001": "alkemia_emp_artillery"
       }
     },
     {
-      "autofire": true,
+      "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0011": "hurricane",
-        "WS0013": "hurricane"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "ALTERNATING",
-      "weapons": {
-        "WS0002": "heavymauler",
-        "WS0021": "heavymauler"
+        "WS0014": "alkemia_porcupine_tds"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0015": "alkemia_rapidhvel",
+        "WS0011": "hephag",
+        "WS0013": "hephag",
+        "WS0015": "heavymauler",
+        "WS0017": "heavymauler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "alkemia_rapidhvel",
+        "WS0021": "alkemia_rapidhvel"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
         "WS0016": "dualflak",
-        "WS0017": "alkemia_rapidhvel",
         "WS0018": "dualflak"
       }
     },
@@ -51,13 +57,6 @@
       "mode": "LINKED",
       "weapons": {
         "WS0012": "alkemia_pilumpod",
-        "WS0014": "alkemia_pilumpod"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
         "WS0019": "ionbeam",
         "WS0020": "ionbeam"
       }
