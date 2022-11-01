@@ -1,0 +1,183 @@
+{
+  "hullName": "Buzzard",
+  "hullId": "alkemia_buzzard",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/alkemia/ships/buzzard.png",
+  "style": "MIDLINE",
+  "coversColor": "255,255,255,255",
+  "height": 168,
+  "width": 108,
+  "center": [54, 71],
+  "collisionRadius": 130,
+  "shieldCenter": [11, 1],
+  "shieldRadius": 120,
+  "viewOffset": 0,
+  "builtInMods": [
+    "missleracks"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": 90,
+      "locations": [20, 33]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": -90,
+      "locations": [20, -32]
+    },
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": 90,
+      "locations": [42, 36]
+    },
+    {
+      "id": "WS0004",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": -90,
+      "locations": [42, -35]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 226,
+      "angle": 23.5,
+      "locations": [73, 32]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 226,
+      "angle": -23.5,
+      "locations": [72, -33]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 215,
+      "angle": 45,
+      "locations": [56, 16]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 215,
+      "angle": -45,
+      "locations": [56, -16]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 215,
+      "angle": 115,
+      "locations": [-17, 39]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 215,
+      "angle": 245,
+      "locations": [-17, -39]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-70, 38],
+      "length": 75,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 80,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-69, 27],
+      "length": 65,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 60,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-68, 15],
+      "length": 55,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 80,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-68, -15],
+      "length": 55,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 80,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-69, -26],
+      "length": 65,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 80,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-70, -38],
+      "length": 75,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 80,
+      "style": "MIDLINE"
+    }
+  ],
+  "bounds": [
+    52, 49.5,
+    77.5, 53.5,
+    84, 49.5,
+    95, -0,
+    95, 0,
+    84, -49.5,
+    77.5, -53.5,
+    52, -49.5,
+    32.5, -41.5,
+    7, -39,
+    -18.5, -53,
+    -29.5, -41.5,
+    -68, -44,
+    -64.5, -8,
+    -48, -0,
+    -64.5, 8,
+    -68, 44,
+    -29.5, 41.5,
+    -18.5, 53,
+    7, 39,
+    32.5, 41.5
+  ]
+}

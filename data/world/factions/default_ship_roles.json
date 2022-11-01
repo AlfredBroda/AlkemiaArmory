@@ -1,10 +1,10 @@
 {
 	"combatSmallForSmallFleet":{
-		"alkemia_dromader_assault": 3,
+		"alkemia_kite_standard": 5,
+		"alkemia_kite_support": 4,
 		"alkemia_dromader_standard": 3,
 		"alkemia_dromader_strike": 2,
-		"alkemia_brawler_ranger": 2,
-		"alkemia_brawler_support": 1
+		"alkemia_brawler_ranger": 2
 	},
 	"combatSmall":{
 		"alkemia_dromader_assault": 2,
@@ -14,6 +14,8 @@
 		"alkemia_brawler_support": 2
 	},
 	"combatMedium":{
+		"alkemia_buzzard_Standard": 7,
+		"alkemia_buzzard_Assault": 5,
 		"alkemia_gryphon_LR": 6,
 		"alkemia_rime_orange_standard": 4,
 		"alkemia_rime_orange_assault": 3

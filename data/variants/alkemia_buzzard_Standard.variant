@@ -1,0 +1,51 @@
+{
+  "variantId": "alkemia_buzzard_Standard",
+  "hullId": "alkemia_buzzard",
+  "displayName": "Standard",
+  "goalVariant": true,
+  "fluxCapacitors": 19,
+  "fluxVents": 10,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "stabilizedshieldemitter"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0003": "harpoonpod",
+        "WS0004": "harpoonpod"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "salamanderpod",
+        "WS0002": "salamanderpod"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0007": "taclaser",
+        "WS0008": "taclaser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "alkemia_vulcan",
+        "WS0006": "alkemia_vulcan",
+        "WS0009": "alkemia_vulcan",
+        "WS0010": "alkemia_vulcan"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

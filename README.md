@@ -41,6 +41,14 @@ A retrofit of the Drover, this destroyer now features a universal medium turret 
 </tr>
 
 <tr>
+<td><img alt="Buzzard-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Buzzard.png?raw=true"/></td>
+<td>
+Buzzard-class Missile Destroyer
+A dedicated missile destroyer based on the Hammerhead. Boasting an impressive ordinance store and rapid autoloaders, the Buzzard can deal a staggering ammount of damage for it's size.
+</td>
+</tr>
+
+<tr>
 <td><img alt="Rime Racer-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Rime.png?raw=true"/></td>
 <td>
 Rime-class Racer
