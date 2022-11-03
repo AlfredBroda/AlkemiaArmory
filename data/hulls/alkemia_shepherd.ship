@@ -2,7 +2,7 @@
   "hullName": "Shepherd (M)",
   "hullId": "alkemia_shepherd",
   "hullSize": "FRIGATE",
-  "spriteName": "graphics/ships/drone_tender.png",
+  "spriteName": "graphics/alkemia/ships/drone_tender.png",
   "style": "MIDLINE",
   "height": 92,
   "width": 78,
@@ -12,11 +12,9 @@
   "shieldRadius": 70,
   "viewOffset": 0,
   "builtInMods": [
+    "alkemia_droneonlybays",
     "repair_gantry",
     "insulatedengine"
-  ],
-  "builtInWings": [
-    "alkemia_repair_wing"
   ],
   "weaponSlots": [
     {
@@ -97,6 +95,22 @@
       "length": 4,
       "width": 3,
       "angle": 215,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [31, 31],
+      "length": 4,
+      "width": 2,
+      "angle": 45,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [31, -31],
+      "length": 4,
+      "width": 2,
+      "angle": -45,
       "contrailSize": 128,
       "style": "MIDLINE"
     }
