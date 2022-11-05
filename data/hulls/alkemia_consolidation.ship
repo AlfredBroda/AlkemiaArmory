@@ -13,8 +13,7 @@
   "shieldRadius": 250,
   "viewOffset": 0,
   "builtInMods": [
-    "alkemia_droneonlybays",
-    "repair_gantry"
+    "alkemia_droneonlybays"
   ],
   "builtInWeapons": {
     "WS0001": "alkemia_emp_artillery"

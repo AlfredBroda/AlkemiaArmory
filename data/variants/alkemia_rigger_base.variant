@@ -1,0 +1,24 @@
+{
+  "variantId": "alkemia_rigger_base",
+  "hullId": "alkemia_rigger",
+  "displayName": "Base",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [],
+  "modules": [
+    {
+      "SM0001": "alkemia_rigger_left_base"
+    },
+    {
+      "SM0002": "alkemia_rigger_right_base"
+    }
+  ],
+  "wings": [
+    "alkemia_repair_wing",
+    "alkemia_repair_wing"
+  ]
+}

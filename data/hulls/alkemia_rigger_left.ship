@@ -1,0 +1,126 @@
+{
+  "hullName": "Left Prow",
+  "hullId": "alkemia_rigger_left",
+  "hullSize": "CAPITAL_SHIP",
+  "spriteName": "graphics/alkemia/ships/rigger_prow_left.png",
+  "style": "MIDLINE",
+  "height": 80,
+  "width": 256,
+  "center": [131.5, 36.5],
+  "collisionRadius": 134,
+  "shieldCenter": [-54, 24],
+  "shieldRadius": 180,
+  "viewOffset": 0,
+  "builtInMods": [
+    "always_detaches",
+    "alkemia_rigger_prow"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "SYNERGY",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": 0,
+      "locations": [9.5, 105.5]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "SYNERGY",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": 0,
+      "locations": [3.5, 27.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 200,
+      "angle": 0,
+      "locations": [29, -29]
+    },
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 200,
+      "angle": -45,
+      "locations": [7, -63]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 312,
+      "angle": -100,
+      "locations": [0.5, -101]
+    },
+    {
+      "id": "SS0001",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 20,
+      "angle": 25,
+      "locations": [27, 7]
+    },
+    {
+      "id": "SS0002",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 20,
+      "angle": 66,
+      "locations": [32, 133.5]
+    },
+    {
+      "id": "SS0003",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 20,
+      "angle": -90,
+      "locations": [0, -118]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [32.5, -9],
+      "length": 30,
+      "width": 10,
+      "angle": 60,
+      "contrailSize": 30,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [38, 128],
+      "length": 30,
+      "width": 10,
+      "angle": 60,
+      "contrailSize": 30,
+      "style": "MIDLINE"
+    }
+  ],
+  "bounds": [
+    26.5, 128.5,
+    40, 121,
+    26.5, 83,
+    28, 22,
+    18.5, 8.5,
+    40, -26.5,
+    36.5, -40,
+    18.5, -44,
+    30.5, -58,
+    10.5, -120,
+    -8.5, -112,
+    -14, -70,
+    -27.5, -65.5,
+    -27, 86.5
+  ]
+}
