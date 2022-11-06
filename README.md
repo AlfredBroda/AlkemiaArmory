@@ -79,12 +79,14 @@ A retrofit of the Champion, this heavy cruiser trades it's heavy turret and down
 
 <tr>
 <td>
-<img alt="Conquest-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Conquest.png?raw=true"/>
+<img alt="Rigger-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Rigger.png?raw=true"/>
 </td>
 <td>
-Conquest-class Battlecruiser
+Rigger Salvage Ship
 
-This refit done by Alkemia Customs includes an integrated bay for repair drones. Combat ships get dammaged often and, as few as there are in Company fleet, hauling them to docks everytime would be a waste of valuable time.
+The Rigger in one of the largest and most expensive mobile repair docks ever built, rivaled only by Roider Argo-class. It features numerous repair, salvage and production facilities, massive part stores and, last but not least, two drone hangars. All that makes it capable of salvaging and refitting all but the largest vessels.
+
+The Rigger's hull is modular, each of it's prows equipped with independent shield emmiters, defense systems and fire control. Furthermore the loss of one prow does not compromise the ship as a whole, altough it is still undoubtedly crippled.
 </td>
 </tr>
 

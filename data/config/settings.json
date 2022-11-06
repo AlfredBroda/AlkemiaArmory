@@ -24,5 +24,8 @@
 			"male_mechanic1":"graphics/alkemia/portraits/male_mechanic1.png",
 			"male_mechanic2":"graphics/alkemia/portraits/male_mechanic2.png"
         }
+    },
+    "plugins":{
+		"AlkemiaRiggerPlugin":"data.plugins.AlkemiaRiggerPlugin"
     }
 }

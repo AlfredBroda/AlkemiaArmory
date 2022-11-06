@@ -8,11 +8,10 @@
   "width": 256,
   "center": [124.5, 36.5],
   "collisionRadius": 134,
-  "shieldCenter": [-54, -24],
-  "shieldRadius": 180,
+  "shieldCenter": [-53, -85],
+  "shieldRadius": 235,
   "viewOffset": 0,
   "builtInMods": [
-    "always_detaches",
     "alkemia_rigger_prow"
   ],
   "weaponSlots": [

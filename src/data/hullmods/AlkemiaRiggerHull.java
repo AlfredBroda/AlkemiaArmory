@@ -1,19 +1,19 @@
 package data.hullmods;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.function.BiConsumer;
 
 import org.apache.log4j.Logger;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.combat.ShipVariantAPI;
 import com.fs.starfarer.api.loading.HullModSpecAPI;
 
+import data.plugins.AlkemiaRiggerPlugin;
 import data.scripts.AlkemiaIds;
 
 public class AlkemiaRiggerHull extends AlkemiaDroneConversion {
@@ -55,7 +55,10 @@ public class AlkemiaRiggerHull extends AlkemiaDroneConversion {
 
 	@Override
 	public void applyEffectsAfterShipCreation(ShipAPI ship, String id) {
-
+		CombatEngineAPI combat = Global.getCombatEngine();
+		if (combat != null) {
+			AlkemiaRiggerPlugin.manage(ship);
+		}
 	}
 
 	public boolean isApplicableToShip(ShipAPI ship) {

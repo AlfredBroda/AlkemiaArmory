@@ -22,6 +22,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 
+import data.plugins.AlkemiaRiggerPlugin;
 import data.scripts.ai.drone.RepairDroneAI;
 import data.scripts.ai.missile.AlkemiaEmpMissileAI;
 import data.scripts.ai.missile.AlkemiaPDMissileAI;
@@ -194,7 +195,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
         private void clearState() {
             AntiMissileEffectPlugin.cleanSlate();
+            AlkemiaRiggerPlugin.clear();
         }
     }
-
 }

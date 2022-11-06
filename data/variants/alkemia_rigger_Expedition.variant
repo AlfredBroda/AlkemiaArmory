@@ -1,0 +1,46 @@
+{
+  "variantId": "alkemia_rigger_Expedition",
+  "hullId": "alkemia_rigger",
+  "displayName": "Expediion",
+  "goalVariant": true,
+  "fluxCapacitors": 26,
+  "fluxVents": 24,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "hardenedshieldemitter",
+    "stabilizedshieldemitter"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "pdlaser",
+        "WS0002": "pdlaser",
+        "WS0003": "pdlaser",
+        "WS0004": "pdlaser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "mininglaser",
+        "WS0006": "mininglaser"
+      }
+    }
+  ],
+  "modules": [
+    {
+      "SM0001": "alkemia_rigger_left_Expedition"
+    },
+    {
+      "SM0002": "alkemia_rigger_right_Expedition"
+    }
+  ],
+  "wings": [
+    "alkemia_repair_wing",
+    "alkemia_repair_wing"
+  ]
+}
