@@ -13,20 +13,15 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS 002": "lightag"
+        "WS0001": "lightag"
       }
     },
     {
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS 003": "alkemia_locust_fighter"
+        "WS0002": "sabot_fighter"
       }
-    },
-    {
-      "autofire": false,
-      "mode": "LINKED",
-      "weapons": {}
     }
   ],
   "modules": [],

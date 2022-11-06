@@ -2,7 +2,7 @@
   "hullName": "Thunder 2",
   "hullId": "alkemia_thunder",
   "hullSize": "FIGHTER",
-  "spriteName": "graphics/ships/thunder3.png",
+  "spriteName": "graphics/ships/thunder.png",
   "style": "MIDLINE",
   "height": 43,
   "width": 26,
@@ -13,37 +13,38 @@
   "viewOffset": 0,
   "weaponSlots": [
     {
-      "id": "WS 002",
+      "id": "WS0001",
       "size": "SMALL",
       "type": "BALLISTIC",
       "mount": "HIDDEN",
       "arc": 15,
       "angle": 0,
-      "locations": [18, -2.5]
+      "locations": [19.5, -2.5]
     },
     {
-      "id": "WS 003",
+      "id": "WS0002",
       "size": "SMALL",
       "type": "MISSILE",
       "mount": "HIDDEN",
       "arc": 120,
       "angle": 0,
-      "locations": [15, 0]
+      "locations": [15, 4.5],
+      "renderOrderMod": -1
     }
   ],
   "engineSlots": [
     {
       "location": [-12, 7],
-      "length": 64,
-      "width": 14,
+      "length": 42,
+      "width": 10,
       "angle": 180,
       "contrailSize": 64,
       "style": "MIDLINE"
     },
     {
       "location": [-12, -6],
-      "length": 64,
-      "width": 14,
+      "length": 42,
+      "width": 10,
       "angle": 180,
       "contrailSize": 64,
       "style": "MIDLINE"

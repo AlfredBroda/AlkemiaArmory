@@ -97,7 +97,7 @@ The Rigger's hull is modular, each of it's prows equipped with independent shiel
 <td>
 Consolidation-class Battlecruiser
 
-The Consolidation-class is the pinnacle of Alkemia Customs technological knowledge. It integrates one of the largest missile systems found anywhere in the Sector, and retains a lot of the features of the Conquest-class. Repair drone bays were also fitted for on-site repairs making this one of the largest and most expensive mobile repair docks ever built.
+The Consolidation-class is the pinnacle of Alkemia Customs technological knowledge. It integrates one of the largest missile systems found anywhere in the Sector, and retains a lot of the features of the Conquest-class. Repair drone bays were also fitted for on-site repairs.
 </td>
 </tr>
 <table>
