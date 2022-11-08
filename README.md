@@ -27,14 +27,14 @@ This ship was built out of necessity as Alkemia manufactories had no access to b
 <td>
 Kestrel-class Frigate
 
-The Kestrel is the essence of the Techie ideology. It is fast - even without it's afterburner - has an array of varied weapon mounts, and packs a punch with an integrated Atropos torpedo launcher. It was also designed with stealth in mind, with an integrated ECM suite and low profile engine exhausts.
+The Kestrel is the essence of the Techie design ideology. It is fast - even without it's afterburner - has an array of varied weapon mounts, and packs a punch with an integrated Atropos torpedo launcher. It was also designed with stealth in mind, with an integrated ECM suite and low profile engine exhausts.
 </td>
 </tr>
 
 
 <tr>
 <td>
-<img alt="Dromader" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Dromader.png?raw=true"/>
+<img alt="Sonra" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Dromader.png?raw=true"/>
 </td>
 <td>
 Sonra-class Dropship
