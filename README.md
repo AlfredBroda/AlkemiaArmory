@@ -31,17 +31,6 @@ The Kestrel is the essence of the Techie ideology. It is fast - even without it'
 </td>
 </tr>
 
-<table>
-<tr>
-<td>
-<img alt="Lifter" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.15/graphics/alkemia/ships/lifter.png?raw=true"/>
-</td>
-<td>
-Lifter-class Cargo Courier
-
-This ship was built out of necessity as Alkemia manufactories had no access to blueprints of ships other than Midline. So their choice of small cargo ships was very slim. To solve this logistical problem the workshops came back with a design based on the readily available Brawler chassis and a few cargo containers.
-</td>
-</tr>
 
 <tr>
 <td>
