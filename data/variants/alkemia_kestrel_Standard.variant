@@ -2,7 +2,7 @@
   "variantId": "alkemia_kestrel_Standard",
   "hullId": "alkemia_kestrel",
   "displayName": "Standard",
-  "goalVariant": false,
+  "goalVariant": true,
   "fluxCapacitors": 10,
   "fluxVents": 8,
   "quality": 1,

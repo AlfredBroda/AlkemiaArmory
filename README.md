@@ -7,7 +7,30 @@ A mod for **Starsector** aiming to improve hull/fighter/weapon variety. Also a b
 
 ## Features
 
-Many new generally available ship hulls: **Dromader Dropship**, **Perch-class Heavy Carrier**, **Roost-class Carrier**, **Lifter Cargo Courier**
+Many new generally available ship hulls: **Kestrel Frigate**, **Perch-class Heavy Carrier**, **Roost-class Carrier**, **Lifter Cargo Courier**
+<table>
+<tr>
+<td>
+<img alt="Lifter" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.15/graphics/alkemia/ships/lifter.png?raw=true"/>
+</td>
+<td>
+Lifter-class Cargo Courier
+
+This ship was built out of necessity as Alkemia manufactories had no access to blueprints of ships other than Midline. So their choice of small cargo ships was very slim. To solve this logistical problem the workshops came back with a design based on the readily available Brawler chassis and a few cargo containers.
+</td>
+</tr>
+
+<tr>
+<td>
+<img alt="Kestrel" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.25/graphics/alkemia/ships/kestrel.png?raw=true"/>
+</td>
+<td>
+Kestrel-class Cargo Courier
+
+The Kestrel is the essence of the Techie ideology. It is fast - even without it's afterburner - has an array of varied weapon mounts, and packs a punch with an integrated Atropos torpedo launcher. It was also designed with stealth in mind, with an integrated ECM suite and low profile engine exhausts.
+</td>
+</tr>
+
 <table>
 <tr>
 <td>
@@ -25,7 +48,7 @@ This ship was built out of necessity as Alkemia manufactories had no access to b
 <img alt="Dromader" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Dromader.png?raw=true"/>
 </td>
 <td>
-Dromader-class Dropship
+Sonra-class Dropship
 
 Versatile trans-atmospheric dropship with a moderately sized cargo hold. Features a missile autoforge and a ground support package.
 </td>
