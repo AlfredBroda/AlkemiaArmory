@@ -187,8 +187,9 @@
 
 		"escortSmall": {
 			"alkemia_dromader_standard": 10,
-			"alkemia_brawler_ranger": 10,
-			"alkemia_brawler_support": 10,
+			"alkemia_kestrel_Standard": 10,
+			"alkemia_brawler_ranger": 8,
+			"alkemia_brawler_support": 6,
 			"vigilance_Standard": 6,
 			"vigilance_Strike": 6,
 			"fallback": { "combatSmall": 1 }
@@ -202,9 +203,12 @@
 			"fallback": { "combatMedium": 1 }
 		},
 		"combatSmall": {
-			"alkemia_dromader_assault": 10,
-			"alkemia_dromader_standard": 10,
-			"alkemia_dromader_strike": 10,
+			"alkemia_dromader_assault": 5,
+			"alkemia_dromader_standard": 7,
+			"alkemia_dromader_strike": 6,
+			"alkemia_kestrel_Assault": 8,
+			"alkemia_kestrel_Standard": 10,
+			"alkemia_kestrel_Buster": 2,
 			"alkemia_brawler_ranger": 8,
 			"centurion_Assault": 4,
 			"fallback": { "escortSmall": 1 }

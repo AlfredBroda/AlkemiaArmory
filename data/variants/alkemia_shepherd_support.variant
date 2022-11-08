@@ -3,7 +3,7 @@
   "hullId": "alkemia_shepherd",
   "displayName": "Support",
   "goalVariant": true,
-  "fluxCapacitors": 8,
+  "fluxCapacitors": 10,
   "fluxVents": 4,
   "quality": 1,
   "permaMods": [],

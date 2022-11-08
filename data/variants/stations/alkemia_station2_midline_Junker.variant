@@ -17,13 +17,13 @@
       "WS 009": "module_decor_midline1_Standard"
     },
     {
-      "WS 003": "alkemia_module_colossus_pd"
+      "WS 003": "module_blocker2b_Standard"
     },
     {
       "WS 004": "module_blocker2b_Standard"
     },
     {
-      "WS 005": "alkemia_module_colossus_pd"
+      "WS 005": "module_blocker2b_Standard"
     },
     {
       "WS 006": "module_blocker2b_Standard"
@@ -32,7 +32,7 @@
       "WS 011": "alkemia_module_large1_junker_Custom"
     },
     {
-      "WS 002": "alkemia_module_midline_support_Balanced"
+      "WS 002": "alkemia_module_patchwork_hangars_Balanced"
     },
     {
       "WS 008": "alkemia_module_midline_bastion_LR"

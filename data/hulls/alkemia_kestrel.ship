@@ -1,0 +1,128 @@
+{
+  "hullName": "Kestrel",
+  "hullId": "alkemia_kestrel",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/alkemia/ships/kesrel.png",
+  "style": "MIDLINE",
+  "height": 98,
+  "width": 78,
+  "center": [41, 44],
+  "collisionRadius": 62.5,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 61,
+  "viewOffset": 0,
+  "builtInMods": [
+    "insulatedengine",
+    "ecm"
+  ],
+  "builtInWeapons": {
+    "WS0003": "alkemia_atropos_pod"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "COMPOSITE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [27, 11]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 254,
+      "angle": -116.5,
+      "locations": [-21, -14]
+    },
+    {
+      "id": "WS 003",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 90,
+      "angle": 180,
+      "locations": [-35.5, 0.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 254,
+      "angle": 70.5,
+      "locations": [-9, 27]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "COMPOSITE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [27, -11]
+    },
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": 0,
+      "locations": [10, -23]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-43, 12],
+      "length": 80,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-43, -11],
+      "length": 80,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-44, -22.5],
+      "length": 60,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-44, 23.5],
+      "length": 60,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "LOW_TECH"
+    }
+  ],
+  "bounds": [
+    40, 19.5,
+    31.5, 14,
+    36, 0,
+    26.5, -15.5,
+    11.5, -19,
+    6, -31.5,
+    -27.5, -35,
+    -37, -24,
+    -37, -7,
+    -33, 0.5,
+    -37, 9.5,
+    -37, 24,
+    -27.5, 35.5,
+    -7.5, 38,
+    26.5, 26.5
+  ]
+}

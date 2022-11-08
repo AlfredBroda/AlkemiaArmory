@@ -1,0 +1,36 @@
+{
+  "variantId": "alkemia_station_mining_small_Standard",
+  "hullId": "alkemia_station_mining_small",
+  "displayName": "Standard",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [],
+  "modules": [
+    {
+      "WS0001": "alkemia_module_bastion_pd1_LR"
+    },
+    {
+      "WS0002": "module_armour3_Standard"
+    },
+    {
+      "WS0003": "alkemia_module_bastion_pd1_salvage"
+    },
+    {
+      "WS0006": "alkemia_module_patchwork_hangars_Balanced"
+    },
+    {
+      "WS0009": "dram_Light"
+    },
+    {
+      "WS0010": "mudskipper_Standard"
+    },
+    {
+      "WS0011": "module_armour1_Standard"
+    }
+  ],
+  "wings": []
+}

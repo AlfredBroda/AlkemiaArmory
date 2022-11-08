@@ -45,7 +45,7 @@
 		"minTimeToSplit": 3,
 		"canSplitEarly": true,
 		"splitSound": "atropos_fire",
-		"numShots": 4,
+		"numShots": 2,
 		"damage": 1000,
 		"emp": 0,
 		"impact": 40,

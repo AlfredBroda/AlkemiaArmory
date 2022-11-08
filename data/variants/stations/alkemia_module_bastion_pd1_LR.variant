@@ -1,48 +1,47 @@
 {
-  "variantId": "alkemia_module_bastion_pd1_salvage",
-  "hullId": "module_bastion_pd1",
-  "displayName": "Salvaged",
+  "variantId": "alkemia_module_bastion_pd1_LR",
+  "hullId": "alkemia_module_bastion_pd1",
+  "displayName": "LR",
   "goalVariant": false,
   "fluxCapacitors": 0,
   "fluxVents": 2,
   "quality": 0.5,
   "permaMods": [],
   "hullMods": [
-    "pointdefenseai"
+    "turretgyros"
   ],
   "weaponGroups": [
     {
       "autofire": true,
-      "mode": "ALTERNATING",
+      "mode": "LINKED",
       "weapons": {
-        "WS 001": "shredder",
-        "WS 002": "shredder"
+        "WS 008": "taclaser"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 000": "lightag",
-        "WS 003": "lightag"
+        "WS 001": "flak",
+        "WS 002": "flak"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 003": "lightag",
-        "WS 004": "lightmg",
-        "WS 005": "lightmg",
-        "WS 006": "lightmg",
-        "WS 007": "lightmg"
+        "WS 004": "vulcan",
+        "WS 005": "vulcan"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 008": "mininglaser"
+        "WS 000": "alkemia_vulcan",
+        "WS 003": "alkemia_vulcan",
+        "WS 006": "alkemia_vulcan",
+        "WS 007": "alkemia_vulcan"
       }
     }
   ],

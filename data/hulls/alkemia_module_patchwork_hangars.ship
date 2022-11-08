@@ -1,0 +1,219 @@
+{
+  "hullName": "Patchwork Defense Module",
+  "hullId": "alkemia_module_patchwork_hangars",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/alkemia/ships/stations/module_support_patchwork.png",
+  "style": "MIDLINE",
+  "height": 134,
+  "width": 306,
+  "center": [153, 85],
+  "collisionRadius": 180,
+  "shieldCenter": [-124, -0],
+  "shieldRadius": 205.5,
+  "viewOffset": 0,
+  "moduleAnchor": [
+    -43,
+    0
+  ],
+  "builtInMods": [
+    "supercomputer",
+    "reduced_explosion",
+    "chassis_storage",
+    "do_not_fire_through"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 122,
+      "angle": 36.5,
+      "locations": [-27.5, 122]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 122,
+      "angle": -36.5,
+      "locations": [-27.5, -122]
+    },
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 200,
+      "angle": 15,
+      "locations": [7.5, 37]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 20,
+      "angle": 0,
+      "locations": [41, -0]
+    },
+    {
+      "id": "WS0005",
+      "size": "MEDIUM",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 200,
+      "angle": -15,
+      "locations": [7.5, -37]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 214,
+      "angle": 90,
+      "locations": [-43, 140]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 214,
+      "angle": -90,
+      "locations": [-42, -140]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 60,
+      "locations": [-4, 106]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -30,
+      "locations": [-4, -105.5]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 20,
+      "angle": -0,
+      "locations": [5, 122]
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 20,
+      "angle": 0,
+      "locations": [5, -122]
+    },
+    {
+      "id": "WS0012",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 200,
+      "angle": 10,
+      "locations": [-25, 30]
+    },
+    {
+      "id": "WS0013",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 200,
+      "angle": -10,
+      "locations": [-25, -30]
+    },
+    {
+      "id": "LB0001",
+      "size": "SMALL",
+      "type": "LAUNCH_BAY",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 0,
+      "locations": [
+        -8.5, 89,
+        -19.5, 89,
+        -9, 68.5,
+        -20.5, 69
+      ]
+    },
+    {
+      "id": "LB0002",
+      "size": "SMALL",
+      "type": "LAUNCH_BAY",
+      "mount": "HARDPOINT",
+      "arc": 8,
+      "angle": 0,
+      "locations": [
+        -8.5, -68.5,
+        -19, -68,
+        -9.5, -91.5,
+        -18.5, -92
+      ]
+    },
+    {
+      "id": "WS0016",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -0,
+      "locations": [15, 11]
+    },
+    {
+      "id": "WS0017",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 0,
+      "locations": [15, -11]
+    }
+  ],
+  "engineSlots": [],
+  "bounds": [
+    -45, 147,
+    -11, 138,
+    -5.5, 127,
+    -18.5, 107,
+    6, 112,
+    22, 97,
+    4.5, 97.5,
+    -24.5, 96,
+    -24.5, 62,
+    6, 62,
+    24, 62,
+    27.5, 23.5,
+    38, -0,
+    27.5, -23.5,
+    24, -62,
+    6, -62,
+    -24.5, -62,
+    -24.5, -96,
+    4.5, -97.5,
+    22, -97,
+    6, -112,
+    -18.5, -107,
+    -5.5, -127,
+    -11, -138,
+    -45, -147,
+    -67, -134,
+    -67, 134
+  ]
+}

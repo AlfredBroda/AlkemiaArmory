@@ -39,15 +39,16 @@
 
     "startShipsSolo": [
         [ "alkemia_dromader_standard" ],
-        [ "wayfarer_Starting", "shepherd_Starting" ],
+        [ "alkemia_kestrel_Standard", "alkemia_kestrel_Assault" ],
         [ "brawler_Starting", "alkemia_lifter_Standard" ]
     ],
 
     "startShipsCombatSmall": [
-        [ "alkemia_dromader_standard", "centurion_Starting", "brawler_Starting" ],
-        [ "alkemia_dromader_strike", "kite_Starting", "alkemia_kite_support" ],
-        [ "vigilance_Starting", "alkemia_brawler_support", "alkemia_kite_support" ],
-        [ "hammerhead_Balanced", "vigilance_Starting", "alkemia_kite_support" ]
+        [ "alkemia_dromader_standard", "kite_Starting", "brawler_Starting" ],
+        [ "alkemia_dromader_strike", "alkemia_kestrel_Standard", "alkemia_kite_support" ],
+        [ "vigilance_Starting", "alkemia_brawler_ranger", "alkemia_kite_support" ],
+        [ "hammerhead_Balanced", "vigilance_Starting", "alkemia_kite_support" ],
+        [ "alkemia_buzzard_Standard", "alkemia_kestrel_Standard", "vigilance_Starting"]
     ],
 
     "startShipsCombatLarge": [
@@ -77,7 +78,7 @@
     ],
 
     "startShipsSuper": [
-        [ "alkemia_rime_orange_standard" ],
+        [ "alkemia_rigger_Expedition" ],
         [ "alkemia_ox_junker_support" ]
     ],
 

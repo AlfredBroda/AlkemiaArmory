@@ -1,0 +1,78 @@
+{
+  "variantId": "alkemia_module_patchwork_hangars_Balanced",
+  "hullId": "alkemia_module_patchwork_hangars",
+  "displayName": "Balanced",
+  "goalVariant": false,
+  "fluxCapacitors": 37,
+  "fluxVents": 27,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "ballistic_rangefinder",
+    "expanded_deck_crew"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "alkemia_rapidhvel",
+        "WS0002": "alkemia_rapidhvel",
+        "WS0012": "lightneedler",
+        "WS0013": "lightneedler",
+        "WS0016": "taclaser",
+        "WS0017": "taclaser"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0003": "roider_annihilatorpod",
+        "WS0005": "roider_annihilatorpod"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "alkemia_locust",
+        "WS0010": "heatseeker",
+        "WS0011": "heatseeker"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0006": "alkemia_vulcan",
+        "WS0007": "alkemia_vulcan"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0008": "railgun",
+        "WS0009": "railgun"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "modules": [],
+  "wings": [
+    "alkemia_deluxe_super_wing",
+    "alkemia_deluxe_wing",
+    "alkemia_thunder_wing",
+    "alkemia_repair_wing"
+  ]
+}

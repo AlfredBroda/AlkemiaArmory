@@ -2,8 +2,8 @@
 	"id":"alkemia-armoury",
 	"name":"Alkemia Armoury",
 	"author":"Frederoo",
-	"version":"0.9.24",
-	"description":"PLanetary Structures, weapons, hulls, hullmods and LPCs. And a bar mission!",
+	"version":"0.9.25",
+	"description":"Alkemia Customs Company with it's ships, stations, weapons, hullmods and LPCs. Also featuring planetary structures and a bar mission!",
 	"gameVersion": "0.95.1a-RC6",
 	"dependencies": [
 		{

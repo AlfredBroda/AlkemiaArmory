@@ -11,25 +11,25 @@
   "weaponGroups": [],
   "modules": [
     {
-      "WS 000": "module_midline_bastion_Standard1"
+      "WS 000": "alkemia_module_midline_bastion_LR"
     },
     {
-      "WS 002": "module_midline_support_Standard"
+      "WS 002": "alkemia_module_patchwork_hangars_Balanced"
     },
     {
-      "WS 007": "module_midline_citadel_Standard"
+      "WS 007": "module_armour3_Standard"
     },
     {
-      "WS 001": "module_midline_bastion_Standard1"
+      "WS 001": "alkemia_module_midline_bastion_LR"
     },
     {
-      "WS 003": "module_armour3_Standard"
+      "WS 003": "module_blocker2b_Standard"
     },
     {
       "WS 004": "module_armour3_Standard"
     },
     {
-      "WS 005": "module_armour3_Standard"
+      "WS 005": "module_blocker2b_Standard"
     },
     {
       "WS 006": "module_armour3_Standard"

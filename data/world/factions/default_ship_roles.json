@@ -2,6 +2,7 @@
 	"combatSmallForSmallFleet":{
 		"alkemia_kite_standard": 5,
 		"alkemia_kite_support": 4,
+		"alkemia_kestrel_Standard": 4,
 		"alkemia_dromader_standard": 3,
 		"alkemia_dromader_strike": 2,
 		"alkemia_brawler_ranger": 2
@@ -9,6 +10,8 @@
 	"combatSmall":{
 		"alkemia_dromader_assault": 2,
 		"alkemia_dromader_standard": 4,
+		"alkemia_kestrel_Standard": 5,
+		"alkemia_kestrel_Buster": 1,
 		"alkemia_dromader_strike": 3,
 		"alkemia_brawler_ranger": 3,
 		"alkemia_brawler_support": 2
@@ -28,7 +31,8 @@
 	},
 	"combatCapital":{
 		"alkemia_conquest_lr": 3,
-		"alkemia_consolidation_Support": 2
+		"alkemia_consolidation_Support": 2,
+		"alkemia_rigger_Expedition": 1
 	},
 
 	"carrierSmall":{
