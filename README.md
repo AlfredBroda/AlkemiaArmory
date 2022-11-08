@@ -7,7 +7,7 @@ A mod for **Starsector** aiming to improve hull/fighter/weapon variety. Also a b
 
 ## Features
 
-Many new generally available ship hulls: **Kestrel Frigate**, **Perch-class Heavy Carrier**, **Roost-class Carrier**, **Lifter Cargo Courier**
+Many new generally available ship hulls: **Kestrel-class Frigate**, **Perch-class Heavy Carrier**, **Roost-class Carrier**, **Lifter Cargo Courier**
 <table>
 <tr>
 <td>
@@ -25,7 +25,7 @@ This ship was built out of necessity as Alkemia manufactories had no access to b
 <img alt="Kestrel" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.27/graphics/alkemia/ships/kestrel.png?raw=true"/>
 </td>
 <td>
-Kestrel-class Cargo Courier
+Kestrel-class Frigate
 
 The Kestrel is the essence of the Techie ideology. It is fast - even without it's afterburner - has an array of varied weapon mounts, and packs a punch with an integrated Atropos torpedo launcher. It was also designed with stealth in mind, with an integrated ECM suite and low profile engine exhausts.
 </td>
