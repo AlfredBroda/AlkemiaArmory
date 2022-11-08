@@ -2,7 +2,7 @@
   "hullName": "Kestrel",
   "hullId": "alkemia_kestrel",
   "hullSize": "FRIGATE",
-  "spriteName": "graphics/alkemia/ships/kesrel.png",
+  "spriteName": "graphics/alkemia/ships/kestrel.png",
   "style": "MIDLINE",
   "height": 98,
   "width": 78,
