@@ -22,7 +22,7 @@ This ship was built out of necessity as Alkemia manufactories had no access to b
 
 <tr>
 <td>
-<img alt="Kestrel" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.25/graphics/alkemia/ships/kestrel.png?raw=true"/>
+<img alt="Kestrel" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.27/graphics/alkemia/ships/kestrel.png?raw=true"/>
 </td>
 <td>
 Kestrel-class Cargo Courier
