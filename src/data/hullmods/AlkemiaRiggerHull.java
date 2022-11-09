@@ -37,6 +37,7 @@ public class AlkemiaRiggerHull extends AlkemiaDroneConversion {
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 		ShipVariantAPI variant = stats.getVariant();
 		// String selectedSkin = getSkinId();
+		boolean hasRoiders = Global.getSettings().getModManager().isModEnabled("roider");
 
 		// Assemble the Rigger if not complete
 		if (variant != null && variant.getModuleSlots() != null && variant.getModuleSlots().size() > 0) {
@@ -44,9 +45,17 @@ public class AlkemiaRiggerHull extends AlkemiaDroneConversion {
 				String slot = entry.getKey();
 				String module = entry.getValue();
 				if (variant.getModuleVariant(entry.getKey()) == null) {
-					// || !variant.getModuleVariant(slot).getHullVariantId().startsWith(AlkemiaIds.ALKEMIA_RIGGER)) {
 					variant.setModuleVariant(slot, Global.getSettings().getVariant(module));
 				}
+			}
+		}
+		if (variant != null && hasRoiders && !variant.hasHullMod(AlkemiaIds.CONVERSION_DOCK)) {
+			log.info("Roider mod enabled, adding Conversion Dock");
+			variant.addPermaMod(AlkemiaIds.CONVERSION_DOCK);
+			if (variant.hasHullMod(AlkemiaIds.SALVAGE_GANTRY)) {
+				log.info("Removing Salvage Gantry");
+				// Remove as otherwise we get an 80% salvage bonus
+				variant.removePermaMod(AlkemiaIds.SALVAGE_GANTRY);
 			}
 		}
 

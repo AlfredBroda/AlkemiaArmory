@@ -1,7 +1,7 @@
 {
   "variantId": "alkemia_rigger_Expedition",
   "hullId": "alkemia_rigger",
-  "displayName": "Expediion",
+  "displayName": "Expedition",
   "goalVariant": true,
   "fluxCapacitors": 26,
   "fluxVents": 24,

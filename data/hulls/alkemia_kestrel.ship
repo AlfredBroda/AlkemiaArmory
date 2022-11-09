@@ -6,7 +6,7 @@
   "style": "MIDLINE",
   "height": 98,
   "width": 78,
-  "center": [41, 44],
+  "center": [40, 44],
   "collisionRadius": 62.5,
   "shieldCenter": [0, -0],
   "shieldRadius": 61,
@@ -81,7 +81,7 @@
       "width": 16,
       "angle": 180,
       "contrailSize": 64,
-      "style": "LOW_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-43, -11],
@@ -89,7 +89,7 @@
       "width": 16,
       "angle": 180,
       "contrailSize": 64,
-      "style": "LOW_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-44, -22.5],
@@ -97,7 +97,7 @@
       "width": 12,
       "angle": 180,
       "contrailSize": 64,
-      "style": "LOW_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-44, 23.5],
@@ -105,7 +105,23 @@
       "width": 12,
       "angle": 180,
       "contrailSize": 64,
-      "style": "LOW_TECH"
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-34.5, 34],
+      "length": 20,
+      "width": 8,
+      "angle": 154,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-34.5, -34],
+      "length": 20,
+      "width": 8,
+      "angle": -154,
+      "contrailSize": 64,
+      "style": "MIDLINE"
     }
   ],
   "bounds": [

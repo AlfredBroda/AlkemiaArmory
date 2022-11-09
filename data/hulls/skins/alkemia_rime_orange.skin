@@ -10,7 +10,7 @@
   "hullName": "Rime (AC)",
   "manufacturer": "Alkemia",
   "ordnancePoints": 100,
-  "restoreToBaseHull": false,
+  "restoreToBaseHull": true,
   "skinHullId": "alkemia_rime_orange",
   "spriteName": "graphics/alkemia/ships/da_rime/rime_orange.png",
   "systemId": "alkemia_afterburner",

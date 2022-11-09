@@ -4,6 +4,8 @@ public class AlkemiaIds {
     // HullMods
     public static final String ALKEMIA_HULLMOD_NANOFORGE = "alkemia_impmanufactory";
     public static final String ALKEMIA_HULLMOD_DRONEBAYS = "alkemia_droneonlybays";
+    public static final String CONVERSION_DOCK = "roider_argosConversion";
+    public static final String SALVAGE_GANTRY = "repair_gantry";
 
     // Industries
     public static final String ALKEMIA_INDUSTRY_WORKSHOP = "alkemia_workshop";
