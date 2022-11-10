@@ -22,6 +22,17 @@ This ship was built out of necessity as Alkemia manufactories had no access to b
 
 <tr>
 <td>
+<img alt="Coockoo" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.29/graphics/alkemia/ships/coockoo.png?raw=true"/>
+</td>
+<td>
+Coockoo-class Mine Layer
+
+Another refit of the classic Ko Combine r450 completely repurposing it's interior space - most of it now housing a proximity mine nanoforge. The now purposeless drone landing pad was replaced with a secondary defense turret, and the front part houses a high-resolution sensor array indispensible in it's new line of duty.
+</td>
+</tr>
+
+<tr>
+<td>
 <img alt="Kestrel" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.27/graphics/alkemia/ships/kestrel.png?raw=true"/>
 </td>
 <td>
