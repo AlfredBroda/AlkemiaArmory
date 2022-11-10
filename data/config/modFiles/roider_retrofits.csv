@@ -5,5 +5,5 @@ alkemia_lifter_brawler,"roider_full, roider_light, roider_argos, roider_all",bra
 alkemia_falcon_cargo,"roider_full, roider_argos, roider_all",falcon,alkemia_falcon_cargo,,4,2,TRUE
 alkemia_hammer_tanker,"roider_full, roider_argos, roider_all",hammerhead,alkemia_hammer_tanker,,3,2,TRUE
 alkemia_buzzard_hammer,"roider_full, roider_argos, roider_all",hammerhead,alkemia_buzzard,,3,2,TRUE
-alkemia_hammer_tanker,"roider_full, roider_argos, roider_all",hammerhead,alkemia_buzzard,,3,2,TRUE
-alkemia_shepherd_milit,"roider_full, roider_light, roider_argos, roider_all",shepherd,alkemia_shepherd,,2,1,FALSE
+alkemia_shepherd_milit,"roider_full, roider_light, roider_argos, roider_all",shepherd,alkemia_shepherd,,1,1,FALSE
+alkemia_shepherd_coockoo,"roider_full, roider_light, roider_argos, roider_all",shepherd,alkemia_coockoo,,2,1,FALSE

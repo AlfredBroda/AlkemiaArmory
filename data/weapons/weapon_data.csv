@@ -13,6 +13,7 @@ EMP Swarmer Arm L,alkemia_syreen_arm_l,1,0.7,,1200,,75,75,10,5,2,8,0,0,FRAGMENTA
 EMP Swarmer Arm R,alkemia_syreen_arm_r,1,0.7,,1200,,75,75,10,5,2,8,0,0,FRAGMENTATION,0,,0,1,4,0.1,0,0,0,0,,400,50,6,30,,,"PD, ANTI_FTR, DO_NOT_AIM, MISSILE_SPREAD","no_drop, no_sell, no_drop_salvage",,Alkemia,,Anti Fighter,Fast,Excellent,,,"Saturation defense launcher with large numbers of guided low-yeld EMP warheads.",,,,,16.4
 ACDLS,alkemia_acdls,1,,200,500,700,,,0,100,5,4,0.5,,ENERGY,,200,0,0.75,0.3,0.1,,,,,10000,,,,,,,"PD_ALSO, ANTI_FTR","pd9, energy13, no_drop, no_sell, no_drop_salvage",,Alkemia,,Anti Fighter,Fast,Excellent,,,,,,,,19.10
 Welder,alkemia_repairbeam,2,,100,20,150,,,0,100,1,4,1,,ENERGY,,200,0.1,0.1,0.5,0.1,,,,,10000,,,,,,,"FIRE_WHEN_INEFFICIENT","no_drop, no_sell, no_drop_salvage",,Alkemia,,Repair,,,,,,,,,,19.11
+Proximity Mine Launcher,alkemia_hedgehog,1,,800,500,,500,,10,0,4,16,0.5,1,FRAGMENTATION,0,,0,1,4,0.5,10,30,3,0,,0,120,120,150,,,"DO_NOT_AIM, ANTI_FTR, PD_ONLY, SYSTEM",he0,,,,Anti Fighter,,,,,,,,,TRUE,3.2
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Dromader Bridge,alkemia_dromader_bridge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,45.1
 Perch Launchbay,alkemia_launchbay,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,45.2

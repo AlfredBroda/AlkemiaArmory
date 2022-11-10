@@ -6,10 +6,11 @@ Thunder (AC),alkemia_thunder,,Midline,,,500,75,750,,100,0,,450,600,500,150,300,3
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Ox Junker,alkemia_ox_junker,Tug,Low Tech,flarelauncher,2,500,150,500,625,50,5,,90,30,20,25,30,150,NONE,,0,0,0,,,2,4,0,10,5,2,8,16000,10,40,240,0.25,5,8,,,,,,,"CIVILIAN, SHIP_WITH_MODULES, HIDE_IN_CODEX",no_sell,,0.25,2,2,,212.1
 Lifter,alkemia_lifter,Cargo Courier,Alkemia,burndrive,3,2400,350,2400,1000,180,32,,90,180,120,60,120,360,OMNI,,120,0.4,0.8,,,10,30,120,40,1,40,9,14000,8,10,300,0.25,4,4,,,,,,,CIVILIAN,alkemia_bp,,0.4,2,2,,2070
-Shepherd (M),alkemia_shepherd,Drone Tender,Low Tech,maneuveringjets,4,1800,200,1500,1250,100,30,1,90,120,70,90,180,200,OMNI,,90,0.5,1.2,,,15,30,100,40,1,40,9,12000,8,20,240,0.25,3,3,33,,,,,,"CIVILIAN, CARRIER",alkemia_bp,,0.5,2,2,,216
+Shepherd (M),alkemia_shepherd,Drone Tender,Alkemia,maneuveringjets,4,1800,200,1500,1250,100,30,1,90,120,70,90,180,200,OMNI,,90,0.5,1.2,,,15,30,100,40,1,40,9,12000,8,20,360,0.25,3,3,33,,,,,,"CIVILIAN, CARRIER",alkemia_bp,,0.5,2,2,,216
+Coockoo,alkemia_coockoo,Mine Layer,Alkemia,maneuveringjets,4,1800,200,1500,1250,100,30,0,90,120,70,90,180,200,OMNI,,90,0.5,1.2,,,15,30,100,40,1,40,9,12000,8,20,480,0.25,3,3,33,,,,,,CIVILIAN,alkemia_bp,,0.5,2,2,,216
 Sonra,alkemia_dromader,Dropship,Alkemia,forgevats,7,2000,450,3000,3125,250,50,,130,80,60,60,120,250,OMNI,,230,0.4,0.8,,,5,25,80,20,1,20,10,15000,8,10,300,0.25,5,6,,,,,,,COMBAT,"alkemia_bp, merc",0.75,0.4,2,2,,207.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kestrel,alkemia_kestrel,Frigate,Midline,alkemia_afterburner,5,1900,200,2000,2250,180,45,,140,120,100,45,90,160,OMNI,,160,0.4,0.8,,,15,45,35,45,1,25,10,12000,4,8,240,0.25,5,4,,,,,,,COMBAT,"alkemia_bp, merc",,0.5,2,2,,208
+Kestrel,alkemia_kestrel,Frigate,Alkemia,alkemia_afterburner,5,1900,200,2000,2250,180,45,,140,120,100,45,90,160,OMNI,,160,0.4,0.8,,,15,45,35,45,1,25,10,12000,4,8,240,0.25,5,4,,,,,,,COMBAT,"alkemia_bp, merc",,0.5,2,2,,208
 Dromader,alkemia_hammer_tanker,Tanker,Alkemia,flarelauncher,6,3600,350,3200,2167,160,60,,80,50,40,30,60,420,OMNI,,160,0.4,0.8,,,25,50,50,160,2,100,8,34000,4,8,360,0.25,8,6,,,,,,,"CIVILIAN, TANKER, FREIGHTER",alkemia_bp,0.75,0.5,2,3,,3001
 Roost,alkemia_roost,Carrier,Alkemia,flarelauncher,13,4750,600,4000,2813,350,70,2,75,50,30,25,25,480,FRONT,,300,0.4,0.8,,,90,150,80,80,2,20,9,72000,5,15,360,0.25,15,15,,,,,,,CARRIER,"alkemia_bp, merc",,0.5,2,3,,318
 Buzzard,alkemia_buzzard,Missile Destroyer,Midline,fastmissileracks,11,5200,520,4200,4167,250,95,,90,60,40,30,60,500,FRONT,,300,0.4,0.8,,,50,100,100,60,2,30,9,42000,5,14,360,0.25,12,12,,,,,,,,"alkemia_bp, merc",,0.5,2,3,,3002
@@ -18,7 +19,7 @@ Falcon Cargo,alkemia_falcon_cargo,Freighter,Alkemia,flarelauncher,9,6000,550,600
 Rime (R),alkemia_rime_racer,Racer,Alkemia,alkemia_afterburner,12,6000,600,5500,,250,100,2,80,25,20,20,7,1550,OMNI,,150,0.4,1,,,90,200,125,125,3.0,,11,110000,3,12,480,0.1,16,16,,,,,,,"CARRIER, COMBAT",alkemia_bp,0.3,0.5,2,3,,29
 Perch,alkemia_perch,Heavy Carrier,Alkemia,burndrive,15,9600,1100,10000,11000,550,165,3,60,40,30,15,20,1500,FRONT,,200,0.4,0.8,,,200,300,180,180,4,42,8,145000,4,12,480,0.25,28,28,,,,,,,"CARRIER, COMBAT","alkemia_bp, merc",0.75,0.5,2,4,,401.6
 Consolidation,alkemia_consolidation,Battlecruiser,Midline,maneuveringjets,24,12000,1200,20000,30000,1200,310,2,45,20,15,6,4,2500,OMNI,,90,0.4,1.4,,,400,500,300,300,10,30,8,310000,3,15,600,0.25,40,40,,,,,,,COMBAT,alkemia_bp,,0.5,2,4,,503
-Rigger,alkemia_rigger,Salvage Ship,Midline,maneuveringjets,24,5000,1000,20000,30000,400,120,2,45,20,15,6,4,1000,FRONT,,60,0.4,1.4,,,400,600,1300,600,12,30,8,420000,3,15,600,0.25,40,40,,,,,,,"CIVILIAN, CARRIER, SHIP_WITH_MODULES",alkemia_bp,,0.5,2,5,,503
+Rigger,alkemia_rigger,Salvage Ship,Alkemia,maneuveringjets,24,5000,1000,20000,30000,400,120,2,45,20,15,6,4,1000,FRONT,,60,0.4,1.4,,,400,600,1300,600,12,30,8,420000,3,15,600,0.25,40,40,,,,,,,"CIVILIAN, CARRIER, SHIP_WITH_MODULES",alkemia_bp,,0.5,2,5,,503
 Left Prow,alkemia_rigger_left,,Midline,flarelauncher,9,3500,1000,3250,3600,400,80,0,50,25,10,12,12,800,FRONT,,120,0.5,1,,,80,140,0,260,,,,,,,480,0.25,,,,,,,,,"COMBAT, HIDE_IN_CODEX",no_sell,,0.6,2,3,,2069.2
 Right Prow,alkemia_rigger_right,,Midline,flarelauncher,9,3500,1000,3250,3600,400,80,0,50,25,10,12,12,800,FRONT,,120,0.5,1,,,80,140,0,260,,,,,,,480,0.25,,,,,,,,,"COMBAT, HIDE_IN_CODEX",no_sell,,0.6,2,3,,2069.2
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

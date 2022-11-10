@@ -12,19 +12,26 @@ An advanced timing mechanism beats in the heart of this multi-barrel weapon plat
 alkemia_locust,WEAPON,"Saturation defense launcher with large numbers of guided low-yeld EMP warheads.
 
 A sizable combat-rated autoloader and missile autoforge system ensures continued usefulness in protracted engagements.",,,
-alkemia_locust_fighter,WEAPON,"Saturation defense launcher with large numbers of guided low-yeld EMP warheads. This rack must be reloaded after use.",,,
-alkemia_breach_fighter,WEAPON,"A heavily armored and fast missile with good guidance and a small, specialized anti-armor warhead. This rack must be reloaded after use.",,,
+alkemia_locust_fighter,WEAPON,"Saturation defense launcher with large numbers of guided low-yeld EMP warheads. This rack must be replaced after use.",,,
+alkemia_breach_fighter,WEAPON,"A heavily armored and fast missile with good guidance and a small, specialized anti-armor warhead. This rack must be replaced after use.",,,
 alkemia_harpoon_fighter,WEAPON,"A short range high payload guided missile: one-shot only. Devastating against ships with downed shields.",,,
 alkemia_salamander_fighter,WEAPON,"Homes in on the target's engines and disables them with a powerful EMP burst. One-shot only.",,,
 alkemia_amblaster_fighter,WEAPON,"A slow-firing, high damage energy gun meant to pose a threat to the largest ships in the Sector. Can only be used at close-range.",,,
-alkemia_acdls,WEAPON,"The main weapon of the Syreen is the Active Close Defense Laser System (ACDLS), a four-lens laser weapon. As well as being an effective ranged armament, it automatically targets enemies close by, providing effective melee defense.",,,
-alkemia_rapidhvel,WEAPON,"Every engineer feels the need to make things better - with this Rapid Hypervelocity Driver it was the desire to improve on the firing speed. Unfortunately the improved rate of fire comes at the cost of smaller projectiles and high flux.",,,
-alkemia_porcupine_tds,WEAPON,"The premise of the Porcupine Torpedo Delivery System is simple - make torpedoes reach further. Four Atrops warheads were strapped to this frigate sized engine making this a versatile weapon both against larger ships and small craft.",,,
+alkemia_acdls,WEAPON,"Fires several bursts in quick succession if allowed to fully recharge. Excellent vs missiles and fighters.
+
+The main weapon of the Syreen is the Active Close Defense Laser System (ACDLS), a four-lens laser weapon. As well as being an effective ranged armament, it automatically targets enemies close by, providing effective melee defense.",,,
+alkemia_rapidhvel,WEAPON,"A specialized weapon designed to overload and disable enemy systems from afar. The high-velocity duranium slug is also effective against shields.
+
+Every engineer feels the need to make things better - with this Rapid Hypervelocity Driver it was the desire to improve on the firing speed. Unfortunately the improved rate of fire comes at the cost of smaller projectiles and high flux.",,,
+alkemia_porcupine_tds,WEAPON,"The premise of the Porcupine Torpedo Delivery System is simple - make torpedoes reach further. Two Atrops warheads were strapped to a frigate sized engine making this a versatile weapon both against larger ships and small craft.",,,
 alkemia_emp_artillery,WEAPON,"Based on the Domain defense platform ordinance, the AC-EM09b missile delivers a large proximity fused electro magnetic disruptor at extereme distances. Devastating to shields, it's main disadvantage is poor manouverability.",,,
-alkemia_drone_repair,SHIP,"A common remote controlled repair drone.",,,
+alkemia_hedgehog,WEAPON,"Launches a cluster of free-floating mines equipped with a proximity fuse.
+
+A Proximity Mine Launcher fires Mark VI fragmentation mines. Unguided and without a propulsion system, they rely on a friend-or-foe targeting system. Their vast numbers allow them to cover a wide swath of space, effectively creating a Point Defense barrier in that location, albeit for a limited time. When the proximity fuse is triggered by an enemy craft, the bomblet will detonate, achieving similar effects to those of flak weapons.",,,,
+alkemia_drone_repair,SHIP,"A common remote controlled repair drone. Useful for armour repairs even during battle.",,,
 alkemia_deluxe,SHIP,"A highly customizable two seat heavy fighter boasting two hybrid and two reconfigurable missile hardpoints, plus an afterburner.",,,
 alkemia_syreen,SHIP,"The Syreen represents an effective interceptor unit, capable of taking out whole enemy fighter formations on its own.",,,
-alkemia_dromader,SHIP,"Versatile trans-atmospheric dropship with a moderately sized cargo hold. Features a missile autoforge and a ground support package.",,,
+alkemia_dromader,SHIP,"Versatile trans-atmospheric dropship with a moderately sized cargo hold. Features a ground support package, a limited use nanoforge and a large missile store.",,,
 alkemia_roost,SHIP,"A retrofit of the Drover, this destroyer now features a universal medium turret and a rear facing small hybrid turret, as well as a hybrid upgrade to the remaining turrets. This came at the cost of additional fighter capacity, but flare launchers were installed to improve protection.",,,
 alkemia_buzzard,SHIP,"A dedicated missile destroyer based on the Hammerhead. Boasting an impressive ordinance store and rapid autoloaders, the Buzzard can deal a staggering ammount of damage for it's size.",,,
 alkemia_perch,SHIP,"A refit of the Champion, this heavy cruiser trades it's heavy turret and downsizes it's missile slot for three fighter bays. Remaining frontal turrets have been overhauled to fit a wider variety of armaments. The internal capacitors of the original were replaced with an improved fighter manufactory.
@@ -42,6 +49,7 @@ alkemia_rigger,SHIP,"The Rigger in one of the largest and most expensive mobile 
 
 The Rigger's hull is modular, each of it's prows equipped with independent shield emmiters, defense systems and fire control. Furthermore the loss of one prow does not compromise the ship as a whole, altough it is still undoubtedly crippled.",,,
 alkemia_kestrel,SHIP,"The Kestrel is the essence of Techie design ideology. It is fast - even without it's afterburner - has an array of varied weapon mounts, and packs a punch with an integrated Atropos torpedo launcher. It was also designed with stealth in mind, with an integrated ECM suite and low profile engine exhausts.",,,
+alkemia_coockoo,SHIP,"Another refit of the classic Ko Combine r450 completely repurposing it's interior space - most of it now housing a proximity mine nanoforge. The now purposeless drone landing pad was replaced with a secondary defense turret, and the front part houses a high-resolution sensor array indispensible in it's new line of duty.",,,
 alkemia_afterburner,SHIP_SYSTEM,"Temporarily engages an afterburner on the ship. Provides a massive speed boost at the expense of weapons and manouverability. The ship runs the risk of full engine flameout on any significant collision.",Movement,"Provides a massive speed boost for at the expense of weapons and manouverability. Collisions can cause a flameout while the system is active.",,
 alkemia_emp,SHIP_SYSTEM,"Activates an EMP generator. Nearby missiles, fighters, weapon emplacements and engines of enemy ships are all targeted and can be disabled in short order.
 

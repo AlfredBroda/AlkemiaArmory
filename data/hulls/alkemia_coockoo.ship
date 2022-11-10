@@ -1,0 +1,137 @@
+{
+  "hullName": "Coockoo",
+  "hullId": "alkemia_coockoo",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/alkemia/ships/coockoo.png",
+  "style": "MIDLINE",
+  "height": 92,
+  "width": 78,
+  "center": [38.5, 45],
+  "collisionRadius": 70,
+  "shieldCenter": [1, -0],
+  "shieldRadius": 70,
+  "viewOffset": 0,
+  "builtInMods": [
+    "insulatedengine",
+    "hiressensors"
+  ],
+  "builtInWeapons": {
+    "WS0004": "alkemia_hedgehog"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 20,
+      "angle": 0,
+      "locations": [27, -19.5]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 200,
+      "angle": -75,
+      "locations": [-4, -22.5]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 174,
+      "angle": 90,
+      "locations": [-4, 22.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": 180,
+      "locations": [-27.5, -0.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-40, 19.5],
+      "length": 48,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-40, -19.5],
+      "length": 48,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-22, 34.5],
+      "length": 4,
+      "width": 2,
+      "angle": 140,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-30, 32.5],
+      "length": 4,
+      "width": 3,
+      "angle": 145,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-22, -33.5],
+      "length": 4,
+      "width": 2,
+      "angle": 220,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-30, -32.5],
+      "length": 4,
+      "width": 3,
+      "angle": 215,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [31, 30.5],
+      "length": 4,
+      "width": 2,
+      "angle": 45,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [31, -31.5],
+      "length": 4,
+      "width": 2,
+      "angle": -45,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    }
+  ],
+  "bounds": [
+    33.5, 23,
+    33.5, -24,
+    17, -29.5,
+    -27, -29.5,
+    -36.5, -21,
+    -32, -5.5,
+    -32, 4.5,
+    -36, 20.5,
+    -27, 28.5,
+    17, 28.5
+  ]
+}
