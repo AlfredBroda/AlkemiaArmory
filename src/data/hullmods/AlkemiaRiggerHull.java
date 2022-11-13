@@ -66,6 +66,8 @@ public class AlkemiaRiggerHull extends AlkemiaDroneConversion {
 				}
 			}
 		}
+
+		super.applyEffectsBeforeShipCreation(hullSize, stats, id);
 	}
 
 	@Override
