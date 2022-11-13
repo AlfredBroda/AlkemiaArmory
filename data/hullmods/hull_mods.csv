@@ -1,14 +1,14 @@
 name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sprite
 Converted Drone Bays,alkemia_droneonlybays,3,2,Alkemia,"special, non_phase, carrier",Fighters,12000,,,,0,4,6,10,data.hullmods.AlkemiaDroneConversion,"Converts all fighter bays exclusively for drone usage.
 
-Decreases the minimum crew required by %s per bay, decreases rearm time by %s and ordnance point cost of drone LPCs by %s.
+Decreases the minimum crew required by %s per bay, shortens rearm time by %s and reduces ordnance point cost of LPCs by %s.
 
 Can not be installed on frigates or phase ships.","Conversion to drone-only automated fighter bays.",graphics/alkemia/hullmods/drone-bay.png
 Improved Manufactory,alkemia_impmanufactory,2,1,Alkemia,"special, non_phase, carrier",Fighters,9000,,,,3,5,10,15,data.hullmods.AlkemiaImprovedManufactory,"Upgrades the onboard manufactory to produce fighters that are %s faster, take %s less armor, %s less shield and %s less hull damage. Also increases maintenance cost by %s monthly.",Fighter manufactory upgrade.,graphics/hullmods/automated_repair_unit.png
 Rime Original Paintjob,alkemia_rime_original_paint,3,2,Alkemia,"special",,1000,TRUE,,,0,0,0,0,data.hullmods.AlkemiaRimeRepaints,"Repaints the Racer init Luxurious Bronze scheme.","Original paintjob.",graphics/alkemia/hullmods/racer-bronze.png
-Rime Red Paintjob,alkemia_rime_red_paint,3,2,Alkemia,"special",,1000,TRUE,,,0,0,0,0,data.hullmods.AlkemiaRimeRepaintRed,"Repaints the Racer red with white stripes.","Custom red paintjob.",graphics/alkemia/hullmods/racer-red.png
+Rime Red Paintjob,alkemia_rime_red_paint,3,2,Alkemia,"special",,1000,,,,0,0,0,0,data.hullmods.AlkemiaRimeRepaintRed,"Repaints the Racer red with white stripes.","Custom red paintjob.",graphics/alkemia/hullmods/racer-red.png
 Rime Orange Paintjob,alkemia_rime_orange_paint,3,2,Alkemia,"special",,1000,,,,0,0,0,0,data.hullmods.AlkemiaRimeRepaintOrange,"Repaints the Racer orange and white.","Custom orange paintjob.",graphics/alkemia/hullmods/racer-orange.png
 Rime Rosenritter Paintjob,alkemia_rime_rosen_paint,3,2,Alkemia,"special",,1000,,,,0,0,0,0,data.hullmods.AlkemiaRimeRepaintRosen,"Repaints the Racer into white and red Rosenritter sheme.","Custom Rosenritter paintjob.",graphics/alkemia/hullmods/racer-rosen.png
 Rime Journey Paintjob,alkemia_rime_journey_paint,3,2,Alkemia,"special",,1000,,,,0,0,0,0,data.hullmods.AlkemiaRimeRepaintJourney,"Repaints the Racer into blue and grey Journey shceme.","Custom Journey paintjob.",graphics/alkemia/hullmods/racer-journey.png
-Rigger Prow,alkemia_rigger_prow,3,2,Alkemia,"special",,1000,,TRUE,,0,0,0,0,data.hullmods.AlkemiaRiggerProw,"Rigger prow module.","Rigger prow module.",graphics/hullmods/reinforced_bulkheads.png
-Rigger Hull,alkemia_rigger_hull,3,2,Alkemia,"special",,1000,,TRUE,,0,0,0,0,data.hullmods.AlkemiaRiggerHull,"Rigger main hull.","Rigger main hull.",graphics/hullmods/augmented_engines.png
+Rigger Prow,alkemia_rigger_prow,3,2,Alkemia,"special",,1000,,TRUE,,0,0,0,0,data.hullmods.AlkemiaRiggerProw,"Rigger prow module, with independent shields, targetting and flare launchers.","Rigger prow module.",graphics/hullmods/reinforced_bulkheads.png
+Rigger Hull,alkemia_rigger_hull,3,2,Alkemia,"special",,1000,,TRUE,,0,0,0,0,data.hullmods.AlkemiaRiggerHull,"Using drone only bays on the Rigger decreases crew requirement by %s per bay, shortens rearm time by %s and reduces ordnance point cost of LPCs by %s.","Rigger main hull.",graphics/hullmods/augmented_engines.png
