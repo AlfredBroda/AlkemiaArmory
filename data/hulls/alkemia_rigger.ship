@@ -13,7 +13,6 @@
   "shieldRadius": 235,
   "viewOffset": 0,
   "builtInMods": [
-    "repair_gantry",
     "civgrade",
     "shared_flux_sink",
     "alkemia_rigger_hull",

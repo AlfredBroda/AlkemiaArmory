@@ -40,26 +40,32 @@ public class AlkemiaRiggerHull extends AlkemiaDroneConversion {
 		boolean hasRoiders = Global.getSettings().getModManager().isModEnabled("roider");
 
 		// Assemble the Rigger if not complete
-		if (variant != null && variant.getModuleSlots() != null && variant.getModuleSlots().size() > 0) {
-			for (Map.Entry<String, String> entry : moduleSlots.entrySet()) {
-				String slot = entry.getKey();
-				String module = entry.getValue();
-				if (variant.getModuleVariant(entry.getKey()) == null) {
-					variant.setModuleVariant(slot, Global.getSettings().getVariant(module));
+		if (variant != null) {
+			if (variant.getModuleSlots() != null && variant.getModuleSlots().size() > 0) {
+				for (Map.Entry<String, String> entry : moduleSlots.entrySet()) {
+					String slot = entry.getKey();
+					String module = entry.getValue();
+					if (variant.getModuleVariant(entry.getKey()) == null) {
+						variant.setModuleVariant(slot, Global.getSettings().getVariant(module));
+					}
+				}
+			}
+			if (hasRoiders) {
+				if (!variant.hasHullMod(AlkemiaIds.CONVERSION_DOCK)) {
+					log.warn("Roider mod enabled, adding Conversion Dock");
+					variant.addPermaMod(AlkemiaIds.CONVERSION_DOCK);
+				}
+				if (variant.hasHullMod(AlkemiaIds.SALVAGE_GANTRY)) {
+					// Remove as otherwise we get an 80% salvage bonus
+					variant.removePermaMod(AlkemiaIds.SALVAGE_GANTRY);
+				}
+			} else {
+				if (!variant.hasHullMod(AlkemiaIds.SALVAGE_GANTRY)) {
+					log.warn("Adding Salvage Gantry");
+					variant.addPermaMod(AlkemiaIds.SALVAGE_GANTRY);
 				}
 			}
 		}
-		if (variant != null && hasRoiders && !variant.hasHullMod(AlkemiaIds.CONVERSION_DOCK)) {
-			log.info("Roider mod enabled, adding Conversion Dock");
-			variant.addPermaMod(AlkemiaIds.CONVERSION_DOCK);
-			if (variant.hasHullMod(AlkemiaIds.SALVAGE_GANTRY)) {
-				log.info("Removing Salvage Gantry");
-				// Remove as otherwise we get an 80% salvage bonus
-				variant.removePermaMod(AlkemiaIds.SALVAGE_GANTRY);
-			}
-		}
-
-		super.applyEffectsBeforeShipCreation(hullSize, stats, id);
 	}
 
 	@Override
