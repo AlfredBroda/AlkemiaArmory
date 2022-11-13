@@ -35,7 +35,9 @@ import data.scripts.plugins.AntiMissileEffectPlugin;
 public class AlkemiaModPlugin extends BaseModPlugin {
     public static final String SETTINGS_FILE = "alkemia_options.ini";
 
-    public static final boolean isExerelin = Global.getSettings().getModManager().isModEnabled("nexerelin");
+    public static final boolean hasExerelin = Global.getSettings().getModManager().isModEnabled("nexerelin");
+
+    public static final boolean hasStarshipLegends = Global.getSettings().getModManager().isModEnabled("sun_starship_legends");
 
     private static final boolean DEBUG = false;
     public static boolean versionCheckerNag;
