@@ -23,6 +23,13 @@ The main weapon of the Syreen is the Active Close Defense Laser System (ACDLS), 
 alkemia_rapidhvel,WEAPON,"A specialized weapon designed to overload and disable enemy systems from afar. The high-velocity duranium slug is also effective against shields.
 
 Every engineer feels the need to make things better - with this Rapid Hypervelocity Driver it was the desire to improve on the firing speed. Unfortunately the improved rate of fire comes at the cost of smaller projectiles and high flux.",,,
+alkemia_miningbeam,WEAPON,"A long-range laser design based on the Minig Blaster. 
+
+To get to energy ratings beyond the giga-watt range the design relies on a built-in super capacitor banks. The drain on ship power core is significant, so few designs like the Sunder or Champion can make use of it.
+
+Requiring signifficant time to build up the energy necessary to maintain a coherent beam, the system uses several adjustable lens assemblies to focus the beam on it's target. Ionised particles are accelerated along the beam to hit the target with signifficant kinnetic force.
+
+The extreme range at which targets can be reached is hampered by difficulty to track anything faster then an asteroid.",,,,
 alkemia_porcupine_tds,WEAPON,"The premise of the Porcupine Torpedo Delivery System is simple - make torpedoes reach further. Two Atrops warheads were strapped to a frigate sized engine making this a versatile weapon both against larger ships and small craft.",,,
 alkemia_emp_artillery,WEAPON,"Based on the Domain defense platform ordinance, the AC-EM09b missile delivers a large proximity fused electro magnetic disruptor at extereme distances. Devastating to shields, it's main disadvantage is poor manouverability.",,,
 alkemia_hedgehog,WEAPON,"Launches a cluster of free-floating mines equipped with a proximity fuse.
@@ -50,6 +57,9 @@ alkemia_rigger,SHIP,"The Rigger in one of the largest and most expensive mobile 
 The Rigger's hull is modular, each of it's prows equipped with independent shield emmiters, defense systems and fire control. Furthermore the loss of one prow does not compromise the ship as a whole, altough it is still undoubtedly crippled.",,,
 alkemia_kestrel,SHIP,"The Kestrel is the essence of Techie design ideology. It is fast - even without it's afterburner - has an array of varied weapon mounts, and packs a punch with an integrated Atropos torpedo launcher. It was also designed with stealth in mind, with an integrated ECM suite and low profile engine exhausts.",,,
 alkemia_coockoo,SHIP,"Another refit of the classic Ko Combine r450 completely repurposing it's interior space - most of it now housing a proximity mine nanoforge. The now purposeless drone landing pad was replaced with a secondary defense turret, and the front part houses a high-resolution sensor array indispensible in it's new line of duty.",,,
+alkemia_pheasant,SHIP,"Created with the synergy of the ER Mining Laser and Sunder power core in mind, the Pheasant is a dedicated mining ship. Able to break even large asteroids into smaller chunks from a safe distance, it relies on it's drones to perform the actual mineral extraction. 
+
+Still an experimental platform, it retains some of the features of the original chassis, while signifficantly expanding cargo capacity.",,,
 alkemia_afterburner,SHIP_SYSTEM,"Temporarily engages an afterburner on the ship. Provides a massive speed boost at the expense of weapons and manouverability. The ship runs the risk of full engine flameout on any significant collision.",Movement,"Provides a massive speed boost for at the expense of weapons and manouverability. Collisions can cause a flameout while the system is active.",,
 alkemia_emp,SHIP_SYSTEM,"Activates an EMP generator. Nearby missiles, fighters, weapon emplacements and engines of enemy ships are all targeted and can be disabled in short order.
 

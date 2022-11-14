@@ -1,5 +1,7 @@
 package data.scripts;
 
+import org.apache.log4j.Logger;
+
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.PluginPick;
@@ -37,11 +39,12 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
     public static final boolean hasExerelin = Global.getSettings().getModManager().isModEnabled("nexerelin");
 
-    public static final boolean hasStarshipLegends = Global.getSettings().getModManager().isModEnabled("sun_starship_legends");
+    public static final boolean hasStarshipLegends = Global.getSettings().getModManager()
+            .isModEnabled("sun_starship_legends");
 
     private static final boolean DEBUG = false;
-    public static boolean versionCheckerNag;
-    public static boolean vcNagDone = false;
+
+    protected Logger log;
 
     @Override
     public void onApplicationLoad() {
@@ -68,7 +71,9 @@ public class AlkemiaModPlugin extends BaseModPlugin {
         // {
         // initShaderLib();
         // }
-        info("Alkemia onApplicationLoad()");
+        log = Global.getLogger(this.getClass());
+
+        log.debug("Alkemia onApplicationLoad()");
     }
 
     // static void initShaderLib()
@@ -79,16 +84,19 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     // }
 
     public void info(String mesg) {
-        Global.getLogger(this.getClass()).info(mesg);
+        log.info(mesg);
     }
 
     public void warn(String mesg) {
-        Global.getLogger(this.getClass()).warn(mesg);
+        log.warn(mesg);
     }
 
     public void debug(String mesg) {
-        if (DEBUG)
-            Global.getLogger(this.getClass()).info(mesg);
+        if (!log.isDebugEnabled() && DEBUG) {
+            log.info(mesg);
+        } else {
+            log.debug(mesg);
+        }
     }
 
     @Override
@@ -130,7 +138,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
     @Override
     public void onNewGame() {
-        info("Alkemia onNewGame()");
+        debug("Alkemia onNewGame()");
     }
 
     @Override
@@ -139,7 +147,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
     ////////////////////////////////////////
     //                                    //
-    // MISSILES AI OVERRIDES              //
+    //       MISSILES AI OVERRIDES        //
     //                                    //
     ////////////////////////////////////////
 
@@ -159,13 +167,19 @@ public class AlkemiaModPlugin extends BaseModPlugin {
         return super.pickMissileAI(missile, launchingShip);
     }
 
+    ////////////////////////////////////////
+    //                                    //
+    //          SHIP AI OVERRIDES         //
+    //                                    //
+    ////////////////////////////////////////
+
     @Override
     public PluginPick<ShipAIPlugin> pickShipAI(FleetMemberAPI member, ShipAPI ship) {
         if (ship.isFighter() && ship.getHullSpec() != null && ship.getWing() != null) {
             String id = ship.getHullSpec().getHullId();
             switch (id) {
                 case AlkemiaIds.ALKEMIA_REPAIR_DRONE:
-                    info(String.format("RepairDroneAI assigned for %s", id));
+                    debug(String.format("RepairDroneAI assigned for %s", id));
 
                     ShipAPI mothership = ship.getWing().getSourceShip();
                     return new PluginPick<ShipAIPlugin>(new RepairDroneAI(ship, mothership),

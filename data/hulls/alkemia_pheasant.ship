@@ -1,0 +1,293 @@
+{
+  "hullName": "Pheasant",
+  "hullId": "alkemia_pheasant",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/alkemia/ships/sunder-miner.png",
+  "style": "MIDLINE",
+  "height": 186,
+  "width": 92,
+  "center": [46, 90],
+  "collisionRadius": 111,
+  "shieldCenter": [-1, -0],
+  "shieldRadius": 128,
+  "viewOffset": 100,
+  "builtInMods": [
+    "alkemia_droneonlybays",
+    "rugged"
+  ],
+  "builtInWeapons": {
+    "ES0001": "alkemia_small_thruster",
+    "ES0002": "alkemia_small_thruster",
+    "ES0003": "alkemia_small_thruster",
+    "ES0004": "alkemia_small_thruster",
+    "ES0005": "alkemia_small_thruster",
+    "ES0006": "alkemia_small_thruster"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "LARGE",
+      "type": "ENERGY",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [35, -0],
+      "renderOrderMod": 10,
+      "position": [
+        131,
+        0
+      ]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "SYNERGY",
+      "mount": "HARDPOINT",
+      "arc": 25,
+      "angle": 0,
+      "locations": [19.5, 30],
+      "position": [
+        121,
+        50
+      ]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "SYNERGY",
+      "mount": "HARDPOINT",
+      "arc": 25,
+      "angle": 0,
+      "locations": [19.5, -30],
+      "position": [
+        121,
+        -50
+      ]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 190,
+      "angle": 75,
+      "locations": [1, 17.5],
+      "position": [
+        -22,
+        65
+      ]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 190,
+      "angle": -75,
+      "locations": [1, -17.5],
+      "position": [
+        -24,
+        -65
+      ]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 270,
+      "angle": 180,
+      "locations": [-60.5, -0],
+      "position": [
+        -124,
+        0
+      ]
+    },
+    {
+      "id": "LB001",
+      "size": "SMALL",
+      "type": "LAUNCH_BAY",
+      "mount": "HIDDEN",
+      "arc": 360,
+      "angle": 0,
+      "locations": [
+        66, 29.5,
+        66, 41
+      ]
+    },
+    {
+      "id": "LB002",
+      "size": "SMALL",
+      "type": "LAUNCH_BAY",
+      "mount": "HIDDEN",
+      "arc": 360,
+      "angle": 0,
+      "locations": [
+        66.5, -28,
+        66, -39.5
+      ]
+    },
+    {
+      "id": "ES0001",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -40,
+      "locations": [89, -18.5],
+      "position": [
+        90,
+        -19
+      ]
+    },
+    {
+      "id": "ES0002",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 40,
+      "locations": [89, 18.5],
+      "position": [
+        90,
+        19
+      ]
+    },
+    {
+      "id": "ES0003",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 126.5,
+      "locations": [-45.5, 33.5],
+      "position": [
+        -48,
+        37
+      ]
+    },
+    {
+      "id": "ES0004",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -126.5,
+      "locations": [-45.5, -33.5],
+      "position": [
+        -48,
+        -37
+      ]
+    },
+    {
+      "id": "ES0005",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 80,
+      "locations": [14, 42]
+    },
+    {
+      "id": "ES0006",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -80,
+      "locations": [14, -42]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-89, 37.5],
+      "length": 64,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-86.5, 14.5],
+      "length": 64,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-86.5, -15],
+      "length": 64,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-89, -37.5],
+      "length": 64,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-87.5, 26.5],
+      "length": 64,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-87.5, -26.5],
+      "length": 64,
+      "width": 16,
+      "angle": -180,
+      "contrailSize": 64,
+      "style": "MIDLINE"
+    }
+  ],
+  "bounds": [
+    36.5, -8.5,
+    91.5, -8.5,
+    84, -18,
+    84, -33,
+    74.5, -33,
+    71, -26,
+    62, -26.5,
+    59.5, -33,
+    51, -33,
+    50.5, -43,
+    -15.5, -43,
+    -28, -27,
+    -46.5, -34.5,
+    -52, -27,
+    -59.5, -27.5,
+    -66, -38.5,
+    -78, -44.5,
+    -83.5, -42,
+    -82, -11,
+    -67.5, -4,
+    -67.5, 4,
+    -82, 11,
+    -83.5, 42,
+    -78, 44.5,
+    -66, 38.5,
+    -59.5, 27.5,
+    -52, 27,
+    -46.5, 34.5,
+    -28, 27,
+    -15.5, 43,
+    50.5, 43,
+    51, 33,
+    59.5, 33,
+    62, 26.5,
+    71, 26,
+    74.5, 33,
+    84, 33,
+    84, 18,
+    91.5, 8.5,
+    36.5, 8.5
+  ]
+}

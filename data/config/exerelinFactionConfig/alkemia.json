@@ -35,7 +35,7 @@
 
     "vengeanceFleetNamesSingle": [ "a Response Fleet", "a Self-Defense Force", "a Liquidation Force" ],
 
-    "miningVariantsOrWings": [ "shepherd_Frontier", "alkemia_gemini_miner", "mining_drone_wing" ],
+    "miningVariantsOrWings": [ "shepherd_Frontier", "alkemia_pheasant_Standard", "alkemia_gemini_miner", "mining_drone_wing" ],
 
     "startShipsSolo": [
         [ "alkemia_dromader_standard" ],

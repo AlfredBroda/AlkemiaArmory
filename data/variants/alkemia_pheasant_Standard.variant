@@ -1,0 +1,46 @@
+{
+  "variantId": "alkemia_pheasant_Standard",
+  "hullId": "alkemia_pheasant",
+  "displayName": "Standard",
+  "goalVariant": true,
+  "fluxCapacitors": 8,
+  "fluxVents": 12,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "auxiliarythrusters",
+    "extendedshieldemitter"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "alkemia_miningbeam"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "mininglaser",
+        "WS0003": "mininglaser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "vulcan",
+        "WS0005": "vulcan",
+        "WS0006": "alkemia_vulcan"
+      }
+    }
+
+  ],
+  "modules": [],
+  "wings": [
+    "mining_drone_wing",
+    "alkemia_repair_wing"
+  ]
+}

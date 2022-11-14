@@ -26,12 +26,12 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 
 		api.addToFleet(FleetSide.PLAYER, "alkemia_perch_standard", FleetMemberType.SHIP, "ACO Quicksilver", true);
 		api.addToFleet(FleetSide.PLAYER, "alkemia_falcon_cargo_Standard", FleetMemberType.SHIP, false);
+		api.addToFleet(FleetSide.PLAYER, "alkemia_pheasant_Standard", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.PLAYER, "alkemia_brawler_ranger", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.PLAYER, "alkemia_kestrel_Standard", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.PLAYER, "alkemia_shepherd_support", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.PLAYER, "shepherd_Frontier", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.PLAYER, "alkemia_kite_support", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "alkemia_kite_standard", FleetMemberType.SHIP, false);
 		// api.addToFleet(FleetSide.PLAYER, "alkemia_deluxe_lrstrike_wing", FleetMemberType.FIGHTER_WING, false);
 		// api.addToFleet(FleetSide.PLAYER, "alkemia_deluxe_lrstrike_wing", FleetMemberType.FIGHTER_WING, false);
 

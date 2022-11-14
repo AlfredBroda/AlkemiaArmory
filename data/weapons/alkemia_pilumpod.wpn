@@ -6,7 +6,6 @@
 	"turretSprite":"graphics/alkemia/weapons/pilumpod_t_base.png",
 	"turretUnderSprite":"graphics/weapons/squall_turret_under.png",
 	"hardpointSprite":"graphics/alkemia/weapons/pilumpod_h_base.png",
-	"hardpointUnderSprite":"graphics/weapons/squall_hardpoint_under.png",
 	"hardpointOffsets":[25, 7.5, 25, 2.5, 25, -2.5, 25, -7.5,
 						19, 7.5, 19, 2.5, 19, -2.5, 19, -7.5,
 						13, 7.5, 13, 2.5, 13, -2.5, 13, -7.5],

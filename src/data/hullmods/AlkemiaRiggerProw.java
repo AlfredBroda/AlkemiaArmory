@@ -19,6 +19,7 @@ public class AlkemiaRiggerProw extends BaseHullMod {
 
 	public static final float RADIUS_MULT = 0.25f;
 	public static final float DAMAGE_MULT = 0.1f;
+	public static final float REPAIR_BONUS = 50f;
 
 	@Override
 	public void init(HullModSpecAPI spec) {
@@ -30,6 +31,8 @@ public class AlkemiaRiggerProw extends BaseHullMod {
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 		stats.getDynamic().getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, DAMAGE_MULT);
 		stats.getDynamic().getStat(Stats.EXPLOSION_RADIUS_MULT).modifyMult(id, RADIUS_MULT);
+
+		stats.getCombatWeaponRepairTimeMult().modifyMult(id, 1f - REPAIR_BONUS * 0.01f);
 		
 		stats.getDynamic().getStat(Stats.MODULE_DETACH_CHANCE_MULT).modifyFlat(id, 100f);
 	}
@@ -59,5 +62,11 @@ public class AlkemiaRiggerProw extends BaseHullMod {
 	@Override
 	public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width,
 			boolean isForModSpec) {
+	}
+
+	public String getDescriptionParam(int index, HullSize hullSize) {
+		if (index == 0) 
+			return String.format("%d%", (int) REPAIR_BONUS);
+		return null;
 	}
 }
