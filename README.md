@@ -81,6 +81,19 @@ When the Alkemia Customs managers were looking for a luxury yacht, the sleek Dia
 </tr>
 
 <tr>
+<td>
+<img alt="Pheasant" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/0.9.33/graphics/alkemia/ships/sunder-miner.png?raw=true"/>
+</td>
+<td>
+Pheasant-class Mining Ship
+
+Created with the synergy of the ER Mining Laser and Sunder power core in mind, the Pheasant is a dedicated mining ship. Able to break even large asteroids into smaller chunks from a safe distance, it relies on it's drones to perform the actual mineral extraction. 
+
+Still an experimental platform, it retains some of the features of the original chassis, while signifficantly expanding cargo capacity.
+</td>
+</tr>
+
+<tr>
 <td><img alt="Falcon Cargo-class" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/Falcon-Cargo.png?raw=true"/></td>
 <td>
 Falcon Cargo-class Armed Freighter
