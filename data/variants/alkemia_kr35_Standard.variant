@@ -1,0 +1,33 @@
+{
+  "variantId": "alkemia_kr35_Standard",
+  "hullId": "alkemia_kr35",
+  "displayName": "Standard",
+  "goalVariant": false,
+  "fluxCapacitors": 10,
+  "fluxVents": 8,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "lightdualac",
+        "WS0002": "lightdualac",
+        "WS0003": "alkemia_light_flak",
+        "WS0004": "alkemia_light_flak",
+        "WS0005": "alkemia_mg",
+        "WS0006": "alkemia_mg",
+        "WS0007": "lightag",
+        "WS0008": "lightag",
+        "WS0009": "lightac",
+        "WS0010": "lightac",
+        "WS0011": "lightac",
+        "WS0012": "lightac"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

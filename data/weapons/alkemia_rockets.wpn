@@ -10,17 +10,14 @@
     RENDER_LOADED_MISSILES
   ],
   "turretOffsets": [
-    6.5,
+    7,
     0,
     7.5,
     2.5,
-    8.5,
-    0,
     7.5,
     -2.5
   ],
   "turretAngleOffsets": [
-    0,
     0,
     0,
     0
@@ -28,15 +25,12 @@
   "hardpointOffsets": [
     18.5,
     -2.5,
-    17.5,
+    18,
     0,
     18.5,
-    2.5,
-    19.5,
-    0
+    2.5
   ],
   "hardpointAngleOffsets": [
-    0,
     0,
     0,
     0

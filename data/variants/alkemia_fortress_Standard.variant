@@ -18,6 +18,7 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
+        "WS0001": "shredder",
         "WS0007": "heavyneedler",
         "WS0008": "heavyneedler"
       }
@@ -26,7 +27,6 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "shredder",
         "WS0002": "shredder"
       }
     },

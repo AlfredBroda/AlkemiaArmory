@@ -1,0 +1,53 @@
+{
+  "variantId": "alkemia_kr35_Bomber",
+  "hullId": "alkemia_kr35",
+  "displayName": "Bomber",
+  "goalVariant": false,
+  "fluxCapacitors": 10,
+  "fluxVents": 9,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "magazines"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0007": "bomb",
+        "WS0008": "bomb",
+        "WS0009": "bomb",
+        "WS0010": "bomb",
+        "WS0011": "bomb",
+        "WS0012": "bomb"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0003": "alkemia_hedgehog",
+        "WS0004": "alkemia_hedgehog"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "alkemia_light_flak",
+        "WS0002": "alkemia_light_flak"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "alkemia_mg",
+        "WS0006": "alkemia_mg"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}
