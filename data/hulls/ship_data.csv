@@ -34,6 +34,7 @@ Right Prow,alkemia_rigger_right,,Midline,flarelauncher,9,3500,1000,3250,3600,400
 ,alkemia_station1_junker,Orbital Station,,,100,40000,1600,1000,2500,100,0,,30,200,200,3,2,5000,NONE,,0,0,0,,,0,0,0,0,1,0,0,500000,10,10,,,50,50,,,,,,,"STATION",,,0,,,,2002.1
 ,alkemia_station_mining_small,Salvage Station,,forgevats_station,100,20000,600,2000,2500,200,0,,220,20,20,3,2,5000,NONE,,0,0,0,,,0,0,0,0,1,0,0,500000,10,10,,,50,50,,,,,,,"STATION, HIDE_IN_CODEX",,,0,,,,2002.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Fortress,alkemia_fortress,Supercarrier,Low Tech,reservewing,28,8000,1250,12000,12500,500,200,4,80,25,15,6,6,2400,FRONT,,180,0.4,1,,,250,500,300,300,15,20,7,375000,3,12,720,0.25,40,40,,,,,,,"CARRIER, COMBAT, SHIP_WITH_MODULES",no_sell,,0.4,2,4,,
+Fortress,alkemia_fortress,Stratocarrier,Low Tech,reservewing,28,8000,1250,12000,12500,500,200,4,80,25,15,15,10,2400,FRONT,,180,0.4,0.8,,,120,300,300,300,15,20,7,57500,3,12,720,0.25,30,15,,,,,,,"CARRIER, COMBAT, SHIP_WITH_MODULES","no_sell, krieg_bp",,0.75,2,4,,
 Left Tail,alkemia_fortress_tail_left,,,,0,2000,800,,,,,,,,,,,400,NONE,,,,,,,,,,,,,,1000,,,,,,,,,,,,,HIDE_IN_CODEX,,,0.6,2,2,,
 Right Tail,alkemia_fortress_tail_right,,,,0,2000,800,,,,,,,,,,,400,NONE,,,,,,,,,,,,,,1000,,,,,,,,,,,,,HIDE_IN_CODEX,,,0.6,2,2,,
+Kadze,alkemia_kadze,Stratohunter,Low Tech,burndrive,9,4000,550,4200,2813,340,80,,110,70,50,20,15,1350,FRONT,,180,0.4,0.8,,,50,140,60,140,4,0,0,28000,3,8,720,0.25,14,7,,,,,,,"COMBAT","no_sell, krieg_bp",,0.75,2,3,,
