@@ -1,8 +1,9 @@
 name,id,designation,tech/manufacturer,system id,fleet pts,hitpoints,armor rating,max flux,8/6/5/4%,flux dissipation,ordnance points,fighter bays,max speed,acceleration,deceleration,max turn rate,turn acceleration,mass,shield type,defense id,shield arc,shield upkeep,shield efficiency,phase cost,phase upkeep,min crew,max crew,cargo,fuel,fuel/ly,range,max burn,base value,cr %/day,CR to deploy,peak CR sec,CR loss/sec,supplies/rec,supplies/mo,c/s,c/f,f/s,f/f,crew/s,crew/f,hints,tags,rarity,breakProb,minPieces,maxPieces,travel drive,number
-Fixer,alkemia_drone_repair,Repair Drone,Alkemia,alkemia_afterburner,,200,25,200,,60,1,,100,200,200,180,360,5,NONE,,,,,,,0,0,,,,,,,,,,,,,,,,,,,UNBOARDABLE,alkemia_bp,,0,,,,1.5
-Deluxe,alkemia_deluxe,,Alkemia,alkemia_afterburner,1,340,130,350,,50,15,,260,150,150,150,240,45,FRONT,,270,0.2,1,,,2,2,0,5,0.1,2,11,5000,100,10,240,0.1,1,1,,,,,,,UNBOARDABLE,no_sell,,0,,,,115.1
-Syreen,alkemia_syreen,,Alkemia,displacer,1,650,230,750,,100,15,,420,210,250,240,200,100,FRONT,,180,0.2,1,,,1,1,0,5,0.1,2,11,8000,100,10,240,0.1,1,1,,,,,,,UNBOARDABLE,no_sell,,0.75,2,4,,115.2
-Thunder (AC),alkemia_thunder,,Midline,,,500,75,750,,100,0,,450,600,500,150,300,30,NONE,,0,0,0,,,1,1,,,,,,,,,,,,,,,,,,,,,,0,,,,111
+Fixer,alkemia_drone_repair,Repair Drone,Alkemia,alkemia_afterburner,,200,25,200,,60,1,,100,200,200,180,360,5,NONE,,,,,,,0,0,,,,,,,,,,,,,,,,,,,UNBOARDABLE,alkemia_bp,,0,,,,
+Deluxe,alkemia_deluxe,,Alkemia,alkemia_afterburner,1,340,130,350,,50,15,,260,150,150,150,240,45,FRONT,,270,0.2,1,,,2,2,0,5,0.1,2,11,5000,100,10,240,0.1,1,1,,,,,,,UNBOARDABLE,no_sell,,0,,,,
+Syreen,alkemia_syreen,,Alkemia,displacer,1,650,230,750,,100,15,,420,210,250,240,200,100,FRONT,,180,0.2,1,,,1,1,0,5,0.1,2,11,8000,100,10,240,0.1,1,1,,,,,,,UNBOARDABLE,no_sell,,0.75,2,4,,
+Thunder (AC),alkemia_thunder,,Midline,,,500,75,350,,100,8,,450,600,500,150,300,30,NONE,,0,0,0,,,1,1,,,,,,,,,,,,,,,,,,,,,,0,,,,
+Vampire,alkemia_vampire,,Low Tech,,,300,25,150,,100,10,,250,200,100,150,100,30,NONE,,0,0,0,,,1,1,,,,,,,,,,,,,,,,,,,,,,0,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Ox Junker,alkemia_ox_junker,Tug,Low Tech,flarelauncher,2,500,150,500,625,50,5,,90,30,20,25,30,150,NONE,,0,0,0,,,2,4,0,10,5,2,8,16000,10,40,240,0.25,5,8,,,,,,,"CIVILIAN, SHIP_WITH_MODULES, HIDE_IN_CODEX",no_sell,,0.25,2,2,,212.1
 Lifter,alkemia_lifter,Cargo Courier,Alkemia,burndrive,3,2400,350,2400,1000,180,32,,90,180,120,60,120,360,OMNI,,120,0.4,0.8,,,10,30,120,40,1,40,9,14000,8,10,300,0.25,4,4,,,,,,,CIVILIAN,alkemia_bp,,0.4,2,2,,2070
@@ -32,3 +33,7 @@ Right Prow,alkemia_rigger_right,,Midline,flarelauncher,9,3500,1000,3250,3600,400
 ,alkemia_station1_balanced,Orbital Station,,,100,40000,1600,1000,2500,100,0,,30,200,200,3,2,5000,NONE,,0,0,0,,,0,0,0,0,1,0,0,500000,10,10,,,50,50,,,,,,,"STATION, HIDE_IN_CODEX",,,0,,,,2002.1
 ,alkemia_station1_junker,Orbital Station,,,100,40000,1600,1000,2500,100,0,,30,200,200,3,2,5000,NONE,,0,0,0,,,0,0,0,0,1,0,0,500000,10,10,,,50,50,,,,,,,"STATION",,,0,,,,2002.1
 ,alkemia_station_mining_small,Salvage Station,,forgevats_station,100,20000,600,2000,2500,200,0,,220,20,20,3,2,5000,NONE,,0,0,0,,,0,0,0,0,1,0,0,500000,10,10,,,50,50,,,,,,,"STATION, HIDE_IN_CODEX",,,0,,,,2002.1
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Fortress,alkemia_fortress,Supercarrier,Low Tech,reservewing,28,8000,1250,12000,12500,500,200,4,80,25,15,6,6,2400,FRONT,,180,0.4,1,,,250,500,300,300,15,20,7,375000,3,12,720,0.25,40,40,,,,,,,"CARRIER, COMBAT, SHIP_WITH_MODULES",no_sell,,0.4,2,4,,
+Left Tail,alkemia_fortress_tail_left,,,,0,2000,800,,,,,,,,,,,400,NONE,,,,,,,,,,,,,,1000,,,,,,,,,,,,,HIDE_IN_CODEX,,,0.6,2,2,,
+Right Tail,alkemia_fortress_tail_right,,,,0,2000,800,,,,,,,,,,,400,NONE,,,,,,,,,,,,,,1000,,,,,,,,,,,,,HIDE_IN_CODEX,,,0.6,2,2,,

@@ -1,0 +1,62 @@
+{
+  "variantId": "alkemia_fortress_Standard",
+  "hullId": "alkemia_fortress",
+  "displayName": "Standard",
+  "goalVariant": true,
+  "fluxCapacitors": 29,
+  "fluxVents": 30,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "auxiliarythrusters",
+    "dedicated_targeting_core",
+    "hardenedshieldemitter",
+    "fluxdistributor"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "shredder",
+        "WS0002": "shredder",
+        "WS0003": "lightmg",
+        "WS0004": "lightmg",
+        "WS0007": "heavyneedler",
+        "WS0008": "heavyneedler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "lightdualmg",
+        "WS0006": "lightdualmg"
+      }
+    }
+  ],
+  "modules": [
+    {
+      "TS0001": "alkemia_fortress_tail_left_Base"
+    },
+    {
+      "TS0002": "alkemia_fortress_tail_right_Base"
+    }
+  ],
+  "wings": [
+    "alkemia_vampire_Fighter_wing",
+    "alkemia_vampire_Fighter_wing",
+    "alkemia_vampire_Fighter_wing",
+    "alkemia_vampire_Fighter_wing"
+  ]
+}

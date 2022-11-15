@@ -1,0 +1,14 @@
+{
+  "variantId": "alkemia_fortress_tail_right_Base",
+  "hullId": "alkemia_fortress_tail_right",
+  "displayName": "Base",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [],
+  "modules": [],
+  "wings": []
+}

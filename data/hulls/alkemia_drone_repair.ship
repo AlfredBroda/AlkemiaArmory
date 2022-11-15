@@ -2,7 +2,7 @@
   "hullName": "Repair Drone",
   "hullId": "alkemia_drone_repair",
   "hullSize": "FIGHTER",
-  "spriteName": "graphics/alkemia/ships/repair_drone.png",
+  "spriteName": "graphics/alkemia/ships/fighters/repair_drone.png",
   "style": "LOW_TECH",
   "height": 26,
   "width": 22,
