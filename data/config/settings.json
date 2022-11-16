@@ -8,7 +8,8 @@
     },
     "graphics":{
         "blueprint_packages":{
-            "alkemia_bp_package":"graphics/alkemia/icons/cargo/alkemia_bp.png"
+            "alkemia_bp_package":"graphics/alkemia/icons/cargo/alkemia_bp.png",
+            "krieg_bp_package":"graphics/alkemia/icons/cargo/krieg_bp.png"
         },
         "industry":{
             "alkemia_workshop_normal":"graphics/alkemia/icons/industry/shuttle_hangar.png",
