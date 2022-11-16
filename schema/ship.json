@@ -29,24 +29,24 @@
         "type": "array",
         "items": [
           {
-            "type": "integer"
+            "type": "number"
           },
           {
-            "type": "integer"
+            "type": "number"
           }
         ]
       },
       "collisionRadius": {
-        "type": "integer"
+        "type": "number"
       },
       "shieldCenter": {
         "type": "array",
         "items": [
           {
-            "type": "integer"
+            "type": "number"
           },
           {
-            "type": "integer"
+            "type": "number"
           }
         ]
       },
@@ -84,10 +84,10 @@
                 "type": "array",
                 "items": [
                   {
-                    "type": "integer"
+                    "type": "number"
                   },
                   {
-                    "type": "integer"
+                    "type": "number"
                   }
                 ]
               }
@@ -114,10 +114,10 @@
                 "type": "array",
                 "items": [
                   {
-                    "type": "integer"
+                    "type": "number"
                   },
                   {
-                    "type": "integer"
+                    "type": "number"
                   }
                 ]
               },
@@ -155,7 +155,7 @@
             "type": "number"
           },
           {
-            "type": "integer"
+            "type": "number"
           }
         ]
       }

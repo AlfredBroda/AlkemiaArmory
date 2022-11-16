@@ -346,7 +346,7 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
         engine.addHitParticle(offset, missile.getVelocity(), 100f, 0.5f, 0.25f, FLARE_COLOR);
     }
 
-    private void proximityFuse() {
+    public void proximityFuse() {
         // damage the target
         missile.explode();
 

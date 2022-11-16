@@ -31,6 +31,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		variants.add("mora_Assault");
 		variants.add("enforcer_Assault");
 		variants.add("vanguard_Attack");
+		variants.add("vanguard_Attack");
 		variants.add("kite_Starting");
 		variants.add("kite_hegemony_Interceptor");
 		variants.add("hound_Standard");
@@ -45,7 +46,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		// Objectives
 		variants.clear();
 		variants.add("colossus_Standard");
-		variants.add("phaeton_Standard");
+		// variants.add("phaeton_Standard");
 		variants.add("nebula_Standard");
 		variants.add("colossus_Standard");
 

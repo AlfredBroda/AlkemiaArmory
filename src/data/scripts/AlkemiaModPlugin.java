@@ -27,6 +27,7 @@ import com.fs.starfarer.api.util.Misc;
 import data.plugins.AlkemiaRiggerPlugin;
 import data.scripts.ai.drone.RepairDroneAI;
 import data.scripts.ai.missile.AlkemiaEmpMissileAI;
+import data.scripts.ai.missile.AlkemiaFuelbombAI;
 import data.scripts.ai.missile.AlkemiaPDMissileAI;
 import data.scripts.plugins.AntiMissileEffectPlugin;
 
@@ -163,6 +164,11 @@ public class AlkemiaModPlugin extends BaseModPlugin {
                 debug(String.format("AlkemiaEmpMissileAI assigned for %s", id));
                 return new PluginPick<MissileAIPlugin>(new AlkemiaEmpMissileAI(missile, launchingShip),
                         CampaignPlugin.PickPriority.MOD_SPECIFIC);
+            case AlkemiaIds.ALKEMIA_FUELBOMB:
+                debug(String.format("AlkemiaFuelbombAI assigned for %s", id));
+                return new PluginPick<MissileAIPlugin>(new AlkemiaFuelbombAI(missile, launchingShip),
+                        CampaignPlugin.PickPriority.MOD_SPECIFIC);
+
         }
         return super.pickMissileAI(missile, launchingShip);
     }
