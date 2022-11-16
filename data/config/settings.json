@@ -24,6 +24,12 @@
             "female_mechanic3":"graphics/alkemia/portraits/female_mechanic3.png",
 			"male_mechanic1":"graphics/alkemia/portraits/male_mechanic1.png",
 			"male_mechanic2":"graphics/alkemia/portraits/male_mechanic2.png"
+        },
+        "terrain":{
+            "nebula_clouds":"graphics/alkemia/terrain/clouds.png"
+        },
+        "backgrounds":{
+            "fields1":"graphics/alkemia/backgrounds/fields1.jpg"
         }
     },
     "plugins":{

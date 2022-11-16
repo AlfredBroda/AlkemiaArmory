@@ -3,6 +3,7 @@ package data.missions.invasion;
 import java.util.List;
 import java.util.ArrayList;
 
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.fleet.FleetGoal;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
@@ -80,11 +81,10 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.initMap((float) -width / 2f, (float) width / 2f, (float) -height / 2f, (float) height / 2f);
 
 		// This does not work. Needs to be defined in descriptor.json
-		api.setBackgroundSpriteName("graphics/alkemia/backgrounds/fields1.jpg");
+		// api.setBackgroundSpriteName(Global.getSettings().getSpriteName("backgrounds","fields1"));
 
-		// Clouds - generates a null pointer :/
-		// api.setNebulaMapTex("graphics/terrain/cloud_map.png");
-		// api.setNebulaTex("graphics/terrain/clouds.png");
+		api.setNebulaTex(Global.getSettings().getSpriteName("terrain","nebula_clouds"));
+        // api.setNebulaMapTex("graphics/terrain/nebula_amber_map.png");
 
 		for (int i = 0; i < 15; i++) {
 			float x = (float) Math.random() * width - width / 2;

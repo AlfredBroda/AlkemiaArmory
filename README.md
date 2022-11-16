@@ -89,7 +89,7 @@ Pheasant-class Mining Ship
 
 Created with the synergy of the ER Mining Laser and Sunder power core in mind, the Pheasant is a dedicated mining ship. Able to break even large asteroids into smaller chunks from a safe distance, it relies on it's drones to perform the actual mineral extraction. 
 
-Still an experimental platform, it retains some of the features of the original chassis, while signifficantly expanding cargo capacity.
+Still an experimental platform, it retains some of the features of the original chassis, while significantly expanding cargo capacity.
 </td>
 </tr>
 
@@ -98,7 +98,7 @@ Still an experimental platform, it retains some of the features of the original 
 <td>
 Falcon Cargo-class Armed Freighter
 
-Another repurposed military hull in Alkemia Customs' fleet, the Falcon Cargo was born of necessity. It turned out almost as capable as a Colossus, but signifficantly better armed, despite the necessary removal of some hardpoints. Unsurprisingly, goods deliveries done by Company convoys reached new hights in reliability.
+Another re-purposed military hull in Alkemia Customs' fleet, the Falcon Cargo was born of necessity. It turned out almost as capable as a Colossus, but significantly better armed, despite the necessary removal of some hardpoints. Unsurprisingly, goods deliveries done by Company convoys reached new heights in reliability.
 </td>
 </tr>
 
