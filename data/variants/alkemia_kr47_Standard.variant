@@ -3,8 +3,8 @@
   "hullId": "alkemia_kr47",
   "displayName": "Standard",
   "goalVariant": true,
-  "fluxCapacitors": 8,
-  "fluxVents": 14,
+  "fluxCapacitors": 12,
+  "fluxVents": 18,
   "quality": 1,
   "permaMods": [],
   "hullMods": [],
@@ -19,15 +19,15 @@
     },
     {
       "autofire": false,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
       "weapons": {
-        "WS0005": "hephag",
-        "WS0006": "hephag"
+        "WS0005": "alkemia_fuelbomb",
+        "WS0006": "alkemia_fuelbomb"
       }
     },
     {
-      "autofire": true,
-      "mode": "LINKED",
+      "autofire": false,
+      "mode": "ALTERNATING",
       "weapons": {
         "WS0007": "lightac",
         "WS0008": "lightac",
@@ -41,16 +41,17 @@
       "weapons": {
         "WS0003": "alkemia_light_flak",
         "WS0004": "alkemia_light_flak",
-        "WS0009": "alkemia_light_flak",
         "WS0010": "alkemia_mg",
-        "WS0011": "alkemia_mg",
-        "WS0012": "alkemia_light_flak"
+        "WS0011": "alkemia_mg"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0009": "mininglaser",
+        "WS0012": "mininglaser"
+      }
     }
   ],
   "modules": [],

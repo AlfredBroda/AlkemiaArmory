@@ -3,12 +3,11 @@
   "hullId": "alkemia_fortress",
   "displayName": "Standard",
   "goalVariant": true,
-  "fluxCapacitors": 29,
+  "fluxCapacitors": 24,
   "fluxVents": 30,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "auxiliarythrusters",
     "dedicated_targeting_core",
     "hardenedshieldemitter",
     "fluxdistributor"
@@ -16,26 +15,26 @@
   "weaponGroups": [
     {
       "autofire": false,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
       "weapons": {
-        "WS0001": "shredder",
-        "WS0007": "heavyneedler",
-        "WS0008": "heavyneedler"
+        "WS0001": "mark9",
+        "WS0002": "mark9"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0007": "alkemia_rockets",
+        "WS0008": "alkemia_rockets"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "shredder"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "WS0003": "lightdualmg",
-        "WS0004": "lightdualmg"
+        "WS0003": "lightneedler",
+        "WS0004": "lightneedler"
       }
     },
     {

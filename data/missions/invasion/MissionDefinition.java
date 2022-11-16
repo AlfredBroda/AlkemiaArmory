@@ -44,7 +44,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 
 		// Objectives
 		variants.clear();
-		variants.add("buffalo_hegemony_Standard");
+		variants.add("colossus_Standard");
 		variants.add("phaeton_Standard");
 		variants.add("nebula_Standard");
 		variants.add("colossus_Standard");

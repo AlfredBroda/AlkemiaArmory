@@ -3,32 +3,32 @@
   "hullId": "alkemia_kr35",
   "displayName": "Bomber",
   "goalVariant": false,
-  "fluxCapacitors": 10,
-  "fluxVents": 9,
+  "fluxCapacitors": 9,
+  "fluxVents": 10,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "magazines"
+    "magazines",
+    "auxiliarythrusters",
+    "adaptiveshields"
   ],
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0007": "bomb",
-        "WS0008": "bomb",
-        "WS0009": "bomb",
-        "WS0010": "bomb",
-        "WS0011": "bomb",
-        "WS0012": "bomb"
+        "WS0007": "lightag",
+        "WS0008": "lightag"
       }
     },
     {
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0003": "alkemia_hedgehog",
-        "WS0004": "alkemia_hedgehog"
+        "WS0009": "hammer_single",
+        "WS0010": "hammer_single",
+        "WS0011": "hammer_single",
+        "WS0012": "hammer_single"
       }
     },
     {
@@ -45,6 +45,14 @@
       "weapons": {
         "WS0005": "alkemia_mg",
         "WS0006": "alkemia_mg"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "alkemia_hedgehog",
+        "WS0004": "alkemia_hedgehog"
       }
     }
   ],

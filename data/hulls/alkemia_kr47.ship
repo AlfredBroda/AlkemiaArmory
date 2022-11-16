@@ -58,18 +58,18 @@
     {
       "id": "WS0005",
       "size": "LARGE",
-      "type": "BALLISTIC",
+      "type": "COMPOSITE",
       "mount": "HARDPOINT",
-      "arc": 10,
+      "arc": 45,
       "angle": 0,
       "locations": [0.5, 84]
     },
     {
       "id": "WS0006",
       "size": "LARGE",
-      "type": "BALLISTIC",
+      "type": "COMPOSITE",
       "mount": "HARDPOINT",
-      "arc": 10,
+      "arc": 45,
       "angle": 0,
       "locations": [-1.5, -82.5]
     },

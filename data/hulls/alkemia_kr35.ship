@@ -8,10 +8,9 @@
   "width": 215,
   "center": [107, 40],
   "collisionRadius": 119.5,
-  "shieldCenter": [-43.5, -0],
+  "shieldCenter": [-25, -0],
   "shieldRadius": 118,
   "viewOffset": 0,
-  "builtInMods": [],
   "builtInWeapons": {
     "WS0005": "alkemia_mg",
     "WS0006": "alkemia_mg"
