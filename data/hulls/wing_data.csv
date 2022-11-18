@@ -8,4 +8,4 @@ alkemia_syreen_wing,alkemia_syreen_standard,"fighter2, interceptor, alkemia_bp, 
 alkemia_repair_wing,alkemia_drone_repair_standard,"alkemia_bp, auto_fighter, merc",1,0.75,2,9,BOX,800,50,,4,SUPPORT,Repair Drone,5,2800,,,,,,,,,,,,,30045
 alkemia_thunder_wing,alkemia_thunder_Fighter,"fighter2, mid, alkemia_bp, merc",2,,6,10,V,6000,500,900,3,FIGHTER,Fighter,15,9000,,,,,,,,,,,,,5
 krieg_vampire_Fighter_wing,krieg_vampire_Fighter,"fighter2, krieg_bp",1,,4,6,V,3000,500,900,3,FIGHTER,Fighter,15,1800,,,,,,,,,,,,,
-krieg_oni_Strike_wing,krieg_oni_Strike,"fighter2, krieg_bp",1,,5,8,BOX,3000,500,900,2,BOMBER,Bomber,15,1800,,,,,,,,,,,,,
+krieg_oni_Strike_wing,krieg_oni_Strike,"bomber, krieg_bp",1,,5,8,BOX,3000,500,900,2,BOMBER,Bomber,15,1800,,,,,,,,,,,,,

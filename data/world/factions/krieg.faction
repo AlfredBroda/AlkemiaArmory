@@ -132,6 +132,7 @@
 	"shipRoles": {
 		"fastAttack": {
 			"krieg_kr35_Standard": 10,
+			"krieg_kr35_Bomber": 4,
 			"fallback": { "combatSmall": 1 }
 		},
 

@@ -4,13 +4,16 @@
   "hullSize": "FIGHTER",
   "spriteName": "graphics/alkemia/ships/fighters/vampire.png",
   "style": "LOW_TECH",
-  "height": 39,
+  "height": 41,
   "width": 48,
   "center": [24, 19.5],
   "collisionRadius": 35,
   "shieldCenter": [-2.5, -0],
   "shieldRadius": 28,
   "viewOffset": 0,
+  "builtInWeapons": {
+    "WS0003": "krieg_tail"
+  },
   "weaponSlots": [
     {
       "id": "WS0001",
@@ -26,10 +29,19 @@
       "size": "SMALL",
       "type": "BALLISTIC",
       "mount": "HIDDEN",
-      "arc": 30,
+      "arc": 15,
       "angle": 0,
       "locations": [11, 6.5],
       "renderOrderMod": -1
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 15,
+      "angle": 0,
+      "locations": [-16.5, 0.5]
     }
   ],
   "engineSlots": [

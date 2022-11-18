@@ -2,16 +2,17 @@
   "hullName": "Kr-47",
   "hullId": "krieg_kr47",
   "hullSize": "CRUISER",
-  "spriteName": "graphics/alkemia/ships/helmut-kr-47.png",
+  "spriteName": "graphics/alkemia/ships/kr-47_base.png",
   "style": "LOW_TECH",
-  "height": 364,
-  "width": 448,
-  "center": [224.5, 209.5],
+  "height": 365,
+  "width": 450,
+  "center": [225.5, 210.5],
   "collisionRadius": 231,
   "shieldCenter": [-69.5, 0.5],
   "shieldRadius": 261.5,
   "viewOffset": 0,
   "builtInMods": [
+    "krieg_kr47_hull",
     "ground_support"
   ],
   "builtInWeapons": {
@@ -53,7 +54,7 @@
       "mount": "TURRET",
       "arc": 360,
       "angle": 0,
-      "locations": [7, 139]
+      "locations": [8, 138.5]
     },
     {
       "id": "WS0005",
@@ -144,6 +145,15 @@
       "arc": 20,
       "angle": 0,
       "locations": [50.5, -165]
+    },
+    {
+      "id": "TS0001",
+      "size": "SMALL",
+      "type": "STATION_MODULE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [-137, 0.5]
     }
   ],
   "engineSlots": [

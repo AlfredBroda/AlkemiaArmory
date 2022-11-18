@@ -27,7 +27,7 @@
     },
     {
       "autofire": false,
-      "mode": "ALTERNATING",
+      "mode": "LINKED",
       "weapons": {
         "WS0007": "lightac",
         "WS0008": "lightac",
@@ -54,6 +54,10 @@
       }
     }
   ],
-  "modules": [],
+  "modules": [
+    {
+      "TS0001": "krieg_kr47_tail_Base"
+    }
+  ],
   "wings": []
 }

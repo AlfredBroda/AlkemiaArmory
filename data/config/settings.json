@@ -4,7 +4,8 @@
 		"data.scripts.campaign.rulecmd"
     ],
     "designTypeColors":{
-        "Alkemia":[255,130,0,255]
+        "Alkemia":[255,130,0,255],
+        "Krieg": [154,108,94,255]
     },
     "graphics":{
         "blueprint_packages":{
