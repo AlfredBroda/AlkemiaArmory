@@ -21,8 +21,8 @@ public class AlkemiaFortressHull extends BaseHullMod {
 
 	private static Map<String, String> moduleSlots = new HashMap<String, String>();
 	static {
-		moduleSlots.put("TS0001", "alkemia_fortress_tail_left_Base");
-		moduleSlots.put("TS0002", "alkemia_fortress_tail_right_Base");
+		moduleSlots.put("TS0001", "krieg_fortress_tail_left_Base");
+		moduleSlots.put("TS0002", "krieg_fortress_tail_right_Base");
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class AlkemiaFortressHull extends BaseHullMod {
 	}
 
 	public boolean isApplicableToShip(ShipAPI ship) {
-		return ship.getVariant().getHullSpec().getBaseHullId() == AlkemiaIds.ALKEMIA_FORTRESS;
+		return ship.getVariant().getHullSpec().getBaseHullId() == AlkemiaIds.KRIEG_FORTRESS;
 	}
 
 	public String getUnapplicableReason(ShipAPI ship) {

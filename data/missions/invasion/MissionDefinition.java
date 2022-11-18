@@ -20,7 +20,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 
 		// Set a blurb for each fleet
 		api.setFleetTagline(FleetSide.PLAYER, "Hegemony Invasion Fleet");
-		api.setFleetTagline(FleetSide.ENEMY, "Krig Air Force");
+		api.setFleetTagline(FleetSide.ENEMY, "Krieg Air Force");
 
 		// These show up as items in the bulleted list under
 		// "Tactical Objectives" on the mission detail screen
@@ -59,22 +59,22 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 
 		// Set up the enemy fleet
 		variants.clear();
-		variants.add("alkemia_fortress_Standard");
-		variants.add("alkemia_kr47_Standard");
-		variants.add("alkemia_kadze_Assault");
-		variants.add("alkemia_kadze_Assault");
-		variants.add("alkemia_kr35_Standard");
-		variants.add("alkemia_kr35_Standard");
-		variants.add("alkemia_kr35_Standard");
-		variants.add("alkemia_kr35_Bomber");
-		variants.add("alkemia_kr35_Bomber");
+		variants.add("krieg_fortress_Standard");
+		variants.add("krieg_kr47_Standard");
+		variants.add("krieg_kadze_Assault");
+		variants.add("krieg_kadze_Assault");
+		variants.add("krieg_kr35_Standard");
+		variants.add("krieg_kr35_Standard");
+		variants.add("krieg_kr35_Standard");
+		variants.add("krieg_kr35_Bomber");
+		variants.add("krieg_kr35_Bomber");
 
 		for (String ship : variants) {
 			FleetMemberAPI fleetMemeber = api.addToFleet(FleetSide.ENEMY, ship, FleetMemberType.SHIP, false);
 		}
 
-		api.addToFleet(FleetSide.ENEMY, "alkemia_vampire_Fighter_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "alkemia_vampire_Fighter_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.ENEMY, "krieg_vampire_Fighter_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.ENEMY, "krieg_vampire_Fighter_wing", FleetMemberType.FIGHTER_WING, false);
 
 		float width = 10000f;
 		float height = 16000f;

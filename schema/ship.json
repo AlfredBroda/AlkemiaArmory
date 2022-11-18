@@ -51,7 +51,7 @@
         ]
       },
       "shieldRadius": {
-        "type": "integer"
+        "type": "number"
       },
       "viewOffset": {
         "type": "integer"
@@ -75,10 +75,10 @@
                 "type": "string"
               },
               "arc": {
-                "type": "integer"
+                "type": "number"
               },
               "angle": {
-                "type": "integer"
+                "type": "number"
               },
               "locations": {
                 "type": "array",
@@ -128,7 +128,7 @@
                 "type": "integer"
               },
               "angle": {
-                "type": "integer"
+                "type": "number"
               },
               "contrailSize": {
                 "type": "integer"

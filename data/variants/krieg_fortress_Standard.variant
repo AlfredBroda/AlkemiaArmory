@@ -1,0 +1,62 @@
+{
+  "variantId": "krieg_fortress_Standard",
+  "hullId": "krieg_fortress",
+  "displayName": "Standard",
+  "goalVariant": true,
+  "fluxCapacitors": 28,
+  "fluxVents": 30,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "dedicated_targeting_core",
+    "hardenedshieldemitter"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "hephag",
+        "WS0002": "hephag"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0007": "alkemia_rockets",
+        "WS0008": "alkemia_rockets"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "lightneedler",
+        "WS0004": "lightneedler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "alkemia_light_flak",
+        "WS0006": "alkemia_light_flak"
+      }
+    }
+  ],
+  "modules": [
+    {
+      "TS0001": "krieg_fortress_tail_left_Base"
+    },
+    {
+      "TS0002": "krieg_fortress_tail_right_Base"
+    }
+  ],
+  "wings": [
+    "krieg_vampire_Fighter_wing",
+    "krieg_oni_Strike_wing",
+    "krieg_vampire_Fighter_wing",
+    "krieg_oni_Strike_wing"
+  ]
+}

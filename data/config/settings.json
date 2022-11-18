@@ -29,7 +29,12 @@
             "nebula_clouds":"graphics/alkemia/terrain/clouds.png"
         },
         "backgrounds":{
-            "fields1":"graphics/alkemia/backgrounds/fields1.jpg"
+            "fields1":"graphics/alkemia/backgrounds/fields1.jpg",
+            "desert1":"graphics/alkemia/backgrounds/desert1.jpg",
+            "desert2":"graphics/alkemia/backgrounds/desert2.jpg",
+            "ocean1":"graphics/alkemia/backgrounds/ocean1.jpg",
+            "ocean2":"graphics/alkemia/backgrounds/ocean2.jpg",
+            "basin1":"graphics/alkemia/backgrounds/basin.jpg"
         }
     },
     "plugins":{

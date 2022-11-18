@@ -1,0 +1,53 @@
+{
+  "variantId": "krieg_kadze_Escort",
+  "hullId": "krieg_kadze",
+  "displayName": "Escort",
+  "goalVariant": true,
+  "fluxCapacitors": 10,
+  "fluxVents": 10,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "hardened_subsystems"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "heavyac",
+        "WS0002": "heavyac"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0007": "shredder",
+        "WS0008": "shredder"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "alkemia_light_flak",
+        "WS0004": "alkemia_light_flak",
+        "WS0005": "alkemia_light_flak",
+        "WS0006": "alkemia_light_flak"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0009": "alkemia_mg",
+        "WS0010": "alkemia_mg",
+        "WS0011": "alkemia_mg",
+        "WS0012": "alkemia_mg"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

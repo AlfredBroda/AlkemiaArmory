@@ -13,5 +13,5 @@ Rime Journey Paintjob,alkemia_rime_journey_paint,3,2,Alkemia,"special",,1000,,,,
 Rigger Prow,alkemia_rigger_prow,3,2,Alkemia,"special",,1000,,TRUE,,0,0,0,0,data.hullmods.AlkemiaRiggerProw,"Rigger prow module, with independent shields, flare launchers and targetting.
 
 Onboard repair facilities reduce the time required to repair disabled weapons (in combat) by %s.","Rigger prow module.",graphics/hullmods/reinforced_bulkheads.png
-Rigger Hull,alkemia_rigger_hull,3,2,Alkemia,"special",,,,TRUE,,0,0,0,0,data.hullmods.AlkemiaRiggerHull,"Using drone only bays on the Rigger decreases crew requirement by %s per bay, shortens rearm time by %s and reduces ordnance point cost of LPCs by %s.","Rigger main hull.",graphics/hullmods/augmented_engines.png
-Fortress Hull,alkemia_fortress_hull,3,2,Krieg,"special",,,,,TRUE,0,0,0,0,data.hullmods.AlkemiaFortressHull,"Fortress Super Carrier hull.","Fortress hull.",graphics/hullmods/augmented_engines.png
+Rigger Hull,alkemia_rigger_hull,3,2,Alkemia,"special",,,,TRUE,TRUE,0,0,0,0,data.hullmods.AlkemiaRiggerHull,"Using drone only bays on the Rigger decreases crew requirement by %s per bay, shortens rearm time by %s and reduces ordnance point cost of LPCs by %s.","Rigger main hull.",graphics/hullmods/augmented_engines.png
+Fortress Hull,krieg_fortress_hull,3,2,Krieg,"special",,,,TRUE,TRUE,0,0,0,0,data.hullmods.AlkemiaFortressHull,"Fortress Stratoarrier hull.","Fortress hull.",graphics/hullmods/rugged_construction.png

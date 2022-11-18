@@ -1,0 +1,30 @@
+{
+  "variantId": "krieg_dram_Standard",
+  "hullId": "dram",
+  "displayName": "Standard",
+  "goalVariant": true,
+  "fluxCapacitors": 10,
+  "fluxVents": 8,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 003": "annihilator_fighter"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "alkemia_light_flak",
+        "WS 002": "alkemia_light_flak"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

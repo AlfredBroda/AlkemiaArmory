@@ -1,1 +1,6 @@
 fields1.jpg https://www.esa.int/ESA_Multimedia/Images/2019/07/Palm_oil_plantations
+desert1.jpg https://www.esa.int/ESA_Multimedia/Images/2014/11/Sahara_desert_Algeria
+desert2.jpg https://www.esa.int/ESA_Multimedia/Images/2013/11/Aorounga_Crater_Chad
+basin.jpg https://www.esa.int/ESA_Multimedia/Images/2015/05/Saint_George_Basin_Australia
+ocean1.jpg https://www.esa.int/ESA_Multimedia/Images/2017/12/Reindeer_Island
+ocean2.jpg https://www.esa.int/ESA_Multimedia/Images/2014/01/Guinea-Bissau_and_the_Bissagos_islands

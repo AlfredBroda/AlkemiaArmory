@@ -1,0 +1,41 @@
+{
+	"id": "krieg_fuelbomb",
+	"specClass": "missile",
+	"missileType": "MISSILE",
+	"sprite": "graphics/alkemia/weapons/fuelbomb.png",
+	"size": [ 21, 52 ],
+	"center": [ 10.5, 16 ],
+	"collisionRadius": 26,
+	"collisionClass": "MISSILE_NO_FF",
+	"explosionColor": [ 255, 155, 100, 255 ],
+	"explosionRadius": 250,
+	"explosionSpec": {
+		"duration": 0.1,
+		"radius": 175,
+		"coreRadius": 75,
+		"collisionClass": "HITS_SHIPS_AND_ASTEROIDS",
+		"collisionClassByFighter": "HITS_SHIPS_AND_ASTEROIDS",
+		"particleSizeMin": 5.0,
+		"particleSizeRange": 3.0,
+		"particleDuration": 1,
+		"particleCount": 150,
+		"particleColor": [ 255, 185, 155, 255 ]
+	},
+	"armingTime": 0.5,
+	"engineSpec": {
+		"turnAcc": 50,
+		"turnRate": 25,
+		"acc": 120,
+		"dec": 10
+	},
+	"engineSlots": [
+		{
+			"id": "ES1",
+			"loc": [ -26, 0 ],
+			"style": "LOW_TECH",
+			"width": 10.0,
+			"length": 30.0,
+			"angle": 180.0
+		}
+	]
+}

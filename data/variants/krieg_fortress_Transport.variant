@@ -1,0 +1,51 @@
+{
+  "variantId": "krieg_fortress_Transport",
+  "hullId": "krieg_fortress",
+  "displayName": "Transport",
+  "goalVariant": false,
+  "fluxCapacitors": 27,
+  "fluxVents": 30,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "hardenedshieldemitter",
+    "converted_fighterbay",
+    "expanded_cargo_holds",
+    "extendedshieldemitter",
+    "hardened_subsystems",
+    "nav_relay",
+    "shielded_holds",
+    "turretgyros",
+    "fluxbreakers"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "lightdualmg",
+        "WS0004": "lightdualmg"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "alkemia_light_flak",
+        "WS0006": "alkemia_light_flak"
+      }
+    }
+  ],
+  "modules": [
+    {
+      "TS0001": "krieg_fortress_tail_left_Base"
+    },
+    {
+      "TS0002": "krieg_fortress_tail_right_Base"
+    }
+  ],
+  "wings": [
+    "krieg_vampire_Fighter_wing",
+    "krieg_vampire_Fighter_wing"
+  ]
+}

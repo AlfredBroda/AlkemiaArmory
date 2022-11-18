@@ -1,0 +1,23 @@
+{
+  "variantId": "krieg_vampire_Fighter",
+  "hullId": "krieg_vampire",
+  "displayName": "Fighter",
+  "goalVariant": true,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "alkemia_vulcan",
+        "WS0002": "alkemia_vulcan"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

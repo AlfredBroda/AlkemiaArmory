@@ -1,0 +1,43 @@
+{
+  "variantId": "krieg_prometheus_Standard",
+  "hullId": "prometheus",
+  "displayName": "Standard",
+  "goalVariant": true,
+  "fluxCapacitors": 20,
+  "fluxVents": 14,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "turretgyros",
+    "armoredweapons"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 003": "heavymg"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "lightdualmg",
+        "WS 007": "lightdualmg"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 002": "alkemia_light_flak",
+        "WS 004": "alkemia_light_flak",
+        "WS 005": "alkemia_light_flak",
+        "WS 006": "alkemia_light_flak"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

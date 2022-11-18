@@ -1,0 +1,294 @@
+{
+	"id": "krieg",
+	"color": [ 154, 108, 94, 255 ],
+
+	"baseUIColor": [ 154, 100, 94, 255 ],
+	"darkUIColor": [ 100, 100, 100, 175 ],
+	"gridUIColor": [ 50, 150, 225, 75 ],
+
+	"secondaryUIColor": [ 200, 200, 200, 255 ],
+	"secondarySegments": 8,
+
+	"displayName": "KAF",
+	"displayNameWithArticle": "the KAF",
+	"displayNameLong": "Krieg Air Force",
+	"displayNameLongWithArticle": "the Krieg Air Force",
+	"entityNamePrefix": "Krieg",
+	"personNamePrefix": "Krieger",
+	"personNamePrefixAOrAn": "a",
+	"displayNameIsOrAre": "are",
+
+	"logo": "graphics/alkemia/factions/krieg_logo_flag.png",
+	"crest": "graphics/alkemia/factions/krieg_logo_crest.png",
+	"shipNamePrefix": "KAF",
+	"shipNameSources": {
+		"JAPANESE": 2,
+		"NORSE": 3
+	},
+	"description": "Krieg Air Force - protecting Krieg at all cost",
+	"names": {
+		"modern": 2,
+		"world": 1,
+		"fringe": 3
+	},
+	"voices": {
+		"LOW": {
+			"soldier": 6,
+			"citizen": 4
+		},
+		"MEDIUM": {
+			"soldier": 5,
+			"official": 3,
+			"aristo": 2
+		},
+		"HIGH": {
+			"soldier": 2,
+			"official": 1,
+			"aristo": 7
+		}
+	},
+
+	"hullMods": [
+		"turretgyros",
+		"armoredweapons",
+		"auxiliarythrusters",
+		"blast_doors",
+		"dedicated_targeting_core",
+		"hardened_subsystems",
+		"reinforcedhull",
+		"expanded_deck_crew"
+	],
+	"illegalCommodities": [
+		"organs",
+		"drugs"
+	],
+	"internalComms": "alkemia_internal",
+	"showInIntelTab": false,
+	"tariffFraction": 0.20,
+	"fineFraction": 0.8,
+	"portraits": {
+		"standard_female":
+		[
+			"graphics/portraits/portrait_diktat02.png",
+			"graphics/portraits/portrait_diktat06.png",
+			"graphics/portraits/portrait_hegemony10.png",
+			"graphics/portraits/portrait_hegemony16.png",
+			"graphics/portraits/portrait_league00.png",
+			"graphics/portraits/portrait_league04.png",
+			"graphics/portraits/portrait_league05.png",
+			"graphics/portraits/portrait_mercenary05.png",
+			"graphics/portraits/portrait16.png",
+			"graphics/portraits/portrait22.png",
+			"graphics/portraits/portrait27.png",
+			"graphics/portraits/portrait28.png",
+			"graphics/portraits/portrait32.png",
+			"graphics/portraits/portrait41.png"
+		],
+		"standard_male": [
+			"graphics/portraits/portrait_diktat01.png",
+			"graphics/portraits/portrait_diktat04.png",
+			"graphics/portraits/portrait_diktat07.png",
+			"graphics/portraits/portrait_diktat08.png",
+			"graphics/portraits/portrait_mercenary01.png",
+			"graphics/portraits/portrait_mercenary04.png",
+			"graphics/portraits/portrait_mercenary06.png",
+			"graphics/portraits/portrait17.png",
+			"graphics/portraits/portrait18.png",
+			"graphics/portraits/portrait20.png",
+			"graphics/portraits/portrait23.png",
+			"graphics/portraits/portrait26.png",
+			"graphics/portraits/portrait30.png",
+			"graphics/portraits/portrait33.png",
+			"graphics/portraits/portrait35.png",
+			"graphics/portraits/portrait36.png",
+			"graphics/portraits/portrait38.png"
+		]
+	},
+	"music": {
+		"theme": "music_none",
+		"market_neutral": "music_none",
+		"market_hostile": "music_none",
+		"market_friendly": "music_none",
+		"encounter_neutral": "music_none",
+		"encounter_hostile": "music_none",
+		"encounter_friendly": "music_none"
+	},
+	"custom": {
+		"ignoreTradeWithEnemiesForReputation": false,
+		"allowsTransponderOffTrade": false,
+		"offersCommissions": true,
+		"engagesInHostilities": false,
+		"buysAICores": false,
+		"AICoreValueMult": 1.0,
+		"AICoreRepMult": 1.0,
+		"buysSurveyData": true,
+		"punitiveExpeditionData": {
+			"vsCompetitors": false,
+			"vsFreePort": false,
+			"canBombard": true,
+			"territorial": true
+		}
+	},
+	"shipRoles": {
+		"fastAttack": {
+			"krieg_kr35_Standard": 10,
+			"fallback": { "combatSmall": 1 }
+		},
+
+		"escortSmall": {
+			"krieg_kr35_Escort": 6,
+			"fallback": { "combatSmall": 1 }
+		},
+		"escortMedium": {
+			"krieg_kadze_Escort": 6,
+			"fallback": { "combatMedium": 1 }
+		},
+		"combatSmall": {
+			"krieg_kr35_Standard": 8,
+			"fallback": { "escortSmall": 1 }
+		},
+		"combatMedium": {
+			"krieg_kadze_Assault": 4,
+			"krieg_kadze_Escort": 6,
+			"fallback": { "combatSmall": 2 }
+		},
+		"combatLarge": {
+			"krieg_fortress_Standard": 5,
+			"krieg_kr47_Standard": 8,
+			"fallback": { "combatMedium": 2 }
+		},
+		"combatCapital": {
+			"fallback": { "combatLarge": 2 }
+		},
+
+		"combatFreighterSmall": {
+			"hound_d_Standard": 5,
+			"fallback": { "freighterSmall": 1 }
+		},
+		"combatFreighterMedium": {
+			"mule_d_Standard": 10,
+			"fallback": { "combatFreighterSmall": 2 }
+		},
+		"combatFreighterLarge": {
+			"krieg_fortress_Transport": 4,
+			"fallback": { "combatFreighterMedium": 1 }
+		},
+
+		"carrierSmall": {
+			"condor_Support": 1,
+			"fallback": { "carrierMedium": 0.5 }
+		},
+		"carrierMedium": {
+			"krieg_fortress_Standard": 6,
+			"fallback": { "carrierSmall": 2 }
+		},
+		"carrierLarge": {
+			"fallback": { "carrierMedium": 2 }
+		},
+
+		"freighterSmall": {
+			"hound_d_Standard": 2,
+			"fallback": { "freighterMedium": 0.5 }
+		},
+		"freighterMedium": {
+			"tarsus_d_Standard": 1,
+			"fallback": { "freighterSmall": 2 }
+		},
+		"freighterLarge": {
+			"colossus_Standard": 6,
+			"fallback": { "freighterMedium": 2 }
+		},
+
+		"tankerSmall": {
+			"krieg_dram_Standard": 2,
+			"fallback": { "tankerMedium": 0.5 }
+		},
+		"tankerMedium": {
+			"phaeton_Standard": 8,
+			"fallback": { "tankerSmall": 2 }
+		},
+		"tankerLarge": {
+			"krieg_prometheus_Standard": 10,
+			"fallback": { "tankerMedium": 2 }
+		},
+
+		"personnelSmall": {
+			"kite_original_Stock": 8,
+			"fallback": { "personnelMedium": 0.5 }
+		},
+		"personnelMedium": {
+			"nebula_Standard": 8,
+			"fallback": { "personnelSmall": 2 }
+		},
+		"personnelLarge": {
+			"starliner_Standard": 10,
+			"fallback": { "personnelMedium": 2 }
+		},
+
+		"tug": {
+			"ox_Standard": 10,
+			"fallback": { "utility": 1 }
+		},
+		"crig": {
+			"crig_Standard": 10,
+			"fallback": { "utility": 1 }
+		},
+		"utility": {
+			"crig_Standard": 10,
+			"ox_Standard": 10
+		}
+	},
+	"traits": {
+		"captain": {
+			"cautious": 4,
+			"steady": 6,
+			"aggressive": 8,
+			"reckless": 4
+		}
+	},
+	"doctrine": {
+		"small": 4,
+		"fast": 6,
+		"medium": 10,
+		"large": 8,
+		"capital": 1,
+
+		"escortSmallFraction": 2,
+		"escortMediumFraction": 2,
+
+		"combatFreighterProbability": 0.35,
+
+		"minPointsForCombatCapital": 17,
+		"minPointsForLargeCarrier": 15,
+
+		"smallCarrierProbability": 0.1,
+		"mediumCarrierProbability": 0.4,
+		"largeCarrierProbability": 0.6,
+
+		"officersPerPoint": 0.45,
+		"officerLevelPerPoint": 0.4,
+		"officerLevelBase": 5,
+		"officerLevelVariance": 0.35,
+
+		"commanderSkillsPerLevel": 0.2,
+		"commanderSkillChance": 0.5,
+		"commanderSkillLevelPerLevel": 0.3,
+		"commanderSkills": [
+			"crew_training",
+			"officer_training",
+			"coordinated_maneuvers",
+			"fighter_uplink",
+			"carrier_group"
+		]
+	},
+	"fleetTypeNames": {},
+	"knownShips": {
+		"tags": [ "krieg_bp" ]
+	},
+	"knownFighters": {
+		"tags": [ "krieg_bp" ]
+	},
+	"knownWeapons": {
+		"tags": [ "base_bp", "independent", "krieg_bp" ]
+	}
+}

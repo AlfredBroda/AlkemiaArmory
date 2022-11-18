@@ -164,7 +164,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
                 debug(String.format("AlkemiaEmpMissileAI assigned for %s", id));
                 return new PluginPick<MissileAIPlugin>(new AlkemiaEmpMissileAI(missile, launchingShip),
                         CampaignPlugin.PickPriority.MOD_SPECIFIC);
-            case AlkemiaIds.ALKEMIA_FUELBOMB:
+            case AlkemiaIds.KRIEG_FUELBOMB:
                 debug(String.format("AlkemiaFuelbombAI assigned for %s", id));
                 return new PluginPick<MissileAIPlugin>(new AlkemiaFuelbombAI(missile, launchingShip),
                         CampaignPlugin.PickPriority.MOD_SPECIFIC);
