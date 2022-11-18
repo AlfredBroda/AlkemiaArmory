@@ -213,9 +213,9 @@ Three missions:
 <img alt="KAF" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/KriegAirForce.png?raw=true"/>
 
 ## Work in Progress
-- Junker space station (patchwork)
-
+- Defenders of Krieg in campaign mode
 
 ## Future plans (for now)
-- Add more missions!
+- Corvus mode for Alkemia
+- Add more bar missions
 - Bounties?
