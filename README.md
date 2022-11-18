@@ -210,7 +210,7 @@ Three missions:
 - **To the Rescue** - where Alkemia Customs forces fight to save a Mining Station under attack by Tri-Tachyon raiders
 - **Stratospheric Disaster** - Hegemony fleet invading Krieg is ambushed by the local Air Force
 - **Stratospheric Ambush** - Join Krieg Air Force and defend the planet!
-<img alt="KAF" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/graphics/alkemia/web/KriegAirForce.png?raw=true"/>
+<img alt="KAF" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/web/KriegAirForce.png?raw=true"/>
 
 ## Work in Progress
 - Junker space station (patchwork)
