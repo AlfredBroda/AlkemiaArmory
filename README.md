@@ -206,9 +206,11 @@ A bunch of new vanilla derived weapons: **ER Vulcan** (small), **Pilum Pod** (la
 
 One new special item: **Civilian Grade Nanoforge** (for the private workshops).
 
-Two missions: 
+Three missions: 
 - **To the Rescue** - where Alkemia Customs forces fight to save a Mining Station under attack by Tri-Tachyon raiders
 - **Stratospheric Disaster** - Hegemony fleet invading Krieg is ambushed by the local Air Force
+- **Stratospheric Ambush** - Join Krieg Air Force and defend the planet!
+<img alt="KAF" src="https://github.com/AlfredBroda/AlkemiaArmory/blob/master/graphics/alkemia/web/KriegAirForce.png?raw=true"/>
 
 ## Work in Progress
 - Junker space station (patchwork)
