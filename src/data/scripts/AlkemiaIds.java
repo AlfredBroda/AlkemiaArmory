@@ -27,4 +27,7 @@ public class AlkemiaIds {
 
     // Systems
     public static final String ALKEMIA_AFTERBURNER = "alkemia_afterburner";
+    
+    // Memory keys
+    public static final String KRIEG_EXISTS = "$krieg_exists";
 }

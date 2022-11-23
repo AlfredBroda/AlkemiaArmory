@@ -85,6 +85,7 @@ dependencies {
     compileOnly files("$libDir/lw_lazylib/jars/LazyLib.jar")
     compileOnly files("$libDir/LazyLib/jars/LazyLib.jar")
     compileOnly files("$libDir/MagicLib/jars/MagicLib.jar")
+    compileOnly files("$libDir/nexerelin/jars/ExerelinCore.jar")
 }
 
 // custom tasks

@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.ModManagerAPI;
 import com.fs.starfarer.api.PluginPick;
 import com.fs.starfarer.api.campaign.BaseCampaignEventListener;
 import com.fs.starfarer.api.campaign.BattleAPI;
@@ -11,7 +12,11 @@ import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.CampaignPlugin;
 import com.fs.starfarer.api.campaign.SpecialItemData;
 import com.fs.starfarer.api.campaign.econ.Industry;
+import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.econ.InstallableIndustryItemPlugin.InstallableItemDescriptionMode;
+import com.fs.starfarer.api.campaign.rules.MemoryAPI;
+import com.fs.starfarer.api.characters.PersonAPI;
+import com.fs.starfarer.api.characters.FullName.Gender;
 import com.fs.starfarer.api.combat.EngagementResultAPI;
 import com.fs.starfarer.api.combat.MissileAIPlugin;
 import com.fs.starfarer.api.combat.MissileAPI;
@@ -20,6 +25,9 @@ import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.econ.impl.BoostIndustryInstallableItemEffect;
 import com.fs.starfarer.api.impl.campaign.econ.impl.ItemEffectsRepo;
+import com.fs.starfarer.api.impl.campaign.ids.Commodities;
+import com.fs.starfarer.api.impl.campaign.ids.Ranks;
+import com.fs.starfarer.api.impl.campaign.ids.Skills;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
@@ -30,18 +38,23 @@ import data.scripts.ai.missile.AlkemiaEmpMissileAI;
 import data.scripts.ai.missile.AlkemiaFuelbombAI;
 import data.scripts.ai.missile.AlkemiaPDMissileAI;
 import data.scripts.plugins.AntiMissileEffectPlugin;
+import data.scripts.world.AlkemiaGen;
+import data.scripts.world.KriegGen;
+import exerelin.campaign.SectorManager;
 
 // import org.dark.shaders.light.LightData;
 // import org.dark.shaders.util.ShaderLib;
 // import org.dark.shaders.util.TextureData;
 
 public class AlkemiaModPlugin extends BaseModPlugin {
+    private static final ModManagerAPI MOD_MANAGER = Global.getSettings().getModManager();
+
     public static final String SETTINGS_FILE = "alkemia_options.ini";
 
-    public static final boolean hasExerelin = Global.getSettings().getModManager().isModEnabled("nexerelin");
-
-    public static final boolean hasStarshipLegends = Global.getSettings().getModManager()
-            .isModEnabled("sun_starship_legends");
+    public static final boolean hasExerelin = MOD_MANAGER.isModEnabled("nexerelin");
+    public static final boolean hasIndEvo = MOD_MANAGER.isModEnabled("IndEvo");
+    public static final boolean hasStarshipLegends = MOD_MANAGER.isModEnabled("sun_starship_legends");
+    public static final boolean hasRoider = MOD_MANAGER.isModEnabled("roider");
 
     private static final boolean DEBUG = false;
 
@@ -49,13 +62,13 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
     @Override
     public void onApplicationLoad() {
-        boolean hasLazyLib = Global.getSettings().getModManager().isModEnabled("lw_lazylib");
+        boolean hasLazyLib = MOD_MANAGER.isModEnabled("lw_lazylib");
         if (!hasLazyLib) {
             throw new RuntimeException("Alkemia Armoury requires LazyLib!"
                     + "\nGet it at http://fractalsoftworks.com/forum/index.php?topic=5444");
         }
 
-        boolean hasMagicLib = Global.getSettings().getModManager().isModEnabled("MagicLib");
+        boolean hasMagicLib = MOD_MANAGER.isModEnabled("MagicLib");
         if (!hasMagicLib) {
             throw new RuntimeException("Alkemia Armoury requires MagicLib!"
                     + "\nGet it at http://fractalsoftworks.com/forum/index.php?topic=13718");
@@ -102,6 +115,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
     @Override
     public void onGameLoad(boolean newGame) {
+        // FIXME: Is this correct?
         ItemEffectsRepo.ITEM_EFFECTS.put(AlkemiaIds.ALKEMIA_HULLMOD_NANOFORGE, new BoostIndustryInstallableItemEffect(
                 AlkemiaIds.ALKEMIA_HULLMOD_NANOFORGE, AlkemiaStats.ALKEMIA_NANOFORGE_PROD, 0) {
             public void apply(Industry industry) {
@@ -135,15 +149,33 @@ public class AlkemiaModPlugin extends BaseModPlugin {
         Global.getSector().addTransientListener(new ReportPlayerEngagementCampaignEventListener());
 
         AntiMissileEffectPlugin.cleanSlate();
+        
+        // FIXME: testing purposes
+        if (!Global.getSector().getMemoryWithoutUpdate().getBoolean(AlkemiaIds.KRIEG_EXISTS)) {
+            new KriegGen().generate(Global.getSector());
+            KriegGen.addKriegAdmin();
+        }
     }
 
     @Override
     public void onNewGame() {
+        if (!hasExerelin || !SectorManager.getManager().isCorvusMode()) {
+            // new AlkemiaGen().generate(Global.getSector());
+            new KriegGen().generate(Global.getSector());
+            // Global.getSector().addScript(new MS_fleetFighterFinagler());
+            return;
+        }
+        
+        // Global.getSector().addScript(new MS_fleetFighterFinagler());
+        // SharedData.getData().getPersonBountyEventData().addParticipatingFaction("shadow_industry");
+        // MS_specialItemInitializer.run();
+
         debug("Alkemia onNewGame()");
     }
 
     @Override
     public void onNewGameAfterEconomyLoad() {
+        KriegGen.addKriegAdmin();
     }
 
     ////////////////////////////////////////

@@ -61,30 +61,4 @@ public class AlkemiaImprovedManufactory extends BaseHullMod {
 
 		return "Ship has no manufactory to improve";
 	}
-
-	/*
-	@Override
-    public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
-        float pad = 10f;
-        float padS = 2f;
-	tooltip.addSectionHeading("Details", Alignment.MID, pad);
-	tooltip.addPara("%s " + getString("MonoblocDesc1"), pad, Misc.getHighlightColor(), "-", "25%");
-	tooltip.addPara("%s " + getString("MonoblocDesc2"), padS, Misc.getHighlightColor(), "-", "50%");
-        //tooltip.addPara("%s " + getString("MonoblocDesc3"), padS, Misc.getHighlightColor(), "-", "50%", "600", "700", "800", "1000");
-        tooltip.addPara("%s " + getString("MonoblocDesc3"), padS, Misc.getHighlightColor(), "-", "25su");
-        tooltip.addSectionHeading("Incompatibilities", Alignment.MID, pad);
-        TooltipMakerAPI text = tooltip.beginImageWithText("graphics/ISTL/icons/tooltip/hullmod_incompatible.png", 40);
-            text.addPara(getString("DMEAllIncomp"), padS);
-            text.addPara("- Heavy Armor", Misc.getNegativeHighlightColor(), padS);
-            if (Global.getSettings().getModManager().isModEnabled("apex_design")) {
-                text.addPara("- Nanolaminate Plating", Misc.getNegativeHighlightColor(), 0f);
-                text.addPara("- Cryocooled Armor Lattice", Misc.getNegativeHighlightColor(), 0f);
-            }
-            text.addPara("- Converted Hangar", Misc.getNegativeHighlightColor(), 0f);
-            if (Global.getSettings().getModManager().isModEnabled("roider")) {
-                text.addPara("- Fighter Clamps", Misc.getNegativeHighlightColor(), 0f);
-            }
-        tooltip.addImageWithText(pad);
-    }
-	*/
 }

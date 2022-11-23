@@ -24,7 +24,8 @@
             "female_mechanic2":"graphics/alkemia/portraits/female_mechanic2.png",
             "female_mechanic3":"graphics/alkemia/portraits/female_mechanic3.png",
 			"male_mechanic1":"graphics/alkemia/portraits/male_mechanic1.png",
-			"male_mechanic2":"graphics/alkemia/portraits/male_mechanic2.png"
+			"male_mechanic2":"graphics/alkemia/portraits/male_mechanic2.png",
+            "duke_harald":"graphics/alkemia/portraits/characters/krieg_dukeHarald.png"
         },
         "terrain":{
             "nebula_clouds":"graphics/alkemia/terrain/clouds.png"

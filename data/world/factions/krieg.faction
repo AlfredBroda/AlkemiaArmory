@@ -59,8 +59,7 @@
 		"expanded_deck_crew"
 	],
 	"illegalCommodities": [
-		"organs",
-		"drugs"
+		"organs"
 	],
 	"internalComms": "alkemia_internal",
 	"showInIntelTab": false,

@@ -15,6 +15,7 @@ import com.fs.starfarer.api.loading.HullModSpecAPI;
 
 import data.plugins.AlkemiaRiggerPlugin;
 import data.scripts.AlkemiaIds;
+import data.scripts.AlkemiaModPlugin;
 
 public class AlkemiaRiggerHull extends AlkemiaDroneConversion {
 
@@ -36,8 +37,6 @@ public class AlkemiaRiggerHull extends AlkemiaDroneConversion {
 	@Override
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 		ShipVariantAPI variant = stats.getVariant();
-		// String selectedSkin = getSkinId();
-		boolean hasRoiders = Global.getSettings().getModManager().isModEnabled("roider");
 
 		// Assemble the Rigger if not complete
 		if (variant != null) {
@@ -50,7 +49,7 @@ public class AlkemiaRiggerHull extends AlkemiaDroneConversion {
 					}
 				}
 			}
-			if (hasRoiders) {
+			if (AlkemiaModPlugin.hasRoider) {
 				if (!variant.hasHullMod(AlkemiaIds.CONVERSION_DOCK)) {
 					log.warn("Roider mod enabled, adding Conversion Dock");
 					variant.addPermaMod(AlkemiaIds.CONVERSION_DOCK);
