@@ -55,14 +55,14 @@ public class kriegSurplusMarketPlugin extends BaseSubmarketPlugin {
         if (okToUpdateShipsAndWeapons()) {
             sinceSWUpdate = 0f;
 
-            getCargo().getMothballedShips().clear();
+            // getCargo().getMothballedShips().clear();
 
             FactionDoctrineAPI doctrineOverride = submarket.getFaction().getDoctrine().clone();
             addShips(submarket.getFaction().getId(),
-                    60f, // combat
-                    15f, // freighter
+                    50f, // combat
+                    20f, // freighter
                     10f, // tanker
-                    15f, // transport
+                    20f, // transport
                     0f, // liner
                     0f, // utilityPts
                     null, // qualityOverride
@@ -73,7 +73,7 @@ public class kriegSurplusMarketPlugin extends BaseSubmarketPlugin {
             pruneWeapons(0.2f);
 
             addWeapons(3, 10, 1, submarket.getFaction().getId());
-            addFighters(3, 5, 1, submarket.getFaction().getId());		
+            // addFighters(3, 5, 1, submarket.getFaction().getId());
         }
 
         getCargo().sort();
@@ -116,27 +116,12 @@ public class kriegSurplusMarketPlugin extends BaseSubmarketPlugin {
 	}
 
     @Override
-    public boolean isIllegalOnSubmarket(CargoStackAPI stack, TransferAction action) {
-        return action == TransferAction.PLAYER_SELL;
-    }
-
-    // @Override
-    // public boolean isIllegalOnSubmarket(String commodityId, TransferAction action) {
-    //     return action == TransferAction.PLAYER_SELL;
-    // }
-
-    @Override
     public boolean isIllegalOnSubmarket(FleetMemberAPI member, TransferAction action) {
         return action == TransferAction.PLAYER_SELL;
     }
 
     @Override
     public String getIllegalTransferText(FleetMemberAPI member, TransferAction action) {
-        return "Sales only!";
-    }
-
-    @Override
-    public String getIllegalTransferText(CargoStackAPI stack, TransferAction action) {
         return "Sales only!";
     }
 

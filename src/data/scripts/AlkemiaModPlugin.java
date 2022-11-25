@@ -38,6 +38,7 @@ import data.scripts.ai.missile.AlkemiaEmpMissileAI;
 import data.scripts.ai.missile.AlkemiaFuelbombAI;
 import data.scripts.ai.missile.AlkemiaPDMissileAI;
 import data.scripts.plugins.AntiMissileEffectPlugin;
+import data.scripts.plugins.KriegCampaignPlugin;
 import data.scripts.world.AlkemiaGen;
 import data.scripts.world.KriegGen;
 import exerelin.campaign.SectorManager;
@@ -101,6 +102,10 @@ public class AlkemiaModPlugin extends BaseModPlugin {
         log.info(mesg);
     }
 
+    public void info(String format, Object... args) {
+        log.info(String.format(format, args));
+    }
+
     public void warn(String mesg) {
         log.warn(mesg);
     }
@@ -149,12 +154,19 @@ public class AlkemiaModPlugin extends BaseModPlugin {
         Global.getSector().addTransientListener(new ReportPlayerEngagementCampaignEventListener());
 
         AntiMissileEffectPlugin.cleanSlate();
-        
-        // FIXME: testing purposes
-        if (!Global.getSector().getMemoryWithoutUpdate().getBoolean(AlkemiaIds.KRIEG_EXISTS)) {
+
+        // Allows creation in existing games
+        if (!kriegPlanetExists()) {
             new KriegGen().generate(Global.getSector());
-            KriegGen.addKriegAdmin();
+            KriegGen.addBurrowAdmin();
         }
+        if (kriegPlanetExists()) {
+            Global.getSector().registerPlugin(new KriegCampaignPlugin());
+        }
+    }
+
+    private boolean kriegPlanetExists() {
+        return Global.getSector().getEntityById(AlkemiaIds.KRIEG_PLANET) != null;
     }
 
     @Override
@@ -165,7 +177,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
             // Global.getSector().addScript(new MS_fleetFighterFinagler());
             return;
         }
-        
+
         // Global.getSector().addScript(new MS_fleetFighterFinagler());
         // SharedData.getData().getPersonBountyEventData().addParticipatingFaction("shadow_industry");
         // MS_specialItemInitializer.run();
@@ -175,7 +187,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
     @Override
     public void onNewGameAfterEconomyLoad() {
-        KriegGen.addKriegAdmin();
+        KriegGen.addBurrowAdmin();
     }
 
     ////////////////////////////////////////
