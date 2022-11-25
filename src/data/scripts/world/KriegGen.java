@@ -20,6 +20,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Skills;
 
 import org.lazywizard.lazylib.MathUtils;
 
+import data.scripts.AlkemiaIds;
 import data.scripts.world.systems.Relic;
 
 public class KriegGen implements SectorGeneratorPlugin {
@@ -41,7 +42,7 @@ public class KriegGen implements SectorGeneratorPlugin {
     }
 
     public static void addKriegAdmin() {
-        SectorEntityToken krieg = Global.getSector().getEntityById("krieg_planet");
+        SectorEntityToken krieg = Global.getSector().getEntityById(AlkemiaIds.KRIEG_PLANET);
         MarketAPI market = krieg.getMarket();
         if (market != null) {
             PersonAPI duke = Global.getFactory().createPerson();
@@ -68,18 +69,35 @@ public class KriegGen implements SectorGeneratorPlugin {
             market.addPerson(duke);
 
             PersonAPI admin = OfficerManagerEvent.createOfficer(
-                    Global.getSector().getFaction(FACTION), 1,
+                    market.getFaction(), 1,
                     SkillPickPreference.NO_ENERGY_YES_BALLISTIC_NO_MISSILE_YES_DEFENSE,
                     true, null, false, false, -1,
                     MathUtils.getRandom());
             admin.getStats().setSkillLevel(Skills.INDUSTRIAL_PLANNING, 3);
             admin.getName().setLast("Dunkelheimer");
             market.setAdmin(admin);
-            market.getCommDirectory().addPerson(admin, 1);
+            market.getCommDirectory().addPerson(admin);
 
             Global.getLogger(KriegGen.class).info("Krieg admin updated.");
         } else {
             Global.getLogger(KriegGen.class).warn("Failed to get Krieg!");
+        }
+    }
+
+    public static void addBurrowAdmin() {
+        SectorEntityToken burrow = Global.getSector().getEntityById(AlkemiaIds.KRIEG_BURROW);
+        MarketAPI market = burrow.getMarket();
+        if (market != null) {
+            PersonAPI admin = OfficerManagerEvent.createOfficer(
+                    market.getFaction(), 1,
+                    SkillPickPreference.NO_ENERGY_YES_BALLISTIC_NO_MISSILE_YES_DEFENSE,
+                    true, null, false, false, -1,
+                    MathUtils.getRandom());
+            admin.getStats().setSkillLevel(Skills.INDUSTRIAL_PLANNING, 1);
+            market.setAdmin(admin);
+            market.getCommDirectory().addPerson(admin, 0);
+
+            Global.getLogger(KriegGen.class).info("Krieg admin updated.");
         }
     }
 }

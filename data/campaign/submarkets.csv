@@ -1,4 +1,2 @@
 id,name,faction,desc,script,icon,order
-krieg_surplus,Krieger Surplus,krieg,"Trade with Krieger Military.
-
-Equipment sold here is considered substandard by Krieger Military.",data.scripts.campaign.submarkets.kriegSurplusMarketPlugin,,800.05
+krieg_surplus,Krieger Surplus,krieg,"Equipment sold here is considered substandard by Krieger Military.",data.scripts.campaign.submarkets.kriegSurplusMarketPlugin,,800.05
