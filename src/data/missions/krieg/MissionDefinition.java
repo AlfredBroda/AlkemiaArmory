@@ -30,6 +30,8 @@ import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
 import com.fs.starfarer.api.plugins.AutofitPlugin;
 import com.fs.starfarer.api.plugins.impl.CoreAutofitPlugin;
 
+import data.scripts.tools.Helpers;
+
 import org.apache.log4j.Logger;
 import org.lazywizard.lazylib.MathUtils;
 
@@ -88,7 +90,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		backdrops.add(settings.getSpriteName("backgrounds", "ocean1"));
 		backdrops.add(settings.getSpriteName("backgrounds", "ocean2"));
 
-		api.setBackgroundSpriteName(getRandomElement(backdrops));
+		api.setBackgroundSpriteName(Helpers.getRandomElement(backdrops));
 
 		api.setNebulaTex(settings.getSpriteName("terrain", "nebula_clouds"));
 		// api.setNebulaMapTex("graphics/terrain/nebula_amber_map.png");
@@ -105,10 +107,6 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 
 		api.addObjective((float) minX + width * 0.5f, minY + height * 0.5f, "nav_buoy");
 		api.addObjective((float) minX + width * 0.5f, minY + height * 0.9f, "nav_buoy");
-	}
-
-	public String getRandomElement(List<String> list) {
-		return list.get(rand.nextInt(list.size()));
 	}
 
 	private static final Map<String, Float> QUALITY_FACTORS = new HashMap<>(13);
@@ -189,7 +187,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		CampaignFleetAPI fleet = FleetFactoryV3.createFleet(params);
 
 		List<FleetMemberAPI> fleetList = new ArrayList<>(fleet.getFleetData().getMembersListCopy());
-		Collections.sort(fleetList, PRIORITY);
+		Collections.sort(fleetList, Helpers.COMPARE_PRIORITY);
 
 		boolean flagshipChosen = false;
 		for (FleetMemberAPI baseMember : fleetList) {
@@ -210,31 +208,4 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 
 		return fleet.getFleetPoints();
 	}
-
-	public static final Comparator<FleetMemberAPI> PRIORITY = new Comparator<FleetMemberAPI>() {
-		// -1 means member1 is first, 1 means member2 is first
-		@Override
-		public int compare(FleetMemberAPI member1, FleetMemberAPI member2) {
-			if (!member1.isCivilian()) {
-				if (member2.isCivilian()) {
-					return -1;
-				}
-			} else if (!member2.isCivilian()) {
-				return 1;
-			}
-
-			int sizeCompare = member2.getHullSpec().getHullSize().compareTo(member1.getHullSpec().getHullSize());
-			if (sizeCompare != 0) {
-				return sizeCompare;
-			}
-
-			if (member1.getFleetPointCost() > member2.getFleetPointCost()) {
-				return -1;
-			} else if (member1.getFleetPointCost() < member2.getFleetPointCost()) {
-				return 1;
-			}
-
-			return MathUtils.getRandomNumberInRange(-1, 1);
-		}
-	};
 }

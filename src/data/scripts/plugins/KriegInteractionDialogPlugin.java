@@ -2,7 +2,6 @@ package data.scripts.plugins;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -10,9 +9,12 @@ import org.apache.log4j.Logger;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.InteractionDialogImageVisual;
+import com.fs.starfarer.api.campaign.BattleAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.CargoStackAPI;
+import com.fs.starfarer.api.campaign.CombatDamageData;
+import com.fs.starfarer.api.campaign.EngagementResultForFleetAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.FleetEncounterContextPlugin;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
@@ -29,17 +31,19 @@ import com.fs.starfarer.api.combat.EngagementResultAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.FleetEncounterContext;
 import com.fs.starfarer.api.impl.campaign.FleetInteractionDialogPluginImpl;
+import com.fs.starfarer.api.impl.campaign.PlanetInteractionDialogPluginImpl;
+import com.fs.starfarer.api.impl.campaign.FleetInteractionDialogPluginImpl.OptionId;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 import com.fs.starfarer.api.impl.campaign.ids.Drops;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.impl.campaign.procgen.SalvageEntityGenDataSpec;
-import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
-import com.fs.starfarer.api.impl.campaign.rulecmd.FireBest;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.FleetAdvanceScript;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.SalvageEntity;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.SalvageGenFromSeed;
+import com.fs.starfarer.api.loading.Description;
+import com.fs.starfarer.api.loading.Description.Type;
 import com.fs.starfarer.api.util.Misc;
 
 import data.scripts.AlkemiaIds;
@@ -47,21 +51,20 @@ import data.scripts.tools.KriegDefenderGen;
 import data.scripts.world.KriegGen;
 import data.scripts.world.systems.Relic;
 
-public class KriegInteractionDialogPlugin extends BaseCommandPlugin implements InteractionDialogPlugin {
+public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 
 	private static final int SURVEY_CREW = 40;
 	private static final int SURVEY_AMCHINERY = 10;
 	private static final int SURVEY_SUPPLIES = 20;
 
-	private enum Option {
-		INIT,
-		SURVEY,
-		SURVEY_DONE,
-		SALVAGE,
-		COMBAT,
-		MARKET,
-		CONTINUE,
-		LEAVE
+	private static class Options {
+		public static String INIT = "init";
+		public static String SURVEY = "survey";
+		public static String SURVEY_DONE = "survey_done";
+		public static String SALVAGE = "salvage";
+		public static String COMBAT = "combat";
+		public static String MARKET = "market";
+		public static String LEAVE = "leave";
 	}
 
 	protected InteractionDialogPlugin originalPlugin;
@@ -72,7 +75,7 @@ public class KriegInteractionDialogPlugin extends BaseCommandPlugin implements I
 	private OptionPanelAPI options;
 	private VisualPanelAPI visual;
 
-	private SectorEntityToken entity;
+	private SectorEntityToken planet;
 	private SectorAPI sector;
 	private CampaignFleetAPI playerFleet;
 
@@ -91,40 +94,28 @@ public class KriegInteractionDialogPlugin extends BaseCommandPlugin implements I
 		log.info("construct");
 	}
 
-	@Override
-	public boolean execute(String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params,
-			Map<String, MemoryAPI> memoryMap) {
-		this.memoryMap = memoryMap;
-		this.originalPlugin = dialog.getPlugin();
-		dialog.setPlugin(this);
-
-		init(dialog);
-		return true;
-	}
-
 	public void init(InteractionDialogAPI dialog) {
 		this.dialog = dialog;
 		textPanel = dialog.getTextPanel();
 		options = dialog.getOptionPanel();
 		visual = dialog.getVisualPanel();
 
-		entity = dialog.getInteractionTarget();
+		planet = dialog.getInteractionTarget();
 
 		visual.setVisualFade(0.25f, 0.25f);
 
-		if (entity.getCustomInteractionDialogImageVisual() != null && isKriegRevealed()) {
-			visual.showImageVisual(entity.getCustomInteractionDialogImageVisual());
+		if (planet.getCustomInteractionDialogImageVisual() != null && isKriegRevealed()) {
+			visual.showImageVisual(planet.getCustomInteractionDialogImageVisual());
 		} else {
 			visual.showImageVisual(new InteractionDialogImageVisual("illustrations", "above_clouds", 640, 400));
 		}
 
-		dialog.setOptionOnEscape("Leave", Option.LEAVE);
+		dialog.setOptionOnEscape("Leave", Options.LEAVE);
 
-		optionSelected(null, Option.INIT);
+		optionSelected(null, Options.INIT);
 	}
 
 	public void backFromEngagement(EngagementResultAPI result) {
-		revealKrieg();
 		updateOptions();
 	}
 
@@ -132,24 +123,26 @@ public class KriegInteractionDialogPlugin extends BaseCommandPlugin implements I
 		if (optionData == null)
 			return;
 
-		Option option = (Option) optionData;
+		String option = (String) optionData;
 
 		if (text != null) {
 			textPanel.addParagraph(text, Global.getSettings().getColor("buttonText"));
 		}
 
-		if (option == Option.INIT) {
+		if (option == Options.INIT) {
 			addText("Your fleet enters orbit around the planet.");
-			// FIXME: Get the actual description
-			// String descId = entity.getCustomDescriptionId();
-			addText("You watch the roiling clouds from the bridge of you flagship. Most of your fleet's Survey equipment is rendered useless by the strong magnetic field of the planet.");
-			addText("From time to time vast structures can be seem on the surface, clearly indicating the presence of some previous habitation.");
+
+			Description desc = Global.getSettings().getDescription(planet.getCustomDescriptionId(), Type.CUSTOM);
+			addText(desc.getText1FirstPara());
+
+			addText("You watch the roiling clouds from the bridge of you flagship. Most of your fleet's Survey equipment is rendered useless by the strong magnetic field of the planet. From time to time vast structures can be seem on the surface, clearly indicating the presence of some previous habitation.");
+
 
 			if (isKriegRevealed()) {
 				addText("You've already surveyed this planet.");
 			}
 			updateOptions();
-		} else if (option == Option.SURVEY_DONE) {
+		} else if (option == Options.SURVEY_DONE) {
 			addText("You send down a survey team and just after breaching the cloud cover they report spotting numerous signs of habitation!");
 			FactionAPI krieg = Global.getSector().getFaction(AlkemiaIds.FACTION_KRIEG);
 			addText(String.format(
@@ -160,7 +153,7 @@ public class KriegInteractionDialogPlugin extends BaseCommandPlugin implements I
 			revealKrieg();
 
 			updateOptions();
-		} else if (option == Option.SURVEY) {
+		} else if (option == Options.SURVEY) {
 			options.clearOptions();
 
 			CargoAPI cargo = playerFleet.getCargo();
@@ -173,39 +166,40 @@ public class KriegInteractionDialogPlugin extends BaseCommandPlugin implements I
 					new int[] { SURVEY_CREW, SURVEY_AMCHINERY, SURVEY_SUPPLIES },
 					new boolean[] { false, true, true });
 
-			Option surveyOption = Option.SURVEY_DONE;
-			options.addOption("Confirm", Option.SURVEY_DONE);
-			options.setEnabled(surveyOption, surveyAvailable);
+			options.addOption("Confirm", Options.SURVEY_DONE);
+			options.setEnabled(Options.SURVEY_DONE, surveyAvailable);
 			if (surveyAvailable)
-				options.setTooltip(surveyOption, "Assemble the survey team and send them to the surface");
+				options.setTooltip(Options.SURVEY_DONE, "Assemble the survey team and send them to the surface");
 			else
-				options.setTooltip(surveyOption, "Your cargo contains insufficient resources to perform a Survey");
+				options.setTooltip(Options.SURVEY_DONE, "Your cargo contains insufficient resources to perform a Survey");
 
-			options.addOption("Leave", Option.LEAVE);
-		} else if (option == Option.SALVAGE) {
+			options.addOption("Leave", Options.LEAVE);
+		} else if (option == Options.SALVAGE) {
 			options.clearOptions();
 
 			addText("As your fleet descends through the thick cloud cover, proximity alarms begin sounding.");
 			addText("A large formation of airplanes is headed on an intercept course! They transmit no IFF codes and appear to be quite Low Tech from what you officers report.");
 
-			options.addOption("Continue", Option.COMBAT);
+			options.addOption("Continue", Options.COMBAT);
 			inCombat = true;
-		} else if (option == Option.COMBAT) {
+		} else if (option == Options.COMBAT) {
 			if (inCombat)
 				startEngagement();
 
 			updateOptions();
-		} else if (option == Option.MARKET) {
+		} else if (option == Options.MARKET) {
 			startMarketInteraction();
-		} else if (option == Option.LEAVE) {
+		} else if (option == Options.LEAVE) {
 			Global.getSector().setPaused(false);
 			dialog.dismiss();
 		}
 	}
 
 	private void startMarketInteraction() {
-		// TODO: hand over to regular dialogue plugin
-		dialog.dismiss();
+		InteractionDialogPlugin planetPlugin = new PlanetInteractionDialogPluginImpl();
+
+		dialog.setPlugin(planetPlugin);
+		planetPlugin.init(dialog);
 	}
 
 	private boolean isKriegRevealed() {
@@ -217,7 +211,7 @@ public class KriegInteractionDialogPlugin extends BaseCommandPlugin implements I
 			Relic.addKriegMarket();
 			KriegGen.addKriegAdmin();
 
-			visual.showImageVisual(entity.getCustomInteractionDialogImageVisual());
+			visual.showImageVisual(planet.getCustomInteractionDialogImageVisual());
 		}
 
 		sector.getMemory().set(AlkemiaIds.KEY_KRIEG_REVEALED, true);
@@ -227,40 +221,40 @@ public class KriegInteractionDialogPlugin extends BaseCommandPlugin implements I
 		options.clearOptions();
 
 		if (isKriegRevealed()) {
-			options.addOption("Trade", Option.MARKET,
+			options.addOption("Trade", Options.MARKET,
 					"Land on the surface and begin trade");
 		} else {
-			options.addOption("Salvage Ruins", Option.SALVAGE,
+			options.addOption("Search Ruins", Options.SALVAGE,
 					"Land on the surface to begin salvage operations");
-			options.addOption("Survey Planet", Option.SURVEY,
+			options.addOption("Survey Planet", Options.SURVEY,
 					"Send a survey team to the planet");
 		}
 
-		options.addOption("Leave", Option.LEAVE, null);
+		options.addOption("Leave", Options.LEAVE, null);
 	}
 
 	private void startEngagement() {
-		final MemoryAPI memory = entity.getMemoryWithoutUpdate();
-		final CampaignFleetAPI ambushers = KriegDefenderGen.getFleetForPlanet(entity, AlkemiaIds.FACTION_KRIEG);
+		revealKrieg();
+
+		final MemoryAPI memory = planet.getMemoryWithoutUpdate();
+		final CampaignFleetAPI ambushers = KriegDefenderGen.getFleetForPlanet(planet, AlkemiaIds.FACTION_KRIEG, "Stratospheric Patrol");
 
 		dialog.setInteractionTarget(ambushers);
 
 		final FleetInteractionDialogPluginImpl.FIDConfig config = new FleetInteractionDialogPluginImpl.FIDConfig();
 		config.leaveAlwaysAvailable = false;
-		config.showCommLinkOption = true;
-		config.showEngageText = false;
+		config.showCommLinkOption = false;
+		config.showEngageText = true;
 		config.showFleetAttitude = false;
-		config.showTransponderStatus = false;
+		config.showTransponderStatus = true;
 		config.showWarningDialogWhenNotHostile = false;
-		config.alwaysAttackVsAttack = false;
+		config.alwaysAttackVsAttack = true;
 		config.impactsAllyReputation = false;
 		config.impactsEnemyReputation = false;
 		config.pullInAllies = true;
 		config.pullInEnemies = false;
 		config.pullInStations = false;
 		config.lootCredits = false;
-
-		// config.playerAttackingStation = true;
 
 		config.firstTimeEngageOptionText = "Engage the ambushers";
 		config.afterFirstTimeEngageOptionText = "Re-engage the ambushers";
@@ -272,21 +266,19 @@ public class KriegInteractionDialogPlugin extends BaseCommandPlugin implements I
 		long seed = memory.getLong(MemFlags.SALVAGE_SEED);
 		config.salvageRandom = Misc.getRandom(seed, 75);
 
-		final InteractionDialogPlugin originalPlugin = this; // dialog.getPlugin();
 		final FleetInteractionDialogPluginImpl plugin = new FleetInteractionDialogPluginImpl(config);
-		final SectorEntityToken baseEntity = entity;
+		final SectorEntityToken baseEntity = planet;
+		final InteractionDialogPlugin originalPlugin = this;
 
 		config.delegate = new FleetInteractionDialogPluginImpl.BaseFIDDelegate() {
 			@Override
 			public void notifyLeave(InteractionDialogAPI dialog) {
 				// nothing in there we care about keeping; clearing to reduce savefile size
 				ambushers.getMemoryWithoutUpdate().clear();
-				// there's a "standing down" assignment given after a battle is finished that we
-				// don't care about
+				// there's a "standing down" assignment given after a battle is finished that we don't care about
 				ambushers.clearAssignments();
 				ambushers.deflate();
 
-				dialog.setPlugin(originalPlugin);
 				dialog.setInteractionTarget(baseEntity);
 
 				// Global.getSector().getCampaignUI().clearMessages();
@@ -302,17 +294,6 @@ public class KriegInteractionDialogPlugin extends BaseCommandPlugin implements I
 								.getGenericPlugins().pickPlugin(
 										SalvageGenFromSeed.SalvageDefenderModificationPlugin.class, p);
 						if (plugin != null) {
-							CampaignFleetAPI stationEntity = (CampaignFleetAPI) baseEntity.getMemoryWithoutUpdate()
-									.get(AlkemiaIds.KEY_KRIEG_DEFENDERS);
-							Iterator<FleetMemberAPI> var8 = stationEntity.getFleetData().getMembersListCopy()
-									.iterator();
-
-							while (var8.hasNext()) {
-								FleetMemberAPI member = (FleetMemberAPI) var8.next();
-								stationEntity.removeFleetMemberWithDestructionFlash(member);
-							}
-
-							plugin.reportDefeated(p, baseEntity, stationEntity);
 							plugin.reportDefeated(p, baseEntity, ambushers);
 						}
 
@@ -320,7 +301,9 @@ public class KriegInteractionDialogPlugin extends BaseCommandPlugin implements I
 						memory.unset("$defenderFleet");
 						memory.set("$defenderFleetDefeated", true);
 						baseEntity.removeScriptsOfClass(FleetAdvanceScript.class);
-						FireBest.fire(null, dialog, memoryMap, "BeatDefendersContinue");
+
+						dialog.setPlugin(originalPlugin);
+						originalPlugin.optionSelected(null, Options.MARKET);
 					} else {
 						boolean persistDefenders = false;
 						if (context.isEngagedInHostilities()) {
@@ -358,7 +341,7 @@ public class KriegInteractionDialogPlugin extends BaseCommandPlugin implements I
 			@Override
 			public void battleContextCreated(InteractionDialogAPI dialog, BattleCreationContext bcc) {
 				bcc.aiRetreatAllowed = true;
-				bcc.objectivesAllowed = true;
+				bcc.objectivesAllowed = false;
 				bcc.enemyDeployAll = true;
 			}
 
@@ -436,15 +419,14 @@ public class KriegInteractionDialogPlugin extends BaseCommandPlugin implements I
 
 		log.info("Begin combat");
 		dialog.setPlugin(plugin);
+		plugin.otherFleetWantsToFight(true);
 		plugin.init(dialog);
+
+		plugin.optionSelected(null, OptionId.INITIATE_BATTLE);
 	}
 
 	private void addText(String text) {
 		textPanel.addParagraph(text);
-	}
-
-	private void appendText(String text) {
-		textPanel.appendToLastParagraph(" " + text);
 	}
 
 	public void advance(float amount) {

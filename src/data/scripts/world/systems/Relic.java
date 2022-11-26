@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.PlanetAPI;
+import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
@@ -37,17 +38,15 @@ public class Relic {
     protected final Logger log;
 
     protected transient SearchData search = new SearchData();
+    private StarSystemAPI system = null;
 
     public Relic() {
         genRandom = new Random();
         log = Global.getLogger(getClass());
     }
 
-    /**
-     * @return
-     */
-    public StarSystemAPI generateSystem() {
-        StarSystemAPI system = findGateSystemWithPlanets();
+    public void generate(SectorAPI sector) {
+        system = findGateSystemWithPlanets();
 
         if (system == null) {
             StarSystemGenerator gen = new StarSystemGenerator(new CustomConstellationParams(StarAge.YOUNG));
@@ -61,7 +60,7 @@ public class Relic {
         OrbitGap kriegOrbit = Helpers.findEmptyOrbit(system, 5000, 8000, 1000);
 
         PlanetAPI kriegPlanet = system.addPlanet(
-                "krieg_planet",
+                AlkemiaIds.KRIEG_PLANET,
                 star,
                 "Krieg",
                 "terran-eccentric",
@@ -107,8 +106,6 @@ public class Relic {
         // pirateMarket.addTag(Tags.NO_MARKET_INFO);
 
         Global.getSector().getMemory().set(AlkemiaIds.KEY_KRIEG_EXISTS, true);
-
-        return system;
     }
 
     private List<String> getStationConditions() {
@@ -244,5 +241,9 @@ public class Relic {
         }
 
         return selected.pick();
+    }
+
+    public StarSystemAPI getSystem() {
+        return system;
     }
 }
