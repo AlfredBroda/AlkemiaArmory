@@ -17,6 +17,7 @@ import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent.SkillPickPr
 import com.fs.starfarer.api.impl.campaign.ids.Personalities;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 import com.fs.starfarer.api.impl.campaign.ids.Skills;
+import com.fs.starfarer.api.ui.PositionAPI;
 
 import org.lazywizard.lazylib.MathUtils;
 
@@ -35,10 +36,11 @@ public class KriegGen implements SectorGeneratorPlugin {
 
     @Override
     public void generate(SectorAPI sector) {
-        StarSystemAPI system = new Relic().generateSystem();
+        Relic relic = new Relic();
+        relic.generate(sector);
 
-        log.info(String.format("Krieg generatior done (%s, %s Constellation).", system.getName(),
-                system.getConstellation().getName()));
+        log.info(String.format("Krieg generator done (%s, %s Constellation).", relic.getSystem().getName(),
+                relic.getSystem().getConstellation().getName()));
     }
 
     public static void addKriegAdmin() {
@@ -62,7 +64,7 @@ public class KriegGen implements SectorGeneratorPlugin {
 
             duke.getName().setFirst("Duke Harald");
             duke.getName().setLast("Dunkelheimer");
-            duke.setPortraitSprite(Global.getSettings().getSpriteName("characters","duke_harald"));
+            duke.setPortraitSprite(Global.getSettings().getSpriteName("characters", "duke_harald"));
             duke.setPersonality(Personalities.AGGRESSIVE);
 
             market.getCommDirectory().addPerson(duke, 0);
@@ -94,10 +96,14 @@ public class KriegGen implements SectorGeneratorPlugin {
                     true, null, false, false, -1,
                     MathUtils.getRandom());
             admin.getStats().setSkillLevel(Skills.INDUSTRIAL_PLANNING, 1);
+            admin.setPostId(Ranks.POST_BASE_COMMANDER);
+            admin.setRankId(Ranks.SPACE_LIEUTENANT);
+
+            admin.setContactWeight(1f);
             market.setAdmin(admin);
             market.getCommDirectory().addPerson(admin, 0);
 
-            Global.getLogger(KriegGen.class).info("Krieg admin updated.");
+            Global.getLogger(KriegGen.class).info("Burrow admin updated.");
         }
     }
 }

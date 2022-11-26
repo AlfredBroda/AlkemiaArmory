@@ -160,9 +160,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
             new KriegGen().generate(Global.getSector());
             KriegGen.addBurrowAdmin();
         }
-        if (kriegPlanetExists()) {
-            Global.getSector().registerPlugin(new KriegCampaignPlugin());
-        }
+        Global.getSector().registerPlugin(new KriegCampaignPlugin());
     }
 
     private boolean kriegPlanetExists() {
@@ -191,9 +189,9 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     }
 
     ////////////////////////////////////////
-    //                                    //
-    //       MISSILES AI OVERRIDES        //
-    //                                    //
+    // //
+    // MISSILES AI OVERRIDES //
+    // //
     ////////////////////////////////////////
 
     @Override
@@ -218,9 +216,9 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     }
 
     ////////////////////////////////////////
-    //                                    //
-    //          SHIP AI OVERRIDES         //
-    //                                    //
+    // //
+    // SHIP AI OVERRIDES //
+    // //
     ////////////////////////////////////////
 
     @Override

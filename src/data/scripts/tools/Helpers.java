@@ -3,7 +3,9 @@ package data.scripts.tools;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 
 import org.apache.log4j.Logger;
 
@@ -13,6 +15,7 @@ import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.econ.EconomyAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
+import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Terrain;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator;
@@ -51,7 +54,7 @@ public class Helpers {
         }
 
         for (String condition : marketConditions) {
-            if (!newMarket.hasCondition(condition)) 
+            if (!newMarket.hasCondition(condition))
                 newMarket.addCondition(condition);
         }
 
@@ -131,9 +134,41 @@ public class Helpers {
                         visStartRadius, // visual band start
                         visEndRadius, // visual band end
                         baseColors[baseIndex], // base color
-                        flareProbability, // probability to spawn aurora sequence, checked once/day when no aurora in progress
-                        auroraColors[auroraIndex]
-                ));
+                        flareProbability, // probability to spawn aurora sequence, checked once/day when no aurora in
+                                          // progress
+                        auroraColors[auroraIndex]));
         magField.setCircularOrbit(token, 0, 0, 100);
     }
+
+    public static final Comparator<FleetMemberAPI> COMPARE_PRIORITY = new Comparator<FleetMemberAPI>() {
+        // -1 means member1 is first, 1 means member2 is first
+        @Override
+        public int compare(FleetMemberAPI member1, FleetMemberAPI member2) {
+            if (!member1.isCivilian()) {
+                if (member2.isCivilian()) {
+                    return -1;
+                }
+            } else if (!member2.isCivilian()) {
+                return 1;
+            }
+
+            int sizeCompare = member2.getHullSpec().getHullSize().compareTo(member1.getHullSpec().getHullSize());
+            if (sizeCompare != 0) {
+                return sizeCompare;
+            }
+
+            if (member1.getFleetPointCost() > member2.getFleetPointCost()) {
+                return -1;
+            } else if (member1.getFleetPointCost() < member2.getFleetPointCost()) {
+                return 1;
+            }
+
+            return MathUtils.getRandomNumberInRange(-1, 1);
+        }
+    };
+
+    public static String getRandomElement(List<String> list) {
+        return list.get(new Random().nextInt(list.size()));
+    }
+
 }
