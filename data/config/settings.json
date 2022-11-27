@@ -43,6 +43,9 @@
             "orbital_station":"graphics/alkemia/illustrations/orbital_station.png",
             "dieselpunk_city":"graphics/alkemia/illustrations/dieselpunk_city.jpg",
             "above_clouds":"graphics/alkemia/illustrations/above_clouds.jpg"
+        },
+        "stations":{
+			"station_burrow":"graphics/alkemia/stations/station_burrow.png"
         }
     },
     "plugins":{

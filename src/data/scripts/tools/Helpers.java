@@ -1,13 +1,13 @@
 package data.scripts.tools;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import static com.fs.starfarer.api.impl.campaign.procgen.MagFieldGenPlugin.auroraColors;
+import static com.fs.starfarer.api.impl.campaign.procgen.MagFieldGenPlugin.baseColors;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
-import org.apache.log4j.Logger;
+import org.lazywizard.lazylib.MathUtils;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.PlanetAPI;
@@ -16,16 +16,15 @@ import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.econ.EconomyAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.impl.campaign.ids.Factions;
+import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.campaign.ids.Terrain;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator.OrbitGap;
 import com.fs.starfarer.api.impl.campaign.terrain.MagneticFieldTerrainPlugin;
-
-import static com.fs.starfarer.api.impl.campaign.procgen.MagFieldGenPlugin.auroraColors;
-import static com.fs.starfarer.api.impl.campaign.procgen.MagFieldGenPlugin.baseColors;
-
-import org.lazywizard.lazylib.MathUtils;
+import com.fs.starfarer.api.util.Misc;
+import com.fs.starfarer.api.util.WeightedRandomPicker;
 
 public class Helpers {
 
@@ -107,11 +106,14 @@ public class Helpers {
         return gap.start + (gap.end - gap.start) / 2;
     }
 
-    public static MarketAPI addConditionsMarket(PlanetAPI planet, String name, List<String> planetConditions, int size,
-            boolean hidden) {
-        MarketAPI market = Global.getFactory().createMarket(planet.getId(), name, size);
-        market.setHidden(hidden);
+    public static MarketAPI addConditionsMarket(PlanetAPI planet, String name, List<String> planetConditions) {
+        MarketAPI market = Global.getFactory().createMarket("market_"+planet.getId(), name, 1);
         market.setPlanetConditionMarketOnly(true);
+        market.setFactionId(Factions.NEUTRAL);
+        market.setHidden(true);
+        planet.setMarket(market);
+
+        market.reapplyConditions();
 
         return market;
     }
@@ -171,4 +173,51 @@ public class Helpers {
         return list.get(new Random().nextInt(list.size()));
     }
 
+    public static void makeDiscoverable(SectorEntityToken entity, float range, float profile, float xp) {
+        entity.setSensorProfile(null);
+        entity.setDiscoverable(true);
+        entity.setDiscoveryXP(xp);
+        entity.setSensorProfile(profile);
+        entity.getDetectedRangeMod().modifyFlat("gen", 2000);
+    }
+
+    public static StarSystemAPI findGateSystemWithPlanets() {
+        WeightedRandomPicker<StarSystemAPI> selected = new WeightedRandomPicker<>(new Random());
+
+        List<SectorEntityToken> gates = Global.getSector().getEntitiesWithTag(Tags.GATE);
+        for (SectorEntityToken gate : gates) {
+            StarSystemAPI system = gate.getStarSystem();
+
+            // must be unknown
+            if (system.isEnteredByPlayer())
+                continue;
+            // avoid pulsars
+            if (Misc.hasPulsar(system))
+                continue;
+            // not otherwise populated
+            if (Misc.getMarketsInLocation(system).size() > 0)
+                continue;
+
+            List<SectorEntityToken> planets = system.getEntitiesWithTag(Tags.PLANET);
+            float weight = 2;
+            if (planets.size() > 0)
+                weight = weight / planets.size();
+
+            if (system.hasTag(Tags.THEME_INTERESTING)) {
+                weight *= 0.5f;
+            } else if (system.hasTag(Tags.THEME_INTERESTING_MINOR)) {
+                weight *= 0.75f;
+            }
+
+            if (system.hasTag(Tags.BEACON_HIGH)) {
+                weight *= 0.1f;
+            } else if (system.hasTag(Tags.BEACON_MEDIUM)) {
+                weight *= 0.75f;
+            }
+
+            selected.add(system, weight);
+        }
+
+        return selected.pick();
+    }
 }
