@@ -26,7 +26,6 @@ import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator.CustomConstellationParams;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator.OrbitGap;
 import com.fs.starfarer.api.util.Misc;
-import com.fs.starfarer.api.util.WeightedRandomPicker;
 
 import data.scripts.AlkemiaIds;
 import data.scripts.AlkemiaModPlugin;
@@ -34,19 +33,17 @@ import data.scripts.tools.Helpers;
 
 public class Relic {
 
-    protected final Random genRandom;
     protected final Logger log;
 
     protected transient SearchData search = new SearchData();
     private StarSystemAPI system = null;
 
     public Relic() {
-        genRandom = new Random();
         log = Global.getLogger(getClass());
     }
 
     public void generate(SectorAPI sector) {
-        system = findGateSystemWithPlanets();
+        system = Helpers.findGateSystemWithPlanets();
 
         if (system == null) {
             StarSystemGenerator gen = new StarSystemGenerator(new CustomConstellationParams(StarAge.YOUNG));
@@ -66,19 +63,27 @@ public class Relic {
                 "terran-eccentric",
                 360f * (float) Math.random(),
                 90,
-                kriegOrbit.start,
+                kriegOrbit.start + 400,
                 260);
         kriegPlanet.setInteractionImage("illustrations", "dieselpunk_city");
         kriegPlanet.setCustomDescriptionId("krieg_planet_desc");
-        Helpers.addMagneticField(kriegPlanet, 0.2f, 90, false);
-        Helpers.addConditionsMarket(kriegPlanet, "Krieg", getPlanetConditions(), 0, true);
+        Helpers.addMagneticField(kriegPlanet, 0.2f, 180, false);
+        // Helpers.addConditionsMarket(kriegPlanet, "Krieg", getPlanetConditions());
+        PlanetConditionGenerator.generateConditionsForPlanet(kriegPlanet, system.getAge());
+        Helpers.makeDiscoverable(kriegPlanet, 3000, 100, 500);
+
+        MarketAPI tempMarket = kriegPlanet.getMarket();
+        if (tempMarket != null) {
+            tempMarket.addCondition(Conditions.SOLAR_ARRAY);
+            tempMarket.addCondition("alkemia_ionized_atmosphere");
+        }
 
         int beltWidth = 800;
         OrbitGap beltOrbit = Helpers.findEmptyOrbit(system, 2000, 7000, beltWidth);
 
         system.addAsteroidBelt(
                 star,
-                500,
+                1500,
                 Helpers.getMiddle(beltOrbit),
                 beltWidth,
                 400,
@@ -88,21 +93,22 @@ public class Relic {
 
         PlanetAPI kriegMoon = system.addPlanet("krieg_moon", kriegPlanet, "Kanshi-sha", "barren-bombarded",
                 360f * (float) Math.random(), 20, 400, 20);
+        Helpers.makeDiscoverable(kriegMoon, 3000, 10, 100);
 
         PlanetConditionGenerator.generateConditionsForPlanet(kriegMoon, system.getAge());
 
         SectorEntityToken pirateStation = system.addCustomEntity(AlkemiaIds.KRIEG_BURROW,
-                "Burrow", "station_side05", Factions.PIRATES);
-        pirateStation.setCircularOrbitPointingDown(star, 360f * (float) Math.random(), Helpers.getMiddle(beltOrbit), 500);
-        pirateStation.setInteractionImage("illustrations", "burrow_station");
-        pirateStation.setCustomDescriptionId("krieg_pirate_orbital_desc");
-        pirateStation.setDiscoverable(true);
-        pirateStation.setDetectionRangeDetailsOverrideMult(0.1f);
+                "Hemera Station", "station_burrow", Factions.PIRATES);
+        pirateStation.setCircularOrbitPointingDown(star, 360f * (float) Math.random(), Helpers.getMiddle(beltOrbit),
+                500);
+        pirateStation.setCustomDescriptionId("krieg_pirate_station_desc");
+        Helpers.makeDiscoverable(pirateStation, 2000, 1, 200);
         pirateStation.addTag(Tags.STATION);
 
-        MarketAPI pirateMarket = Helpers.addMarketplace(Factions.PIRATES, pirateStation, null, "Burrow Station", 3,
+        MarketAPI pirateMarket = Helpers.addMarketplace(Factions.PIRATES, pirateStation, null, "Hemera Station", 3,
                 getStationConditions(), getStationIndustries(), getStationSubmarkets(), 0f, false);
         pirateMarket.setHidden(true);
+
         // pirateMarket.addTag(Tags.NO_MARKET_INFO);
 
         Global.getSector().getMemory().set(AlkemiaIds.KEY_KRIEG_EXISTS, true);
@@ -148,9 +154,10 @@ public class Relic {
         MarketAPI market = Helpers.addMarketplace("krieg", krieg, null, "Krieg", 7, getPlanetConditions(),
                 getPlanetIndustries(),
                 getPlanetSubmarkets(), 0f, false);
+        market.setHidden(false);
 
         Global.getSector().getMemory().set(AlkemiaIds.KEY_KRIEG_REVEALED, true);
-        market.setHidden(true);
+        krieg.setDiscoverable(false);
         // market.addTag(Tags.NO_MARKET_INFO);
     }
 
@@ -169,7 +176,7 @@ public class Relic {
         ArrayList<String> conditions = new ArrayList<>();
         conditions.add(Conditions.HABITABLE);
         conditions.add(Conditions.MILD_CLIMATE);
-        conditions.add(Conditions.DENSE_ATMOSPHERE);
+        conditions.add("alkemia_ionized_atmosphere");
 
         conditions.add(Conditions.VOLATILES_DIFFUSE);
         conditions.add(Conditions.ORE_ABUNDANT);
@@ -177,8 +184,9 @@ public class Relic {
         conditions.add(Conditions.ORGANICS_COMMON);
 
         conditions.add(Conditions.POPULATION_7);
-        // conditions.add(Conditions.INDUSTRIAL_POLITY);
+        conditions.add(Conditions.RURAL_POLITY);
         conditions.add(Conditions.DISSIDENT);
+        conditions.add(Conditions.SOLAR_ARRAY);
         // conditions.add(Conditions.POLLUTION);
 
         return conditions;
@@ -201,46 +209,6 @@ public class Relic {
             industries.add("IndEvo_AdManuf");
         }
         return industries;
-    }
-
-    private StarSystemAPI findGateSystemWithPlanets() {
-        WeightedRandomPicker<StarSystemAPI> selected = new WeightedRandomPicker<>(genRandom);
-
-        List<SectorEntityToken> gates = Global.getSector().getEntitiesWithTag(Tags.GATE);
-        for (SectorEntityToken gate : gates) {
-            StarSystemAPI system = gate.getStarSystem();
-
-            // must be unknown
-            if (system.isEnteredByPlayer())
-                continue;
-            // avoid pulsars
-            if (Misc.hasPulsar(system))
-                continue;
-            // not otherwise populated
-            if (Misc.getMarketsInLocation(system).size() > 0)
-                continue;
-
-            List<SectorEntityToken> planets = system.getEntitiesWithTag(Tags.PLANET);
-            float weight = 2;
-            if (planets.size() > 0)
-                weight = weight / planets.size();
-
-            if (system.hasTag(Tags.THEME_INTERESTING)) {
-                weight *= 0.5f;
-            } else if (system.hasTag(Tags.THEME_INTERESTING_MINOR)) {
-                weight *= 0.75f;
-            }
-
-            if (system.hasTag(Tags.BEACON_HIGH)) {
-                weight *= 0.1f;
-            } else if (system.hasTag(Tags.BEACON_MEDIUM)) {
-                weight *= 0.75f;
-            }
-
-            selected.add(system, weight);
-        }
-
-        return selected.pick();
     }
 
     public StarSystemAPI getSystem() {

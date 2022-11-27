@@ -9,12 +9,9 @@ import org.apache.log4j.Logger;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.InteractionDialogImageVisual;
-import com.fs.starfarer.api.campaign.BattleAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.CargoStackAPI;
-import com.fs.starfarer.api.campaign.CombatDamageData;
-import com.fs.starfarer.api.campaign.EngagementResultForFleetAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.FleetEncounterContextPlugin;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
@@ -31,7 +28,7 @@ import com.fs.starfarer.api.combat.EngagementResultAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.FleetEncounterContext;
 import com.fs.starfarer.api.impl.campaign.FleetInteractionDialogPluginImpl;
-import com.fs.starfarer.api.impl.campaign.PlanetInteractionDialogPluginImpl;
+import com.fs.starfarer.api.impl.campaign.OrbitalStationInteractionDialogPluginImpl;
 import com.fs.starfarer.api.impl.campaign.FleetInteractionDialogPluginImpl.OptionId;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 import com.fs.starfarer.api.impl.campaign.ids.Drops;
@@ -39,6 +36,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.impl.campaign.procgen.SalvageEntityGenDataSpec;
+import com.fs.starfarer.api.impl.campaign.rulecmd.AddRemoveCommodity;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.FleetAdvanceScript;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.SalvageEntity;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.SalvageGenFromSeed;
@@ -79,10 +77,11 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 	private SectorAPI sector;
 	private CampaignFleetAPI playerFleet;
 
-	private boolean inCombat = false;
+	private boolean wasInCombat = false;
 
 	// Getting the color from settings.json
-	private static final Color HIGHLIGHT_COLOR = Global.getSettings().getColor("buttonShortcut");
+	private static final Color LOW_TECH_COLOR = Global.getSettings().getDesignTypeColor("Low Tech");
+	private static final Color HIGHLIGHT_COLOR = Global.getSettings().getColor("hColor");
 
 	private final Logger log;
 
@@ -116,7 +115,6 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 	}
 
 	public void backFromEngagement(EngagementResultAPI result) {
-		updateOptions();
 	}
 
 	public void optionSelected(String text, Object optionData) {
@@ -135,24 +133,32 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 			Description desc = Global.getSettings().getDescription(planet.getCustomDescriptionId(), Type.CUSTOM);
 			addText(desc.getText1FirstPara());
 
-			addText("You watch the roiling clouds from the bridge of you flagship. Most of your fleet's Survey equipment is rendered useless by the strong magnetic field of the planet. From time to time vast structures can be seem on the surface, clearly indicating the presence of some previous habitation.");
-
-
-			if (isKriegRevealed()) {
-				addText("You've already surveyed this planet.");
+			if (!isKriegRevealed()) {
+				addText("You watch the roiling clouds from the bridge of you flagship. Most of your fleet's Survey Equipment is rendered useless by the strong magnetic interference. Occasionaly, vast structures can be seen on the surface, clearly indicating the presence of some previous habitation.");
 			}
+
 			updateOptions();
 		} else if (option == Options.SURVEY_DONE) {
-			addText("You send down a survey team and just after breaching the cloud cover they report spotting numerous signs of habitation!");
+			addText("You send down a survey team and just after their shuttle breaches the cloud cover they report spotting numerous active industraial sites. Even in the sky some Low Tech aircraft can be detected.");
+			textPanel.highlightInLastPara(LOW_TECH_COLOR, "Low Tech");
+
 			FactionAPI krieg = Global.getSector().getFaction(AlkemiaIds.FACTION_KRIEG);
 			addText(String.format(
-					"Shortly the team also reports being intercepted and forced to land by unidentified airplanes. They are informed that %s is in control of this planet's airspace, which they have violated.",
+					"Shortly, the team is intercepted by said aircraft. They are informed that they have violated airspace controlled by %s and are forced to land.",
 					krieg.getDisplayNameLongWithArticle()));
 			textPanel.highlightFirstInLastPara(krieg.getDisplayNameLongWithArticle(), krieg.getColor());
+			addText(" Fortunately after some negotiations your team is released, and the fleet recieves coordinates for a safe pickup. Their shuttle and equipment are however confiscated. The local authorities seem to be very keen on space grade technology.");
+			textPanel.highlightInLastPara(HIGHLIGHT_COLOR, "space grade");
+
+			CargoAPI cargo = playerFleet.getCargo();
+			cargo.removeCommodity(Commodities.HEAVY_MACHINERY, SURVEY_AMCHINERY);
+			cargo.removeCommodity(Commodities.SUPPLIES, SURVEY_SUPPLIES);
+			AddRemoveCommodity.addCommodityLossText(Commodities.HEAVY_MACHINERY, SURVEY_AMCHINERY, textPanel);
+			AddRemoveCommodity.addCommodityLossText(Commodities.SUPPLIES, SURVEY_SUPPLIES, textPanel);
 
 			revealKrieg();
 
-			updateOptions();
+			startMarketInteraction();
 		} else if (option == Options.SURVEY) {
 			options.clearOptions();
 
@@ -171,22 +177,21 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 			if (surveyAvailable)
 				options.setTooltip(Options.SURVEY_DONE, "Assemble the survey team and send them to the surface");
 			else
-				options.setTooltip(Options.SURVEY_DONE, "Your cargo contains insufficient resources to perform a Survey");
+				options.setTooltip(Options.SURVEY_DONE,
+						"Your cargo contains insufficient resources to perform this Survey");
 
 			options.addOption("Leave", Options.LEAVE);
 		} else if (option == Options.SALVAGE) {
 			options.clearOptions();
 
-			addText("As your fleet descends through the thick cloud cover, proximity alarms begin sounding.");
-			addText("A large formation of airplanes is headed on an intercept course! They transmit no IFF codes and appear to be quite Low Tech from what you officers report.");
+			addText("As your fleet descends through the thick cloud cover, proximity alarms begin to sound. A large formation of aircraft is headed on an intercept course - they transmit no identification codes and appear to be quite Low Tech from what you officers report. Nevertheless they appear to be quite hostile.");
+			textPanel.highlightInLastPara(LOW_TECH_COLOR, "Low Tech");
 
-			options.addOption("Continue", Options.COMBAT);
-			inCombat = true;
+			optionSelected(null, Options.COMBAT);
 		} else if (option == Options.COMBAT) {
-			if (inCombat)
-				startEngagement();
-
-			updateOptions();
+			options.clearOptions();
+			wasInCombat = true;
+			startEngagement();
 		} else if (option == Options.MARKET) {
 			startMarketInteraction();
 		} else if (option == Options.LEAVE) {
@@ -196,7 +201,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 	}
 
 	private void startMarketInteraction() {
-		InteractionDialogPlugin planetPlugin = new PlanetInteractionDialogPluginImpl();
+		InteractionDialogPlugin planetPlugin = new OrbitalStationInteractionDialogPluginImpl();
 
 		dialog.setPlugin(planetPlugin);
 		planetPlugin.init(dialog);
@@ -237,7 +242,8 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 		revealKrieg();
 
 		final MemoryAPI memory = planet.getMemoryWithoutUpdate();
-		final CampaignFleetAPI ambushers = KriegDefenderGen.getFleetForPlanet(planet, AlkemiaIds.FACTION_KRIEG, "Stratospheric Patrol");
+		final CampaignFleetAPI ambushers = KriegDefenderGen.getFleetForPlanet(planet, AlkemiaIds.FACTION_KRIEG,
+				"Stratospheric Patrol");
 
 		dialog.setInteractionTarget(ambushers);
 
@@ -250,7 +256,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 		config.showWarningDialogWhenNotHostile = false;
 		config.alwaysAttackVsAttack = true;
 		config.impactsAllyReputation = false;
-		config.impactsEnemyReputation = false;
+		config.impactsEnemyReputation = true;
 		config.pullInAllies = true;
 		config.pullInEnemies = false;
 		config.pullInStations = false;
@@ -275,7 +281,8 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 			public void notifyLeave(InteractionDialogAPI dialog) {
 				// nothing in there we care about keeping; clearing to reduce savefile size
 				ambushers.getMemoryWithoutUpdate().clear();
-				// there's a "standing down" assignment given after a battle is finished that we don't care about
+				// there's a "standing down" assignment given after a battle is finished that we
+				// don't care about
 				ambushers.clearAssignments();
 				ambushers.deflate();
 
@@ -427,6 +434,10 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 
 	private void addText(String text) {
 		textPanel.addParagraph(text);
+	}
+
+	private void appendText(String text) {
+		textPanel.appendToLastParagraph(text);
 	}
 
 	public void advance(float amount) {

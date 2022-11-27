@@ -189,9 +189,9 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     }
 
     ////////////////////////////////////////
-    // //
-    // MISSILES AI OVERRIDES //
-    // //
+    //                                    //
+    //       MISSILES AI OVERRIDES        //
+    //                                    //
     ////////////////////////////////////////
 
     @Override
@@ -216,9 +216,9 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     }
 
     ////////////////////////////////////////
-    // //
-    // SHIP AI OVERRIDES //
-    // //
+    //                                    //
+    //          SHIP AI OVERRIDES         //
+    //                                    //
     ////////////////////////////////////////
 
     @Override

@@ -4,12 +4,12 @@ import org.apache.log4j.Logger;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.PluginPick;
+import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.BaseCampaignPlugin;
 import com.fs.starfarer.api.campaign.BattleCreationPlugin;
 import com.fs.starfarer.api.campaign.InteractionDialogPlugin;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
-import com.fs.starfarer.api.fleet.FleetAPI;
 
 import data.scripts.AlkemiaIds;
 
@@ -36,8 +36,11 @@ public class KriegCampaignPlugin extends BaseCampaignPlugin {
 
 	public PluginPick<BattleCreationPlugin> pickBattleCreationPlugin(SectorEntityToken opponent) {
 		Logger log = Global.getLogger(getClass());
-		log.info(opponent.getFullName());
-		if (opponent instanceof FleetAPI && opponent.getFaction().getId() == AlkemiaIds.FACTION_KRIEG) {
+		log.info(opponent.getClass());
+		log.info(opponent.getName());
+		log.info(opponent.getFaction().toString());
+		FactionAPI faction = opponent.getFaction();
+		if (faction != null && faction.getId() == AlkemiaIds.FACTION_KRIEG) {
 			log.info("using KriegAtmosphericCreatorPlugin");
 			return new PluginPick<BattleCreationPlugin>(new KriegAtmosphericCreatorPlugin(), PickPriority.MOD_SPECIFIC);
 		}

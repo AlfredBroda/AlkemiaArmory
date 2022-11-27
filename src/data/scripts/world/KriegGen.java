@@ -1,13 +1,13 @@
 package data.scripts.world;
 
 import org.apache.log4j.Logger;
+import org.lazywizard.lazylib.MathUtils;
+import org.lazywizard.lazylib.campaign.MessageUtils;
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
-import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.characters.FullName.Gender;
 import com.fs.starfarer.api.characters.MutableCharacterStatsAPI;
@@ -17,9 +17,7 @@ import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent.SkillPickPr
 import com.fs.starfarer.api.impl.campaign.ids.Personalities;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 import com.fs.starfarer.api.impl.campaign.ids.Skills;
-import com.fs.starfarer.api.ui.PositionAPI;
-
-import org.lazywizard.lazylib.MathUtils;
+import com.fs.starfarer.api.impl.campaign.ids.Voices;
 
 import data.scripts.AlkemiaIds;
 import data.scripts.world.systems.Relic;
@@ -27,8 +25,6 @@ import data.scripts.world.systems.Relic;
 public class KriegGen implements SectorGeneratorPlugin {
 
     protected final Logger log;
-
-    static public final String FACTION = "krieg";
 
     public KriegGen() {
         log = Global.getLogger(getClass());
@@ -39,8 +35,9 @@ public class KriegGen implements SectorGeneratorPlugin {
         Relic relic = new Relic();
         relic.generate(sector);
 
-        log.info(String.format("Krieg generator done (%s, %s Constellation).", relic.getSystem().getName(),
-                relic.getSystem().getConstellation().getName()));
+        String mesg = String.format("Krieg generator done (%s, %s Constellation).", relic.getSystem().getName(), relic.getSystem().getConstellation().getName());
+        MessageUtils.showMessage(mesg);
+        log.info(mesg);
     }
 
     public static void addKriegAdmin() {
@@ -48,7 +45,7 @@ public class KriegGen implements SectorGeneratorPlugin {
         MarketAPI market = krieg.getMarket();
         if (market != null) {
             PersonAPI duke = Global.getFactory().createPerson();
-            duke.setFaction(FACTION);
+            duke.setFaction(AlkemiaIds.FACTION_KRIEG);
             duke.setGender(Gender.MALE);
             duke.setPostId(Ranks.POST_FACTION_LEADER);
             duke.setRankId(Ranks.FACTION_LEADER);
@@ -96,10 +93,11 @@ public class KriegGen implements SectorGeneratorPlugin {
                     true, null, false, false, -1,
                     MathUtils.getRandom());
             admin.getStats().setSkillLevel(Skills.INDUSTRIAL_PLANNING, 1);
-            admin.setPostId(Ranks.POST_BASE_COMMANDER);
+            admin.setPostId(Ranks.POST_ADMINISTRATOR);
             admin.setRankId(Ranks.SPACE_LIEUTENANT);
-
+            admin.setVoice(Voices.SPACER);
             admin.setContactWeight(1f);
+
             market.setAdmin(admin);
             market.getCommDirectory().addPerson(admin, 0);
 
