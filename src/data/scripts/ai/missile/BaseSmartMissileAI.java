@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.AIUtils;
+import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.Global;
@@ -350,11 +351,8 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
         // damage the target
         missile.explode();
 
-        if (DEBUG_DAMAGE) {
-            engine.addFloatingText(target.getLocation(),
-                    String.format("BASE: %.1f/%.1f", missile.getDamageAmount(), missile.getEmpAmount()), 30.0F,
-                    FLARE_COLOR, missile, 0.3f, 3.5f);
-        }
+        Vector2f explosionLocation = missile.getLocation();
+        float impact = missile.getSpec().getImpactStrength();
 
         // damage nearby targets
         List<ShipAPI> closeTargets = AIUtils.getNearbyEnemies(missile, missile.getSpec().getExplosionRadius());
@@ -380,6 +378,7 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
                             String.format("COL: %.1f/%.1f", damageAmount, empAmount), 20.0F,
                             FLARE_COLOR, missile, 0.3f, 3.5f);
                 }
+                CombatUtils.applyForce(ct, VectorUtils.getDirectionalVector(explosionLocation, ct.getLocation()), damageMult * impact);
             }
         }
 
@@ -408,6 +407,7 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
                             String.format("FRAG: %.1f/%.1f", damageAmount, empAmount), 20.0F,
                             FLARE_COLOR, missile, 0.3f, 3.5f);
                 }
+                CombatUtils.applyForce(cm, VectorUtils.getDirectionalVector(explosionLocation, cm.getLocation()), damageMult * impact);
             }
         }
 
