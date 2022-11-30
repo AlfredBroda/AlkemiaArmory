@@ -68,6 +68,9 @@
 	"portraits": {
 		"standard_female":
 		[
+			"graphics/alkemia/portraits/female_mechanic2.png",
+			"graphics/alkemia/portraits/female_mechanic5.png",
+			"graphics/alkemia/portraits/female_mechanic6.png",
 			"graphics/portraits/portrait_diktat02.png",
 			"graphics/portraits/portrait_diktat06.png",
 			"graphics/portraits/portrait_hegemony10.png",
@@ -84,6 +87,10 @@
 			"graphics/portraits/portrait41.png"
 		],
 		"standard_male": [
+			"graphics/alkemia/portraits/krieg_male01.png",
+			"graphics/alkemia/portraits/krieg_male02.png",
+			"graphics/alkemia/portraits/male_mechanic1.png",
+			"graphics/alkemia/portraits/male_mechanic3.png",
 			"graphics/portraits/portrait_diktat01.png",
 			"graphics/portraits/portrait_diktat04.png",
 			"graphics/portraits/portrait_diktat07.png",

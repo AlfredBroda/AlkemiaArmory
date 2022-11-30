@@ -30,17 +30,19 @@ public class Helpers {
 
     public static MarketAPI addMarketplace(String factionID, SectorEntityToken primaryEntity,
             List<SectorEntityToken> connectedEntities, String name,
-            int size, List<String> marketConditions, List<String> Industries, List<String> submarkets, float tarrif,
+            int size, List<String> marketConditions, List<String> industries, List<String> submarkets, float tarrif,
             Boolean withJunk) {
         EconomyAPI globalEconomy = Global.getSector().getEconomy();
 
         MarketAPI newMarket = primaryEntity.getMarket();
         if (newMarket == null) {
             newMarket = Global.getFactory().createMarket(primaryEntity.getId(), name, size);
+            newMarket.setPrimaryEntity(primaryEntity);
+        } else {
+            newMarket.setSize(size);
         }
 
         newMarket.setFactionId(factionID);
-        newMarket.setPrimaryEntity(primaryEntity);
         if (factionID != null) {
             newMarket.getTariff().modifyFlat("default_tariff", newMarket.getFaction().getTariffFraction());
         }
@@ -52,13 +54,15 @@ public class Helpers {
             }
         }
 
-        for (String condition : marketConditions) {
-            if (!newMarket.hasCondition(condition))
-                newMarket.addCondition(condition);
+        if (null != marketConditions) {
+            for (String condition : marketConditions) {
+                if (!newMarket.hasCondition(condition))
+                    newMarket.addCondition(condition);
+            }
         }
 
-        if (null != Industries) {
-            for (String industry : Industries) {
+        if (null != industries) {
+            for (String industry : industries) {
                 if (!newMarket.hasIndustry(industry))
                     newMarket.addIndustry(industry);
             }
@@ -66,7 +70,9 @@ public class Helpers {
 
         if (null != connectedEntities) {
             for (SectorEntityToken entity : connectedEntities) {
-                newMarket.getConnectedEntities().add(entity);
+                if (entity != null) {
+                    newMarket.getConnectedEntities().add(entity);
+                }
             }
         }
 
@@ -107,7 +113,7 @@ public class Helpers {
     }
 
     public static MarketAPI addConditionsMarket(PlanetAPI planet, String name, List<String> planetConditions) {
-        MarketAPI market = Global.getFactory().createMarket("market_"+planet.getId(), name, 1);
+        MarketAPI market = Global.getFactory().createMarket("market_" + planet.getId(), name, 1);
         market.setPlanetConditionMarketOnly(true);
         market.setFactionId(Factions.NEUTRAL);
         market.setHidden(true);
@@ -174,11 +180,10 @@ public class Helpers {
     }
 
     public static void makeDiscoverable(SectorEntityToken entity, float range, float profile, float xp) {
-        entity.setSensorProfile(null);
         entity.setDiscoverable(true);
         entity.setDiscoveryXP(xp);
         entity.setSensorProfile(profile);
-        entity.getDetectedRangeMod().modifyFlat("gen", 2000);
+        entity.getDetectedRangeMod().modifyFlat("gen", range);
     }
 
     public static StarSystemAPI findGateSystemWithPlanets() {
@@ -219,5 +224,57 @@ public class Helpers {
         }
 
         return selected.pick();
+    }
+
+    /**
+     * @param market
+     * @param condition
+     * @return if the condition was already present
+     */
+    public static boolean addCondition(MarketAPI market, String condition) {
+        if (!market.hasCondition(condition)) {
+            market.addCondition(condition);
+            return false;
+        }
+        return true;
+    }
+
+    public static Object getGreek(int i) {
+        switch (i) {
+            case 1:
+                return "Alpha";
+            case 2:
+                return "Beta";
+            case 3:
+                return "Gamma";
+            case 4:
+                return "Delta";
+            case 5:
+                return "Epsilon";
+            case 6:
+                return "Zeta";
+            case 7:
+                return "Eta";
+            case 8:
+                return "Theta";
+            case 9:
+                return "Iota";
+            case 10:
+                return "Kappa";
+            case 11:
+                return "Lambda";
+            case 12:
+                return "Mu";
+            case 13:
+                return "Nu";
+            case 14:
+                return "Xi";
+        }
+        return "Omega";
+    }
+
+    public static float evenSpreadAngle(float allAngle, int seqNum, int allNum) {
+        float spreadAngle = allAngle / allNum;
+        return (spreadAngle * seqNum + spreadAngle / 2) - allAngle / 2;
     }
 }

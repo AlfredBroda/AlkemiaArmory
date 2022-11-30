@@ -17,14 +17,25 @@
             "alkemia_workshop_high":"graphics/alkemia/icons/industry/mecanica_cacho.png",
             "alkemia_workshop_low":"graphics/alkemia/icons/industry/starship_workshop.png",
             "alkemia_outpost_desert":"graphics/alkemia/icons/industry/desert_outpost.png",
+            "alkemia_outpost_jungle":"graphics/alkemia/icons/industry/jungle_outpost.png",
             "alkemia_tanker_desert":"graphics/alkemia/icons/industry/tanker_landing.png"
         },
         "characters":{
 			"female_mechanic1":"graphics/alkemia/portraits/female_mechanic1.png",
             "female_mechanic2":"graphics/alkemia/portraits/female_mechanic2.png",
             "female_mechanic3":"graphics/alkemia/portraits/female_mechanic3.png",
+            "female_mechanic4":"graphics/alkemia/portraits/female_mechanic4.png",
+            "female_mechanic5":"graphics/alkemia/portraits/female_mechanic5.png",
+            "female_mechanic6":"graphics/alkemia/portraits/female_mechanic6.png",
+            "female_mechanic7":"graphics/alkemia/portraits/female_mechanic7.png",
 			"male_mechanic1":"graphics/alkemia/portraits/male_mechanic1.png",
 			"male_mechanic2":"graphics/alkemia/portraits/male_mechanic2.png",
+            "male_mechanic3":"graphics/alkemia/portraits/male_mechanic3.png",
+            "male_mechanic4":"graphics/alkemia/portraits/male_mechanic4.png",
+            "male_mechanic5":"graphics/alkemia/portraits/male_mechanic5.png",
+            "male_mechanic6":"graphics/alkemia/portraits/male_mechanic6.png",
+			"krieg_male01":"graphics/alkemia/portraits/krieg_male01.png",
+			"krieg_male02":"graphics/alkemia/portraits/krieg_male02.png",
             "duke_harald":"graphics/alkemia/portraits/characters/krieg_dukeHarald.png"
         },
         "terrain":{

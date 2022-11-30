@@ -29,9 +29,11 @@ public class AlkemiaIds {
     public static final String ALKEMIA_AFTERBURNER = "alkemia_afterburner";
     
     // Memory keys
-    public static final String KEY_KRIEG_EXISTS = "$krieg_exists";
-    public static final String KEY_KRIEG_REVEALED = "$krieg_revealed";
-    public static final String KEY_KRIEG_DEFENDERS = "$krieg_defenders";
+    public static final String KEY_KRIEG_EXISTS = "$krieg.exists";
+    public static final String KEY_KRIEG_REVEALED = "$krieg.revealed";
+    public static final String KEY_KRIEG_UNLOCKED = "$krieg.unlocked";
+    public static final String KEY_ATMOSPHERIC = "$krieg.atmospheric_combat";
+    public static final String KEY_KRIEG_LEADER = "$krieg.leader";
 
     // Locations
     public static final String KRIEG_PLANET = "krieg_planet";

@@ -36,6 +36,7 @@ public class AlkemiaOasisTowers extends BaseIndustry implements MarketImmigratio
     static {
         NEEDED_CONDITIONS.add(Conditions.HOT);
         NEEDED_CONDITIONS.add(Conditions.VERY_HOT);
+        NEEDED_CONDITIONS.add(Conditions.INIMICAL_BIOSPHERE);
     }
 
     @Override
@@ -170,4 +171,15 @@ public class AlkemiaOasisTowers extends BaseIndustry implements MarketImmigratio
         // return market.getSize() * 2.0f;
         return getSizeMult();
     }
+
+    @Override
+    public String getCurrentImage() {
+        PlanetAPI planet = market.getPlanetEntity();
+        if (planet != null && planet.getSpec().getPlanetType() == "jungle") {
+            return Global.getSettings().getSpriteName("industry", "alkemia_outpost_jungle");
+        }
+
+        return super.getCurrentImage();
+    }
+
 }

@@ -3,7 +3,6 @@ package data.scripts.campaign.submarkets;
 import java.util.Random;
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.CargoStackAPI;
 import com.fs.starfarer.api.campaign.CoreUIAPI;
 import com.fs.starfarer.api.campaign.FactionAPI.ShipPickMode;
 import com.fs.starfarer.api.campaign.FactionDoctrineAPI;
@@ -122,7 +121,7 @@ public class kriegSurplusMarketPlugin extends BaseSubmarketPlugin {
 
     @Override
     public String getIllegalTransferText(FleetMemberAPI member, TransferAction action) {
-        return "Sales only!";
+        return "Please contact local authorites.";
     }
 
     @Override

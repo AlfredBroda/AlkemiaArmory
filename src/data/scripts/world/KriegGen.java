@@ -63,6 +63,8 @@ public class KriegGen implements SectorGeneratorPlugin {
             duke.getName().setLast("Dunkelheimer");
             duke.setPortraitSprite(Global.getSettings().getSpriteName("characters", "duke_harald"));
             duke.setPersonality(Personalities.AGGRESSIVE);
+            
+            Global.getSector().getMemory().set(AlkemiaIds.KEY_KRIEG_LEADER, duke.getId());
 
             market.getCommDirectory().addPerson(duke, 0);
             market.addPerson(duke);
@@ -74,10 +76,12 @@ public class KriegGen implements SectorGeneratorPlugin {
                     MathUtils.getRandom());
             admin.getStats().setSkillLevel(Skills.INDUSTRIAL_PLANNING, 3);
             admin.getName().setLast("Dunkelheimer");
+            admin.setPostId(Ranks.POST_ADMINISTRATOR);
             market.setAdmin(admin);
             market.getCommDirectory().addPerson(admin);
 
-            Global.getLogger(KriegGen.class).info("Krieg admin updated.");
+            Logger logger = Global.getLogger(KriegGen.class);
+            logger.info("Krieg admin updated.");
         } else {
             Global.getLogger(KriegGen.class).warn("Failed to get Krieg!");
         }

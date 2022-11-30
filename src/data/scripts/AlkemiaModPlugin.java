@@ -57,7 +57,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     public static final boolean hasStarshipLegends = MOD_MANAGER.isModEnabled("sun_starship_legends");
     public static final boolean hasRoider = MOD_MANAGER.isModEnabled("roider");
 
-    private static final boolean DEBUG = false;
+    private static boolean DEBUG = false;
 
     protected Logger log;
 

@@ -56,7 +56,6 @@ public class KriegAtmosphericCreatorPlugin extends BattleCreationPluginImpl {
         loader.setBackgroundSpriteName(Helpers.getRandomElement(backdrops));
 
         loader.setNebulaTex(Global.getSettings().getSpriteName("terrain", "nebula_clouds"));
-        loader.setBackgroundGlowColor(Color.BLUE);
         
         for (int i = 0; i < 15; i++) {
 			float x = (float) Math.random() * width - width / 2;
