@@ -1,0 +1,47 @@
+{
+  "id": "krieg_fragger",
+  "specClass": "projectile",
+  "projectileSpecId": "krieg_fragger_missile",
+  "type": "MISSILE",
+  "size": "MEDIUM",
+  "displayArcRadius": 300,
+  "turretSprite": "graphics/alkemia/weapons/frag_launcher_t.png",
+  "hardpointSprite": "graphics/alkemia/weapons/frag_launcher_h.png",
+  "renderHints": [
+    "RENDER_LOADED_MISSILES"
+  ],
+  "turretOffsets": [
+    -6.5,
+    0
+  ],
+  "turretAngleOffsets": [
+    0
+  ],
+  "hardpointOffsets": [
+    1,
+    0
+  ],
+  "hardpointAngleOffsets": [
+    -0
+  ],
+  "barrelMode": "LINKED",
+  "animationType": "SMOKE",
+  "smokeSpec": {
+    "particleSizeMin": 10,
+    "particleSizeRange": 16,
+    "cloudParticleCount": 3,
+    "cloudDuration": 0.9,
+    "cloudRadius": 8,
+    "blowbackParticleCount": 3,
+    "blowbackDuration": 1.1,
+    "blowbackLength": 20,
+    "blowbackSpread": 10,
+    "particleColor": [
+      170,
+      160,
+      150,
+      100
+    ]
+  },
+  "fireSoundTwo": "swarmer_fire"
+}

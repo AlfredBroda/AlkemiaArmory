@@ -5,15 +5,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.WeakHashMap;
 
 import org.apache.log4j.Logger;
 import org.lazywizard.lazylib.MathUtils;
+import org.lwjgl.input.Keyboard;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.InteractionDialogImageVisual;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.CargoAPI;
+import com.fs.starfarer.api.campaign.CharacterDataAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.FleetMemberPickerListener;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
@@ -23,17 +24,22 @@ import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.RepLevel;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
+import com.fs.starfarer.api.campaign.StoryPointActionDelegate;
 import com.fs.starfarer.api.campaign.TextPanelAPI;
 import com.fs.starfarer.api.campaign.VisualPanelAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
+import com.fs.starfarer.api.characters.MutableCharacterStatsAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.characters.RelationshipAPI;
 import com.fs.starfarer.api.combat.BattleCreationContext;
 import com.fs.starfarer.api.combat.EngagementResultAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.impl.campaign.FleetEncounterContext;
 import com.fs.starfarer.api.impl.campaign.FleetInteractionDialogPluginImpl;
 import com.fs.starfarer.api.impl.campaign.RuleBasedInteractionDialogPluginImpl;
+import com.fs.starfarer.api.impl.campaign.rulecmd.SetStoryOption.BaseOptionStoryPointActionDelegate;
+import com.fs.starfarer.api.impl.campaign.rulecmd.SetStoryOption.StoryOptionParams;
 import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent;
 import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent.SkillPickPreference;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
@@ -48,6 +54,7 @@ import com.fs.starfarer.api.util.Highlights;
 import com.fs.starfarer.api.util.Misc;
 
 import data.scripts.AlkemiaIds;
+import data.scripts.tools.Helpers;
 import data.scripts.tools.KriegDefenderGen;
 import data.scripts.world.KriegGen;
 import data.scripts.world.systems.Relic;
@@ -79,6 +86,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 		public static final String SEIZED_DEAL = "seized_deal";
 		public static final String SEIZED_NEGOTIATE = "seized_negotiate";
 		public static final String SURVEY_ESCAPE = "survey_escape";
+		public static final String SURVEY_ESCAPED = "survey_escaped";
 	}
 
 	protected InteractionDialogPlugin originalPlugin;
@@ -106,7 +114,6 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 		playerFleet = Global.getSector().getPlayerFleet();
 
 		log = Global.getLogger(getClass());
-		log.info("construct");
 	}
 
 	public void init(InteractionDialogAPI dialog) {
@@ -137,13 +144,11 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 	}
 
 	private boolean surveyorLost = false;
-	private boolean encounterDone = false;
 
 	private FleetMemberAPI selectedSurveyor = null;
 	private FleetMemberAPI seizedSurveyor = null;
 	private List<FleetMemberAPI> remainingFleet = new ArrayList<>();
-
-	private RelationshipAPI preBattleRelation = kriegFaction.getRelToPlayer();
+	private CargoAPI savedCargo;
 
 	public void optionSelected(String text, Object optionData) {
 		if (optionData == null)
@@ -156,7 +161,9 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 		}
 
 		CargoAPI cargo = playerFleet.getCargo();
+		MutableCharacterStatsAPI player = sector.getPlayerStats();
 		PersonAPI captain = null;
+		PersonAPI negotiator = null;
 
 		switch (option) {
 			case Options.INIT:
@@ -197,7 +204,10 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 
 				revealKrieg();
 
-				startEngagement(60, Options.RECONSIDER, Options.ENCOUNTER_DONE);
+				CampaignFleetAPI ambushers = KriegDefenderGen.getFleetForPlanet(planet, 60);
+				visual.showFleetInfo(ambushers.getFullName(), ambushers, playerFleet.getFullName(), playerFleet);
+
+				startEngagement(ambushers, Options.ENCOUNTER_DONE, Options.ENCOUNTER_DONE);
 				break;
 			case Options.RECONSIDER:
 				options.clearOptions();
@@ -210,19 +220,17 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 			case Options.SURVEY_SELECT:
 				options.clearOptions();
 
-				addTextf("The survey team prepares aboard %s.", selectedSurveyor.getShipName());
-				textPanel.highlightFirstInLastPara(selectedSurveyor.getShipName(), Misc.getHighlightColor());
+				String shipName = selectedSurveyor.getShipName();
+				addTextf("The survey team prepares aboard %s.", shipName);
+				textPanel.highlightFirstInLastPara(shipName, Misc.getHighlightColor());
 
-				TooltipMakerAPI tt = textPanel.beginTooltip();
-				tt.addShipList(1, 1, Math.min((int) Math.ceil((dialog.getTextWidth() * 0.8f) / 1), 40f),
-						Misc.getBasePlayerColor(), Collections.singletonList(selectedSurveyor), 10f);
-				textPanel.addTooltip();
+				visual.showFleetMemberInfo(selectedSurveyor);
 
 				boolean surveyAvailable = cargo.getCommodityQuantity(Commodities.CREW) >= SURVEY_CREW
 						&& cargo.getCommodityQuantity(Commodities.HEAVY_MACHINERY) >= SURVEY_MACHINERY
 						&& cargo.getCommodityQuantity(Commodities.SUPPLIES) >= SURVEY_SUPPLIES;
 
-				Misc.showCost(textPanel, "Resources: consumed (available)", true, -1f, null, null,
+				Misc.showCost(textPanel, "Resources: required (available)", true, -1f, null, null,
 						new String[] { Commodities.CREW, Commodities.HEAVY_MACHINERY, Commodities.SUPPLIES },
 						new int[] { SURVEY_CREW, SURVEY_MACHINERY, SURVEY_SUPPLIES },
 						new boolean[] { false, true, true });
@@ -241,14 +249,16 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 			case Options.SURVEY_SENT:
 				options.clearOptions();
 
-				addText("Just after their ship breaches the multi-colour cloud cover they report spotting numerous active industraial sites. Even in the sky some Low Tech aircraft can be detected.");
+				revealKrieg();
+
+				addText("Just after their ship breaches the multi-colour cloud cover they report spotting numerous active industraial sites. Even in the sky some Low Tech craft can be detected.");
 				textPanel.highlightInLastPara(LOW_TECH_COLOR, "Low Tech");
 
-				addText("Shortly, a few armed aircraft intercept the survey team's ship.");
+				addText("Shortly, a few armed aircraft intercept the survey ship.");
 				addTextf(
-						"They are informed over a very crackly commlink that they have violated airspace controlled by %s and are ordered to land.",
+						"Over a very crackly commlink the survey team is informed that they have violated airspace controlled by %s and are ordered to land.",
 						kriegFaction.getDisplayNameLongWithArticle());
-				textPanel.highlightFirstInLastPara(kriegFaction.getDisplayNameLongWithArticle(),
+				textPanel.highlightFirstInLastPara(kriegFaction.getDisplayNameLong(),
 						kriegFaction.getColor());
 
 				options.addOption("Comply", Options.SURVEY_COMPLY,
@@ -256,72 +266,81 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 				options.addOption("Escape", Options.SURVEY_ESCAPE,
 						"Attempt to escape back into space");
 
+				// TODO: Add story point option to save ship?
+				// StoryPointActionDelegate delegate = new
+				// BaseOptionStoryPointActionDelegate(null, getStoryOptionParams());
+				// options.addOptionConfirmation(optionData, delegate);
+
 				break;
 			case Options.SURVEY_COMPLY:
 				options.clearOptions();
 
-				addText("You order your survey team to comply over a breaking commlink - then the connection is severed completely.");
+				addText("You order your survey team to comply and the commlink starts to break up - then the connection is severed completely.");
 				addText("Tense minutes follow.");
-
-				surveyorLost = true;
-				encounterDone = true;
 
 				options.addOption("Continue", Options.SEIZED);
 				break;
 			case Options.SURVEY_ESCAPE:
 				options.clearOptions();
 
-				revealKrieg();
-
-				remainingFleet.clear();
-				List<FleetMemberAPI> fleetMemberListAll = playerFleet.getFleetData().getMembersListCopy();
-				for (FleetMemberAPI member : fleetMemberListAll) {
-					if (member != selectedSurveyor) {
-						playerFleet.getFleetData().removeFleetMember(member);
-						remainingFleet.add(member);
-					}
-				}
-
 				captain = getSurveyCaptain();
-				if (captain == null) {
-					captain = getOfficer(sector.getPlayerFaction());
-					// TODO: Create officer candidate?
-					captain.setRankId(Ranks.POST_OFFICER);
-
-					selectedSurveyor.setCaptain(captain);
-				}
-				visual.showFleetMemberInfo(selectedSurveyor);
 
 				addTextf(
-						"You order %s to go back to orbit. However when the ship attempts to escape the aircraft give chase, clearly trying to shoot it down!",
+						"You order them to go back to orbit. When the ship attempts to escape, the aircraft give chase clearly trying to shoot it down!",
 						captain.getNameString());
 				textPanel.highlightInLastPara(captain.getNameString());
 
-				options.addOption("Continue", Options.SURVEY_FIGHT);
+				if (!selectedSurveyor.isPhaseShip()) {
+					options.addOption("Continue", Options.SURVEY_FIGHT);
+					break;
+				}
+			case Options.SURVEY_ESCAPED:
+				options.clearOptions();
+				addTextf(
+						"Fortunately %s was equipped with a phase field generator and was able to exit the atmosphere leaving the pursuers behind.",
+						selectedSurveyor.getShipName());
+				textPanel.highlightInLastPara(selectedSurveyor.getShipName());
+
+				selectedSurveyor = null;
+
+				givePlayerReward(500, 0);
+
+				options.addOption("Continue", Options.REPORT);
+				break;
 			case Options.SURVEY_FIGHT:
 				options.clearOptions();
 
+				savedCargo = cargo.createCopy();
+				remainingFleet = playerFleet.getFleetData().getMembersListCopy();
+				for (FleetMemberAPI member : remainingFleet) {
+					if (member != selectedSurveyor) {
+						playerFleet.getFleetData().removeFleetMember(member);
+					}
+				}
+
 				int baseFP = selectedSurveyor.getFleetPointCost();
-				startEngagement(baseFP, Options.SURVEY_EXIT, Options.ENCOUNTER_DONE);
+				CampaignFleetAPI patrol = KriegDefenderGen.getNewFleet(planet, AlkemiaIds.FACTION_KRIEG,
+						"Stratospheric Patrol", baseFP);
+
+				visual.showFleetInfo(patrol.getFullName(), patrol, playerFleet.getFullName(), playerFleet);
+
+				startEngagement(patrol, Options.SURVEY_EXIT, Options.ENCOUNTER_DONE);
 
 				break;
 			case Options.SURVEY_EXIT:
 				options.clearOptions();
 
+				String lostShipName = selectedSurveyor.getShipName();
 				addTextf("You hear reports of hull breaches on %s and then the comlink goes dark...",
-						selectedSurveyor.getShipName());
-				textPanel.highlightInLastPara(selectedSurveyor.getShipName());
+						lostShipName);
+				textPanel.highlightInLastPara(lostShipName);
 
 				showPlanetVisual();
-
-				surveyorLost = true;
 
 				optionSelected(null, Options.ENCOUNTER_DONE);
 				break;
 			case Options.SEIZED:
 				options.clearOptions();
-
-				revealKrieg();
 
 				captain = getSurveyCaptain();
 				addText("The connection is re-established after a while.");
@@ -329,9 +348,6 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 						getCaptainAndCrew(captain));
 				textPanel.highlightInLastPara(captain.getNameString());
 
-				visual.showSecondPerson(captain);
-
-				captain.getStats().addXP(2000, textPanel);
 				addTextf(
 						"\"Captain, there is someone from the local authorities who wants to speak with you. I believe this might be an opportunity to improve our relations with %s.\"",
 						kriegFaction.getDisplayNameWithArticle());
@@ -344,32 +360,39 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 
 				addText("The commlink flickers and another person appears on the screen.");
 
-				PersonAPI negotiator = null;
-				if (sectorMemoryContains(AlkemiaIds.KEY_KRIEG_LEADER)) {
-					Object duke = Global.getSector().getMemory().get(AlkemiaIds.KEY_KRIEG_LEADER);
-					if (duke != null && duke instanceof PersonAPI) {
-						negotiator = (PersonAPI) duke;
-					} else {
-						addTextf("[%s wrong class]", AlkemiaIds.KEY_KRIEG_LEADER);
-						negotiator = getOfficer(kriegFaction);
-					}
-				} else {
-					addTextf("[%s unavailable]", AlkemiaIds.KEY_KRIEG_LEADER);
-					negotiator = getOfficer(kriegFaction);
+				negotiator = getOfficer(kriegFaction);
+				if (planet.getMarket() != null) {
+					planet.getMarket().addPerson(negotiator);
+					planet.getMarket().getCommDirectory().addPerson(negotiator);
 				}
+
 				visual.showPersonInfo(negotiator);
 				addTextf(
 						"\"Captain, I know what loss of a ship is. Nevertheless you must understand the situation we are in.\" %s pauses.",
 						negotiator.getHeOrShe());
-				addText("\"We have been stranded here for centuries and finally we can fill in the technological blanks that keep us here.");
+				addText("\"We have been stranded here for a very long time and finally we can fill in the technological blanks that keep us here.");
 				appendTextf("It is therefore my duty to the nation of %s that I confiscate this ship.\"",
 						planet.getName());
 				textPanel.highlightInLastPara(kriegFaction.getColor(), planet.getName());
 
-				addTextf("\"I assure you, %s are free to go.\"", getCaptainAndCrew(captain));
+				addTextf("\"I assure you, %s were not harmed and are free to go.\"",
+						getCaptainAndCrew(getSurveyCaptain()));
+				textPanel.highlightInLastPara(getSurveyCaptain().getNameString());
+
+				showShipTooltip(selectedSurveyor);
 
 				options.addOption("Agree", Options.SEIZED_DEAL);
-				options.addOption("Offer a diffrent Ship", Options.SEIZED_EXCHANGE);
+				options.addOption("Exchange", Options.SEIZED_EXCHANGE, Misc.getStoryOptionColor(),
+						"Offer a different ship");
+				if (player.getStoryPoints() < 1) {
+					options.setEnabled(Options.SEIZED_EXCHANGE, false);
+				} else {
+					options.addOptionConfirmation(Options.SEIZED_EXCHANGE,
+							"Spend a Story Point to negotiate a different ship in exchange?", "Confirm", "Return");
+				}
+				options.setShortcut(Options.SEIZED_DEAL, Keyboard.KEY_RETURN,
+						false, false, false, true);
+
 				break;
 			case Options.SEIZED_EXCHANGE:
 				seizedSurveyor = selectedSurveyor;
@@ -381,43 +404,64 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 				initFleetMemberPicker(Options.SEIZED_EXCHANGE_CONFIRM, Options.SEIZED_DEAL);
 				break;
 			case Options.SEIZED_EXCHANGE_CONFIRM:
-				if (seizedSurveyor != null) {
-					playerFleet.getFleetData().addFleetMember(seizedSurveyor);
-				}
+				String newShipName = selectedSurveyor.getShipName();
+				String seizedName = seizedSurveyor.getShipName();
+
+				playerFleet.getFleetData().addFleetMember(seizedSurveyor);
+				seizedSurveyor = null;
+
+				addTextf("You negotiate to exchange %s for %s.", seizedName, newShipName);
+
+				Highlights h = new Highlights();
+				h.setText(seizedName, newShipName);
+				h.setColors(Misc.getHighlightColor(), Misc.getHighlightColor());
+				textPanel.setHighlightsInLastPara(h);
+
+				String logMessage = String.format("Exchanged %s for %s to be left on Krieg.", seizedName, newShipName);
+				player.spendStoryPoints(1, true, textPanel, true, 0, logMessage);
+
+				showShipTooltip(selectedSurveyor);
+
 				break;
 			case Options.SEIZED_DEAL:
-				// unlock planetary interactions
+				givePlayerReward(selectedSurveyor.getFleetPointCost() * 1000, 1);
+				// Global.getSector().getPlayerFaction();
+
+				if (negotiator != null) {
+					negotiator.getRelToPlayer().adjustRelationship(0.2f, RepLevel.COOPERATIVE);
+				}
+
+				String hullId = selectedSurveyor.getHullId();
+				if (!kriegFaction.knowsShip(hullId)) {
+					kriegFaction.addKnownShip(selectedSurveyor.getHullId(), true);
+				}
+				kriegFaction.adjustRelationship(Factions.PLAYER, 0.2f);
+
 				setSectorMemory(AlkemiaIds.KEY_KRIEG_UNLOCKED, true);
 
 				showPlanetVisual();
 
 				addText("Eventually, the fleet recieves coordinates for a safe pickup and a shuttle collects your survey team.");
-				addTextf("The %s will remain with %s for whatever purpose they need it for.",
-						selectedSurveyor.getShipName(), kriegFaction.getDisplayNameLongWithArticle());
-				Highlights h = new Highlights();
-				h.setText(selectedSurveyor.getShipName(), kriegFaction.getDisplayNameLongWithArticle());
-				h.setColors(Misc.getHighlightColor(), kriegFaction.getColor());
-				textPanel.setHighlightsInLastPara(h);
-
-				preBattleRelation.adjustRelationship(selectedSurveyor.getFleetPointCost()/100, RepLevel.FRIENDLY);
-
 			case Options.ENCOUNTER_DONE:
 				options.clearOptions();
 
-				kriegFaction.setRelationship(Factions.PLAYER, preBattleRelation.getRel());
 				// Recombine fleet
 				for (FleetMemberAPI ship : remainingFleet) {
 					playerFleet.getFleetData().addFleetMember(ship);
 				}
 				remainingFleet.clear();
-				if (surveyorLost) {
+
+				if (savedCargo != null) {
+					cargo.clear();
+					cargo.addAll(savedCargo);
+
+					savedCargo = null;
+				}
+
+				if (selectedSurveyor != null) {
 					playerFleet.getFleetData().removeFleetMember(selectedSurveyor);
 
-					addText("Ship lost:");
-					TooltipMakerAPI lost = textPanel.beginTooltip();
-					lost.addShipList(1, 1, Math.min((int) Math.ceil((dialog.getTextWidth() * 0.8f) / 1), 40f),
-							Misc.getBasePlayerColor(), Collections.singletonList(selectedSurveyor), 10f);
-					textPanel.addTooltip();
+					selectedSurveyor = null;
 				}
 
 				updateOptions();
@@ -425,9 +469,11 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 			case Options.REPORT:
 				options.clearOptions();
 
+				showPlanetVisual();
+
 				if (surveyorLost) {
 					addTextf(
-							"The returning survey team reports that there is no spaceport on %s. Instead, there are several large military air bases.",
+							"The returning survey team reports that there is no spaceport on %s. They managed however to locate several large military air bases.",
 							planet.getName());
 					textPanel.highlightFirstInLastPara(planet.getName(), kriegFaction.getColor());
 				}
@@ -440,23 +486,14 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 
 				addText("They also managed to acquire a scan of one of the encountered patrols.");
 
-				TooltipMakerAPI intel = textPanel.beginTooltip();
 				List<FleetMemberAPI> kriegDesigns = new ArrayList<>();
 
-				Map<String, FleetMemberAPI> seen = new WeakHashMap<>();
-				CampaignFleetAPI exampleFleet = KriegDefenderGen.createDefenderFleet(planet.getMarket(),
-						kriegFaction.getId(), "Stratospheric Patrol", 30);
-				for (FleetMemberAPI design : exampleFleet.getMembersWithFightersCopy()) {
-					if (!seen.containsKey(design.getHullId())) {
-						seen.put(design.getHullId(), design);
-						kriegDesigns.add(design);
-					}
-				}
+				kriegDesigns.add(createShip("krieg_fortress_Standard"));
+				kriegDesigns.add(createShip("krieg_kr47_Standard"));
+				kriegDesigns.add(createShip("krieg_kadze_Assault"));
+				kriegDesigns.add(createShip("krieg_kr35_Standard"));
 
-				intel.addShipList(8, (int) Math.ceil(kriegDesigns.size() / 8),
-						Math.min((int) Math.ceil((dialog.getTextWidth() * 0.8f) / 1), 40f),
-						Misc.getBasePlayerColor(), kriegDesigns, 10f);
-				textPanel.addTooltip();
+				showShipsTooltip(kriegDesigns);
 
 				updateOptions();
 				break;
@@ -471,7 +508,34 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 				sector.setPaused(false);
 				dialog.dismiss();
 		}
+	}
 
+	private void givePlayerReward(long XPgain, int storyPoints) {
+		PersonAPI playerCaptain = sector.getPlayerPerson();
+		playerFleet.getFleetData().getOfficerData(getSurveyCaptain());
+
+		if (XPgain > 0) {
+			playerCaptain.getStats().addXP(XPgain, textPanel, true, true);
+		}
+		if (storyPoints > 0) {
+			playerCaptain.getStats().addStoryPoints(storyPoints, textPanel, false);
+		}
+	}
+
+	private void showShipsTooltip(List<FleetMemberAPI> members) {
+		TooltipMakerAPI et = textPanel.beginTooltip();
+		et.addShipList(8, Math.max((int) Math.ceil(members.size() / 8), 1),
+				Math.min((int) Math.ceil((dialog.getTextWidth() * 0.8f) / 1), 40f),
+				Misc.getBasePlayerColor(), members, 10f);
+		textPanel.addTooltip();
+	}
+
+	private void showShipTooltip(FleetMemberAPI member) {
+		showShipsTooltip(Collections.singletonList(member));
+	}
+
+	private FleetMemberAPI createShip(String variant) {
+		return Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant);
 	}
 
 	private PersonAPI getOfficer(FactionAPI faction) {
@@ -483,7 +547,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 	}
 
 	private String getCaptainAndCrew(PersonAPI captain) {
-		if (captain != null)
+		if (captain != null && captain.getNameString() != "")
 			return String.format("captain %s and %s crew", captain.getNameString(), captain.getHisOrHer());
 		return "the crew";
 	}
@@ -492,19 +556,15 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 		options.clearOptions();
 
 		if (isKriegRevealed()) {
-			if (isKriegUnlocked()) {
-				options.addOption("Enter Orbit", Options.MARKET,
-						"Attempt communication or trade");
-			}
+			options.addOption("Enter Orbit", Options.MARKET,
+					"Attempt communication or trade");
+			options.addOption("Survey Report", Options.REPORT,
+					"Review the intelligence report");
 		} else {
 			options.addOption("Search Planet", Options.SEARCH,
 					"Land on the surface to begin salvage operations");
 			options.addOption("Send Survey Ship", Options.SURVEY,
 					"Send a survey ship to the planet");
-		}
-		if (encounterDone) {
-			options.addOption("Survey Report", Options.REPORT,
-					"Review the intelligence report");
 		}
 
 		options.addOption("Leave", Options.LEAVE, null);
@@ -524,7 +584,15 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 
 	private PersonAPI getSurveyCaptain() {
 		if (selectedSurveyor != null) {
-			return selectedSurveyor.getCaptain();
+			PersonAPI captain = selectedSurveyor.getCaptain();
+			if (captain == null) {
+				captain = getOfficer(sector.getPlayerFaction());
+				// TODO: Create officer candidate?
+				captain.setRankId(Ranks.POST_OFFICER);
+
+				selectedSurveyor.setCaptain(captain);
+			}
+			return captain;
 		}
 		return null;
 	}
@@ -542,22 +610,20 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 			Relic.addKriegMarket();
 			KriegGen.addKriegAdmin();
 
-			visual.showImageVisual(planet.getCustomInteractionDialogImageVisual());
+			KriegDefenderGen.getFleetForPlanet(planet, KriegDefenderGen.MIN_FLEET_SIZE);
+			planet.removeTag(AlkemiaIds.TAG_KRIEG_DIALOG);
 		}
 
 		setSectorMemory(AlkemiaIds.KEY_KRIEG_REVEALED, true);
 	}
 
-	private void startEngagement(int baseFP, String winOption, String loseOption) {
+	private void startEngagement(CampaignFleetAPI fleet, String winOption, String loseOption) {
 		setSectorMemory(AlkemiaIds.KEY_ATMOSPHERIC, true);
 
 		final MemoryAPI memory = planet.getMemoryWithoutUpdate();
-		final CampaignFleetAPI ambushers = KriegDefenderGen.getFleetForPlanet(planet, AlkemiaIds.FACTION_KRIEG,
-				"Stratospheric Patrol", baseFP);
 
-		kriegFaction.setRelationship(Factions.PLAYER, -0.5f);
-
-		dialog.setInteractionTarget(ambushers);
+		dialog.setInteractionTarget(fleet);
+		final CampaignFleetAPI ambushers = fleet;
 
 		final FleetInteractionDialogPluginImpl.FIDConfig config = new FleetInteractionDialogPluginImpl.FIDConfig();
 		config.leaveAlwaysAvailable = false;
@@ -574,6 +640,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 		config.pullInStations = false;
 		config.lootCredits = false;
 		config.withSalvage = false;
+		config.straightToEngage = true;
 
 		config.firstTimeEngageOptionText = "Engage the patrol";
 		config.afterFirstTimeEngageOptionText = "Re-engage the patrol";
@@ -645,7 +712,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 					}
 				} else {
 					dialog.setPlugin(originalPlugin);
-					originalPlugin.optionSelected(null, Options.INIT);
+					originalPlugin.optionSelected(null, lose);
 				}
 			}
 
@@ -662,7 +729,8 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 		// plugin.otherFleetWantsToFight(true);
 		plugin.init(dialog);
 
-		plugin.optionSelected(null, FleetInteractionDialogPluginImpl.OptionId.INITIATE_BATTLE);
+		// plugin.optionSelected(null,
+		// FleetInteractionDialogPluginImpl.OptionId.INITIATE_BATTLE);
 	}
 
 	public void initFleetMemberPicker(String selected, String cancel) {

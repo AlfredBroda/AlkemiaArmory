@@ -26,6 +26,7 @@ import com.fs.starfarer.api.impl.campaign.procgen.StarAge;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator.CustomConstellationParams;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator.OrbitGap;
+import com.fs.starfarer.api.util.Misc;
 
 import data.scripts.AlkemiaIds;
 import data.scripts.AlkemiaModPlugin;
@@ -69,6 +70,12 @@ public class Relic {
                 260);
         kriegPlanet.setInteractionImage("illustrations", "dieselpunk_city");
         kriegPlanet.setCustomDescriptionId("krieg_planet_desc");
+        kriegPlanet.addTag(AlkemiaIds.TAG_KRIEG_DIALOG);
+
+        OrbitGap beaconGap = new OrbitGap();
+        beaconGap.start = kriegPlanet.getRadius() + 180f;
+        beaconGap.end = 600;
+        Misc.addWarningBeacon(kriegPlanet, beaconGap, Tags.BEACON_LOW);
 
         Helpers.addMagneticField(kriegPlanet, 0.2f, 180, false);
         PlanetConditionGenerator.generateConditionsForPlanet(kriegPlanet, system.getAge());
@@ -88,17 +95,18 @@ public class Relic {
                     mirrors = arraySize;
                 } else if (kriegPlanet.hasCondition(Conditions.HOT)) {
                     mirrors = Math.round(arraySize / 3);
-                    shades = arraySize - mirrors;;
+                    shades = arraySize - mirrors;
+                    ;
                 } else if (kriegPlanet.hasCondition(Conditions.VERY_HOT)) {
                     mirrors = 0;
                     shades = arraySize;
                 }
-                addSolarArray(kriegPlanet, shades, mirrors);
+                addSolarArray(kriegPlanet, beaconGap.start, shades, mirrors);
             }
         }
 
         PlanetAPI kriegMoon = system.addPlanet("krieg_moon", kriegPlanet, "Sentinel", "barren-bombarded",
-                360f * (float) Math.random(), 30, 600, 20);
+                360f * (float) Math.random(), 30, beaconGap.end, 20);
         Helpers.makeDiscoverable(kriegMoon, 3000, 800, 100);
         PlanetConditionGenerator.generateConditionsForPlanet(kriegMoon, system.getAge());
 
@@ -147,13 +155,13 @@ public class Relic {
 
     /**
      * @param planet
+     * @param orbit
      * @param numShades
      * @param numMirrors
      */
-    private void addSolarArray(PlanetAPI planet, int numShades, int numMirrors) {
+    private void addSolarArray(PlanetAPI planet, float orbitRadius, int numShades, int numMirrors) {
         int maxMirrors = numMirrors;
         int maxShades = numShades;
-        float orbitRadius = planet.getRadius() + 180f;
         if ((numMirrors + numShades) > MAX_ARRAY) {
             float mirrorPerc = maxMirrors / (numMirrors + numShades);
             maxMirrors = Math.round(MAX_ARRAY * mirrorPerc);

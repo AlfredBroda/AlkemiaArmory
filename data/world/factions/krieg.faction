@@ -137,13 +137,14 @@
 	},
 	"shipRoles": {
 		"fastAttack": {
-			"krieg_kr35_Standard": 10,
-			"krieg_kr35_Bomber": 4,
+			"krieg_kr35_Standard": 6,
+			"krieg_bakemono_Standard": 4,
 			"fallback": { "combatSmall": 1 }
 		},
 
 		"escortSmall": {
-			"krieg_kr35_Escort": 6,
+			"krieg_bakemono_Bomber": 4,
+			"krieg_bakemono_Escort": 6,
 			"fallback": { "combatSmall": 1 }
 		},
 		"escortMedium": {
@@ -151,7 +152,8 @@
 			"fallback": { "combatMedium": 1 }
 		},
 		"combatSmall": {
-			"krieg_kr35_Standard": 8,
+			"krieg_kr35_Standard": 6,
+			"krieg_bakemono_Standard": 4,
 			"fallback": { "escortSmall": 1 }
 		},
 		"combatMedium": {

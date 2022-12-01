@@ -63,6 +63,7 @@ public class KriegGen implements SectorGeneratorPlugin {
             duke.getName().setLast("Dunkelheimer");
             duke.setPortraitSprite(Global.getSettings().getSpriteName("characters", "duke_harald"));
             duke.setPersonality(Personalities.AGGRESSIVE);
+            duke.addTag(AlkemiaIds.TAG_LEADER);
             
             Global.getSector().getMemory().set(AlkemiaIds.KEY_KRIEG_LEADER, duke.getId());
 

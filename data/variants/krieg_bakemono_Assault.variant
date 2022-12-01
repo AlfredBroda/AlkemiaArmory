@@ -1,0 +1,54 @@
+{
+  "variantId": "krieg_bakemono_Assault",
+  "hullId": "krieg_bakemono",
+  "displayName": "Assault",
+  "goalVariant": true,
+  "fluxCapacitors": 6,
+  "fluxVents": 10,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "krieg_dual_rail",
+        "WS0002": "krieg_dual_rail",
+        "WS0003": "krieg_light_flak",
+        "WS0004": "krieg_light_flak",
+        "WS0007": "lightag",
+        "WS0008": "lightag",
+        "WS0009": "annihilator",
+        "WS0010": "annihilator",
+        "WS0011": "hammer",
+        "WS0012": "hammer"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "krieg_mg",
+        "WS0006": "krieg_mg"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

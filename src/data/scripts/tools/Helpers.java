@@ -179,6 +179,10 @@ public class Helpers {
         return list.get(new Random().nextInt(list.size()));
     }
 
+    public static String getRandomElement(String[] list) {
+        return list[new Random().nextInt(list.length)];
+    }
+
     public static void makeDiscoverable(SectorEntityToken entity, float range, float profile, float xp) {
         entity.setDiscoverable(true);
         entity.setDiscoveryXP(xp);

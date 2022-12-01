@@ -1,24 +1,29 @@
 {
-  "variantId": "krieg_kr35_Escort",
-  "hullId": "krieg_kr35",
+  "variantId": "krieg_bakemono_Escort",
+  "hullId": "krieg_bakemono",
   "displayName": "Escort",
   "goalVariant": true,
   "fluxCapacitors": 6,
-  "fluxVents": 7,
+  "fluxVents": 8,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "magazines",
-    "auxiliarythrusters",
-    "adaptiveshields"
+    "adaptiveshields",
+    "auxiliarythrusters"
   ],
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0007": "lightag",
-        "WS0008": "lightag"
+        "WS0001": "krieg_light_flak",
+        "WS0002": "krieg_light_flak",
+        "WS0003": "krieg_light_flak",
+        "WS0004": "krieg_light_flak",
+        "WS0007": "lightac",
+        "WS0008": "lightac",
+        "WS0011": "krieg_mg",
+        "WS0012": "krieg_mg"
       }
     },
     {
@@ -32,19 +37,14 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "WS0001": "alkemia_light_flak",
-        "WS0002": "alkemia_light_flak"
-      }
+      "weapons": {}
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0003": "lightdualmg",
-        "WS0004": "lightdualmg",
-        "WS0005": "alkemia_mg",
-        "WS0006": "alkemia_mg"
+        "WS0005": "krieg_mg",
+        "WS0006": "krieg_mg"
       }
     }
   ],

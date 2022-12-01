@@ -1,39 +1,30 @@
 package data.missions.krieg;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
+
+import org.apache.log4j.Logger;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.SettingsAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.FactionAPI.ShipPickMode;
-import com.fs.starfarer.api.combat.BattleCreationContext;
-import com.fs.starfarer.api.combat.ShipVariantAPI;
 import com.fs.starfarer.api.fleet.FleetGoal;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParamsV3;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.FleetTypes;
-import com.fs.starfarer.api.impl.campaign.ids.Items;
-import com.fs.starfarer.api.loading.VariantSource;
 import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
-import com.fs.starfarer.api.plugins.AutofitPlugin;
-import com.fs.starfarer.api.plugins.impl.CoreAutofitPlugin;
 
 import data.scripts.tools.Helpers;
-
-import org.apache.log4j.Logger;
-import org.lazywizard.lazylib.MathUtils;
 
 public class MissionDefinition implements MissionDefinitionPlugin {
 
@@ -82,18 +73,15 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.initMap((float) -width / 2f, (float) width / 2f, (float) -height / 2f, (float) height / 2f);
 
 		// This does not work. Needs to be defined in descriptor.json
-		List<String> backdrops = new ArrayList<>();
-		backdrops.add(settings.getSpriteName("backgrounds", "fields1"));
-		backdrops.add(settings.getSpriteName("backgrounds", "basin1"));
-		backdrops.add(settings.getSpriteName("backgrounds", "desert1"));
-		backdrops.add(settings.getSpriteName("backgrounds", "desert2"));
-		backdrops.add(settings.getSpriteName("backgrounds", "ocean1"));
-		backdrops.add(settings.getSpriteName("backgrounds", "ocean2"));
+		// api.setBackgroundSpriteName(Helpers.getRandomElement(backdrops));
 
-		api.setBackgroundSpriteName(Helpers.getRandomElement(backdrops));
+		// This will work, including changing the background in the menu. Just need to
+		// remove the relavant line from `descriptor.json` as it overrides what is
+		// happening here prior to actual battle
+		// CombatEngine.replaceBackground(Helpers.getRandomElement(backdrops), false);
 
 		api.setNebulaTex(settings.getSpriteName("terrain", "nebula_clouds"));
-		// api.setNebulaMapTex("graphics/terrain/nebula_amber_map.png");
+		// api.setNebulaMapTex("graphics/terrain/nebula_amber_map.jpg");
 
 		for (int i = 0; i < 15; i++) {
 			float x = (float) Math.random() * width - width / 2;

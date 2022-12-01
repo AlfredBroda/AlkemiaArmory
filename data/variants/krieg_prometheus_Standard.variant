@@ -31,10 +31,10 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 002": "alkemia_light_flak",
-        "WS 004": "alkemia_light_flak",
-        "WS 005": "alkemia_light_flak",
-        "WS 006": "alkemia_light_flak"
+        "WS 002": "krieg_light_flak",
+        "WS 004": "krieg_light_flak",
+        "WS 005": "krieg_light_flak",
+        "WS 006": "krieg_light_flak"
       }
     }
   ],

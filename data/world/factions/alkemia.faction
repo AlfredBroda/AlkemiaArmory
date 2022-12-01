@@ -333,7 +333,7 @@
 			"fallback": { "personnelSmall": 2 }
 		},
 		"personnelLarge": {
-			"starliner_Standard": 10,
+			"alkemia_starliner2_Standard": 10,
 			"fallback": { "personnelMedium": 2 }
 		},
 

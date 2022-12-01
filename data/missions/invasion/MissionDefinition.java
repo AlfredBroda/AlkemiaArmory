@@ -65,9 +65,9 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		variants.add("krieg_kadze_Assault");
 		variants.add("krieg_kr35_Standard");
 		variants.add("krieg_kr35_Standard");
-		variants.add("krieg_kr35_Standard");
-		variants.add("krieg_kr35_Bomber");
-		variants.add("krieg_kr35_Bomber");
+		variants.add("krieg_bakemono_Standard");
+		variants.add("krieg_bakemono_Bomber");
+		variants.add("krieg_bakemono_Bomber");
 
 		for (String ship : variants) {
 			FleetMemberAPI fleetMemeber = api.addToFleet(FleetSide.ENEMY, ship, FleetMemberType.SHIP, false);
@@ -81,7 +81,15 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.initMap((float) -width / 2f, (float) width / 2f, (float) -height / 2f, (float) height / 2f);
 
 		// This does not work. Needs to be defined in descriptor.json
-		// api.setBackgroundSpriteName(Global.getSettings().getSpriteName("backgrounds","fields1"));
+		api.setBackgroundSpriteName("/graphics/alkemia/backgrounds/tahlan_lethia.jpg");
+		/*
+		"fields1":"graphics/alkemia/backgrounds/fields1.png",
+		"desert1":"graphics/alkemia/backgrounds/desert1.png",
+		"desert2":"graphics/alkemia/backgrounds/desert2.png",
+		"ocean1":"graphics/alkemia/backgrounds/ocean1.png",
+		"ocean2":"graphics/alkemia/backgrounds/ocean2.png",
+		"basin1":"graphics/alkemia/backgrounds/basin.png"
+		*/
 
 		api.setNebulaTex(Global.getSettings().getSpriteName("terrain","nebula_clouds"));
         // api.setNebulaMapTex("graphics/terrain/nebula_amber_map.png");

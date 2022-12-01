@@ -43,18 +43,18 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0003": "alkemia_light_flak",
-        "WS0004": "alkemia_light_flak"
+        "WS0003": "krieg_light_flak",
+        "WS0004": "krieg_light_flak"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0009": "alkemia_mg",
-        "WS0010": "alkemia_mg",
-        "WS0011": "alkemia_mg",
-        "WS0012": "alkemia_mg"
+        "WS0009": "krieg_mg",
+        "WS0010": "krieg_mg",
+        "WS0011": "krieg_mg",
+        "WS0012": "krieg_mg"
       }
     }
   ],

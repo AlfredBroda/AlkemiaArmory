@@ -16,8 +16,8 @@
     "ground_support"
   ],
   "builtInWeapons": {
-    "WS0010": "alkemia_mg",
-    "WS0011": "alkemia_mg"
+    "WS0010": "krieg_mg",
+    "WS0011": "krieg_mg"
   },
   "weaponSlots": [
     {

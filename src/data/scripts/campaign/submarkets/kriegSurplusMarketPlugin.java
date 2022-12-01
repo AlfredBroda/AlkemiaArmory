@@ -1,6 +1,12 @@
 package data.scripts.campaign.submarkets;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.WeakHashMap;
+
+import org.apache.log4j.Logger;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CoreUIAPI;
@@ -8,6 +14,7 @@ import com.fs.starfarer.api.campaign.FactionAPI.ShipPickMode;
 import com.fs.starfarer.api.campaign.FactionDoctrineAPI;
 import com.fs.starfarer.api.campaign.RepLevel;
 import com.fs.starfarer.api.campaign.econ.CommodityOnMarketAPI;
+import com.fs.starfarer.api.campaign.econ.MarketDemandAPI;
 import com.fs.starfarer.api.campaign.econ.SubmarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.econ.impl.BaseIndustry;
@@ -16,15 +23,21 @@ import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.submarkets.BaseSubmarketPlugin;
 import com.fs.starfarer.api.util.Misc;
 
-public class kriegSurplusMarketPlugin extends BaseSubmarketPlugin {
+public class KriegSurplusMarketPlugin extends BaseSubmarketPlugin {
 
     private final RepLevel MIN_STANDING = RepLevel.SUSPICIOUS;
 
+    private SubmarketAPI submarket;
+
+    private Logger log;
+
     @Override
     public void init(SubmarketAPI submarket) {
+        this.submarket = submarket;
+        log = Global.getLogger(getClass());
+
         super.init(submarket);
     }
-
 
     @Override
     public float getTariff() {
@@ -78,54 +91,74 @@ public class kriegSurplusMarketPlugin extends BaseSubmarketPlugin {
         getCargo().sort();
     }
 
-    
-	@Override
-	public int getStockpileLimit(CommodityOnMarketAPI com) {
-		int demand = com.getMaxDemand();
-		int available = com.getAvailable();
+    @Override
+    public int getStockpileLimit(CommodityOnMarketAPI com) {
+        int demand = com.getMaxDemand();
+        int available = com.getAvailable();
 
-		float limit = BaseIndustry.getSizeMult(available) - BaseIndustry.getSizeMult(Math.max(0, demand - 2));
-		limit *= com.getCommodity().getEconUnit();
+        float limit = BaseIndustry.getSizeMult(available) - BaseIndustry.getSizeMult(Math.max(0, demand - 2));
+        limit *= com.getCommodity().getEconUnit();
 
-		//limit *= com.getMarket().getStockpileMult().getModifiedValue();
+        // limit *= com.getMarket().getStockpileMult().getModifiedValue();
 
-		Random random = new Random(market.getId().hashCode() + submarket.getSpecId().hashCode() + Global.getSector().getClock().getMonth() * 170000);
-		limit *= 0.9f + 0.2f * random.nextFloat();
+        Random random = new Random(market.getId().hashCode() + submarket.getSpecId().hashCode()
+                + Global.getSector().getClock().getMonth() * 170000);
+        limit *= 0.9f + 0.2f * random.nextFloat();
 
-		float sm = market.getStabilityValue() / 10f;
-		limit *= 0.2f * sm;
+        float sm = market.getStabilityValue() / 10f;
+        limit *= 0.2f * sm;
 
-		if (limit < 0) limit = 0;
+        if (limit < 0)
+            limit = 0;
 
-		return (int) limit;
-	}
+        return (int) limit;
+    }
 
     @Override
     public boolean shouldHaveCommodity(CommodityOnMarketAPI com) {
         return com.getId().equals(Commodities.SUPPLIES)
-                    || com.getId().equals(Commodities.FUEL)
-                    || com.getId().equals(Commodities.CREW);
+                || com.getId().equals(Commodities.FUEL)
+                || com.getId().equals(Commodities.CREW);
     }
 
     @Override
-	public boolean isIllegalOnSubmarket(String commodityId, TransferAction action) {
-        return !(commodityId.equals(Commodities.SUPPLIES)
-                    || commodityId.equals(Commodities.FUEL)
-                    || commodityId.equals(Commodities.CREW));
-	}
+    public boolean isIllegalOnSubmarket(String commodityId, TransferAction action) {
+        return !isSellLegal(commodityId);
+    }
+
+    private boolean isSellLegal(String commodityId) {
+        Map<String, Object> sellLegal = new WeakHashMap<>();
+        List<MarketDemandAPI> demand = submarket.getMarket().getDemandData().getDemandList();
+        for (MarketDemandAPI com : demand) {
+            if (com.getDemand().isPositive())
+                sellLegal.put(com.getBaseCommodity().getId(), com);
+        }
+        return sellLegal.containsKey(commodityId);
+    }
 
     @Override
     public boolean isIllegalOnSubmarket(FleetMemberAPI member, TransferAction action) {
-        return action == TransferAction.PLAYER_SELL;
+        if (action == TransferAction.PLAYER_SELL && !member.isCivilian()) {
+            return true;
+        }
+        return false;
     }
 
     @Override
     public String getIllegalTransferText(FleetMemberAPI member, TransferAction action) {
-        return "Please contact local authorites.";
+        if (action == TransferAction.PLAYER_SELL && !member.isCivilian())
+            return "Please contact military authorites.";
+        return null;
     }
 
     @Override
     public boolean isParticipatesInEconomy() {
-        return false;
+        return true;
+    }
+
+    @Override
+    public boolean isBlackMarket() {
+        return true;
+        // return market.getFaction().isHostileTo(submarket.getFaction());
     }
 }

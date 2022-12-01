@@ -3,52 +3,35 @@
   "hullId": "krieg_kr35",
   "displayName": "Standard",
   "goalVariant": true,
-  "fluxCapacitors": 10,
-  "fluxVents": 10,
+  "fluxCapacitors": 8,
+  "fluxVents": 8,
   "quality": 1,
   "permaMods": [],
   "hullMods": [],
   "weaponGroups": [
     {
       "autofire": false,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
       "weapons": {
-        "WS0009": "lightac",
-        "WS0010": "lightac",
-        "WS0011": "lightac",
-        "WS0012": "lightac"
+        "WS 001": "lightag",
+        "WS 002": "lightag",
+        "WS0003": "annihilator",
+        "WS0004": "annihilator"
       }
     },
     {
       "autofire": false,
       "mode": "ALTERNATING",
-      "weapons": {
-        "WS0007": "lightag",
-        "WS0008": "lightag"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "WS0001": "alkemia_light_flak",
-        "WS0002": "alkemia_light_flak"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "WS0003": "lightmg",
-        "WS0004": "lightmg",
-        "WS0005": "alkemia_mg",
-        "WS0006": "alkemia_mg"
-      }
-    },
-    {
-      "autofire": false,
-      "mode": "LINKED",
       "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 003": "krieg_mg",
+        "WS0001": "krieg_mg",
+        "WS0002": "krieg_mg"
+      }
     }
   ],
   "modules": [],
