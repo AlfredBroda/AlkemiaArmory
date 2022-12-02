@@ -7,7 +7,7 @@
 	"tags": [ "krieg_bp" ],
 	"manufacturer": "Krieg",
 	"tech": "LOW_TECH",
-	"spriteName": "graphics/alkemia/ships/fortress/fortress-cargo.png",
+	"spriteName": "graphics/alkemia/ships/fortress/fortress-arty.png",
 	"baseValueMult": 0.8,
 	"ordnancePoints": 160,
 	"fighterBays": 0,
