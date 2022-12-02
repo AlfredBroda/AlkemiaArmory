@@ -24,8 +24,8 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0007": "alkemia_rockets",
-        "WS0008": "alkemia_rockets"
+        "WS0007": "heavymg",
+        "WS0008": "heavymg"
       }
     },
     {

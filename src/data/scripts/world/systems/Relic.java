@@ -75,7 +75,7 @@ public class Relic {
         OrbitGap beaconGap = new OrbitGap();
         beaconGap.start = kriegPlanet.getRadius() + 180f;
         beaconGap.end = 600;
-        Misc.addWarningBeacon(kriegPlanet, beaconGap, Tags.BEACON_LOW);
+        // Misc.addWarningBeacon(kriegPlanet, beaconGap, Tags.BEACON_LOW);
 
         Helpers.addMagneticField(kriegPlanet, 0.2f, 180, false);
         PlanetConditionGenerator.generateConditionsForPlanet(kriegPlanet, system.getAge());
@@ -127,7 +127,7 @@ public class Relic {
                 "Hemera Station", "station_burrow", Factions.PIRATES);
         pirateStation.setCircularOrbitPointingDown(star, 360f * (float) Math.random(), Helpers.getMiddle(beltOrbit),
                 500);
-        pirateStation.setCustomDescriptionId("krieg_pirate_station_desc");
+        pirateStation.setCustomDescriptionId("krieg_burrow_station_desc");
         Helpers.makeDiscoverable(pirateStation, 2000, 1, 200);
         pirateStation.addTag(Tags.STATION);
 

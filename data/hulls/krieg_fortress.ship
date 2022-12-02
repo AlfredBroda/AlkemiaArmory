@@ -4,9 +4,9 @@
   "hullSize": "CRUISER",
   "spriteName": "graphics/alkemia/ships/fortress_base.png",
   "style": "LOW_TECH",
-  "height": 263,
-  "width": 437,
-  "center": [218.5, 156],
+  "height": 265,
+  "width": 439,
+  "center": [219.5, 157],
   "collisionRadius": 230.5,
   "shieldCenter": [-64, -0],
   "shieldRadius": 253,
@@ -23,22 +23,22 @@
   },
   "weaponSlots": [
     {
+      "id": "WS0001",
+      "size": "LARGE",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 45,
+      "angle": 0,
+      "locations": [0.5, 105.5]
+    },
+    {
       "id": "WS0002",
       "size": "LARGE",
-      "type": "COMPOSITE",
+      "type": "UNIVERSAL",
       "mount": "HARDPOINT",
       "arc": 45,
       "angle": 0,
       "locations": [0.5, -105.5]
-    },
-    {
-      "id": "WS0001",
-      "size": "LARGE",
-      "type": "COMPOSITE",
-      "mount": "HARDPOINT",
-      "arc": 45,
-      "angle": -0,
-      "locations": [0.5, 105.5]
     },
     {
       "id": "WS0004",
@@ -190,37 +190,73 @@
       "arc": 20,
       "angle": 0,
       "locations": [86, 36.5]
+    },
+		{
+			"id": "MS001",
+			"size": "LARGE",
+			"type": "DECORATIVE",
+			"mount": "HARDPOINT",
+			"arc": 1,
+			"angle": 0,
+			"locations": [ 49, 60 ]
+		},
+		{
+			"id": "MS002",
+			"size": "LARGE",
+			"type": "DECORATIVE",
+			"mount": "HARDPOINT",
+			"arc": 1,
+			"angle": 0,
+			"locations": [ 49, -60 ]
+		},
+		{
+			"id": "MS003",
+			"size": "LARGE",
+			"type": "DECORATIVE",
+			"mount": "HARDPOINT",
+			"arc": 1,
+			"angle": 0,
+			"locations": [ 47, -93 ]
+		},
+		{
+			"id": "MS004",
+			"size": "LARGE",
+			"type": "DECORATIVE",
+			"mount": "HARDPOINT",
+			"arc": 1,
+			"angle": 0,
+			"locations": [ 47, 93 ]
     }
   ],
   "engineSlots": [
     {
-      "location": [-3, 138.5],
-      "length": 24,
-      "width": 6,
+      "location": [-2, 138.5],
+      "length": 4,
+      "width": 2,
       "angle": 180,
       "contrailSize": 26,
       "style": "LOW_TECH"
     },
     {
-      "location": [1.5, 75.5],
-      "length": 24,
-      "width": 6,
+      "location": [2.5, 75.5],
+      "length": 4,
+      "width": 2,
       "angle": 180,
       "contrailSize": 26,
       "style": "LOW_TECH"
     },
     {
-      "location": [1, -76],
-      "length": 24,
-      "width": 6,
+      "location": [2.5, -75.5],
+      "length": 4,
+      "width": 2,
       "angle": 180,
       "contrailSize": 26,
       "style": "LOW_TECH"
     },
     {
-      "location": [-3, -138],
-      "length": 24,
-      "width": 6,
+      "location": [-3, -138.5],
+      "length": 4,
+      "width": 2,
       "angle": 180,
       "contrailSize": 26,
       "style": "LOW_TECH"
@@ -271,6 +307,22 @@
       "width": 12,
       "angle": 180,
       "contrailSize": 34,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-62, -171],
+      "length": 4,
+      "width": 2,
+      "angle": 180,
+      "contrailSize": 26,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-62, 171],
+      "length": 4,
+      "width": 2,
+      "angle": -180,
+      "contrailSize": 26,
       "style": "LOW_TECH"
     }
   ],

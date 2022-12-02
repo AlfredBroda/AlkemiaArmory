@@ -1,0 +1,45 @@
+{
+	"baseHullId": "krieg_fortress",
+	"skinHullId": "krieg_fortress_cargo",
+	"hullName": "Fortress (T)",
+	"descriptionId": "krieg_fortress",
+	"descriptionPrefix": "This variant replaces all hangars with cargo bays.",
+	"tags": [ "krieg_bp" ],
+	"manufacturer": "Krieg",
+	"tech": "LOW_TECH",
+	"spriteName": "graphics/alkemia/ships/fortress/fortress-cargo.png",
+	"baseValueMult": 0.8,
+	"ordnancePoints": 140,
+	"removeHints": [ "CARRIER" ],
+	"addHints": [ "FREIGHTER" ],
+	"systemId": "burndrive",
+	"cargo": 700,
+	"removeBuiltInMods": [
+		"ground_support",
+		"operations_center"
+	],
+	"builtInMods": [
+		"converted_fighterbay",
+		"shielded_holds"
+	],
+	"removeWeaponSlots": [ ],
+	"removeEngineSlots": [ ],
+	"removeBuiltInWeapons": [ ],
+	"builtInWeapons": { },
+	"weaponSlotChanges": {
+		"WS0001": {
+			"size": "MEDIUM",
+			"type": "BALLISTIC",
+			"mount": "TURRET",
+			"arc": 240,
+			"angle": 90
+		},
+		"WS0002": {
+			"size": "MEDIUM",
+			"type": "BALLISTIC",
+			"mount": "TURRET",
+			"arc": 240,
+			"angle": -90
+		}
+	}
+}

@@ -1,19 +1,37 @@
 {
-  "variantId": "krieg_fortress_Transport",
-  "hullId": "krieg_fortress_cargo",
-  "displayName": "Transport",
+  "variantId": "krieg_fortress_Support",
+  "hullId": "krieg_fortress_artillery",
+  "displayName": "Support",
   "goalVariant": true,
   "fluxCapacitors": 30,
-  "fluxVents": 29,
+  "fluxVents": 23,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "hardenedshieldemitter",
-    "adaptiveshields"
+    "missleracks",
+    "stabilizedshieldemitter"
   ],
   "weaponGroups": [
     {
       "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "hephag",
+        "WS0002": "hephag"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "MS001": "krieg_artillery_rockets",
+        "MS002": "krieg_artillery_rockets",
+        "MS003": "krieg_artillery_rockets",
+        "MS004": "krieg_artillery_rockets"
+      }
+    },
+    {
+      "autofire": true,
       "mode": "LINKED",
       "weapons": {
         "WS0007": "shredder",
@@ -24,16 +42,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "heavymg",
-        "WS0002": "heavymg"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "ALTERNATING",
-      "weapons": {
-        "WS0003": "krieg_dual_rail",
-        "WS0004": "krieg_dual_rail"
+        "WS0003": "lightneedler",
+        "WS0004": "lightneedler"
       }
     },
     {

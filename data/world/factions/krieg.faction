@@ -162,8 +162,9 @@
 			"fallback": { "combatSmall": 2 }
 		},
 		"combatLarge": {
-			"krieg_fortress_Standard": 5,
-			"krieg_kr47_Standard": 8,
+			"krieg_fortress_Standard": 6,
+			"krieg_fortress_Support": 5,
+			"krieg_kr47_Standard": 7,
 			"fallback": { "combatMedium": 2 }
 		},
 		"combatCapital": {
@@ -204,7 +205,8 @@
 			"fallback": { "freighterSmall": 2 }
 		},
 		"freighterLarge": {
-			"colossus_Standard": 6,
+			"krieg_fortress_Transport": 8,
+			"colossus_Standard": 2,
 			"fallback": { "freighterMedium": 2 }
 		},
 
@@ -251,8 +253,8 @@
 		"captain": {
 			"cautious": 4,
 			"steady": 6,
-			"aggressive": 8,
-			"reckless": 4
+			"aggressive": 7,
+			"reckless": 3
 		}
 	},
 	"doctrine": {
