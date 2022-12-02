@@ -3,7 +3,7 @@
   "hullId": "krieg_kr35",
   "displayName": "Standard",
   "goalVariant": true,
-  "fluxCapacitors": 8,
+  "fluxCapacitors": 10,
   "fluxVents": 8,
   "quality": 1,
   "permaMods": [],
@@ -13,24 +13,25 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS 001": "lightag",
-        "WS 002": "lightag",
+        "WS0001": "lightac",
+        "WS0002": "lightac"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
         "WS0003": "annihilator",
         "WS0004": "annihilator"
       }
     },
     {
-      "autofire": false,
-      "mode": "ALTERNATING",
-      "weapons": {}
-    },
-    {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 003": "krieg_mg",
-        "WS0001": "krieg_mg",
-        "WS0002": "krieg_mg"
+        "WS0005": "krieg_mg",
+        "WS0006": "krieg_mg",
+        "WS0007": "krieg_mg"
       }
     }
   ],

@@ -28,6 +28,7 @@ public class KriegSurplusMarketPlugin extends BaseSubmarketPlugin {
     private final RepLevel MIN_STANDING = RepLevel.SUSPICIOUS;
 
     private SubmarketAPI submarket;
+    private Map<String, Object> sellLegal = new WeakHashMap<>();
 
     private Logger log;
 
@@ -127,11 +128,12 @@ public class KriegSurplusMarketPlugin extends BaseSubmarketPlugin {
     }
 
     private boolean isSellLegal(String commodityId) {
-        Map<String, Object> sellLegal = new WeakHashMap<>();
-        List<MarketDemandAPI> demand = submarket.getMarket().getDemandData().getDemandList();
-        for (MarketDemandAPI com : demand) {
-            if (com.getDemand().isPositive())
-                sellLegal.put(com.getBaseCommodity().getId(), com);
+        if (sellLegal.size() < 1) {
+            List<MarketDemandAPI> demand = submarket.getMarket().getDemandData().getDemandList();
+            for (MarketDemandAPI com : demand) {
+                if (com.getDemand().isPositive())
+                    sellLegal.put(com.getBaseCommodity().getId(), com);
+            }
         }
         return sellLegal.containsKey(commodityId);
     }

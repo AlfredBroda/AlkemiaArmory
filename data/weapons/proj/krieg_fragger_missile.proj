@@ -7,7 +7,7 @@
     "center": [ 6.5, 15 ],
     "collisionRadius": 7,
     "collisionClass": "MISSILE_NO_FF",
-    "explosionColor": [ 100, 100, 255, 255 ],
+    "explosionColor": [ 255, 155, 100, 255 ],
     "explosionRadius": 35,
     "engineSpec": {
         "turnAcc": 720,
@@ -19,32 +19,20 @@
     "engineSlots": [
         {
             "id": "ES1",
-            "loc": [ 0, -13 ],
-            "style": "CUSTOM",
-            "styleSpec": {
-                "mode": "QUAD_STRIP",
-                "engineColor": [ 100, 165, 255, 255 ],
-                "contrailDuration": 2,
-                "contrailWidthMult": 2,
-                "contrailWidthAddedFractionAtEnd": -1,
-                "contrailMinSeg": 20,
-                "contrailMaxSpeedMult": 0,
-                "contrailAngularVelocityMult": 0,
-                "contrailColor": [ 100, 165, 255, 75 ],
-                "type": "SMOKE"
-            },
-            "width": 4.0,
-            "length": 7.0,
+            "loc": [ -13, 0 ],
+            "style": "LOW_TECH",
+            "width": 6.0,
+            "length": 10.0,
             "angle": 180.0
         }
     ],
     "behaviorSpec": {
 		"behavior": "MIRV",
-		"splitRange": 500,
-		"splitRangeRange": 100,
+		"splitRange": 100,
+		"splitRangeRange": 50,
 		"minTimeToSplit": 3,
 		"canSplitEarly": false,
-		"splitSound": "pilum_lrm_split",
+		"splitSound": "explosion_flak",
 		"numShots": 3,
 		"damage": 500,
 		"emp": 0,

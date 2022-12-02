@@ -12,13 +12,15 @@
   "shieldRadius": 87,
   "viewOffset": 0,
   "builtInWeapons": {
-    "WS 003": "krieg_mg",
     "WS0001": "krieg_mg",
-    "WS0002": "krieg_mg"
+    "WS0002": "krieg_mg",
+    "WS0005": "krieg_mg",
+    "WS0006": "krieg_mg",
+    "WS0007": "krieg_mg"
   },
   "weaponSlots": [
     {
-      "id": "WS 001",
+      "id": "WS0001",
       "size": "SMALL",
       "type": "BALLISTIC",
       "mount": "HARDPOINT",
@@ -27,40 +29,13 @@
       "locations": [26, 20.5]
     },
     {
-      "id": "WS 002",
+      "id": "WS0002",
       "size": "SMALL",
       "type": "BALLISTIC",
       "mount": "HARDPOINT",
       "arc": 6,
       "angle": 0,
       "locations": [26, -21.5]
-    },
-    {
-      "id": "WS 003",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "TURRET",
-      "arc": 360,
-      "angle": 180,
-      "locations": [-12.5, -0]
-    },
-    {
-      "id": "WS0001",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "TURRET",
-      "arc": 230,
-      "angle": 88.5,
-      "locations": [-1, 21]
-    },
-    {
-      "id": "WS0002",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "TURRET",
-      "arc": 230,
-      "angle": -88.5,
-      "locations": [-1, -21]
     },
     {
       "id": "WS0003",
@@ -79,6 +54,33 @@
       "arc": 6,
       "angle": -0,
       "locations": [23, -41]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 230,
+      "angle": 90,
+      "locations": [-1, 21]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 230,
+      "angle": -90,
+      "locations": [-1, -21]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 360,
+      "angle": 180,
+      "locations": [-12.5, -0]
     }
   ],
   "engineSlots": [

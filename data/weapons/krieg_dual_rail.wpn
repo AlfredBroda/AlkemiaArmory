@@ -1,7 +1,7 @@
 {
   "id": "krieg_dual_rail",
   "specClass": "projectile",
-  "projectileSpecId": "flak_shot",
+  "projectileSpecId": "railgun_shot",
   "type": "BALLISTIC",
   "size": "SMALL",
   "displayArcRadius": 400,
@@ -31,5 +31,5 @@
       255
     ]
   },
-  "fireSoundTwo": "light_mortar_fire"
+  "fireSoundTwo": "railgun_fire"
 }
