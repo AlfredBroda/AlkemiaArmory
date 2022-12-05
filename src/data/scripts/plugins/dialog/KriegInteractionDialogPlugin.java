@@ -324,16 +324,13 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 
 				visual.showFleetInfo(patrol.getFullName(), patrol, playerFleet.getFullName(), playerFleet);
 
-				startEngagement(patrol, Options.SURVEY_EXIT, Options.ENCOUNTER_DONE);
+				startEngagement(patrol, Options.ENCOUNTER_DONE, Options.SURVEY_EXIT);
 
 				break;
 			case Options.SURVEY_EXIT:
 				options.clearOptions();
 
-				String lostShipName = selectedSurveyor.getShipName();
-				addTextf("You hear reports of hull breaches on %s and then the comlink goes dark...",
-						lostShipName);
-				textPanel.highlightInLastPara(lostShipName);
+				addText("You hear explosions and the expedition comlink goes dark...");
 
 				showPlanetVisual();
 
@@ -390,8 +387,6 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 					options.addOptionConfirmation(Options.SEIZED_EXCHANGE,
 							"Spend a Story Point to negotiate a different ship in exchange?", "Confirm", "Return");
 				}
-				options.setShortcut(Options.SEIZED_DEAL, Keyboard.KEY_RETURN,
-						false, false, false, true);
 
 				break;
 			case Options.SEIZED_EXCHANGE:
@@ -491,6 +486,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 				kriegDesigns.add(createShip("krieg_fortress_Standard"));
 				kriegDesigns.add(createShip("krieg_kr47_Standard"));
 				kriegDesigns.add(createShip("krieg_kadze_Assault"));
+				kriegDesigns.add(createShip("krieg_bakemono_Standard"));
 				kriegDesigns.add(createShip("krieg_kr35_Standard"));
 
 				showShipsTooltip(kriegDesigns);
@@ -708,18 +704,22 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 						}
 
 						dialog.setPlugin(originalPlugin);
-						originalPlugin.optionSelected(null, lose);
+						if (context.didPlayerWinLastEngagement()) {
+							originalPlugin.optionSelected(null, win);
+						} else {
+							originalPlugin.optionSelected(null, lose);
+						}
 					}
 				} else {
 					dialog.setPlugin(originalPlugin);
-					originalPlugin.optionSelected(null, lose);
+					originalPlugin.optionSelected(null, win);
 				}
 			}
 
 			@Override
 			public void battleContextCreated(InteractionDialogAPI dialog, BattleCreationContext bcc) {
 				bcc.aiRetreatAllowed = true;
-				bcc.objectivesAllowed = false;
+				bcc.objectivesAllowed = true;
 				bcc.enemyDeployAll = true;
 			}
 		};

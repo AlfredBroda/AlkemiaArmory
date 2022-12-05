@@ -13,8 +13,8 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "alkemia_rockets",
-        "WS0002": "alkemia_rockets"
+        "WS0001": "krieg_rockets",
+        "WS0002": "krieg_rockets"
       }
     },
     {

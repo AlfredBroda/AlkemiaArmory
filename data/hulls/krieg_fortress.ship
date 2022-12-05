@@ -83,7 +83,7 @@
       "mount": "HARDPOINT",
       "arc": 20,
       "angle": -0,
-      "locations": [56.5, 138.5]
+      "locations": [59, 138.5]
     },
     {
       "id": "WS0008",
@@ -92,7 +92,7 @@
       "mount": "HARDPOINT",
       "arc": 20,
       "angle": 0,
-      "locations": [56.5, -138.5]
+      "locations": [59, -138.5]
     },
     {
       "id": "LB 1",
@@ -191,41 +191,41 @@
       "angle": 0,
       "locations": [86, 36.5]
     },
-		{
-			"id": "MS001",
-			"size": "LARGE",
-			"type": "DECORATIVE",
-			"mount": "HARDPOINT",
-			"arc": 1,
-			"angle": 0,
-			"locations": [ 49, 60 ]
-		},
-		{
-			"id": "MS002",
-			"size": "LARGE",
-			"type": "DECORATIVE",
-			"mount": "HARDPOINT",
-			"arc": 1,
-			"angle": 0,
-			"locations": [ 49, -60 ]
-		},
-		{
-			"id": "MS003",
-			"size": "LARGE",
-			"type": "DECORATIVE",
-			"mount": "HARDPOINT",
-			"arc": 1,
-			"angle": 0,
-			"locations": [ 47, -93 ]
-		},
-		{
-			"id": "MS004",
-			"size": "LARGE",
-			"type": "DECORATIVE",
-			"mount": "HARDPOINT",
-			"arc": 1,
-			"angle": 0,
-			"locations": [ 47, 93 ]
+    {
+      "id": "MS001",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 1,
+      "angle": 0,
+      "locations": [49, 60]
+    },
+    {
+      "id": "MS002",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 1,
+      "angle": 0,
+      "locations": [49, -60]
+    },
+    {
+      "id": "MS003",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 1,
+      "angle": 0,
+      "locations": [47, -93]
+    },
+    {
+      "id": "MS004",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 1,
+      "angle": 0,
+      "locations": [47, 93]
     }
   ],
   "engineSlots": [

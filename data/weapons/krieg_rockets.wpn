@@ -1,14 +1,12 @@
 {
-  "id": "alkemia_rockets",
+  "id": "krieg_rockets",
   "specClass": "projectile",
   "projectileSpecId": "annihilator_rocket",
   "type": "MISSILE",
   "size": "MEDIUM",
   "turretSprite": "graphics/alkemia/weapons/rocket_pod_hardpoint.png",
   "hardpointSprite": "graphics/alkemia/weapons/rocket_pod_hardpoint.png",
-  "renderHints": [
-    RENDER_LOADED_MISSILES
-  ],
+  "renderHints": [ "RENDER_LOADED_MISSILES" ],
   "turretOffsets": [
     7,
     0,

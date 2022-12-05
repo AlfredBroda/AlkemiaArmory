@@ -13,6 +13,7 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
+import com.fs.starfarer.api.campaign.econ.MarketConditionAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.Industries;
@@ -252,6 +253,8 @@ public class Relic {
         market.setHidden(false);
         market.setPlanetConditionMarketOnly(false);
         market.reapplyConditions();
+
+        Helpers.setSurveyed(market);
 
         Global.getSector().getMemory().set(AlkemiaIds.KEY_KRIEG_REVEALED, true);
         krieg.setDiscoverable(false);

@@ -3,13 +3,14 @@
   "hullId": "krieg_fortress",
   "displayName": "Standard",
   "goalVariant": true,
-  "fluxCapacitors": 28,
-  "fluxVents": 30,
+  "fluxCapacitors": 26,
+  "fluxVents": 23,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "dedicated_targeting_core",
-    "hardenedshieldemitter"
+    "hardenedshieldemitter",
+    "reinforcedhull",
+    "ballistic_rangefinder"
   ],
   "weaponGroups": [
     {
@@ -24,16 +25,16 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0007": "heavymg",
-        "WS0008": "heavymg"
+        "WS0007": "arbalest",
+        "WS0008": "arbalest"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0003": "lightneedler",
-        "WS0004": "lightneedler"
+        "WS0003": "krieg_dual_rail",
+        "WS0004": "krieg_dual_rail"
       }
     },
     {

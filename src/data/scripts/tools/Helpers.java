@@ -15,6 +15,7 @@ import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.econ.EconomyAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
+import com.fs.starfarer.api.campaign.econ.MarketConditionAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
@@ -280,5 +281,11 @@ public class Helpers {
     public static float evenSpreadAngle(float allAngle, int seqNum, int allNum) {
         float spreadAngle = allAngle / allNum;
         return (spreadAngle * seqNum + spreadAngle / 2) - allAngle / 2;
+    }
+
+    public static void setSurveyed(MarketAPI market) {
+        for (MarketConditionAPI cond : market.getConditions()) {
+            cond.setSurveyed(true);
+        }
     }
 }

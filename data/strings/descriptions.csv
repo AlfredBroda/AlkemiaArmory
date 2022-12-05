@@ -30,11 +30,18 @@ To get to energy ratings beyond the giga-watt range the design relies on a built
 Requiring signifficant time to build up the energy necessary to maintain a coherent beam, the system uses several adjustable lens assemblies to focus the beam on it's target. Ionised particles are accelerated along the beam to hit the target with signifficant kinnetic force.
 
 The extreme range at which targets can be reached is hampered by difficulty to track anything faster then an asteroid.",,,,
-alkemia_porcupine_tds,WEAPON,The premise of the Porcupine Torpedo Delivery System is simple - make torpedoes reach further. Two Atrops warheads were strapped to a frigate sized engine making this a versatile weapon both against larger ships and small craft.,,,,
-alkemia_emp_artillery,WEAPON,"Based on the Domain defense platform ordinance, the AC-EM09b missile delivers a large proximity fused electro magnetic disruptor at extereme distances. Devastating to shields, it's main disadvantage is poor manouverability.",,,,
+alkemia_porcupine_tds,WEAPON,"A long range delivery system for two advanced guided torpedoes.
+
+The premise of the Porcupine Torpedo Delivery System is simple - make torpedoes reach further. Two Atrops warheads were strapped to a frigate sized engine making this a versatile weapon both against larger ships and small craft.",,,,
+alkemia_emp_artillery,WEAPON,"A large guided EMP warhead with a very long reach. Designed to disrupt large formations of enemy ships, ths missile can disable a frigate with a glancing hit.
+
+Based on the Domain defense platform ordinance, the AC-EM09b missile delivers a large proximity fused electro magnetic disruptor at extereme distances. Devastating to shields, it's main disadvantage is poor manouverability.",,,,
 alkemia_hedgehog,WEAPON,"Launches a cluster of free-floating mines equipped with a proximity fuse.
 
 A Proximity Mine Launcher fires Mark VI fragmentation mines. Unguided and without a propulsion system, they rely on a friend-or-foe targeting system. Their vast numbers allow them to cover a wide swath of space, effectively creating a Point Defense barrier in that location, albeit for a limited time. When the proximity fuse is triggered by an enemy craft, the bomblet will detonate, achieving similar effects to those of flak weapons.",,,,
+alkemia_atropos_pod,WEAPON,"An advanced, guided torpedo. The payload is smaller than usual to make room for the advanced guidance package and maneuvering system's reaction mass. A combat-rated autoloader system ensures usefulness in protracted engagements.
+
+The Atropos torpedo is a large guided torpedo with an extended range. The AM-catalyzed nuclear warhead typically used in torpedo warheads is missing here as baryonic interference from the detonator would foul the guidance systems. It is replaced by a smaller, yet still potent chemical charge.",,,,
 alkemia_drone_repair,SHIP,A common remote controlled repair drone. Useful for armour repairs even during battle.,,,,
 alkemia_deluxe,SHIP,"A highly customizable two seat heavy fighter boasting two hybrid and two reconfigurable missile hardpoints, plus an afterburner.",,,,
 alkemia_syreen,SHIP,"The Syreen represents an effective interceptor unit, capable of taking out whole enemy fighter formations on its own.",,,,
@@ -45,7 +52,7 @@ alkemia_perch,SHIP,"A refit of the Champion, this heavy cruiser trades it's heav
 
 This is one of Alkemia Customs' flagship products.",,,,
 alkemia_rime_racer,SHIP,"When the Alkemia Customs managers were looking for a luxury yacht, the sleek Diable Avionics Rime caught their attention. Unfortunately, it lacked one crucial element - speed. To remedy this, engine systems were replaced and afterburners were installed. This ship is for racing rather than cruising!",,,,
-alkemia_shepherd,SHIP,"A refit of the classic Ko Combine r450 focusing on actual military use. The integrated wing was replaced with Repair Drones and all systems were upgraded according to modern military standards. This unfortunately necessitated the removal of Surveying Equipment. 
+alkemia_shepherd,SHIP,"A refit of the classic Ko Combine r450 focusing on actual military use. The integrated wing was replaced with Repair Drones and all systems were upgraded according to modern military standards. This unfortunately necessitated the removal of Salvage Equipment. 
 
 This is one of Alkemia Customs' flagship products.",,,,
 alkemia_lifter,SHIP,This ship was built out of necessity as Alkemia manufactories had no access to blueprints of ships other than Midline. So their choice of small cargo ships was very slim. To solve this logistical problem the workshops came back with a design based on the readily available Brawler chassis and a few cargo containers.,,,,
@@ -66,3 +73,11 @@ alkemia_emp,SHIP_SYSTEM,"Activates an EMP generator. Nearby missiles, fighters, 
 Unfortunately, on-board weapon systems must be shut down to provide power for this device. The EMP pulses are also not very effective against enemy shields.",Special,"Generates lightning arcs that quickly knock out enemy missiles, weapons, and engines within range. Mostly negated by shields.",,
 krieg_planet_desc,CUSTOM,"Home to a large population, this planet has reverted to a very basic technological level. Combustion engines are used for transportation, factories spew smoke into the atmosphere. Nevertheless the landscape is dominated by green crop fields both illuminated and shaded by it's solar array.",,This Terran planet is covered in thick cloud cover. It's strong magnetic field creates fascinating auroras.,,
 krieg_burrow_station_desc,CUSTOM,"Formerly an asteroid research station, this sturdy platform now houses a small population of outsiders.",,,,
+krieg_fuelbomb,WEAPON,"A powerful and unstable warhead with a rudimentary guidance system",,,,
+krieg_artillery_rockets,WEAPON,"A battery of medium sized unguided rockets. This weapon can deliver an astonishing ammount of warheads at medium ranges.",,,,
+krieg_rockets,WEAPON,"A pod of simple rockets. Launching bursts of four at a time, it can be devastationg to unshielded targets.",,,,
+krieg_mg,WEAPON,"A simple defense weapon suitable against ordinance and fighters alike.",,,,
+krieg_light_flak,WEAPON,"A simple mortar firing timed fuse explosive shells. Good against fighter formations and missile barrages due to it's explosion radius.",,,,
+krieg_dual_rail,WEAPON,"Specialized dual anti-shield gun with decent accuracy. Propelling it's spike shaped projectiles to super-sonic speeds.",,,,
+krieg_spiker,WEAPON,"Specialized medium anti-shield gun with decent accuracy. Propelling it's spike shaped projectiles to super-sonic speeds.",,,,
+krieg_fragger,WEAPON,"A cluster missile for dealing with more manouverable targets. Delivers a barrage of shrapnel to a sizable area.",,,,
