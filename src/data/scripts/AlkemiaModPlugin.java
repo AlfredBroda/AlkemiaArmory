@@ -41,7 +41,7 @@ import data.scripts.plugins.AntiMissileEffectPlugin;
 import data.scripts.plugins.KriegCampaignPlugin;
 import data.scripts.world.AlkemiaGen;
 import data.scripts.world.KriegGen;
-import exerelin.campaign.SectorManager;
+// import exerelin.campaign.SectorManager;
 
 // import org.dark.shaders.light.LightData;
 // import org.dark.shaders.util.ShaderLib;
@@ -169,7 +169,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
     @Override
     public void onNewGame() {
-        if (!hasExerelin || !SectorManager.getManager().isCorvusMode()) {
+        if (!hasExerelin) { // || !SectorManager.getManager().isCorvusMode()) {
             // new AlkemiaGen().generate(Global.getSector());
             new KriegGen().generate(Global.getSector());
             // Global.getSector().addScript(new MS_fleetFighterFinagler());
@@ -180,7 +180,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
         // SharedData.getData().getPersonBountyEventData().addParticipatingFaction("shadow_industry");
         // MS_specialItemInitializer.run();
 
-        debug("Alkemia onNewGame()");
+        debug("Alkemia Armoury onNewGame()");
     }
 
     @Override
