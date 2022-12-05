@@ -26,18 +26,22 @@
 	"weaponSlotChanges": {
 		"MS001": {
 			"type": "BUILT_IN",
+			"mount": "HIDDEN",
 			"arc": 5
 		},
 		"MS002": {
 			"type": "BUILT_IN",
+			"mount": "HIDDEN",
 			"arc": 5
 		},
 		"MS003": {
 			"type": "BUILT_IN",
+			"mount": "HIDDEN",
 			"arc": 5
 		},
 		"MS004": {
 			"type": "BUILT_IN",
+			"mount": "HIDDEN",
 			"arc": 5
 		}
 	}

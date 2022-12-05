@@ -3,26 +3,36 @@ package data.scripts.tools;
 import static com.fs.starfarer.api.impl.campaign.procgen.MagFieldGenPlugin.auroraColors;
 import static com.fs.starfarer.api.impl.campaign.procgen.MagFieldGenPlugin.baseColors;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.Map.Entry;
+import java.util.concurrent.locks.Condition;
 
+import org.apache.log4j.Logger;
 import org.lazywizard.lazylib.MathUtils;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.campaign.TextPanelAPI;
 import com.fs.starfarer.api.campaign.econ.EconomyAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.econ.MarketConditionAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.campaign.ids.Terrain;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator.OrbitGap;
+import com.fs.starfarer.api.impl.campaign.rulecmd.AddRemoveCommodity;
 import com.fs.starfarer.api.impl.campaign.terrain.MagneticFieldTerrainPlugin;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
@@ -286,6 +296,89 @@ public class Helpers {
     public static void setSurveyed(MarketAPI market) {
         for (MarketConditionAPI cond : market.getConditions()) {
             cond.setSurveyed(true);
+        }
+    }
+
+    public static void removeResources(Map<String, Integer> resLoss, TextPanelAPI textPanel, CargoAPI cargo) {
+        for (Entry<String, Integer> loss : resLoss.entrySet()) {
+            cargo.removeCommodity(loss.getKey(), loss.getValue());
+            AddRemoveCommodity.addCommodityLossText(loss.getKey(), loss.getValue(), textPanel);
+        }
+    }
+
+    public static Map<String, Integer> CONDITION_VALUES = new HashMap<>();
+    static {
+        // ore
+        CONDITION_VALUES.put(Conditions.ORE_ULTRARICH, 4);
+        CONDITION_VALUES.put(Conditions.ORE_RICH, 3);
+        CONDITION_VALUES.put(Conditions.ORE_ABUNDANT, 2);
+        CONDITION_VALUES.put(Conditions.ORE_MODERATE, 1);
+        CONDITION_VALUES.put(Conditions.ORE_SPARSE, 0);
+        // organics
+        CONDITION_VALUES.put(Conditions.ORGANICS_ABUNDANT, 3);
+        CONDITION_VALUES.put(Conditions.ORGANICS_PLENTIFUL, 2);
+        CONDITION_VALUES.put(Conditions.ORGANICS_COMMON, 1);
+        CONDITION_VALUES.put(Conditions.ORGANICS_TRACE, 0);
+        // volatiles
+        CONDITION_VALUES.put(Conditions.VOLATILES_ABUNDANT, 3);
+        CONDITION_VALUES.put(Conditions.VOLATILES_PLENTIFUL, 2);
+        CONDITION_VALUES.put(Conditions.VOLATILES_DIFFUSE, 1);
+        CONDITION_VALUES.put(Conditions.VOLATILES_TRACE, 0);
+        // farmland
+        CONDITION_VALUES.put(Conditions.FARMLAND_RICH, 3);
+        CONDITION_VALUES.put(Conditions.FARMLAND_BOUNTIFUL, 2);
+        CONDITION_VALUES.put(Conditions.FARMLAND_ADEQUATE, 1);
+        CONDITION_VALUES.put(Conditions.FARMLAND_POOR, 0);
+        // rare ore
+        CONDITION_VALUES.put(Conditions.RARE_ORE_ULTRARICH, 4);
+        CONDITION_VALUES.put(Conditions.RARE_ORE_RICH, 3);
+        CONDITION_VALUES.put(Conditions.RARE_ORE_ABUNDANT, 2);
+        CONDITION_VALUES.put(Conditions.RARE_ORE_MODERATE, 1);
+        CONDITION_VALUES.put(Conditions.RARE_ORE_SPARSE, 0);
+    }
+
+    public static Map<String, String> categories = new HashMap<>();
+    static {
+        categories.put("ore", "ore");
+        categories.put("rare_ore", "rare_ore");
+        categories.put("farmland", "farmland");
+        categories.put("organics", "organics");
+        categories.put("volatiles", "volatiles");
+    }
+
+    public static void revalidateConditions(MarketAPI market) {
+        Map<String, String> best = new HashMap<>();
+        List<String> toRemove = new ArrayList<>();
+
+        Logger log = Global.getLogger(Helpers.class);
+
+        for (MarketConditionAPI cond : market.getConditions()) {
+            // log.info(cond);
+            if (cond.getGenSpec() != null) {
+                String cat = cond.getGenSpec().getGroup();
+                // log.info(cat);
+                if (categories.containsKey(cat)) {
+                    if (best.containsKey(cat)) {
+                        String current = best.get(cat);
+                        if (CONDITION_VALUES.get(current) > CONDITION_VALUES.get(cond.getId())) {
+                            toRemove.add(cond.getId());
+                            // log.info("remove");
+                        } else {
+                            toRemove.add(current);
+                            best.put(cat, current);
+                            // log.info("replace best");
+                        }
+                    } else {
+                        // log.info("put best");
+                        best.put(cat, cond.getId());
+                    }
+                }
+            }
+        }
+
+        for (String rem : toRemove) {
+            log.info(String.format("Removing worse duplicate condition: %s", rem));
+            market.removeCondition(rem);
         }
     }
 }

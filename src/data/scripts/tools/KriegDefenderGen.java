@@ -58,11 +58,19 @@ public class KriegDefenderGen {
         long seed = market.getPrimaryEntity().getMemoryWithoutUpdate().getLong(MemFlags.SALVAGE_SEED);
         Random random = Misc.getRandom(seed, 1);
 
+        String fleetType = FleetTypes.PATROL_SMALL;
+        if (fPts > 30) {
+            fleetType = FleetTypes.PATROL_MEDIUM;
+        }
+        if (fPts > 50) {
+            fleetType = FleetTypes.PATROL_LARGE;
+        }
+
         FleetParamsV3 params = new FleetParamsV3(
                 null, // LocInHyper
                 fID,
                 1.0f,
-                FleetTypes.PATROL_MEDIUM,
+                fleetType,
                 fPts, // CombatPts
                 0f, // FreighterPts
                 0f, // TankerPts

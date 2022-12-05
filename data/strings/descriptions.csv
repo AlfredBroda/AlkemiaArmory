@@ -47,7 +47,7 @@ alkemia_deluxe,SHIP,"A highly customizable two seat heavy fighter boasting two h
 alkemia_syreen,SHIP,"The Syreen represents an effective interceptor unit, capable of taking out whole enemy fighter formations on its own.",,,,
 alkemia_dromader,SHIP,"Versatile trans-atmospheric dropship with a moderately sized cargo hold. Features a ground support package, a limited use nanoforge and a large missile store.",,,,
 alkemia_roost,SHIP,"A retrofit of the Drover, this destroyer now features a universal medium turret and a rear facing small hybrid turret, as well as a hybrid upgrade to the remaining turrets. This came at the cost of additional fighter capacity, but flare launchers were installed to improve protection.",,,,
-alkemia_buzzard,SHIP,"A dedicated missile destroyer based on the Hammerhead. Boasting an impressive ordinance store and rapid autoloaders, the Buzzard can deal a staggering ammount of damage for it's size.",,,,
+alkemia_buzzard,SHIP,"A dedicated missile destroyer based on the Hammerhead. Boasting an impressive ordinance store and rapid autoloaders, the Buzzard can deal a staggering amount of damage for it's size.",,,,
 alkemia_perch,SHIP,"A refit of the Champion, this heavy cruiser trades it's heavy turret and downsizes it's missile slot for three fighter bays. Remaining frontal turrets have been overhauled to fit a wider variety of armaments. The internal capacitors of the original were replaced with an improved fighter manufactory.
 
 This is one of Alkemia Customs' flagship products.",,,,
@@ -74,7 +74,7 @@ Unfortunately, on-board weapon systems must be shut down to provide power for th
 krieg_planet_desc,CUSTOM,"Home to a large population, this planet has reverted to a very basic technological level. Combustion engines are used for transportation, factories spew smoke into the atmosphere. Nevertheless the landscape is dominated by green crop fields both illuminated and shaded by it's solar array.",,This Terran planet is covered in thick cloud cover. It's strong magnetic field creates fascinating auroras.,,
 krieg_burrow_station_desc,CUSTOM,"Formerly an asteroid research station, this sturdy platform now houses a small population of outsiders.",,,,
 krieg_fuelbomb,WEAPON,"A powerful and unstable warhead with a rudimentary guidance system",,,,
-krieg_artillery_rockets,WEAPON,"A battery of medium sized unguided rockets. This weapon can deliver an astonishing ammount of warheads at medium ranges.",,,,
+krieg_artillery_rockets,WEAPON,"A battery of medium sized unguided rockets. This weapon can deliver an astonishing amount of warheads at medium ranges.",,,,
 krieg_rockets,WEAPON,"A pod of simple rockets. Launching bursts of four at a time, it can be devastationg to unshielded targets.",,,,
 krieg_mg,WEAPON,"A simple defense weapon suitable against ordinance and fighters alike.",,,,
 krieg_light_flak,WEAPON,"A simple mortar firing timed fuse explosive shells. Good against fighter formations and missile barrages due to it's explosion radius.",,,,

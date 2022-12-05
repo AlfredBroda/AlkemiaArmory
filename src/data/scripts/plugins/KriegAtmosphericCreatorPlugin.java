@@ -16,7 +16,7 @@ import com.fs.starfarer.api.impl.combat.EscapeRevealPlugin;
 import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.util.Misc;
-import com.fs.starfarer.combat.CombatEngine;
+// import com.fs.starfarer.combat.CombatEngine;
 
 import data.scripts.tools.Helpers;
 
@@ -81,8 +81,8 @@ public class KriegAtmosphericCreatorPlugin extends BattleCreationPluginImpl {
         context.setEscapeDeploymentBurnDuration(1.5f);
 
         if (escape) {
-            api.addObjective((float) xPad + width * 0.5f, height * 0.5f, "nav_buoy");
-            api.addObjective((float) xPad + width * 0.5f, height * 0.9f, "nav_buoy");    
+            api.addObjective((float) width * 0.5f, (float) height * 0.5f, "nav_buoy");
+            api.addObjective((float) width * 0.5f, (float) height * 0.9f, "nav_buoy");    
 
             context.setInitialEscapeRange(Global.getSettings().getFloat("escapeStartDistance"));
             context.setFlankDeploymentDistance(Global.getSettings().getFloat("escapeFlankDistance"));
@@ -112,8 +112,7 @@ public class KriegAtmosphericCreatorPlugin extends BattleCreationPluginImpl {
 
         String randomBackground = Helpers.getRandomElement(backdrops);
         loader.setBackgroundSpriteName(randomBackground);
-        loader.setHyperspaceMode(true);
-        CombatEngine.replaceBackground(randomBackground, false);
+        // CombatEngine.replaceBackground(randomBackground, false);
 
         loader.setNebulaTex(Global.getSettings().getSpriteName("terrain", "nebula_clouds"));
 

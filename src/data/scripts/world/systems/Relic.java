@@ -252,6 +252,7 @@ public class Relic {
                 getPlanetSubmarkets(), 0f, false);
         market.setHidden(false);
         market.setPlanetConditionMarketOnly(false);
+        Helpers.revalidateConditions(market);
         market.reapplyConditions();
 
         Helpers.setSurveyed(market);
@@ -294,6 +295,7 @@ public class Relic {
 
     private static List<String> getPlanetIndustries() {
         List<String> industries = new ArrayList<String>();
+        industries.add("krieg_airbase");
         industries.add(Industries.POPULATION);
         industries.add(Industries.FARMING);
         industries.add(Industries.MINING);

@@ -3,18 +3,17 @@ package data.scripts.plugins.dialog;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.lazywizard.lazylib.MathUtils;
-import org.lwjgl.input.Keyboard;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.InteractionDialogImageVisual;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.CargoAPI;
-import com.fs.starfarer.api.campaign.CharacterDataAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.FleetMemberPickerListener;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
@@ -24,13 +23,11 @@ import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.RepLevel;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
-import com.fs.starfarer.api.campaign.StoryPointActionDelegate;
 import com.fs.starfarer.api.campaign.TextPanelAPI;
 import com.fs.starfarer.api.campaign.VisualPanelAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.characters.MutableCharacterStatsAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
-import com.fs.starfarer.api.characters.RelationshipAPI;
 import com.fs.starfarer.api.combat.BattleCreationContext;
 import com.fs.starfarer.api.combat.EngagementResultAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
@@ -38,8 +35,6 @@ import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.impl.campaign.FleetEncounterContext;
 import com.fs.starfarer.api.impl.campaign.FleetInteractionDialogPluginImpl;
 import com.fs.starfarer.api.impl.campaign.RuleBasedInteractionDialogPluginImpl;
-import com.fs.starfarer.api.impl.campaign.rulecmd.SetStoryOption.BaseOptionStoryPointActionDelegate;
-import com.fs.starfarer.api.impl.campaign.rulecmd.SetStoryOption.StoryOptionParams;
 import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent;
 import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent.SkillPickPreference;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
@@ -72,10 +67,11 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 		public static final String SURVEY_SELECT = "survey_select";
 		public static final String SURVEY_COMPLY = "survey_comply";
 		public static final String SURVEY_FIGHT = "survey_fight";
-		public static final String SURVEY_EXIT = "survey_abort";
+		public static final String SURVEY_LOST = "survey_lost";
 		public static final String SEIZED = "seized";
 		public static final String SEARCH = "search";
 		public static final String COMBAT = "combat";
+		public static final String COMBAT_WON = "fight_won";
 		public static final String ENCOUNTER_DONE = "encounter_done";
 		public static final String MARKET = "market";
 		public static final String RECONSIDER = "reconsider";
@@ -149,6 +145,10 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 	private FleetMemberAPI seizedSurveyor = null;
 	private List<FleetMemberAPI> remainingFleet = new ArrayList<>();
 	private CargoAPI savedCargo;
+	private PersonAPI captain = null;
+	private PersonAPI negotiator = null;
+
+	private Map<String, Integer> resLoss = new HashMap<>();
 
 	public void optionSelected(String text, Object optionData) {
 		if (optionData == null)
@@ -162,8 +162,6 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 
 		CargoAPI cargo = playerFleet.getCargo();
 		MutableCharacterStatsAPI player = sector.getPlayerStats();
-		PersonAPI captain = null;
-		PersonAPI negotiator = null;
 
 		switch (option) {
 			case Options.INIT:
@@ -215,7 +213,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 				updateOptions();
 				break;
 			case Options.SURVEY:
-				initFleetMemberPicker(Options.SURVEY_SELECT, Options.RECONSIDER);
+				initFleetMemberPicker(Options.SURVEY_SELECT, Options.RECONSIDER, SURVEY_CREW);
 				break;
 			case Options.SURVEY_SELECT:
 				options.clearOptions();
@@ -229,6 +227,9 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 				boolean surveyAvailable = cargo.getCommodityQuantity(Commodities.CREW) >= SURVEY_CREW
 						&& cargo.getCommodityQuantity(Commodities.HEAVY_MACHINERY) >= SURVEY_MACHINERY
 						&& cargo.getCommodityQuantity(Commodities.SUPPLIES) >= SURVEY_SUPPLIES;
+
+				resLoss.put(Commodities.HEAVY_MACHINERY, SURVEY_MACHINERY);
+				resLoss.put(Commodities.SUPPLIES, SURVEY_SUPPLIES);
 
 				Misc.showCost(textPanel, "Resources: required (available)", true, -1f, null, null,
 						new String[] { Commodities.CREW, Commodities.HEAVY_MACHINERY, Commodities.SUPPLIES },
@@ -286,7 +287,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 				captain = getSurveyCaptain();
 
 				addTextf(
-						"You order them to go back to orbit. When the ship attempts to escape, the aircraft give chase clearly trying to shoot it down!",
+						"You order %s to go back to orbit. When the ship attempts to escape, the aircraft give chase clearly trying to shoot it down!",
 						captain.getNameString());
 				textPanel.highlightInLastPara(captain.getNameString());
 
@@ -324,13 +325,27 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 
 				visual.showFleetInfo(patrol.getFullName(), patrol, playerFleet.getFullName(), playerFleet);
 
-				startEngagement(patrol, Options.ENCOUNTER_DONE, Options.SURVEY_EXIT);
+				startEngagement(patrol, Options.COMBAT_WON, Options.SURVEY_LOST);
 
 				break;
-			case Options.SURVEY_EXIT:
+			case Options.SURVEY_LOST:
 				options.clearOptions();
 
-				addText("You hear explosions and the expedition comlink goes dark...");
+				addText("Suddenly you hear explosions, then the expedition comlink goes silent...");
+
+				int crewLoss = Math.max(SURVEY_CREW, Math.round(selectedSurveyor.getMinCrew()));
+				resLoss.put(Commodities.CREW, crewLoss);
+				Helpers.removeResources(resLoss, textPanel, cargo);
+
+				showPlanetVisual();
+
+				optionSelected(null, Options.ENCOUNTER_DONE);
+				break;
+			case Options.COMBAT_WON:
+				String teamOrFleet = selectedSurveyor != null ? "survey team" : "fleet";
+				addTextf("Your %s manages to get back into orbit...", teamOrFleet);
+
+				selectedSurveyor = null;
 
 				showPlanetVisual();
 
@@ -383,10 +398,11 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 						"Offer a different ship");
 				if (player.getStoryPoints() < 1) {
 					options.setEnabled(Options.SEIZED_EXCHANGE, false);
-				} else {
-					options.addOptionConfirmation(Options.SEIZED_EXCHANGE,
-							"Spend a Story Point to negotiate a different ship in exchange?", "Confirm", "Return");
 				}
+				// } else {
+				// 	options.addOptionConfirmation(Options.SEIZED_EXCHANGE,
+				// 			"Spend a Story Point to negotiate a different ship in exchange?", "Confirm", "Return");
+				// }
 
 				break;
 			case Options.SEIZED_EXCHANGE:
@@ -396,7 +412,9 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 				}
 				remainingFleet.clear();
 
-				initFleetMemberPicker(Options.SEIZED_EXCHANGE_CONFIRM, Options.SEIZED_DEAL);
+				Helpers.removeResources(resLoss, textPanel, cargo);
+
+				initFleetMemberPicker(Options.SEIZED_EXCHANGE_CONFIRM, Options.SEIZED_DEAL, 0);
 				break;
 			case Options.SEIZED_EXCHANGE_CONFIRM:
 				String newShipName = selectedSurveyor.getShipName();
@@ -468,7 +486,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 
 				if (surveyorLost) {
 					addTextf(
-							"The returning survey team reports that there is no spaceport on %s. They managed however to locate several large military air bases.",
+							"The returning survey team reports that there is no spaceport on %s. However, they managed to locate several large military air bases.",
 							planet.getName());
 					textPanel.highlightFirstInLastPara(planet.getName(), kriegFaction.getColor());
 				}
@@ -674,7 +692,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 						baseEntity.removeScriptsOfClass(FleetAdvanceScript.class);
 
 						dialog.setPlugin(originalPlugin);
-						originalPlugin.optionSelected(null, win);
+						originalPlugin.optionSelected("Win", win);
 					} else {
 						boolean persistDefenders = false;
 						if (context.isEngagedInHostilities()) {
@@ -703,11 +721,17 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 								baseEntity.getMemoryWithoutUpdate().set("$defenderFleet", ambushers, 10f);
 						}
 
+						// Total fleet defeat
+						if ((selectedSurveyor == null) && playerFleet.getFleetData().getMembersListCopy().isEmpty()) {
+							dialog.dismiss();
+						}
+
 						dialog.setPlugin(originalPlugin);
-						if (context.didPlayerWinLastEngagement()) {
-							originalPlugin.optionSelected(null, win);
+						if (!Misc.getSnapshotMembersLost(playerFleet).isEmpty()) {
+							originalPlugin.optionSelected("Loss", lose);
 						} else {
-							originalPlugin.optionSelected(null, lose);
+							// Just one ship, so encounter was survived
+							originalPlugin.optionSelected("Win", win);
 						}
 					}
 				} else {
@@ -733,7 +757,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 		// FleetInteractionDialogPluginImpl.OptionId.INITIATE_BATTLE);
 	}
 
-	public void initFleetMemberPicker(String selected, String cancel) {
+	public void initFleetMemberPicker(String selected, String cancel, int minCrew) {
 		final String selectedOption = selected;
 		final String cancelOption = cancel;
 		List<FleetMemberAPI> fleetMemberListAll = Global.getSector().getPlayerFleet().getFleetData()
@@ -745,7 +769,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 			if (ship.getHullSpec().getTags().contains(Tags.SHIP_CAN_NOT_SCUTTLE)
 					|| ship.getVariant().getTags().contains(Tags.SHIP_CAN_NOT_SCUTTLE))
 				continue;
-			if (!ship.isMothballed() && (ship.isFrigate() || ship.isDestroyer())) {
+			if (!ship.isMothballed() && (ship.isFrigate() || ship.isDestroyer()) && (ship.getMaxCrew() >= minCrew)) {
 				selectList.add(ship);
 			}
 		}
@@ -753,7 +777,8 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 		int shipsPerRow = 8;
 		int rows = selectList.size() > shipsPerRow ? (int) Math.ceil(selectList.size() / (float) shipsPerRow) : 1;
 
-		dialog.showFleetMemberPickerDialog("Select a ship", "Confirm", "Cancel", rows,
+		String title = minCrew>0? String.format("Select a ship with minimum %d crew space", minCrew) :"Select a ship";
+		dialog.showFleetMemberPickerDialog(title, "Confirm", "Cancel", rows,
 				shipsPerRow, 80f, true, true, selectList, new FleetMemberPickerListener() {
 					@Override
 					public void pickedFleetMembers(List<FleetMemberAPI> members) {
