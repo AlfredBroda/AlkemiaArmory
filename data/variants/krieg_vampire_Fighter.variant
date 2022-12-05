@@ -13,8 +13,8 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0001": "alkemia_vulcan",
-        "WS0002": "alkemia_vulcan"
+        "WS0001": "lightmg",
+        "WS0002": "lightmg"
       }
     }
   ],

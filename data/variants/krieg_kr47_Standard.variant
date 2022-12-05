@@ -13,8 +13,8 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "alkemia_rockets",
-        "WS0002": "alkemia_rockets"
+        "WS0001": "krieg_rockets",
+        "WS0002": "krieg_rockets"
       }
     },
     {
@@ -39,10 +39,10 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0003": "alkemia_light_flak",
-        "WS0004": "alkemia_light_flak",
-        "WS0010": "alkemia_mg",
-        "WS0011": "alkemia_mg"
+        "WS0003": "krieg_light_flak",
+        "WS0004": "krieg_light_flak",
+        "WS0010": "krieg_mg",
+        "WS0011": "krieg_mg"
       }
     },
     {

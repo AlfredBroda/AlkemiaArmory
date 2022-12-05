@@ -113,6 +113,10 @@
 			"graphics/alkemia/portraits/female_mechanic1.png",
 			"graphics/alkemia/portraits/female_mechanic2.png",
 			"graphics/alkemia/portraits/female_mechanic3.png",
+			"graphics/alkemia/portraits/female_mechanic4.png",
+			"graphics/alkemia/portraits/female_mechanic5.png",
+			"graphics/alkemia/portraits/female_mechanic6.png",
+			"graphics/alkemia/portraits/female_mechanic7.png",
 			"graphics/portraits/portrait_corporate02.png",
 			"graphics/portraits/portrait_corporate04.png",
 			"graphics/portraits/portrait_corporate07.png",
@@ -131,6 +135,10 @@
 		"standard_male": [
 			"graphics/alkemia/portraits/male_mechanic1.png",
 			"graphics/alkemia/portraits/male_mechanic2.png",
+			"graphics/alkemia/portraits/male_mechanic3.png",
+			"graphics/alkemia/portraits/male_mechanic4.png",
+			"graphics/alkemia/portraits/male_mechanic5.png",
+			"graphics/alkemia/portraits/male_mechanic6.png",
 			"graphics/portraits/portrait_corporate01.png",
 			"graphics/portraits/portrait_corporate03.png",
 			"graphics/portraits/portrait_corporate05.png",
@@ -325,7 +333,7 @@
 			"fallback": { "personnelSmall": 2 }
 		},
 		"personnelLarge": {
-			"starliner_Standard": 10,
+			"alkemia_starliner2_Standard": 10,
 			"fallback": { "personnelMedium": 2 }
 		},
 

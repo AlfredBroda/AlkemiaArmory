@@ -53,6 +53,7 @@
 	},
 	
 	"combatFreighterLarge":{
+		"krieg_fortress_Transport": 2
 	},
 	
 	"freighterSmall":{

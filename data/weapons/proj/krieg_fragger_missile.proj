@@ -1,0 +1,62 @@
+{
+    "id": "krieg_fragger_missile",
+    "specClass": "missile",
+    "missileType":"MIRV",
+    "sprite": "graphics/alkemia/missiles/frag_missile.png",
+    "size": [ 13, 30 ],
+    "center": [ 6.5, 15 ],
+    "collisionRadius": 16,
+    "collisionClass": "MISSILE_NO_FF",
+    "explosionColor": [ 255, 155, 100, 255 ],
+    "explosionRadius": 35,
+    "engineSpec": {
+        "turnAcc": 190,
+        "turnRate": 360,
+        "maxSpeed": 300,
+        "acc": 100,
+        "dec": 100
+    },
+    "engineSlots": [
+        {
+            "id": "ES1",
+            "loc": [ -13, 0 ],
+            "style": "LOW_TECH",
+            "width": 6.0,
+            "length": 10.0,
+            "angle": 180.0
+        }
+    ],
+    "behaviorSpec": {
+		"behavior": "MIRV",
+		"splitRange": 300,
+		"splitRangeRange": 100,
+		"minTimeToSplit": 1,
+		"canSplitEarly": false,
+		"splitSound": "explosion_flak",
+		"numShots": 3,
+		"damage": 500,
+		"emp": 0,
+		"damageType": "HIGH_EXPLOSIVE",
+		"hitpoints": 150,
+		"arc": 0,
+		"spreadInaccuracy": 0,
+		"spreadSpeed": 0,
+		"spreadSpeedRange": 0,
+		"projectileSpec": "canister_flak_proj",
+		"debrisSmall": 7,
+		"debrisMedium": 0,
+		"debrisLarge": 0,
+		"smokeSpec": {
+			"particleSizeMin": 5.0,
+			"particleSizeRange": 5.0,
+			"cloudParticleCount": 11,
+			"cloudDuration": 1.0,
+			"cloudRadius": 10.0,
+			"blowbackParticleCount": 0,
+			"blowbackDuration": 0,
+			"blowbackLength": 0,
+			"blowbackSpread": 0,
+			"particleColor": [ 100, 100, 100, 200 ]
+		}
+	}
+}

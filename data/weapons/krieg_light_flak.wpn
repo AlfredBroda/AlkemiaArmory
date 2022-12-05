@@ -1,5 +1,5 @@
 {
-  "id": "alkemia_light_flak",
+  "id": "krieg_light_flak",
   "specClass": "projectile",
   "projectileSpecId": "flak_shot",
   "type": "BALLISTIC",
@@ -10,23 +10,11 @@
   "hardpointSprite": "graphics/alkemia/weapons/light_flak_hardpoint_base.png",
   "hardpointGunSprite": "graphics/weapons/light_machinegun_hardpoint_recoil.png",
   "visualRecoil": 5,
-  "renderHints": [
-    "RENDER_BARREL_BELOW"
-  ],
-  "turretOffsets": [
-    10.5,
-    0
-  ],
-  "turretAngleOffsets": [
-    0
-  ],
-  "hardpointOffsets": [
-    15,
-    0
-  ],
-  "hardpointAngleOffsets": [
-    0
-  ],
+  "renderHints": [ "RENDER_BARREL_BELOW" ],
+  "turretOffsets": [ 10.5, 0 ],
+  "turretAngleOffsets": [ 0 ],
+  "hardpointOffsets": [ 15, 0 ],
+  "hardpointAngleOffsets": [ 0 ],
   "barrelMode": "ALTERNATING",
   "animationType": "MUZZLE_FLASH",
   "muzzleFlashSpec": {

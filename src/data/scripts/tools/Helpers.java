@@ -1,58 +1,89 @@
 package data.scripts.tools;
 
+import static com.fs.starfarer.api.impl.campaign.procgen.MagFieldGenPlugin.auroraColors;
+import static com.fs.starfarer.api.impl.campaign.procgen.MagFieldGenPlugin.baseColors;
+
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Map.Entry;
+import java.util.concurrent.locks.Condition;
 
 import org.apache.log4j.Logger;
+import org.lazywizard.lazylib.MathUtils;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CargoAPI;
+import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.campaign.TextPanelAPI;
 import com.fs.starfarer.api.campaign.econ.EconomyAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
+import com.fs.starfarer.api.campaign.econ.MarketConditionAPI;
+import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.impl.campaign.ids.Conditions;
+import com.fs.starfarer.api.impl.campaign.ids.Factions;
+import com.fs.starfarer.api.impl.campaign.ids.Tags;
+import com.fs.starfarer.api.impl.campaign.ids.Terrain;
+import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator.OrbitGap;
-
-import org.lazywizard.lazylib.MathUtils;
+import com.fs.starfarer.api.impl.campaign.rulecmd.AddRemoveCommodity;
+import com.fs.starfarer.api.impl.campaign.terrain.MagneticFieldTerrainPlugin;
+import com.fs.starfarer.api.util.Misc;
+import com.fs.starfarer.api.util.WeightedRandomPicker;
 
 public class Helpers {
 
     public static MarketAPI addMarketplace(String factionID, SectorEntityToken primaryEntity,
             List<SectorEntityToken> connectedEntities, String name,
-            int size, List<String> marketConditions, List<String> Industries, List<String> submarkets, float tarrif,
+            int size, List<String> marketConditions, List<String> industries, List<String> submarkets, float tarrif,
             Boolean withJunk) {
         EconomyAPI globalEconomy = Global.getSector().getEconomy();
-        String planetID = primaryEntity.getId();
-        String marketID = planetID;
 
-        MarketAPI newMarket = Global.getFactory().createMarket(marketID, name, size);
+        MarketAPI newMarket = primaryEntity.getMarket();
+        if (newMarket == null) {
+            newMarket = Global.getFactory().createMarket(primaryEntity.getId(), name, size);
+            newMarket.setPrimaryEntity(primaryEntity);
+        } else {
+            newMarket.setSize(size);
+        }
+
         newMarket.setFactionId(factionID);
-        newMarket.setPrimaryEntity(primaryEntity);
         if (factionID != null) {
             newMarket.getTariff().modifyFlat("default_tariff", newMarket.getFaction().getTariffFraction());
         }
 
         if (null != submarkets) {
             for (String market : submarkets) {
-                newMarket.addSubmarket(market);
+                if (!newMarket.hasSubmarket(market))
+                    newMarket.addSubmarket(market);
             }
         }
 
-        for (String condition : marketConditions) {
-            newMarket.addCondition(condition);
+        if (null != marketConditions) {
+            for (String condition : marketConditions) {
+                if (!newMarket.hasCondition(condition))
+                    newMarket.addCondition(condition);
+            }
         }
 
-        if (null != Industries) {
-            for (String industry : Industries) {
-                newMarket.addIndustry(industry);
+        if (null != industries) {
+            for (String industry : industries) {
+                if (!newMarket.hasIndustry(industry))
+                    newMarket.addIndustry(industry);
             }
         }
 
         if (null != connectedEntities) {
             for (SectorEntityToken entity : connectedEntities) {
-                newMarket.getConnectedEntities().add(entity);
+                if (entity != null) {
+                    newMarket.getConnectedEntities().add(entity);
+                }
             }
         }
 
@@ -90,5 +121,264 @@ public class Helpers {
 
     public static float getMiddle(OrbitGap gap) {
         return gap.start + (gap.end - gap.start) / 2;
+    }
+
+    public static MarketAPI addConditionsMarket(PlanetAPI planet, String name, List<String> planetConditions) {
+        MarketAPI market = Global.getFactory().createMarket("market_" + planet.getId(), name, 1);
+        market.setPlanetConditionMarketOnly(true);
+        market.setFactionId(Factions.NEUTRAL);
+        market.setHidden(true);
+        planet.setMarket(market);
+
+        market.reapplyConditions();
+
+        return market;
+    }
+
+    public static void addMagneticField(SectorEntityToken token, float flareProbability, float width, boolean jp) {
+        StarSystemAPI system = token.getStarSystem();
+
+        int baseIndex = (int) (baseColors.length * StarSystemGenerator.random.nextFloat());
+        int auroraIndex = (int) (auroraColors.length * StarSystemGenerator.random.nextFloat());
+
+        float bandWidth = token.getRadius() + width;
+        float midRadius = jp ? token.getRadius() / 2f : (token.getRadius() + width) / 2f;
+        float visStartRadius = token.getRadius();
+        float visEndRadius = token.getRadius() + width + 50f;
+
+        SectorEntityToken magField = system.addTerrain(Terrain.MAGNETIC_FIELD,
+                new MagneticFieldTerrainPlugin.MagneticFieldParams(bandWidth, // terrain effect band width
+                        midRadius, // terrain effect middle radius
+                        token, // entity that it's around
+                        visStartRadius, // visual band start
+                        visEndRadius, // visual band end
+                        baseColors[baseIndex], // base color
+                        flareProbability, // probability to spawn aurora sequence, checked once/day when no aurora in
+                                          // progress
+                        auroraColors[auroraIndex]));
+        magField.setCircularOrbit(token, 0, 0, 100);
+    }
+
+    public static final Comparator<FleetMemberAPI> COMPARE_PRIORITY = new Comparator<FleetMemberAPI>() {
+        // -1 means member1 is first, 1 means member2 is first
+        @Override
+        public int compare(FleetMemberAPI member1, FleetMemberAPI member2) {
+            if (!member1.isCivilian()) {
+                if (member2.isCivilian()) {
+                    return -1;
+                }
+            } else if (!member2.isCivilian()) {
+                return 1;
+            }
+
+            int sizeCompare = member2.getHullSpec().getHullSize().compareTo(member1.getHullSpec().getHullSize());
+            if (sizeCompare != 0) {
+                return sizeCompare;
+            }
+
+            if (member1.getFleetPointCost() > member2.getFleetPointCost()) {
+                return -1;
+            } else if (member1.getFleetPointCost() < member2.getFleetPointCost()) {
+                return 1;
+            }
+
+            return MathUtils.getRandomNumberInRange(-1, 1);
+        }
+    };
+
+    public static String getRandomElement(List<String> list) {
+        return list.get(new Random().nextInt(list.size()));
+    }
+
+    public static String getRandomElement(String[] list) {
+        return list[new Random().nextInt(list.length)];
+    }
+
+    public static void makeDiscoverable(SectorEntityToken entity, float range, float profile, float xp) {
+        entity.setDiscoverable(true);
+        entity.setDiscoveryXP(xp);
+        entity.setSensorProfile(profile);
+        entity.getDetectedRangeMod().modifyFlat("gen", range);
+    }
+
+    public static StarSystemAPI findGateSystemWithPlanets() {
+        WeightedRandomPicker<StarSystemAPI> selected = new WeightedRandomPicker<>(new Random());
+
+        List<SectorEntityToken> gates = Global.getSector().getEntitiesWithTag(Tags.GATE);
+        for (SectorEntityToken gate : gates) {
+            StarSystemAPI system = gate.getStarSystem();
+
+            // must be unknown
+            if (system.isEnteredByPlayer())
+                continue;
+            // avoid pulsars
+            if (Misc.hasPulsar(system))
+                continue;
+            // not otherwise populated
+            if (Misc.getMarketsInLocation(system).size() > 0)
+                continue;
+
+            List<SectorEntityToken> planets = system.getEntitiesWithTag(Tags.PLANET);
+            float weight = 2;
+            if (planets.size() > 0)
+                weight = weight / planets.size();
+
+            if (system.hasTag(Tags.THEME_INTERESTING)) {
+                weight *= 0.5f;
+            } else if (system.hasTag(Tags.THEME_INTERESTING_MINOR)) {
+                weight *= 0.75f;
+            }
+
+            if (system.hasTag(Tags.BEACON_HIGH)) {
+                weight *= 0.1f;
+            } else if (system.hasTag(Tags.BEACON_MEDIUM)) {
+                weight *= 0.75f;
+            }
+
+            selected.add(system, weight);
+        }
+
+        return selected.pick();
+    }
+
+    /**
+     * @param market
+     * @param condition
+     * @return if the condition was already present
+     */
+    public static boolean addCondition(MarketAPI market, String condition) {
+        if (!market.hasCondition(condition)) {
+            market.addCondition(condition);
+            return false;
+        }
+        return true;
+    }
+
+    public static Object getGreek(int i) {
+        switch (i) {
+            case 1:
+                return "Alpha";
+            case 2:
+                return "Beta";
+            case 3:
+                return "Gamma";
+            case 4:
+                return "Delta";
+            case 5:
+                return "Epsilon";
+            case 6:
+                return "Zeta";
+            case 7:
+                return "Eta";
+            case 8:
+                return "Theta";
+            case 9:
+                return "Iota";
+            case 10:
+                return "Kappa";
+            case 11:
+                return "Lambda";
+            case 12:
+                return "Mu";
+            case 13:
+                return "Nu";
+            case 14:
+                return "Xi";
+        }
+        return "Omega";
+    }
+
+    public static float evenSpreadAngle(float allAngle, int seqNum, int allNum) {
+        float spreadAngle = allAngle / allNum;
+        return (spreadAngle * seqNum + spreadAngle / 2) - allAngle / 2;
+    }
+
+    public static void setSurveyed(MarketAPI market) {
+        for (MarketConditionAPI cond : market.getConditions()) {
+            cond.setSurveyed(true);
+        }
+    }
+
+    public static void removeResources(Map<String, Integer> resLoss, TextPanelAPI textPanel, CargoAPI cargo) {
+        for (Entry<String, Integer> loss : resLoss.entrySet()) {
+            cargo.removeCommodity(loss.getKey(), loss.getValue());
+            AddRemoveCommodity.addCommodityLossText(loss.getKey(), loss.getValue(), textPanel);
+        }
+    }
+
+    public static Map<String, Integer> CONDITION_VALUES = new HashMap<>();
+    static {
+        // ore
+        CONDITION_VALUES.put(Conditions.ORE_ULTRARICH, 4);
+        CONDITION_VALUES.put(Conditions.ORE_RICH, 3);
+        CONDITION_VALUES.put(Conditions.ORE_ABUNDANT, 2);
+        CONDITION_VALUES.put(Conditions.ORE_MODERATE, 1);
+        CONDITION_VALUES.put(Conditions.ORE_SPARSE, 0);
+        // organics
+        CONDITION_VALUES.put(Conditions.ORGANICS_ABUNDANT, 3);
+        CONDITION_VALUES.put(Conditions.ORGANICS_PLENTIFUL, 2);
+        CONDITION_VALUES.put(Conditions.ORGANICS_COMMON, 1);
+        CONDITION_VALUES.put(Conditions.ORGANICS_TRACE, 0);
+        // volatiles
+        CONDITION_VALUES.put(Conditions.VOLATILES_ABUNDANT, 3);
+        CONDITION_VALUES.put(Conditions.VOLATILES_PLENTIFUL, 2);
+        CONDITION_VALUES.put(Conditions.VOLATILES_DIFFUSE, 1);
+        CONDITION_VALUES.put(Conditions.VOLATILES_TRACE, 0);
+        // farmland
+        CONDITION_VALUES.put(Conditions.FARMLAND_RICH, 3);
+        CONDITION_VALUES.put(Conditions.FARMLAND_BOUNTIFUL, 2);
+        CONDITION_VALUES.put(Conditions.FARMLAND_ADEQUATE, 1);
+        CONDITION_VALUES.put(Conditions.FARMLAND_POOR, 0);
+        // rare ore
+        CONDITION_VALUES.put(Conditions.RARE_ORE_ULTRARICH, 4);
+        CONDITION_VALUES.put(Conditions.RARE_ORE_RICH, 3);
+        CONDITION_VALUES.put(Conditions.RARE_ORE_ABUNDANT, 2);
+        CONDITION_VALUES.put(Conditions.RARE_ORE_MODERATE, 1);
+        CONDITION_VALUES.put(Conditions.RARE_ORE_SPARSE, 0);
+    }
+
+    public static Map<String, String> categories = new HashMap<>();
+    static {
+        categories.put("ore", "ore");
+        categories.put("rare_ore", "rare_ore");
+        categories.put("farmland", "farmland");
+        categories.put("organics", "organics");
+        categories.put("volatiles", "volatiles");
+    }
+
+    public static void revalidateConditions(MarketAPI market) {
+        Map<String, String> best = new HashMap<>();
+        List<String> toRemove = new ArrayList<>();
+
+        Logger log = Global.getLogger(Helpers.class);
+
+        for (MarketConditionAPI cond : market.getConditions()) {
+            // log.info(cond);
+            if (cond.getGenSpec() != null) {
+                String cat = cond.getGenSpec().getGroup();
+                // log.info(cat);
+                if (categories.containsKey(cat)) {
+                    if (best.containsKey(cat)) {
+                        String current = best.get(cat);
+                        if (CONDITION_VALUES.get(current) > CONDITION_VALUES.get(cond.getId())) {
+                            toRemove.add(cond.getId());
+                            // log.info("remove");
+                        } else {
+                            toRemove.add(current);
+                            best.put(cat, current);
+                            // log.info("replace best");
+                        }
+                    } else {
+                        // log.info("put best");
+                        best.put(cat, cond.getId());
+                    }
+                }
+            }
+        }
+
+        for (String rem : toRemove) {
+            log.info(String.format("Removing worse duplicate condition: %s", rem));
+            market.removeCondition(rem);
+        }
     }
 }

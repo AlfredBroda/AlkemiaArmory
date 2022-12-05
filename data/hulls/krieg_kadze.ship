@@ -15,10 +15,10 @@
     "ground_support"
   ],
   "builtInWeapons": {
-    "WS0009": "alkemia_mg",
-    "WS0010": "alkemia_mg",
-    "WS0011": "alkemia_mg",
-    "WS0012": "alkemia_mg"
+    "WS0009": "krieg_mg",
+    "WS0010": "krieg_mg",
+    "WS0011": "krieg_mg",
+    "WS0012": "krieg_mg"
   },
   "weaponSlots": [
     {
@@ -27,7 +27,7 @@
       "type": "COMPOSITE",
       "mount": "HARDPOINT",
       "arc": 30,
-      "angle": 2,
+      "angle": 0,
       "locations": [81.5, -23]
     },
     {
@@ -36,7 +36,7 @@
       "type": "COMPOSITE",
       "mount": "HARDPOINT",
       "arc": 30,
-      "angle": -2,
+      "angle": 0,
       "locations": [81.5, 24]
     },
     {
@@ -81,7 +81,7 @@
       "type": "COMPOSITE",
       "mount": "HARDPOINT",
       "arc": 30,
-      "angle": -6,
+      "angle": 0,
       "locations": [42.5, 96]
     },
     {
@@ -90,7 +90,7 @@
       "type": "COMPOSITE",
       "mount": "HARDPOINT",
       "arc": 30,
-      "angle": 6,
+      "angle": 0,
       "locations": [42.5, -95]
     },
     {

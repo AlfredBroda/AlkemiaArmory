@@ -1,56 +1,54 @@
 {
-  "variantId": "krieg_kr35_Assault",
-  "hullId": "krieg_kr35",
+  "variantId": "krieg_bakemono_Assault",
+  "hullId": "krieg_bakemono",
   "displayName": "Assault",
   "goalVariant": true,
   "fluxCapacitors": 6,
-  "fluxVents": 7,
+  "fluxVents": 10,
   "quality": 1,
   "permaMods": [],
-  "hullMods": [
-    "hardenedshieldemitter"
-  ],
+  "hullMods": [],
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS0003": "alkemia_light_flak",
-        "WS0004": "alkemia_light_flak",
+        "WS0001": "krieg_dual_rail",
+        "WS0002": "krieg_dual_rail"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
         "WS0007": "lightag",
         "WS0008": "lightag"
       }
     },
     {
       "autofire": false,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
       "weapons": {
-        "WS0009": "lightac",
-        "WS0010": "lightac"
+        "WS0009": "annihilator",
+        "WS0010": "annihilator"
       }
     },
     {
       "autofire": false,
-      "mode": "ALTERNATING",
+      "mode": "LINKED",
       "weapons": {
-        "WS0011": "annihilator_fighter",
-        "WS0012": "annihilator_fighter"
+        "WS0011": "hammer",
+        "WS0012": "hammer"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0005": "alkemia_mg",
-        "WS0006": "alkemia_mg"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "WS0001": "alkemia_light_flak",
-        "WS0002": "alkemia_light_flak"
+        "WS0003": "krieg_light_flak",
+        "WS0004": "krieg_light_flak",
+        "WS0005": "krieg_mg",
+        "WS0006": "krieg_mg"
       }
     }
   ],

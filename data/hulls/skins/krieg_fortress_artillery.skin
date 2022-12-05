@@ -1,0 +1,48 @@
+{
+	"baseHullId": "krieg_fortress",
+	"skinHullId": "krieg_fortress_artillery",
+	"hullName": "Fortress (A)",
+	"descriptionId": "krieg_fortress",
+	"descriptionPrefix": "This variant replaces all hangars with artillery missile batteries.",
+	"tags": [ "krieg_bp" ],
+	"manufacturer": "Krieg",
+	"tech": "LOW_TECH",
+	"spriteName": "graphics/alkemia/ships/fortress/fortress-arty.png",
+	"baseValueMult": 0.8,
+	"ordnancePoints": 160,
+	"fighterBays": 0,
+	"removeHints": [ "CARRIER" ],
+	"systemId": "fastmissileracks",
+	"builtInWeapons": {
+		"MS001": "krieg_artillery_rockets",
+		"MS002": "krieg_artillery_rockets",
+		"MS003": "krieg_artillery_rockets",
+		"MS004": "krieg_artillery_rockets"
+	},
+	"removeWeaponSlots": [ ],
+	"removeEngineSlots": [ ],
+	"removeBuiltInMods": [ ],
+	"removeBuiltInWeapons": [ ],
+	"weaponSlotChanges": {
+		"MS001": {
+			"type": "BUILT_IN",
+			"mount": "HIDDEN",
+			"arc": 5
+		},
+		"MS002": {
+			"type": "BUILT_IN",
+			"mount": "HIDDEN",
+			"arc": 5
+		},
+		"MS003": {
+			"type": "BUILT_IN",
+			"mount": "HIDDEN",
+			"arc": 5
+		},
+		"MS004": {
+			"type": "BUILT_IN",
+			"mount": "HIDDEN",
+			"arc": 5
+		}
+	}
+}

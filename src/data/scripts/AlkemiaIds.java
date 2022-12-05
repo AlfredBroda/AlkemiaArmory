@@ -28,6 +28,23 @@ public class AlkemiaIds {
     // Systems
     public static final String ALKEMIA_AFTERBURNER = "alkemia_afterburner";
     
+    // Locations
+    public static final String KRIEG_PLANET = "krieg_planet";
+    public static final String KRIEG_BURROW = "krieg_burrow_station";
+    
+    // Faction
+    public static final String FACTION_KRIEG = "krieg";
+    public static final String FACTION_ALKEMIA = "alkemia";
+    
     // Memory keys
-    public static final String KRIEG_EXISTS = "$krieg_exists";
+    public static final String KEY_KRIEG_EXISTS = "$krieg.exists";
+    public static final String KEY_KRIEG_REVEALED = "$krieg.revealed";
+    public static final String KEY_KRIEG_UNLOCKED = "$krieg.unlocked";
+    public static final String KEY_ATMOSPHERIC = "$krieg.atmospheric_combat";
+    public static final String KEY_KRIEG_LEADER = "$krieg.leader";
+    public static final String KEY_KRIEG_MARKET = "$krieg.market";
+    
+    // tags
+    public static final String TAG_LEADER = "krieg_leader";
+    public static final String TAG_KRIEG_DIALOG = "krieg_dialog";
 }

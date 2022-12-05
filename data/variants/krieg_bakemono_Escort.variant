@@ -1,0 +1,54 @@
+{
+  "variantId": "krieg_bakemono_Escort",
+  "hullId": "krieg_bakemono",
+  "displayName": "Escort",
+  "goalVariant": true,
+  "fluxCapacitors": 6,
+  "fluxVents": 8,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "adaptiveshields",
+    "auxiliarythrusters"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0007": "lightac",
+        "WS0008": "lightac",
+        "WS0009": "lightac",
+        "WS0010": "lightac"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0011": "krieg_mg",
+        "WS0012": "krieg_mg"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "krieg_light_flak",
+        "WS0002": "krieg_light_flak",
+        "WS0003": "krieg_light_flak",
+        "WS0004": "krieg_light_flak"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "krieg_mg",
+        "WS0006": "krieg_mg"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

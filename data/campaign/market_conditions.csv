@@ -1,0 +1,2 @@
+name,id,planetary,decivRemove,script,desc,icon,order
+Ionized Atmosphere,alkemia_ionized_atmosphere,TRUE,,data.scripts.campaign.econ.AlkemiaIonizedAtmosphere,A layer of ionized particles lingers in $market's upper atmosphere.,graphics/alkemia/icons/markets/ionized.png,27

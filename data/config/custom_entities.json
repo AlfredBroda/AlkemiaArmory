@@ -1,0 +1,23 @@
+{
+	"station_burrow":{
+		"defaultName":"Side Station",
+		"defaultRadius":40,
+		"customDescriptionId":"orbital_station_default",
+		"interactionImage":"graphics/alkemia/illustrations/burrow_station.jpg",
+		"icon":"graphics/icons/station0.png",
+		"iconWidth":20,
+		"iconHeight":20,
+		"sprite":"graphics/alkemia/stations/station_burrow.png",
+		"spriteWidth":40,
+		"spriteHeight":40,
+		"renderShadow":true,
+		"useLightColor":true,
+		"showInCampaign":true,
+		"showIconOnMap":true,
+		"showNameOnMap":false,
+		"scaleNameWithZoom":false,
+		"scaleIconWithZoom":true,
+		"tags":["station"],
+		"layers":["STATIONS"]
+	}
+}

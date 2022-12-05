@@ -68,7 +68,7 @@ A retrofit of the Drover, this destroyer now features a universal medium turret 
 <td>
 Buzzard-class Missile Destroyer
 
-A dedicated missile destroyer based on the Hammerhead. Boasting an impressive ordinance store and rapid autoloaders, the Buzzard can deal a staggering ammount of damage for it's size.
+A dedicated missile destroyer based on the Hammerhead. Boasting an impressive ordinance store and rapid autoloaders, the Buzzard can deal a staggering amount of damage for it's size.
 </td>
 </tr>
 

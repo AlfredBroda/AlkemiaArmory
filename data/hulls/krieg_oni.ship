@@ -28,7 +28,7 @@
     {
       "id": "WS0002",
       "size": "SMALL",
-      "type": "MISSILE",
+      "type": "COMPOSITE",
       "mount": "HIDDEN",
       "arc": 5,
       "angle": 0,

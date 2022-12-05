@@ -1,5 +1,5 @@
 {
-	"id": "alkemia_mg",
+	"id": "krieg_mg",
 	"specClass": "projectile",
 	"projectileSpecId": "lightmg_shot",
 	"type": "BALLISTIC",
