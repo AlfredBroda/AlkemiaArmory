@@ -23,7 +23,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.submarkets.BaseSubmarketPlugin;
 import com.fs.starfarer.api.util.Misc;
 
-public class KriegSurplusMarketPlugin extends BaseSubmarketPlugin {
+public class kriegSurplusMarketPlugin extends BaseSubmarketPlugin {
 
     private final RepLevel MIN_STANDING = RepLevel.SUSPICIOUS;
 
