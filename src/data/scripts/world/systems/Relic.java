@@ -78,7 +78,8 @@ public class Relic {
         // Misc.addWarningBeacon(kriegPlanet, beaconGap, Tags.BEACON_LOW);
 
         Helpers.addMagneticField(kriegPlanet, 0.2f, 180, false);
-        PlanetConditionGenerator.generateConditionsForPlanet(kriegPlanet, system.getAge());
+        StarAge age = system.getAge() != null?system.getAge():StarAge.YOUNG;
+        PlanetConditionGenerator.generateConditionsForPlanet(kriegPlanet, age);
         reapplyConditions(kriegPlanet, getPlanetConditions());
         Helpers.makeDiscoverable(kriegPlanet, 5000, 2000, 500);
 
