@@ -13,7 +13,6 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
-import com.fs.starfarer.api.campaign.econ.MarketConditionAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.Industries;
@@ -27,7 +26,6 @@ import com.fs.starfarer.api.impl.campaign.procgen.StarAge;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator.CustomConstellationParams;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator.OrbitGap;
-import com.fs.starfarer.api.util.Misc;
 
 import data.scripts.AlkemiaIds;
 import data.scripts.AlkemiaModPlugin;
@@ -137,8 +135,6 @@ public class Relic {
         pirateMarket.setHidden(true);
 
         // pirateMarket.addTag(Tags.NO_MARKET_INFO);
-
-        Global.getSector().getMemory().set(AlkemiaIds.KEY_KRIEG_EXISTS, true);
     }
 
     /**
