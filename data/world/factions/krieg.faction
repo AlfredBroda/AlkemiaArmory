@@ -171,7 +171,8 @@
 		"combatLarge": {
 			"krieg_fortress_Standard": 6,
 			"krieg_fortress_Support": 5,
-			"krieg_kr47_Standard": 7,
+			"krieg_kr47_Standard": 8,
+			"krieg_kr47_Support": 7,
 			"fallback": { "combatMedium": 2 }
 		},
 		"combatCapital": {

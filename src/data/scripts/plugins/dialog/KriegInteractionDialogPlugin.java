@@ -276,7 +276,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 			case Options.SURVEY_COMPLY:
 				options.clearOptions();
 
-				addText("You order your survey team to comply and the commlink starts to break up - then the connection is severed completely.");
+				addText("You order your survey team to comply as the commlink starts to break up - then the connection is severed completely.");
 				addText("Tense minutes follow.");
 
 				options.addOption("Continue", Options.SEIZED);
@@ -285,11 +285,12 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 				options.clearOptions();
 
 				captain = getSurveyCaptain();
-
+				String capAndCrew = getCaptainAndCrew(captain);
 				addTextf(
 						"You order %s to go back to orbit. When the ship attempts to escape, the aircraft give chase clearly trying to shoot it down!",
-						captain.getNameString());
-				textPanel.highlightInLastPara(captain.getNameString());
+						capAndCrew);
+				if (captain != null)
+					textPanel.highlightInLastPara(captain.getNameString());
 
 				if (!selectedSurveyor.isPhaseShip()) {
 					options.addOption("Continue", Options.SURVEY_FIGHT);
@@ -298,7 +299,7 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 			case Options.SURVEY_ESCAPED:
 				options.clearOptions();
 				addTextf(
-						"Fortunately %s was equipped with a phase field generator and was able to exit the atmosphere leaving the pursuers behind.",
+						"Fortunately %s was equipped with a phase field generator and was able to exit the atmosphere leaving the pursuers confused.",
 						selectedSurveyor.getShipName());
 				textPanel.highlightInLastPara(selectedSurveyor.getShipName());
 
@@ -394,29 +395,31 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 				showShipTooltip(selectedSurveyor);
 
 				options.addOption("Agree", Options.SEIZED_DEAL);
-				options.addOption("Exchange", Options.SEIZED_EXCHANGE, Misc.getStoryOptionColor(),
-						"Offer a different ship");
+				options.addOption("Exchange ships (1 SP)", Options.SEIZED_EXCHANGE, Misc.getStoryOptionColor(),
+						"Spend a Story Point to offer a different ship in exchange");
 				if (player.getStoryPoints() < 1) {
 					options.setEnabled(Options.SEIZED_EXCHANGE, false);
 				}
 				// } else {
-				// 	options.addOptionConfirmation(Options.SEIZED_EXCHANGE,
-				// 			"Spend a Story Point to negotiate a different ship in exchange?", "Confirm", "Return");
+				// options.addOptionConfirmation(Options.SEIZED_EXCHANGE,
+				// "Spend a Story Point to negotiate a different ship in exchange?", "Confirm",
+				// "Return");
 				// }
 
 				break;
 			case Options.SEIZED_EXCHANGE:
+				options.clearOptions();
+
 				seizedSurveyor = selectedSurveyor;
 				for (FleetMemberAPI ship : remainingFleet) {
 					playerFleet.getFleetData().addFleetMember(ship);
 				}
 				remainingFleet.clear();
 
-				Helpers.removeResources(resLoss, textPanel, cargo);
-
 				initFleetMemberPicker(Options.SEIZED_EXCHANGE_CONFIRM, Options.SEIZED_DEAL, 0);
 				break;
 			case Options.SEIZED_EXCHANGE_CONFIRM:
+
 				String newShipName = selectedSurveyor.getShipName();
 				String seizedName = seizedSurveyor.getShipName();
 
@@ -431,9 +434,14 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 				textPanel.setHighlightsInLastPara(h);
 
 				String logMessage = String.format("Exchanged %s for %s to be left on Krieg.", seizedName, newShipName);
-				player.spendStoryPoints(1, true, textPanel, true, 0, logMessage);
+				player.spendStoryPoints(1, true, textPanel, true, 0.5f, logMessage);
+
+				// Bonus - cargo recovered
+				resLoss.clear();
 
 				showShipTooltip(selectedSurveyor);
+
+				options.addOption("Agree", Options.SEIZED_DEAL);
 
 				break;
 			case Options.SEIZED_DEAL:
@@ -455,6 +463,9 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 				showPlanetVisual();
 
 				addText("Eventually, the fleet recieves coordinates for a safe pickup and a shuttle collects your survey team.");
+
+				Helpers.removeResources(resLoss, textPanel, cargo);
+
 			case Options.ENCOUNTER_DONE:
 				options.clearOptions();
 
@@ -777,7 +788,8 @@ public class KriegInteractionDialogPlugin implements InteractionDialogPlugin {
 		int shipsPerRow = 8;
 		int rows = selectList.size() > shipsPerRow ? (int) Math.ceil(selectList.size() / (float) shipsPerRow) : 1;
 
-		String title = minCrew>0? String.format("Select a ship with minimum %d crew space", minCrew) :"Select a ship";
+		String title = minCrew > 0 ? String.format("Select a ship with minimum %d crew space", minCrew)
+				: "Select a ship";
 		dialog.showFleetMemberPickerDialog(title, "Confirm", "Cancel", rows,
 				shipsPerRow, 80f, true, true, selectList, new FleetMemberPickerListener() {
 					@Override

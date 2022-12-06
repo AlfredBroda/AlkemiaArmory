@@ -59,7 +59,7 @@
     {
       "id": "WS0005",
       "size": "LARGE",
-      "type": "COMPOSITE",
+      "type": "UNIVERSAL",
       "mount": "HARDPOINT",
       "arc": 45,
       "angle": 0,
@@ -68,7 +68,7 @@
     {
       "id": "WS0006",
       "size": "LARGE",
-      "type": "COMPOSITE",
+      "type": "UNIVERSAL",
       "mount": "HARDPOINT",
       "arc": 45,
       "angle": 0,
