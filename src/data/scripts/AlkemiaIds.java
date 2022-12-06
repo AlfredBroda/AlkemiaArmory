@@ -37,7 +37,6 @@ public class AlkemiaIds {
     public static final String FACTION_ALKEMIA = "alkemia";
     
     // Memory keys
-    public static final String KEY_KRIEG_EXISTS = "$krieg.exists";
     public static final String KEY_KRIEG_REVEALED = "$krieg.revealed";
     public static final String KEY_KRIEG_UNLOCKED = "$krieg.unlocked";
     public static final String KEY_ATMOSPHERIC = "$krieg.atmospheric_combat";

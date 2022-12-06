@@ -12,11 +12,7 @@ import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.CampaignPlugin;
 import com.fs.starfarer.api.campaign.SpecialItemData;
 import com.fs.starfarer.api.campaign.econ.Industry;
-import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.econ.InstallableIndustryItemPlugin.InstallableItemDescriptionMode;
-import com.fs.starfarer.api.campaign.rules.MemoryAPI;
-import com.fs.starfarer.api.characters.PersonAPI;
-import com.fs.starfarer.api.characters.FullName.Gender;
 import com.fs.starfarer.api.combat.EngagementResultAPI;
 import com.fs.starfarer.api.combat.MissileAIPlugin;
 import com.fs.starfarer.api.combat.MissileAPI;
@@ -25,9 +21,6 @@ import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.econ.impl.BoostIndustryInstallableItemEffect;
 import com.fs.starfarer.api.impl.campaign.econ.impl.ItemEffectsRepo;
-import com.fs.starfarer.api.impl.campaign.ids.Commodities;
-import com.fs.starfarer.api.impl.campaign.ids.Ranks;
-import com.fs.starfarer.api.impl.campaign.ids.Skills;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
@@ -39,7 +32,6 @@ import data.scripts.ai.missile.AlkemiaFuelbombAI;
 import data.scripts.ai.missile.AlkemiaPDMissileAI;
 import data.scripts.plugins.AntiMissileEffectPlugin;
 import data.scripts.plugins.KriegCampaignPlugin;
-import data.scripts.world.AlkemiaGen;
 import data.scripts.world.KriegGen;
 // import exerelin.campaign.SectorManager;
 
@@ -185,6 +177,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
     @Override
     public void onNewGameAfterEconomyLoad() {
+        new KriegGen().generate(Global.getSector());
         KriegGen.addBurrowAdmin();
     }
 

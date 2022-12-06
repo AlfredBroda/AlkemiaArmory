@@ -28,8 +28,8 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0003": "roider_annihilatorpod",
-        "WS0005": "roider_annihilatorpod"
+        "WS0003": "annihilatorpod",
+        "WS0005": "annihilatorpod"
       }
     },
     {
