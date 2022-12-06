@@ -109,7 +109,7 @@ public class Relic {
         PlanetAPI kriegMoon = system.addPlanet("krieg_moon", kriegPlanet, "Sentinel", "barren-bombarded",
                 360f * (float) Math.random(), 30, beaconGap.end, 20);
         Helpers.makeDiscoverable(kriegMoon, 3000, 800, 100);
-        PlanetConditionGenerator.generateConditionsForPlanet(kriegMoon, system.getAge());
+        PlanetConditionGenerator.generateConditionsForPlanet(kriegMoon, age);
 
         // Place the belt behind the planet
         OrbitGap beltOrbit = Helpers.findEmptyOrbit(system, kriegOrbit.end, kriegOrbit.end + 5000, 1400);
