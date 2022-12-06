@@ -3,14 +3,15 @@
   "hullId": "krieg_fortress",
   "displayName": "Standard",
   "goalVariant": true,
-  "fluxCapacitors": 26,
+  "fluxCapacitors": 24,
   "fluxVents": 23,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
     "hardenedshieldemitter",
     "reinforcedhull",
-    "ballistic_rangefinder"
+    "ballistic_rangefinder",
+    "turretgyros"
   ],
   "weaponGroups": [
     {
@@ -25,8 +26,8 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0007": "arbalest",
-        "WS0008": "arbalest"
+        "WS0007": "krieg_fragger",
+        "WS0008": "krieg_fragger"
       }
     },
     {

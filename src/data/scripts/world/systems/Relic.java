@@ -72,7 +72,8 @@ public class Relic {
         kriegPlanet.addTag(AlkemiaIds.TAG_KRIEG_DIALOG);
 
         OrbitGap beaconGap = new OrbitGap();
-        beaconGap.start = kriegPlanet.getRadius() + 180f;
+        // space station are at ~180
+        beaconGap.start = kriegPlanet.getRadius() + 250f;
         beaconGap.end = 600;
         // Misc.addWarningBeacon(kriegPlanet, beaconGap, Tags.BEACON_LOW);
 

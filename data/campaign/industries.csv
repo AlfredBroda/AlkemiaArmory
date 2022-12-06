@@ -22,4 +22,4 @@ fleetName:Star Fortress
 }",graphics/icons/industry/battlestation.png,com.fs.starfarer.api.impl.campaign.econ.impl.OrbitalStation,"An up-armored battlestation, featuring a large complement of fighters and an extensive minefield.
 
 Must be reduced before invasions or bombardment can be attempted.",2061,
-krieg_airbase,Airbase,10,15,,3,,spaceport,"spaceport, important, structure",,graphics/alkemia/icons/industry/airport.png,data.scripts.campaign.econ.KriegAirbase,Facilities for loading and unloading cargo and performing basic starship repairs. A colony without a spaceport is virtually inaccessible to interstellar trade.,150,HIGH
+krieg_airbase,Airbase,6,5,,2,,spaceport,"spaceport, important, structure",,graphics/alkemia/icons/industry/airport.png,data.scripts.campaign.econ.KriegAirbase,Facilities for loading and unloading cargo and performing basic aircraft repairs. Not exactly a spaceport but better than none.,150,HIGH
