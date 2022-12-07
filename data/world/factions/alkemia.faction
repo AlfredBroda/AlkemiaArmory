@@ -240,8 +240,9 @@
 			"alkemia_gryphon_LR": 8,
 			"alkemia_perch_assault": 6,
 			"alkemia_perch_standard": 5,
-			"champion_Escort": 8,
-			"champion_Support": 8,
+			"champion_Escort": 6,
+			"champion_Support": 7,
+			"alkemia_champion_Breaker":8,
 			"gryphon_FS": 8,
 			"gryphon_Standard": 8,
 			"fallback": { "combatMedium": 2 }

@@ -26,8 +26,10 @@
 	"combatLarge":{
 		"alkemia_gryphon_LR": 5,
 		"alkemia_perch_assault": 4,
-		"alkemia_perch_escort": 10,
-		"alkemia_perch_standard": 6
+		"alkemia_perch_escort": 7,
+		"alkemia_perch_standard": 6,
+		"alkemia_champion_Breaker": 6
+
 	},
 	"combatCapital":{
 		"alkemia_conquest_lr": 3,

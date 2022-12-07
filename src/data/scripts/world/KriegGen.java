@@ -8,6 +8,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
+import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.characters.FullName.Gender;
 import com.fs.starfarer.api.characters.MutableCharacterStatsAPI;
@@ -35,9 +36,13 @@ public class KriegGen implements SectorGeneratorPlugin {
         Relic relic = new Relic();
         relic.generate(sector);
 
-        String mesg = String.format("Krieg generator done (%s, %s Constellation).", relic.getSystem().getName(), relic.getSystem().getConstellation().getName());
+        String mesg = "Failed generating Krieg!";
+        StarSystemAPI relicSystem = relic.getSystem();
+        if (relicSystem != null) {
+            mesg = String.format("Krieg generator done (%s, %s Constellation).", relicSystem.getName(), relicSystem.getConstellation().getName());
+        }
         MessageUtils.showMessage(mesg);
-        log.info(mesg);
+        log.warn(mesg);
     }
 
     public static void addKriegAdmin() {
@@ -64,7 +69,7 @@ public class KriegGen implements SectorGeneratorPlugin {
             duke.setPortraitSprite(Global.getSettings().getSpriteName("characters", "duke_harald"));
             duke.setPersonality(Personalities.AGGRESSIVE);
             duke.addTag(AlkemiaIds.TAG_LEADER);
-            
+
             Global.getSector().getMemory().set(AlkemiaIds.KEY_KRIEG_LEADER, duke.getId());
 
             market.getCommDirectory().addPerson(duke, 0);
