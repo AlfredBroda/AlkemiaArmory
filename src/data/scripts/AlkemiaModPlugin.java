@@ -10,6 +10,7 @@ import com.fs.starfarer.api.campaign.BaseCampaignEventListener;
 import com.fs.starfarer.api.campaign.BattleAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.CampaignPlugin;
+import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.SpecialItemData;
 import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.InstallableIndustryItemPlugin.InstallableItemDescriptionMode;
@@ -156,7 +157,12 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     }
 
     private boolean kriegPlanetExists() {
-        return Global.getSector().getEntityById(AlkemiaIds.KRIEG_PLANET) != null;
+        SectorEntityToken planet = Global.getSector().getEntityById(AlkemiaIds.KRIEG_PLANET);
+        if (planet != null) {
+            log.debug(planet.getFullName() + " in " + planet.getContainingLocation().getName());
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -182,9 +188,9 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     }
 
     ////////////////////////////////////////
-    //                                    //
-    //       MISSILES AI OVERRIDES        //
-    //                                    //
+    // //
+    // MISSILES AI OVERRIDES //
+    // //
     ////////////////////////////////////////
 
     @Override
@@ -209,9 +215,9 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     }
 
     ////////////////////////////////////////
-    //                                    //
-    //          SHIP AI OVERRIDES         //
-    //                                    //
+    // //
+    // SHIP AI OVERRIDES //
+    // //
     ////////////////////////////////////////
 
     @Override

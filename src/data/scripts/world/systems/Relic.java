@@ -1,10 +1,13 @@
 package data.scripts.world.systems;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.lazywizard.lazylib.MathUtils;
+import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CustomEntitySpecAPI;
@@ -14,6 +17,7 @@ import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Conditions;
+import com.fs.starfarer.api.impl.campaign.ids.Entities;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.Industries;
 import com.fs.starfarer.api.impl.campaign.ids.Submarkets;
@@ -25,7 +29,10 @@ import com.fs.starfarer.api.impl.campaign.procgen.PlanetConditionGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.StarAge;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator.CustomConstellationParams;
+import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator;
+import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator.EntityLocation;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator.OrbitGap;
+import com.fs.starfarer.api.util.Misc;
 
 import data.scripts.AlkemiaIds;
 import data.scripts.AlkemiaModPlugin;
@@ -47,10 +54,9 @@ public class Relic {
     public void generate(SectorAPI sector) {
         system = Helpers.findGateSystemWithPlanets();
 
-        if (system == null) {
-            StarSystemGenerator gen = new StarSystemGenerator(new CustomConstellationParams(StarAge.YOUNG));
-            Constellation newConstel = gen.generate();
-            system = newConstel.getSystemWithMostPlanets();
+        if (system == null || !system.isInConstellation()) {
+            log.info("Generating new constellation...");
+            system = genSystemInNewConstellation(StarAge.YOUNG);
         }
         system.addTag(Tags.THEME_INTERESTING);
 
@@ -78,7 +84,7 @@ public class Relic {
         // Misc.addWarningBeacon(kriegPlanet, beaconGap, Tags.BEACON_LOW);
 
         Helpers.addMagneticField(kriegPlanet, 0.2f, 180, false);
-        StarAge age = system.getAge() != null?system.getAge():StarAge.YOUNG;
+        StarAge age = system.getAge() != null ? system.getAge() : StarAge.YOUNG;
         PlanetConditionGenerator.generateConditionsForPlanet(kriegPlanet, age);
         reapplyConditions(kriegPlanet, getPlanetConditions());
         Helpers.makeDiscoverable(kriegPlanet, 5000, 2000, 500);
@@ -137,6 +143,24 @@ public class Relic {
         pirateMarket.setHidden(true);
 
         // pirateMarket.addTag(Tags.NO_MARKET_INFO);
+    }
+
+    private StarSystemAPI genSystemInNewConstellation(StarAge age) {
+        CustomConstellationParams params = new CustomConstellationParams(age);
+        params.location = new Vector2f();
+
+        StarSystemGenerator gen = new StarSystemGenerator(params);
+        Constellation newConstel = gen.generate();
+        system = newConstel.getSystemWithMostPlanets();
+
+        List<SectorEntityToken> gates = system.getEntitiesWithTag(Tags.GATE);
+        if (gates.size() < 1) {
+            Set<SectorEntityToken> empty = Collections.emptySet();
+            EntityLocation gateLoc = BaseThemeGenerator.pickCommonLocation(Misc.random, system, 100, true, empty);
+            BaseThemeGenerator.addNonSalvageEntity(system, gateLoc, Entities.INACTIVE_GATE, Factions.NEUTRAL);
+        }
+
+        return system;
     }
 
     /**

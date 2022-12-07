@@ -2,7 +2,6 @@ package data.scripts.world;
 
 import org.apache.log4j.Logger;
 import org.lazywizard.lazylib.MathUtils;
-import org.lazywizard.lazylib.campaign.MessageUtils;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.SectorAPI;
@@ -19,6 +18,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Personalities;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 import com.fs.starfarer.api.impl.campaign.ids.Skills;
 import com.fs.starfarer.api.impl.campaign.ids.Voices;
+import com.fs.starfarer.api.impl.campaign.procgen.Constellation;
 
 import data.scripts.AlkemiaIds;
 import data.scripts.world.systems.Relic;
@@ -39,10 +39,15 @@ public class KriegGen implements SectorGeneratorPlugin {
         String mesg = "Failed generating Krieg!";
         StarSystemAPI relicSystem = relic.getSystem();
         if (relicSystem != null) {
-            mesg = String.format("Krieg generator done (%s, %s Constellation).", relicSystem.getName(), relicSystem.getConstellation().getName());
+            String constName = "Unknown Constellation";
+            Constellation constellation = relicSystem.getConstellation();
+            if (constellation != null)
+                constName = constellation.getNameWithType();
+            mesg = String.format("Krieg generator done (%s, %s).", relicSystem.getName(), constName);
+            log.info(mesg);
+        } else {
+            log.warn(mesg);
         }
-        MessageUtils.showMessage(mesg);
-        log.warn(mesg);
     }
 
     public static void addKriegAdmin() {
