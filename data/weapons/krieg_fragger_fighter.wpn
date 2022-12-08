@@ -1,0 +1,30 @@
+{
+  "id": "krieg_fragger_fighter",
+  "specClass": "projectile",
+  "projectileSpecId": "krieg_fragger_missile",
+  "type": "MISSILE",
+  "size": "SMALL",
+  "displayArcRadius": 300,
+  "turretSprite": "graphics/weapons/missile_rack_1x_turret_base.png",
+  "hardpointSprite": "graphics/weapons/missile_rack_1x_hardpoint_base.png",
+  "renderHints": [ "RENDER_LOADED_MISSILES" ],
+  "turretOffsets": [ 1.5, 0 ],
+  "turretAngleOffsets": [ 0 ],
+  "hardpointOffsets": [ 5.5, 0 ],
+  "hardpointAngleOffsets": [ -0 ],
+  "barrelMode": "LINKED",
+  "animationType": "SMOKE",
+  "smokeSpec": {
+    "particleSizeMin": 10,
+    "particleSizeRange": 16,
+    "cloudParticleCount": 3,
+    "cloudDuration": 0.9,
+    "cloudRadius": 8,
+    "blowbackParticleCount": 3,
+    "blowbackDuration": 1.1,
+    "blowbackLength": 20,
+    "blowbackSpread": 10,
+    "particleColor": [ 170, 160, 150, 100 ]
+  },
+  "fireSoundTwo": "swarmer_fire"
+}

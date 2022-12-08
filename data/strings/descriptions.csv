@@ -81,4 +81,10 @@ krieg_light_flak,WEAPON,"A simple mortar firing timed fuse explosive shells. Goo
 krieg_dual_rail,WEAPON,"Specialized dual anti-shield gun with decent accuracy. Propelling it's spike shaped projectiles to super-sonic speeds. Ammo clips used ensure reliability and high fire rate.",,,,
 krieg_spiker,WEAPON,"Specialized large anti-shield gun with good accuracy. Propelling it's spike shaped projectiles to super-sonic speeds. Ammo clips used ensure reliability and high fire rate.",,,,
 krieg_fragger,WEAPON,"A cluster missile for dealing with more manouverable targets. Delivers a barrage of shrapnel to a sizable area.",,,,
+krieg_fragger_fighter,WEAPON,"A cluster missile for dealing with more manouverable targets. Delivers a barrage of shrapnel to a sizable area.",,,,
 krieg_bombard,WEAPON,"An assault weapon for defeating armoured targets. Delivers considerable damage at a steep flux cost.",,,,
+krieg_mamushi,SHIP,"A nimble fighter and interceptor. A recent development in Krieg engineering, the Gnat was constructed using quite basic post-Collapse technology. It was developed from the Vampire using new light weight materials and more powerful yet compact engines. The predecessor's machine guns were replaced with a modern vulcan cannon.",,,,
+krieg_vampire,SHIP,"A basic medium fighter armed with two machine guns.",,,,
+krieg_oni,SHIP,"A strike bomber equipped with a basic shield and carrying a powerful warhead.",,,,
+krieg_oni2,SHIP,"A flying Point Defense platform. With the access to modern technology, mounting energy weapons on fighters suddenly became very appealing to the Krieg engineers. This is how the Oni Mk2 was concieved.",,,,
+krieg_fortress,SHIP,"Mainstay of the Krig Air Force and comparable to a cruiser in size, the Fortress carries a large complement of fighters. It's main armament comprises of two large universal hardpoints on wings, while it is protected by an array of smaller turrets, hence the name."

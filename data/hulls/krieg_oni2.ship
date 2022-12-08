@@ -1,0 +1,71 @@
+{
+  "hullName": "Oni Mk2",
+  "hullId": "krieg_oni2",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/alkemia/ships/fighters/oni-mk2.png",
+  "style": "LOW_TECH",
+  "height": 42,
+  "width": 54,
+  "center": [27, 21],
+  "collisionRadius": 35,
+  "shieldCenter": [-3, -0],
+  "shieldRadius": 29.5,
+  "viewOffset": 0,
+  "builtInWeapons": {
+    "WS0003": "krieg_tail"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 300,
+      "angle": 0,
+      "locations": [0, -0]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [-18, 0.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-11, 3.5],
+      "length": 26,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 30,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-11, -3.5],
+      "length": 26,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 30,
+      "style": "MIDLINE"
+    }
+  ],
+  "bounds": [
+    10.5, -3,
+    19, -6.5,
+    2.5, -9.5,
+    -1, -26,
+    -7, -26,
+    -7.5, -8.5,
+    -19, -12.5,
+    -19, 12.5,
+    -7.5, 8.5,
+    -7, 26,
+    -1, 26,
+    2.5, 9.5,
+    19, 6.5,
+    10.5, 3
+  ]
+}

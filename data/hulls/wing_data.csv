@@ -7,5 +7,9 @@ alkemia_deluxe_lrstrike_wing,alkemia_deluxe_lrstrike,"fighter, bomber, independe
 alkemia_syreen_wing,alkemia_syreen_standard,"fighter2, interceptor, alkemia_bp, independent_of_carrier",3,0.75,7,20,V,10000,500,,2,INTERCEPTOR,Interceptor,18,8000,,,,,,,,,,,,,30047
 alkemia_repair_wing,alkemia_drone_repair_standard,"alkemia_bp, auto_fighter, merc",1,0.75,2,9,BOX,800,50,,4,SUPPORT,Repair Drone,5,2800,,,,,,,,,,,,,30045
 alkemia_thunder_wing,alkemia_thunder_Fighter,"fighter2, mid, alkemia_bp, merc",2,,6,10,V,6000,500,900,3,FIGHTER,Fighter,15,9000,,,,,,,,,,,,,5
-krieg_vampire_Fighter_wing,krieg_vampire_Fighter,"fighter2, krieg_bp",1,,4,6,V,3000,500,900,3,FIGHTER,Fighter,15,1800,,,,,,,,,,,,,
-krieg_oni_Strike_wing,krieg_oni_Strike,"bomber, krieg_bp",1,,5,8,BOX,3000,500,900,2,BOMBER,Bomber,15,1800,,,,,,,,,,,,,
+krieg_vampire_Fighter_wing,krieg_vampire_Fighter,"fighter2, krieg_bp",1,,3,2,V,3000,500,300,4,FIGHTER,Fighter,5,1800,,,,,,,,,,,,,
+krieg_oni_Strike_wing,krieg_oni_Strike,"bomber, krieg_bp",1,,5,16,V,3000,2000,600,2,BOMBER,Bomber,10,1600,,,,,,,,,,,,,
+krieg_oni_Bomber_wing,krieg_oni_Bomber,"bomber, krieg_bp",1,,5,14,V,3000,2500,300,2,BOMBER,Bomber,10,1600,,,,,,,,,,,,,
+krieg_mamushi_Fighter_wing,krieg_mamushi_Fighter,"fighter, interceptor, krieg_refit_bp",2,,4,4,V,3000,500,400,5,FIGHTER,Interceptor,8,1200,,,,,,,,,,,,,
+krieg_oni2_Support_wing,krieg_oni2_Support,"support0, krieg_refit_bp",1,,4,8,V,3000,500,400,3,FIGHTER,Support,10,2400,,,,,,,,,,,,,
+krieg_oni2_Raider_wing,krieg_oni2_Raider,"support0, krieg_refit_bp",1,,4,6,V,3000,500,400,3,FIGHTER,Support,10,2400,,,,,,,,,,,,,

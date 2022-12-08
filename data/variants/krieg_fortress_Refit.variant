@@ -1,40 +1,39 @@
 {
-  "variantId": "krieg_fortress_Standard",
+  "variantId": "krieg_fortress_Refit",
   "hullId": "krieg_fortress",
-  "displayName": "Standard",
+  "displayName": "Refit",
   "goalVariant": true,
-  "fluxCapacitors": 30,
+  "fluxCapacitors": 26,
   "fluxVents": 28,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "reinforcedhull",
-    "ballistic_rangefinder",
-    "turretgyros"
+    "hardenedshieldemitter",
+    "advancedoptics"
   ],
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0001": "hephag",
-        "WS0002": "hephag"
+        "WS0001": "alkemia_twin_pulse",
+        "WS0002": "alkemia_twin_pulse"
       }
     },
     {
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0007": "krieg_fragger",
-        "WS0008": "krieg_fragger"
+        "WS0007": "harpoonpod",
+        "WS0008": "harpoonpod"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0003": "krieg_dual_rail",
-        "WS0004": "krieg_dual_rail"
+        "WS0003": "lightneedler",
+        "WS0004": "lightneedler"
       }
     },
     {
@@ -55,9 +54,9 @@
     }
   ],
   "wings": [
-    "krieg_vampire_Fighter_wing",
-    "krieg_vampire_Fighter_wing",
-    "krieg_oni_Bomber_wing",
-    "krieg_oni_Bomber_wing"
+    "krieg_mamushi_Fighter_wing",
+    "krieg_mamushi_Fighter_wing",
+    "krieg_oni2_Support_wing",
+    "krieg_oni_Strike_wing"
   ]
 }

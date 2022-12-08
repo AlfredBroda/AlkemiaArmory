@@ -7,14 +7,17 @@
   "fluxVents": 12,
   "quality": 1,
   "permaMods": [],
-  "hullMods": [],
+  "hullMods": [
+    "ballistic_rangefinder",
+    "fluxbreakers"
+  ],
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0001": "heavymortar",
-        "WS0002": "heavymortar"
+        "WS0001": "krieg_bombard",
+        "WS0002": "krieg_bombard"
       }
     },
     {

@@ -5,9 +5,9 @@
   "type": "BALLISTIC",
   "size": "SMALL",
   "displayArcRadius": 400,
-  "turretSprite": "graphics/alkemia/weapons/light_flak_turret_base.png",
+  "turretSprite": "graphics/alkemia/weapons/light_flak_turret.png",
   "turretGunSprite": "graphics/weapons/light_machinegun_turret_recoil.png",
-  "hardpointSprite": "graphics/alkemia/weapons/light_flak_hardpoint_base.png",
+  "hardpointSprite": "graphics/alkemia/weapons/light_flak_hardpoint.png",
   "hardpointGunSprite": "graphics/weapons/light_machinegun_hardpoint_recoil.png",
   "visualRecoil": 5,
   "renderHints": [ "RENDER_BARREL_BELOW" ],
@@ -31,5 +31,6 @@
       255
     ]
   },
-  "fireSoundTwo": "light_mortar_fire"
+  "interruptibleBurst": true,
+  "fireSoundTwo": "krieg_flak_fire"
 }

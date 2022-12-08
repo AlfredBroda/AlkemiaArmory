@@ -3,12 +3,13 @@
   "hullId": "krieg_kadze",
   "displayName": "Escort",
   "goalVariant": true,
-  "fluxCapacitors": 10,
-  "fluxVents": 10,
+  "fluxCapacitors": 20,
+  "fluxVents": 16,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "hardened_subsystems"
+    "hardened_subsystems",
+    "turretgyros"
   ],
   "weaponGroups": [
     {
@@ -20,7 +21,7 @@
       }
     },
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "LINKED",
       "weapons": {
         "WS0007": "shredder",

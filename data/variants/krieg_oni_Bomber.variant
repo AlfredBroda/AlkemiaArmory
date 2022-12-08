@@ -1,8 +1,8 @@
 {
-  "variantId": "krieg_oni_Strike",
+  "variantId": "krieg_oni_Bomber",
   "hullId": "krieg_oni",
-  "displayName": "Strike",
-  "goalVariant": false,
+  "displayName": "Bomber",
+  "goalVariant": true,
   "fluxCapacitors": 0,
   "fluxVents": 0,
   "quality": 1,
@@ -13,7 +13,8 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "hammer_single"
+        "WS0004": "bomb",
+        "WS0005": "bomb"
       }
     },
     {

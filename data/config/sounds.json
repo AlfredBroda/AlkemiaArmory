@@ -1,0 +1,8 @@
+{
+    "krieg_flak_fire": [
+        { "file": "sounds/sfx_wpn_guns/flak_fire_01.ogg", "pitch": 1, "volume": 0.6 }
+    ],
+    "krieg_mg_fire": [
+        { "file": "sounds/alkemia/mg_fire_01.ogg", "pitch": 1, "volume": 0.6 }
+    ]
+}

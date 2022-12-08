@@ -3,38 +3,37 @@
   "hullId": "krieg_kadze",
   "displayName": "Assault",
   "goalVariant": true,
-  "fluxCapacitors": 10,
-  "fluxVents": 12,
+  "fluxCapacitors": 20,
+  "fluxVents": 16,
   "quality": 1,
   "permaMods": [],
-  "hullMods": [],
+  "hullMods": [
+    "hardenedshieldemitter"
+  ],
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
         "WS0001": "krieg_rockets",
-        "WS0002": "krieg_rockets",
-        "WS0005": "krieg_dual_rail",
-        "WS0006": "krieg_dual_rail",
-        "WS0007": "arbalest",
-        "WS0008": "arbalest"
+        "WS0002": "krieg_rockets"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0007": "krieg_fragger",
+        "WS0008": "krieg_fragger"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {}
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0005": "krieg_dual_rail",
+        "WS0006": "krieg_dual_rail"
+      }
     },
     {
       "autofire": true,
@@ -53,6 +52,11 @@
         "WS0011": "krieg_mg",
         "WS0012": "krieg_mg"
       }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
     }
   ],
   "modules": [],
