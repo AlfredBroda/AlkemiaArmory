@@ -44,13 +44,13 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
     public boolean STAGE_ONE_EXPLODE;
     // Glow particle visual when second stage is litup
     public boolean STAGE_ONE_FLARE;
-    public float PROXIMITY_FUSE_DISTANCE;
-    public float PROXIMITY_LAST_CHECK;
+    public static float PROXIMITY_FUSE_DISTANCE;
+    public static float PROXIMITY_LAST_CHECK;
 
     public final float BIAS;
 
-    public boolean DEBUG_TARGET;
-    public boolean DEBUG_DAMAGE;
+    public static boolean DEBUG_TARGET;
+    public static boolean DEBUG_DAMAGE;
 
     private final float OVERSHOT_ANGLE = 60, WAVE_TIME = 2, WAVE_AMPLITUDE = 5, DAMPING = 0.1f, MAX_SPEED, OFFSET;
     private float PRECISION_RANGE = 400;
@@ -94,10 +94,10 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
     // private Smoke smokeSpec;
     private int minTimeToSplit = 1;
 
-    private Color EXPLOSION_COLOR = new Color(255, 0, 0, 255);
-    private Color PARTICLE_COLOR = new Color(240, 200, 50, 255);
-    private int MIN_PARTICLES = 5;
-    private int MAX_PARTICLES = 9;
+    private static final Color EXPLOSION_COLOR = new Color(255, 0, 0, 255);
+    private static final Color PARTICLE_COLOR = new Color(240, 200, 50, 255);
+    private static final int MIN_PARTICLES = 5;
+    private static final int MAX_PARTICLES = 9;
 
     public BaseSmartMissileAI(MissileAPI missile, ShipAPI launchingShip) {
         this.launchingShip = launchingShip;
@@ -174,7 +174,9 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
                 // Check if moving away from target but still within explosion radious
                 if ((PROXIMITY_LAST_CHECK > 0) && (PROXIMITY_LAST_CHECK < targetDistance)
                         && (PROXIMITY_FUSE_DISTANCE > targetDistance)) {
-                    proximityFuse();
+                    explode(missile, target, engine);
+                    postDetonate(target.getLocation(), missile.getVelocity());
+
                     PROXIMITY_LAST_CHECK = targetDistance;
                     return;
                 }
@@ -347,7 +349,7 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
         engine.addHitParticle(offset, missile.getVelocity(), 100f, 0.5f, 0.25f, FLARE_COLOR);
     }
 
-    public void proximityFuse() {
+    public static void explode(MissileAPI missile, CombatEntityAPI target, CombatEngineAPI engine) {
         // damage the target
         missile.explode();
 
@@ -444,8 +446,6 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
                 false,
                 false,
                 missile);
-
-        postDetonate(target.getLocation(), missile.getVelocity());
     }
 
     public void postDetonate(Vector2f site, Vector2f dir) {

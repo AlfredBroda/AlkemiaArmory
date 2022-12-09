@@ -57,6 +57,8 @@
         }
     },
     "plugins":{
+		"AntiMissileEffectPlugin":"data.plugins.AntiMissileEffectPlugin",
+		"FuelBombEffectPlugin":"data.plugins.FuelBombEffectPlugin",
 		"AlkemiaRiggerPlugin":"data.plugins.AlkemiaRiggerPlugin"
     }
 }

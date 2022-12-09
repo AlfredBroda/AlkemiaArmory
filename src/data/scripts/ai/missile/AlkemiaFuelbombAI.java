@@ -4,6 +4,7 @@ import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 
+import data.plugins.FuelBombEffectPlugin;
 import data.scripts.util.MagicTargeting;
 
 public class AlkemiaFuelbombAI extends BaseSmartMissileAI {
@@ -16,6 +17,11 @@ public class AlkemiaFuelbombAI extends BaseSmartMissileAI {
         STAGE_ONE_EXPLODE = true;
         STAGE_ONE_FLARE = false;
         ACTIVE_SEEKER = false;
+
+        missile.setArmedWhileFizzling(true);
+        missile.setForceAlwaysArmed(true);
+
+        FuelBombEffectPlugin.addFuelBomb(missile, missile.getLocation());
     }
 
     @Override
@@ -28,21 +34,5 @@ public class AlkemiaFuelbombAI extends BaseSmartMissileAI {
                     COLOR_RED, newTarget, 0.1f, 0.5f);
         }
         return newTarget;
-    }
-
-    @Override
-    public void advance(float amount) {
-        // skip the AI if the game is paused
-        if (engine.isPaused()) {
-            return;
-        }
-        if (missile.getHitpoints() < 10) {
-            // go out with a bamg!
-            proximityFuse();
-            return;
-        }
-
-        // business as usual
-        super.advance(amount);
     }
 }

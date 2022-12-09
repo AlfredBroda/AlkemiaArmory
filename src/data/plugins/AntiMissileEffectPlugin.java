@@ -1,4 +1,4 @@
-package data.scripts.plugins;
+package data.plugins;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,17 +17,11 @@ import com.fs.starfarer.api.util.IntervalUtil;
 // Original code by Tartiflette
 public class AntiMissileEffectPlugin extends BaseEveryFrameCombatPlugin {
 
-    // DATA
-    // private CombatEngineAPI engine;
-
     private final IntervalUtil globalTimer = new IntervalUtil(0.05f, 0.05f);
 
     // ANTIMISSILE VARIABLES
     private static final Map<MissileAPI, MissileAPI> ANTIMISSILES = new WeakHashMap<>();
     private static boolean forceCheck = false;
-
-    // ORION TRAILS
-    // private Map<DamagingProjectileAPI, Float> ORION=new HashMap<>();
 
     //////////////////////////////
     //                          //

@@ -27,11 +27,12 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 
 import data.plugins.AlkemiaRiggerPlugin;
+import data.plugins.AntiMissileEffectPlugin;
+import data.plugins.FuelBombEffectPlugin;
 import data.scripts.ai.drone.RepairDroneAI;
 import data.scripts.ai.missile.AlkemiaEmpMissileAI;
 import data.scripts.ai.missile.AlkemiaFuelbombAI;
 import data.scripts.ai.missile.AlkemiaPDMissileAI;
-import data.scripts.plugins.AntiMissileEffectPlugin;
 import data.scripts.plugins.KriegCampaignPlugin;
 import data.scripts.world.KriegGen;
 // import exerelin.campaign.SectorManager;
@@ -147,6 +148,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
         Global.getSector().addTransientListener(new ReportPlayerEngagementCampaignEventListener());
 
         AntiMissileEffectPlugin.cleanSlate();
+        FuelBombEffectPlugin.cleanSlate();
 
         // Allows creation in existing games
         if (!kriegPlanetExists()) {
@@ -188,9 +190,9 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     }
 
     ////////////////////////////////////////
-    // //
-    // MISSILES AI OVERRIDES //
-    // //
+    //                                    //
+    //       MISSILES AI OVERRIDES        //
+    //                                    //
     ////////////////////////////////////////
 
     @Override
@@ -215,9 +217,9 @@ public class AlkemiaModPlugin extends BaseModPlugin {
     }
 
     ////////////////////////////////////////
-    // //
-    // SHIP AI OVERRIDES //
-    // //
+    //                                    //
+    //          SHIP AI OVERRIDES         //
+    //                                    //
     ////////////////////////////////////////
 
     @Override
@@ -258,6 +260,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
         private void clearState() {
             AntiMissileEffectPlugin.cleanSlate();
+            FuelBombEffectPlugin.cleanSlate();
             AlkemiaRiggerPlugin.clear();
         }
     }

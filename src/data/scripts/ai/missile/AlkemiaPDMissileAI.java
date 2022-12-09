@@ -11,7 +11,7 @@ import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
 
-import data.scripts.plugins.AntiMissileEffectPlugin;
+import data.plugins.AntiMissileEffectPlugin;
 import data.scripts.util.MagicTargeting;
 
 public class AlkemiaPDMissileAI extends BaseSmartMissileAI {
