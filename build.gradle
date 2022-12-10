@@ -97,6 +97,7 @@ task release(type: Zip) {
         include("jars/*")
         include("data/**/*")
         include("graphics/**/*")
+        include("sounds/**/*")
         include("mod_info.json")
         include("${baseFileName}.version")
     }
