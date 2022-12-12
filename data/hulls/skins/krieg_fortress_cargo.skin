@@ -1,7 +1,7 @@
 {
 	"baseHullId": "krieg_fortress",
 	"skinHullId": "krieg_fortress_cargo",
-	"hullName": "Fortress (T)",
+	"hullName": "Mutterganz (T)",
 	"descriptionId": "krieg_fortress",
 	"descriptionPrefix": "This variant replaces all hangars with cargo bays.",
 	"tags": [ "krieg_bp" ],

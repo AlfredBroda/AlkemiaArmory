@@ -1,7 +1,7 @@
 {
 	"baseHullId": "krieg_fortress",
 	"skinHullId": "krieg_fortress_artillery",
-	"hullName": "Fortress (A)",
+	"hullName": "Mutterganz (A)",
 	"descriptionId": "krieg_fortress",
 	"descriptionPrefix": "This variant replaces all hangars with artillery missile batteries.",
 	"tags": [ "krieg_bp" ],

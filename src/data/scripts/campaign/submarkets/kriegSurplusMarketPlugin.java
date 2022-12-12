@@ -30,12 +30,9 @@ public class kriegSurplusMarketPlugin extends BaseSubmarketPlugin {
     private SubmarketAPI submarket;
     private Map<String, Object> sellLegal = new WeakHashMap<>();
 
-    private Logger log;
-
     @Override
     public void init(SubmarketAPI submarket) {
         this.submarket = submarket;
-        log = Global.getLogger(getClass());
 
         super.init(submarket);
     }

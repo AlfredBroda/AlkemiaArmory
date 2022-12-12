@@ -1,28 +1,26 @@
 package data.hullmods;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.lazywizard.lazylib.campaign.MessageUtils;
 
+import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CampaignFleetAPI;
+import com.fs.starfarer.api.campaign.CargoAPI;
+import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
-import com.fs.starfarer.api.combat.ShipVariantAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
+import com.fs.starfarer.api.combat.ShipVariantAPI;
 import com.fs.starfarer.api.combat.listeners.FighterOPCostModifier;
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.loading.FighterWingSpecAPI;
-import com.fs.starfarer.api.loading.HullModSpecAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
-import com.fs.starfarer.api.campaign.CampaignFleetAPI;
-import com.fs.starfarer.api.campaign.CargoAPI;
-import com.fs.starfarer.api.campaign.SectorAPI;
-
-import org.lazywizard.lazylib.campaign.MessageUtils;
 
 public class AlkemiaDroneConversion extends BaseHullMod {
 
@@ -31,15 +29,9 @@ public class AlkemiaDroneConversion extends BaseHullMod {
 	public static final int BAY_SPACE_GAIN = 1;
 	public static final int REARM_SPEEDUP_PERCENT = -20;
 
-	protected Logger log;
+	private static Logger log = Global.getLogger(AlkemiaDroneConversion.class);
+
 	protected List<String> removedWings = new ArrayList<String>();
-
-	@Override
-	public void init(HullModSpecAPI spec) {
-		super.init(spec);
-
-		log = Global.getLogger(this.getClass());
-	}
 
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 

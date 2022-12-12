@@ -15,7 +15,7 @@ import com.fs.starfarer.api.loading.HullModSpecAPI;
 
 public class BaseModuleRegenHullMod extends BaseHullMod {
 
-	protected Logger log;
+	private static Logger log = Global.getLogger(BaseModuleRegenHullMod.class);
 
 	public Map<String, String> moduleSlots = new HashMap<String, String>();
 
@@ -24,15 +24,13 @@ public class BaseModuleRegenHullMod extends BaseHullMod {
 		super.init(spec);
 
         moduleSlots.put("TS0001", "module_Variant");
-
-		log = Global.getLogger(this.getClass());
 	}
 
 	@Override
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 		ShipVariantAPI variant = stats.getVariant();
 
-		// Assemble the Fortress if not complete
+		// Assemble the Mutterganz if not complete
 		if (variant != null && variant.getModuleSlots() != null && variant.getModuleSlots().size() > 0) {
 			log.debug(String.format("%s incomplete, reassembling...", getName()));
 			for (Map.Entry<String, String> entry : moduleSlots.entrySet()) {

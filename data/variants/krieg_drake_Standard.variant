@@ -1,0 +1,57 @@
+{
+  "variantId": "krieg_drake_Standard",
+  "hullId": "krieg_drake",
+  "displayName": "Standard",
+  "goalVariant": true,
+  "fluxCapacitors": 28,
+  "fluxVents": 30,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "targetingunit"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "krieg_hagel",
+        "WS0002": "krieg_hagel"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0007": "krieg_bombard",
+        "WS0008": "krieg_bombard"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "krieg_dual_rail",
+        "WS0004": "krieg_dual_rail",
+        "WS0009": "krieg_dual_rail"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "krieg_light_flak",
+        "WS0006": "krieg_light_flak"
+      }
+    }
+  ],
+  "modules": [
+    {
+      "TS0001": "krieg_fortress_tail_left_Base"
+    },
+    {
+      "TS0002": "krieg_fortress_tail_right_Base"
+    }
+  ],
+  "wings": []
+}

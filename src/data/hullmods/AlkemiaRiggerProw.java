@@ -1,32 +1,19 @@
 package data.hullmods;
 
-import org.apache.log4j.Logger;
-
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
-import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.loading.HullModSpecAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 
 import data.scripts.AlkemiaIds;
 
 public class AlkemiaRiggerProw extends BaseHullMod {
 
-	protected Logger log;
-
 	public static final float RADIUS_MULT = 0.25f;
 	public static final float DAMAGE_MULT = 0.1f;
 	public static final float REPAIR_BONUS = 50f;
-
-	@Override
-	public void init(HullModSpecAPI spec) {
-		super.init(spec);
-
-		log = Global.getLogger(this.getClass());
-	}
 
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 		stats.getDynamic().getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, DAMAGE_MULT);

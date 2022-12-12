@@ -1,0 +1,21 @@
+{
+	"id":"krieg_vents",
+	"type":"STAT_MOD",
+	"aiType":"CUSTOM",
+
+	"aiScript": "data.scripts.ai.CoolingVentsAI",
+	"statsScript": "data.scripts.shipsystems.ExtraVentsStats",
+	
+	"soundFilterType":"LOWPASS",
+	"soundFilterGain":0.75,
+	"soundFilterGainHF":0.25,
+
+	"fadeActivationSoundOnChargedown":true,
+	"useSound":"vent_flux",
+	"loopSound":"flux_loop",
+	#"deactivateSound":"shield_lower",
+	"outOfUsesSound":"gun_out_of_ammo",
+	
+	"aiHints":{
+	}
+}

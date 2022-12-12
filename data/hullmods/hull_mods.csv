@@ -14,5 +14,5 @@ Rigger Prow,alkemia_rigger_prow,3,2,Alkemia,"special",,1000,,TRUE,,0,0,0,0,data.
 
 Onboard repair facilities reduce the time required to repair disabled weapons (in combat) by %s.","Rigger prow module.",graphics/hullmods/reinforced_bulkheads.png
 Rigger Hull,alkemia_rigger_hull,3,2,Alkemia,"special",,,,TRUE,TRUE,0,0,0,0,data.hullmods.AlkemiaRiggerHull,"Using drone only bays on the Rigger decreases crew requirement by %s per bay, shortens rearm time by %s and reduces ordnance point cost of LPCs by %s.","Rigger main hull.",graphics/hullmods/augmented_engines.png
-Fortress Hull,krieg_fortress_hull,3,2,Krieg,"special",,,,TRUE,TRUE,0,0,0,0,data.hullmods.KriegFortressHull,"Fortress Stratoarrier hull.","Fortress hull.",graphics/hullmods/rugged_construction.png
-Kr-47 Hull,krieg_kr47_hull,3,2,Krieg,"special",,,,TRUE,TRUE,0,0,0,0,data.hullmods.KriegKr47Hull,"Fortress Stratoarrier hull.","Fortress hull.",graphics/hullmods/rugged_construction.png
+Mutterganz Hull,krieg_fortress_hull,3,2,Krieg,"special",,,,TRUE,TRUE,0,0,0,0,data.hullmods.KriegFortressHull,"Mutterganz Stratoarrier hull.","Mutterganz hull.",graphics/hullmods/rugged_construction.png
+Kr-47 Hull,krieg_kr47_hull,3,2,Krieg,"special",,,,TRUE,TRUE,0,0,0,0,data.hullmods.KriegKr47Hull,"Mutterganz Stratoarrier hull.","Mutterganz hull.",graphics/hullmods/rugged_construction.png

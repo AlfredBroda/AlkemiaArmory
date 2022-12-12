@@ -25,11 +25,7 @@ import data.scripts.world.systems.Relic;
 
 public class KriegGen implements SectorGeneratorPlugin {
 
-    protected final Logger log;
-
-    public KriegGen() {
-        log = Global.getLogger(getClass());
-    }
+    private static Logger log = Global.getLogger(KriegGen.class);
 
     @Override
     public void generate(SectorAPI sector) {
@@ -91,8 +87,7 @@ public class KriegGen implements SectorGeneratorPlugin {
             market.setAdmin(admin);
             market.getCommDirectory().addPerson(admin);
 
-            Logger logger = Global.getLogger(KriegGen.class);
-            logger.info("Krieg admin updated.");
+            log.info("Krieg admin updated.");
         } else {
             Global.getLogger(KriegGen.class).warn("Failed to get Krieg!");
         }

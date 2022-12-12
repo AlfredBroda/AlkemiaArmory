@@ -18,7 +18,7 @@ import com.fs.starfarer.api.input.InputEventAPI;
 // import com.fs.starfarer.api.util.Misc;
 
 public class AlkemiaRiggerPlugin extends BaseEveryFrameCombatPlugin {
-    protected Logger log;
+    private static Logger log = Global.getLogger(AlkemiaRiggerPlugin.class);
 
     CombatEngineAPI engine;
 
@@ -34,8 +34,6 @@ public class AlkemiaRiggerPlugin extends BaseEveryFrameCombatPlugin {
 
     @Override
     public void init(CombatEngineAPI engine) {
-        log = Global.getLogger(this.getClass());
-
         this.engine = engine;
 
         checkManaged(engine);

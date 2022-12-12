@@ -53,7 +53,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
     private static boolean DEBUG = false;
 
-    protected Logger log;
+    private static Logger log = Global.getLogger(AlkemiaModPlugin.class);
 
     @Override
     public void onApplicationLoad() {
@@ -80,7 +80,6 @@ public class AlkemiaModPlugin extends BaseModPlugin {
         // {
         // initShaderLib();
         // }
-        log = Global.getLogger(this.getClass());
 
         log.debug("Alkemia onApplicationLoad()");
     }

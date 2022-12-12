@@ -82,7 +82,7 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
     private boolean launch = true;
     private float timer = 0, check = 0f;
 
-    protected Logger log = Global.getLogger(this.getClass());
+    private static Logger log = Global.getLogger(BaseSmartMissileAI.class);
 
     private final IntervalUtil minSplitInterval = new IntervalUtil(0.025f, 0.075f);
 
@@ -142,8 +142,7 @@ public class BaseSmartMissileAI implements MissileAIPlugin, GuidedMissileAI {
             }
 
             if (DEBUG_TARGET) {
-                Global.getLogger(BaseSmartMissileAI.class)
-                        .warn(String.format("Missile %s is MIRV, split at: %.2f, projectiles: %d (%s)",
+                log.warn(String.format("Missile %s is MIRV, split at: %.2f, projectiles: %d (%s)",
                                 missile.getProjectileSpecId(), splitRange, submunitionNum, secondaryProjectile));
             }
         }

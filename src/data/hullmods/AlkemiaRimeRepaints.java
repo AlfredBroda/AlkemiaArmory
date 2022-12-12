@@ -31,7 +31,7 @@ public class AlkemiaRimeRepaints extends BaseHullMod {
 	public static String RIME_ROSEN = "alkemia_rime_rosen";
 	public static String RIME_JOURNEY = "alkemia_rime_journey";
 
-	protected Logger log;
+	private static Logger log = Global.getLogger(AlkemiaRimeRepaints.class);
 
 	protected String modId;
 
@@ -40,8 +40,6 @@ public class AlkemiaRimeRepaints extends BaseHullMod {
 		super.init(spec);
 
 		modId = spec.getId();
-
-		log = Global.getLogger(this.getClass());
 	}
 
 	public String getSkinId() {

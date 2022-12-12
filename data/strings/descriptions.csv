@@ -71,6 +71,7 @@ alkemia_afterburner,SHIP_SYSTEM,Temporarily engages an afterburner on the ship. 
 alkemia_emp,SHIP_SYSTEM,"Activates an EMP generator. Nearby missiles, fighters, weapon emplacements and engines of enemy ships are all targeted and can be disabled in short order.
 
 Unfortunately, on-board weapon systems must be shut down to provide power for this device. The EMP pulses are also not very effective against enemy shields.",Special,"Generates lightning arcs that quickly knock out enemy missiles, weapons, and engines within range. Mostly negated by shields.",,
+krieg_vents,SHIP_SYSTEM,"Engages additional flux vents for a short time.",General,"Vents flux for short time without the need to lower shields or disable weapons.",,
 krieg_planet_desc,CUSTOM,"Home to a large population, this planet has reverted to a very basic technological level. Combustion engines are used for transportation, factories spew smoke into the atmosphere. Nevertheless the landscape is dominated by green crop fields both illuminated and shaded by it's solar array.",,This Terran planet is covered in thick cloud cover. It's strong magnetic field creates fascinating auroras.,,
 krieg_burrow_station_desc,CUSTOM,"Formerly an asteroid research station, this sturdy platform now houses a small population of outsiders.",,,,
 krieg_fuelbomb,WEAPON,"A powerful and unstable warhead with a rudimentary guidance system",,,,
@@ -87,4 +88,5 @@ krieg_mamushi,SHIP,"A nimble fighter and interceptor. A recent development in Kr
 krieg_vampire,SHIP,"A basic medium fighter armed with two machine guns.",,,,
 krieg_oni,SHIP,"A strike bomber equipped with a basic shield and carrying a powerful warhead.",,,,
 krieg_oni2,SHIP,"A flying Point Defense platform. With the access to modern technology, mounting energy weapons on fighters suddenly became very appealing to the Krieg engineers. This is how the Oni Mk2 was concieved.",,,,
-krieg_fortress,SHIP,"Mainstay of the Krig Air Force and comparable to a cruiser in size, the Fortress carries a large complement of fighters. It's main armament comprises of two large universal hardpoints on wings, while it is protected by an array of smaller turrets, hence the name."
+krieg_fortress,SHIP,"Mainstay of the Krig Air Force and comparable to a cruiser in size, the Mutterganz carries a large complement of fighters. It's main armament comprises of two large universal hardpoints on wings, while it is protected by an array of smaller turrets, hence the name."
+kireg_drake,SHIP,"A smaller cousin of the Mutterganz, the Erpel was built to provide simillar firepower at lower construction costs and increased speed."

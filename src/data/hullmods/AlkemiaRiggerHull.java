@@ -11,7 +11,6 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.combat.ShipVariantAPI;
-import com.fs.starfarer.api.loading.HullModSpecAPI;
 
 import data.plugins.AlkemiaRiggerPlugin;
 import data.scripts.AlkemiaIds;
@@ -19,19 +18,12 @@ import data.scripts.AlkemiaModPlugin;
 
 public class AlkemiaRiggerHull extends AlkemiaDroneConversion {
 
-	protected Logger log;
+	private static Logger log = Global.getLogger(AlkemiaRiggerHull.class);
 
 	private static Map<String, String> moduleSlots = new HashMap<String, String>();
 	static {
 		moduleSlots.put("MS0001", "alkemia_rigger_left_base");
 		moduleSlots.put("MS0002", "alkemia_rigger_right_base");
-	}
-
-	@Override
-	public void init(HullModSpecAPI spec) {
-		super.init(spec);
-
-		log = Global.getLogger(this.getClass());
 	}
 
 	@Override

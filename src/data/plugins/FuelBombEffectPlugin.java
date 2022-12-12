@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import org.apache.log4j.Logger;
 import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.Global;
@@ -16,7 +15,6 @@ import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.ViewportAPI;
 import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
-import com.fs.starfarer.api.util.Misc;
 
 import data.scripts.ai.missile.AlkemiaFuelbombAI;
 
@@ -29,9 +27,9 @@ public class FuelBombEffectPlugin extends BaseEveryFrameCombatPlugin {
     private static boolean forceCheck = false;
 
     //////////////////////////////
-    // //
-    // MAIN LOOP //
-    // //
+    //                          //
+    //         MAIN LOOP        //
+    //                          //
     //////////////////////////////
     @Override
     public void init(CombatEngineAPI engine) {
