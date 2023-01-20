@@ -15,8 +15,8 @@
       "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0001": "pdlaser",
-        "WS0002": "pdlaser"
+        "WS0001": "alkemia_laser_fighter",
+        "WS0002": "alkemia_laser_fighter"
       }
     },
     {

@@ -15,14 +15,15 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "alkemia_vulcan",
-        "WS0002": "alkemia_vulcan"
+        "WS0001": "alkemia_vulcan"
       }
     },
     {
       "autofire": false,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0002": "alkemia_amblaster_fighter"
+      }
     },
     {
       "autofire": false,

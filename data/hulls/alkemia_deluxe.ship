@@ -17,7 +17,7 @@
       "size": "SMALL",
       "type": "HYBRID",
       "mount": "HARDPOINT",
-      "arc": 20,
+      "arc": 5,
       "angle": 0,
       "locations": [15, 8]
     },
@@ -26,7 +26,7 @@
       "size": "SMALL",
       "type": "HYBRID",
       "mount": "HARDPOINT",
-      "arc": 20,
+      "arc": 5,
       "angle": 0,
       "locations": [15, -8]
     },
@@ -55,7 +55,7 @@
       "mount": "HIDDEN",
       "arc": 5,
       "angle": 65.5,
-      "locations": [6, 9]
+      "locations": [3, 11]
     },
     {
       "id": "WS0006",
@@ -64,7 +64,7 @@
       "mount": "HIDDEN",
       "arc": 5,
       "angle": -65.5,
-      "locations": [6, -9]
+      "locations": [3, -11]
     },
     {
       "id": "SPECIAL1",
