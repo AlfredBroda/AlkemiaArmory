@@ -3,17 +3,18 @@ package data.scripts.tools;
 import static com.fs.starfarer.api.impl.campaign.procgen.MagFieldGenPlugin.auroraColors;
 import static com.fs.starfarer.api.impl.campaign.procgen.MagFieldGenPlugin.baseColors;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.Map.Entry;
-import java.util.concurrent.locks.Condition;
+import java.util.Random;
 
 import org.apache.log4j.Logger;
 import org.lazywizard.lazylib.MathUtils;
+import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CargoAPI;
@@ -24,6 +25,7 @@ import com.fs.starfarer.api.campaign.TextPanelAPI;
 import com.fs.starfarer.api.campaign.econ.EconomyAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.econ.MarketConditionAPI;
+import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
@@ -380,5 +382,13 @@ public class Helpers {
             log.info(String.format("Removing worse duplicate condition: %s", rem));
             market.removeCondition(rem);
         }
+    }
+
+    public static void addFloatingText(ShipAPI ship, String text, Vector2f location) {
+        addFloatingText(ship, text, location, Misc.getHighlightColor());
+    }
+
+    public static void addFloatingText(ShipAPI ship, String text, Vector2f location, Color color) {
+        Global.getCombatEngine().addFloatingText(location, text, 20f, color, ship, 2f, 0.75f);
     }
 }

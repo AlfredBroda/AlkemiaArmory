@@ -16,12 +16,12 @@
     "rugged"
   ],
   "builtInWeapons": {
-    "ES0001": "alkemia_small_thruster",
-    "ES0002": "alkemia_small_thruster",
-    "ES0003": "alkemia_small_thruster",
-    "ES0004": "alkemia_small_thruster",
-    "ES0005": "alkemia_small_thruster",
-    "ES0006": "alkemia_small_thruster"
+    "ES0001": "alkemia_thruster",
+    "ES0002": "alkemia_thruster",
+    "ES0003": "alkemia_thruster",
+    "ES0004": "alkemia_thruster",
+    "ES0005": "alkemia_thruster",
+    "ES0006": "alkemia_thruster"
   },
   "weaponSlots": [
     {

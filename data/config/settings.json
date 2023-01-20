@@ -54,6 +54,9 @@
         },
         "stations":{
 			"station_burrow":"graphics/alkemia/stations/station_burrow.png"
+        },
+        "fx":{
+            "bar":"graphics/fx/beam_laser_core.png"
         }
     },
     "plugins":{

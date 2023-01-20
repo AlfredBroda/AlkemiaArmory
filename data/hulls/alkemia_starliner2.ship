@@ -15,10 +15,10 @@
     "civgrade"
   ],
   "builtInWeapons": {
-    "WS 007": "alkemia_small_thruster",
-    "WS 008": "alkemia_small_thruster",
-    "WS0007": "alkemia_small_thruster",
-    "WS0008": "alkemia_small_thruster"
+    "WS 007": "alkemia_thruster",
+    "WS 008": "alkemia_thruster",
+    "WS0007": "alkemia_thruster",
+    "WS0008": "alkemia_thruster"
   },
   "weaponSlots": [
     {

@@ -65,7 +65,7 @@
   ],
   "modules": [
     {
-      "TS0001": "krieg_kr47_tail_Base"
+      "MS0001": "krieg_kr47_tail_Base"
     }
   ],
   "wings": []

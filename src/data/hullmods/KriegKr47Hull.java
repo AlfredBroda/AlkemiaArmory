@@ -8,7 +8,7 @@ public class KriegKr47Hull extends BaseModuleRegenHullMod {
 
 	@Override
 	public void init(HullModSpecAPI spec) {
-		moduleSlots.put("TS0001", "krieg_kr47_tail_Base");
+		moduleSlots.put("MS0001", "krieg_kr47_tail_Base");
 
 		super.init(spec);
 	}

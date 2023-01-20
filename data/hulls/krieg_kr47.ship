@@ -16,6 +16,8 @@
     "ground_support"
   ],
   "builtInWeapons": {
+    "TS0001": "krieg_kr47_thruster",
+    "TS0002": "krieg_kr47_thruster",
     "WS0010": "krieg_mg",
     "WS0011": "krieg_mg"
   },
@@ -60,19 +62,19 @@
       "id": "WS0005",
       "size": "LARGE",
       "type": "UNIVERSAL",
-      "mount": "HARDPOINT",
-      "arc": 45,
+      "mount": "TURRET",
+      "arc": 360,
       "angle": 0,
-      "locations": [0.5, 84]
+      "locations": [-0.5, 84.5]
     },
     {
       "id": "WS0006",
       "size": "LARGE",
       "type": "UNIVERSAL",
-      "mount": "HARDPOINT",
-      "arc": 45,
+      "mount": "TURRET",
+      "arc": 360,
       "angle": 0,
-      "locations": [-1.5, -82.5]
+      "locations": [-0.5, -83.5]
     },
     {
       "id": "WS0007",
@@ -147,13 +149,31 @@
       "locations": [50.5, -165]
     },
     {
-      "id": "TS0001",
+      "id": "MS0001",
       "size": "SMALL",
       "type": "STATION_MODULE",
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
       "locations": [-137, 0.5]
+    },
+    {
+      "id": "TS0001",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 20,
+      "angle": 170,
+      "locations": [6.5, 218]
+    },
+    {
+      "id": "TS0002",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 20,
+      "angle": -170,
+      "locations": [6.5, -216.5]
     }
   ],
   "engineSlots": [
@@ -206,18 +226,18 @@
       "style": "LOW_TECH"
     },
     {
-      "location": [-18.5, -216.5],
-      "length": 32,
-      "width": 12,
-      "angle": 180,
+      "location": [4.5, -217],
+      "length": 36,
+      "width": 10,
+      "angle": -170,
       "contrailSize": 34,
       "style": "LOW_TECH"
     },
     {
-      "location": [-18.5, 218],
-      "length": 32,
-      "width": 12,
-      "angle": -180,
+      "location": [5, 218],
+      "length": 36,
+      "width": 10,
+      "angle": 170,
       "contrailSize": 34,
       "style": "LOW_TECH"
     }
