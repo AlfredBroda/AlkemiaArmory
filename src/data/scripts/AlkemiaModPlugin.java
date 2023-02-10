@@ -155,6 +155,7 @@ public class AlkemiaModPlugin extends BaseModPlugin {
             KriegGen.addBurrowAdmin();
         }
         Global.getSector().registerPlugin(new KriegCampaignPlugin());
+        Global.getSector().getMemory().set(AlkemiaIds.KEY_ATMOSPHERIC, false);
     }
 
     private boolean kriegPlanetExists() {
