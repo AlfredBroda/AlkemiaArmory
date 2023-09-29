@@ -1,0 +1,33 @@
+{
+	"baseHullId": "krieg_drake",
+	"skinHullId": "krieg_drake_escort",
+	"hullName": "Erpel (E)",
+	"descriptionId": "krieg_drake",
+	"descriptionPrefix": "This variant replaces it's large hardpoints for turrets.",
+	"tags": [ "krieg_bp" ],
+	"manufacturer": "Krieg",
+	"tech": "LOW_TECH",
+	"spriteName": "graphics/alkemia/ships/drake/drake-escort.png",
+	"baseValueMult": 0.9,
+	"builtInMods": [
+		"shielded_holds"
+	],
+	"removeEngineSlots": [ ],
+	"builtInWeapons": { },
+	"weaponSlotChanges": {
+		"WS0001": {
+			"size": "LARGE",
+			"type": "BALLISTIC",
+			"mount": "TURRET",
+			"arc": 240,
+			"angle": 90
+		},
+		"WS0002": {
+			"size": "LARGE",
+			"type": "BALLISTIC",
+			"mount": "TURRET",
+			"arc": 240,
+			"angle": -90
+		}
+	}
+}

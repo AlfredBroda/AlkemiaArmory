@@ -1,25 +1,25 @@
 id,name,cost mult,build time,income,upkeep,downgrade,upgrade,tags,data,image,plugin,desc,order,disruptDanger
-alkemia_workshop,Starship Workshop,60,30,,6,,,"industrial, structure",,graphics/alkemia/icons/industry/shuttle_hangar.png,data.scripts.campaign.econ.AlkemiaWorkshop,"Private starship production and refit workshops. Production is constrained by gravitational conditions of a planet.",3000,MEDIUM
+alkemia_workshop,Starship Workshop,60,30,,1,,,"industrial, structure",,graphics/alkemia/icons/industry/shuttle_hangar.png,data.scripts.campaign.econ.AlkemiaWorkshop,"Private starship production and refit workshops. Production is constrained by gravitational conditions of a planet.",3000,MEDIUM
 alkemia_oasis,Oasis Towers,45,60,,4,,,"structure, unraidable",,graphics/alkemia/icons/industry/desert_outpost.png,data.scripts.campaign.econ.AlkemiaOasisTowers,"Huge enclosed towers made out of the local rock and sealed against the oppressive heat of the surrounding %s, protecting hundreds of people from the harsh environment outside.",270,
-alkemia_orbitalstation_junker,Orbital Station - Salvaged,30,30,,4,,alkemia_battlestation_mid_junker,"station, sub_item, unraidable, structure","{
+alkemia_orbitalstation_junker,Orbital Station - Salvaged,30,30,,3.4,,alkemia_battlestation_mid_junker,"station, sub_item, unraidable, structure","{
 radius:55,
 variant:alkemia_station1_junker_Custom,
 fleetName:Orbital Station,
 }",graphics/icons/industry/orbital_station.png,com.fs.starfarer.api.impl.campaign.econ.impl.OrbitalStation,"A salvaged space station, featuring medium firepower and moderate armor.
 
 Must be reduced before invasions or bombardment can be attempted.",2041,
-alkemia_battlestation_mid_junker,Orbital Station - Salvaged,100,120,,4,alkemia_orbitalstation_junker,alkemia_starfortress_mid_junker,"station, battlestation, unraidable, structure","{
+alkemia_battlestation_mid_junker,Orbital Station - Salvaged,100,120,,4.3,alkemia_orbitalstation_junker,alkemia_starfortress_mid_junker,"station, battlestation, unraidable, structure","{
 radius:65,
 variant:alkemia_station2_midline_Junker,
 fleetName:Defense Station,
 }",graphics/icons/industry/battlestation.png,com.fs.starfarer.api.impl.campaign.econ.impl.OrbitalStation,"A salvaged space defense station, featuring medium firepower, missile support, heavy armor and a considerable fighter garrison.
 
 Must be reduced before invasions or bombardment can be attempted.",2051,
-alkemia_starfortress_mid_junker,Star Fortress - Midline,200,180,,5,alkemia_battlestation_mid_junker,,"station, starfortress, unraidable, structure","{
+alkemia_starfortress_mid_junker,Star Fortress - Midline,200,180,,5.2,alkemia_battlestation_mid_junker,,"station, starfortress, unraidable, structure","{
 radius:70,
 variant:alkemia_station3_midline_Junker,
 fleetName:Star Fortress
 }",graphics/icons/industry/battlestation.png,com.fs.starfarer.api.impl.campaign.econ.impl.OrbitalStation,"An up-armored battlestation, featuring a large complement of fighters and an extensive minefield.
 
 Must be reduced before invasions or bombardment can be attempted.",2061,
-krieg_airbase,Airbase,6,5,,2,,spaceport,"spaceport, important, structure",,graphics/alkemia/icons/industry/airport.png,data.scripts.campaign.econ.KriegAirbase,Facilities for loading and unloading cargo and performing basic aircraft repairs. Not exactly a spaceport but better than none.,150,HIGH
+krieg_airbase,Airbase,6,5,,1.5,,spaceport,"spaceport, important, structure",,graphics/alkemia/icons/industry/airport.png,data.scripts.campaign.econ.KriegAirbase,Facilities for loading and unloading cargo and performing basic aircraft repairs. Not exactly a spaceport but better than none.,150,HIGH

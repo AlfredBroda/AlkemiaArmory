@@ -1,0 +1,65 @@
+{
+  "variantId": "krieg_drake_Escort",
+  "hullId": "krieg_drake_escort",
+  "displayName": "Escort",
+  "goalVariant": true,
+  "fluxCapacitors": 27,
+  "fluxVents": 30,
+  "quality": 1,
+  "permaMods": [ ],
+  "hullMods": [
+    "targetingunit",
+    "auxiliarythrusters",
+    "turretgyros"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0007": "dualflak",
+        "WS0008": "dualflak"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "krieg_quad_vulcan",
+        "WS0002": "krieg_quad_vulcan"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "krieg_light_flak",
+        "WS0006": "krieg_light_flak"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "krieg_dual_rail",
+        "WS0004": "krieg_dual_rail"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0009": "lightdualmg"
+      }
+    }
+  ],
+  "modules": [
+    {
+      "TS0001": "krieg_fortress_tail_left_Base"
+    },
+    {
+      "TS0002": "krieg_fortress_tail_right_Base"
+    }
+  ],
+  "wings": [ ]
+}

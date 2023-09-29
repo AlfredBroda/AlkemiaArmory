@@ -33,7 +33,7 @@ The extreme range at which targets can be reached is hampered by difficulty to t
 alkemia_porcupine_tds,WEAPON,"A long range delivery system for two advanced guided torpedoes.
 
 The premise of the Porcupine Torpedo Delivery System is simple - make torpedoes reach further. Two Atrops warheads were strapped to a frigate sized engine making this a versatile weapon both against larger ships and small craft.",,,,
-alkemia_emp_artillery,WEAPON,"A large guided EMP warhead with a very long reach. Designed to disrupt large formations of enemy ships, ths missile can disable a frigate with a glancing hit.
+alkemia_emp_artillery,WEAPON,"A large guided EMP warhead with a very long reach. Designed to disrupt large formations of enemy ships, this missile can disable a frigate with a glancing hit.
 
 Based on the Domain defense platform ordinance, the AC-EM09b missile delivers a large proximity fused electro magnetic disruptor at extereme distances. Devastating to shields, it's main disadvantage is poor manouverability.",,,,
 alkemia_hedgehog,WEAPON,"Launches a cluster of free-floating mines equipped with a proximity fuse.
@@ -42,9 +42,10 @@ A Proximity Mine Launcher fires Mark VI fragmentation mines. Unguided and withou
 alkemia_atropos_pod,WEAPON,"An advanced, guided torpedo. The payload is smaller than usual to make room for the advanced guidance package and maneuvering system's reaction mass. A combat-rated autoloader system ensures usefulness in protracted engagements.
 
 The Atropos torpedo is a large guided torpedo with an extended range. The AM-catalyzed nuclear warhead typically used in torpedo warheads is missing here as baryonic interference from the detonator would foul the guidance systems. It is replaced by a smaller, yet still potent chemical charge.",,,,
-alkemia_drone_repair,SHIP,A common remote controlled repair drone. Useful for armour repairs even during battle.,,,,
+alkemia_drone_repair,SHIP,A common Domain remote controlled repair drone. Useful for armour repairs even during battle.,,,,
 alkemia_deluxe,SHIP,"A highly customizable two seat heavy fighter boasting two hybrid and two reconfigurable missile hardpoints, plus an afterburner.",,,,
 alkemia_syreen,SHIP,"The Syreen represents an effective interceptor unit, capable of taking out whole enemy fighter formations on its own.",,,,
+alkemia_thunder,SHIP,"Extremely fast, well-armed, and with a long engagement range, the Thunder's strength lies in enabling a carrier to rapidly project force at the desired location. Not as damaging as a bomber or as tough as a heavy fighter, it will falter if forced into a prolonged engagement.",,,,
 alkemia_dromader,SHIP,"Versatile trans-atmospheric dropship with a moderately sized cargo hold. Features a ground support package, a limited use nanoforge and a large missile store.",,,,
 alkemia_roost,SHIP,"A retrofit of the Drover, this destroyer now features a universal medium turret and a rear facing small hybrid turret, as well as a hybrid upgrade to the remaining turrets. This came at the cost of additional fighter capacity, but flare launchers were installed to improve protection.",,,,
 alkemia_buzzard,SHIP,"A dedicated missile destroyer based on the Hammerhead. Boasting an impressive ordinance store and rapid autoloaders, the Buzzard can deal a staggering amount of damage for it's size.",,,,
@@ -62,12 +63,12 @@ alkemia_consolidation,SHIP,"The Consolidation-class is the pinnacle of Alkemia C
 alkemia_rigger,SHIP,"The Rigger in one of the largest and most expensive mobile repair docks ever built, rivaled only by Roider Argo-class. It features numerous repair, salvage and production facilities, massive part stores and, last but not least, two drone hangars. All that makes it capable of salvaging and refitting all but the largest vessels.
 
 The Rigger's hull is modular, each of it's prows equipped with independent shield emmiters, defense systems and fire control. Furthermore the loss of one prow does not compromise the ship as a whole, altough it is still undoubtedly crippled.",,,,
-alkemia_kestrel,SHIP,"The Kestrel is the essence of Techie design ideology. It is fast - even without it's afterburner - has an array of varied weapon mounts, and packs a punch with an integrated Atropos torpedo launcher. It was also designed with stealth in mind, with an integrated ECM suite and low profile engine exhausts.",,,,
+alkemia_kestrel,SHIP,"The Kestrel is the essence of Techie design ideology. It is fast - even without it's afterburner - has an array of varied weapon mounts, and packs a punch with an integrated Atropos torpedo launcher. It was also designed with stealth in mind, integrating an ECM suite and low emission engine exhausts.",,,,
 alkemia_coockoo,SHIP,"Another refit of the classic Ko Combine r450 completely repurposing it's interior space - most of it now housing a proximity mine nanoforge. The now purposeless drone landing pad was replaced with a secondary defense turret, and the front part houses a high-resolution sensor array indispensible in it's new line of duty.",,,,
 alkemia_pheasant,SHIP,"Created with the synergy of the ER Mining Laser and Sunder power core in mind, the Pheasant is a dedicated mining ship. Able to break even large asteroids into smaller chunks from a safe distance, it relies on it's drones to perform the actual mineral extraction. 
 
 Still an experimental platform, it retains some of the features of the original chassis, while signifficantly expanding cargo capacity.",,,,
-alkemia_afterburner,SHIP_SYSTEM,Temporarily engages an afterburner on the ship. Provides a massive speed boost at the expense of weapons and manouverability. The ship runs the risk of full engine flameout on any significant collision.,Movement,Provides a massive speed boost for at the expense of weapons and manouverability. Collisions can cause a flameout while the system is active.,,
+alkemia_afterburner,SHIP_SYSTEM,Temporarily engages an afterburner on the ship. Provides a massive speed boost at the expense of weapons and manouverability. The ship runs the risk of full engine flameout on any significant collision.,Movement,Provides a massive speed boost at the expense of weapons and manouverability. Collisions can cause a flameout while the system is active.,,
 alkemia_emp,SHIP_SYSTEM,"Activates an EMP generator. Nearby missiles, fighters, weapon emplacements and engines of enemy ships are all targeted and can be disabled in short order.
 
 Unfortunately, on-board weapon systems must be shut down to provide power for this device. The EMP pulses are also not very effective against enemy shields.",Special,"Generates lightning arcs that quickly knock out enemy missiles, weapons, and engines within range. Mostly negated by shields.",,
@@ -78,6 +79,7 @@ krieg_fuelbomb,WEAPON,"A powerful and unstable warhead with a rudimentary guidan
 krieg_artillery_rockets,WEAPON,"A battery of medium sized unguided rockets. This weapon can deliver an astonishing amount of warheads at medium ranges.",,,,
 krieg_rockets,WEAPON,"A pod of simple rockets. Launching bursts of four at a time, it can be devastationg to unshielded targets.",,,,
 krieg_mg,WEAPON,"A simple defense weapon suitable against ordinance and fighters alike.",,,,
+krieg_quad_vulcan,WEAPON,"A large defense weapon system designed to quickly dispatch both ordinance and fighters alike.",,,,
 krieg_light_flak,WEAPON,"A simple mortar firing timed fuse explosive shells. Good against fighter formations and missile barrages due to it's explosion radius.",,,,
 krieg_dual_rail,WEAPON,"Specialized dual anti-shield gun with decent accuracy. Propelling it's spike shaped projectiles to super-sonic speeds. Ammo clips used ensure reliability and high fire rate.",,,,
 krieg_spiker,WEAPON,"Specialized large anti-shield gun with good accuracy. Propelling it's spike shaped projectiles to super-sonic speeds. Ammo clips used ensure reliability and high fire rate.",,,,
@@ -88,5 +90,5 @@ krieg_mamushi,SHIP,"A nimble fighter and interceptor. A recent development in Kr
 krieg_vampire,SHIP,"A basic medium fighter armed with two machine guns.",,,,
 krieg_oni,SHIP,"A strike bomber equipped with a basic shield and carrying a powerful warhead.",,,,
 krieg_oni2,SHIP,"A flying Point Defense platform. With the access to modern technology, mounting energy weapons on fighters suddenly became very appealing to the Krieg engineers. This is how the Oni Mk2 was concieved.",,,,
-krieg_fortress,SHIP,"Mainstay of the Krig Air Force and comparable to a cruiser in size, the Mutterganz carries a large complement of fighters. It's main armament comprises of two large universal hardpoints on wings, while it is protected by an array of smaller turrets, hence the name."
+krieg_fortress,SHIP,"Mainstay of the Krig Air Force and comparable to a cruiser in size, the Mutterganz carries a large complement of fighters, hence the name. It's main armament comprises of two large universal hardpoints on wings, while it is protected by an array of smaller turrets."
 kireg_drake,SHIP,"A smaller cousin of the Mutterganz, the Erpel was built to provide simillar firepower at lower construction costs and increased speed."

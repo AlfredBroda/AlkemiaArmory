@@ -155,6 +155,7 @@
 		},
 		"escortMedium": {
 			"krieg_kadze_Escort": 6,
+			"krieg_drake_Escort": 3,
 			"fallback": { "combatMedium": 1 }
 		},
 		"combatSmall": {

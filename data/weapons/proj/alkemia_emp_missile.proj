@@ -4,8 +4,8 @@
     "missileType": "MISSILE",
     "sprite": "graphics/alkemia/missiles/artillery_missile.png",
     "onHitEffect":"com.fs.starfarer.api.impl.combat.PilumOnHitEffect",
-    "size": [ 26, 93 ],
-    "center": [ 13, 46 ],
+    "size": [ 26, 88 ],
+    "center": [ 13, 44 ],
     "collisionRadius": 50,
     "collisionClass": "MISSILE_NO_FF",
     "explosionColor": [ 175, 125, 255, 255 ],
@@ -24,14 +24,14 @@
     },
     "engineSpec": {
         "turnAcc": 15,
-        "turnRate": 30,
+        "turnRate": 50,
         "acc": 100,
-        "dec": 20
+        "dec": 40
     },
     "engineSlots": [
         {
             "id": "ES1",
-            "loc": [ -45, -4 ],
+            "loc": [ -44, -6 ],
             "style": "CUSTOM",
             "styleSpec": {
                 "mode": "QUAD_STRIP",
@@ -48,11 +48,11 @@
             },
             "width": 10.0,
             "length": 75.0,
-            "angle": 180.0
+            "angle": 185.0
         },
         {
             "id": "ES2",
-            "loc": [ -45, 4 ],
+            "loc": [ -44, 6 ],
             "style": "CUSTOM",
             "styleSpec": {
                 "mode": "QUAD_STRIP",
@@ -69,7 +69,7 @@
             },
             "width": 10.0,
             "length": 75.0,
-            "angle": 180.0
+            "angle": 175.0
         }
     ]
 }
