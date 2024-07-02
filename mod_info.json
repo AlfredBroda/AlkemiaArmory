@@ -2,9 +2,9 @@
 	"id":"alkemia-armoury",
 	"name":"Alkemia Armoury",
 	"author":"Frederoo",
-	"version":"0.9.49",
+	"version":"1.0.0",
 	"description":"Alkemia Customs Company with it's ships, stations, weapons, hullmods and LPCs. Also featuring planetary structures and a bar mission. Also starring: Krieg planetary encounter",
-	"gameVersion": "0.96a-RC10",
+	"gameVersion": "0.97a-RC11",
 	"dependencies": [
 		{
 			"id": "lw_lazylib",

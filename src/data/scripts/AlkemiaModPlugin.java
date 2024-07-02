@@ -113,9 +113,8 @@ public class AlkemiaModPlugin extends BaseModPlugin {
 
     @Override
     public void onGameLoad(boolean newGame) {
-        // FIXME: Is this correct?
-        ItemEffectsRepo.ITEM_EFFECTS.put(AlkemiaIds.ALKEMIA_HULLMOD_NANOFORGE, new BoostIndustryInstallableItemEffect(
-                AlkemiaIds.ALKEMIA_HULLMOD_NANOFORGE, AlkemiaStats.ALKEMIA_NANOFORGE_PROD, 0) {
+        ItemEffectsRepo.ITEM_EFFECTS.put(AlkemiaIds.ALKEMIA_CIVILIAN_NANOFORGE, new BoostIndustryInstallableItemEffect(
+                AlkemiaIds.ALKEMIA_CIVILIAN_NANOFORGE, AlkemiaStats.ALKEMIA_NANOFORGE_PROD, 0) {
             public void apply(Industry industry) {
                 super.apply(industry);
                 industry.getMarket().getStats().getDynamic().getMod(Stats.PRODUCTION_QUALITY_MOD)

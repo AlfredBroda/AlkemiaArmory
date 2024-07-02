@@ -15,10 +15,6 @@
     "armoredweapons",
     "eccm"
   ],
-  "builtInWeapons": {
-    "ARM_L": "alkemia_syreen_arm_l",
-    "ARM_R": "alkemia_syreen_arm_r"
-  },
   "weaponSlots": [
     {
       "id": "WS0001",

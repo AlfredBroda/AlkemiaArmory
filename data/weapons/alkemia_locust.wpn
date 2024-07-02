@@ -8,7 +8,7 @@
   "turretSprite": "graphics/weapons/light_machinegun_turret_base.png",
   "hardpointSprite": "graphics/weapons/mg_light_dual_hardpoint_base.png",
   "renderHints": [ "RENDER_LOADED_MISSILES" ],
-  "turretOffsets": [ -2, -2, -2, 2 ],
+  "turretOffsets": [ 1, -4, 1, 4 ],
   "turretAngleOffsets": [ 0, 0 ],
   "hardpointOffsets": [ 5, -2, 5, 2 ],
   "hardpointAngleOffsets": [ -0, 0 ],

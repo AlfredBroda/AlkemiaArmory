@@ -9,6 +9,7 @@ public class AlkemiaIds {
 
     // Industries
     public static final String ALKEMIA_INDUSTRY_WORKSHOP = "alkemia_workshop";
+    public static final String ALKEMIA_CIVILIAN_NANOFORGE = "alkemia_nanoforge";
 
     // Ships
     public static final String ALKEMIA_REPAIR_DRONE = "alkemia_drone_repair";

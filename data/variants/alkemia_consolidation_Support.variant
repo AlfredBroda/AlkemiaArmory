@@ -23,23 +23,6 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0014": "alkemia_porcupine_tds"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "WS0011": "hephag",
-        "WS0013": "hephag",
-        "WS0015": "heavymauler",
-        "WS0017": "heavymauler"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
         "WS0002": "alkemia_rapidhvel",
         "WS0021": "alkemia_rapidhvel"
       }
@@ -48,7 +31,25 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "WS0012": "pilum_large",
+        "WS0014": "pilum_large"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0011": "gauss",
+        "WS0013": "gauss"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0015": "dualflak",
         "WS0016": "dualflak",
+        "WS0017": "dualflak",
         "WS0018": "dualflak"
       }
     },
@@ -56,7 +57,6 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0012": "alkemia_pilumpod",
         "WS0019": "ionbeam",
         "WS0020": "ionbeam"
       }

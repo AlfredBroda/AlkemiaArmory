@@ -1,0 +1,43 @@
+{
+    "id": "alkemia_breach_mini",
+    "specClass": "missile",
+    "missileType": "MISSILE",
+    "onHitEffect":"com.fs.starfarer.api.impl.combat.BreachOnHitEffect",
+    "sprite": "graphics/missiles/missile_SRM.png",
+    "size": [ 5, 7 ],
+    "center": [ 2, 3 ],
+    "collisionRadius": 7,
+    "collisionClass": "MISSILE_NO_FF",
+    "explosionColor": [ 100, 100, 255, 255 ],
+    "explosionRadius": 35,
+    "engineSpec": {
+        "turnAcc": 720,
+        "turnRate": 360,
+        "maxSpeed": 300,
+        "acc": 1000,
+        "dec": 1000
+    },
+    "engineSlots": [
+        {
+            "id": "ES1",
+            "loc": [ 0, -1.5 ],
+            "style": "CUSTOM",
+            "styleSpec": {
+                "mode": "QUAD_STRIP",
+                "engineColor":[255,200,25,255],
+                "glowSizeMult":2,
+                "contrailDuration":0.5,
+                "contrailWidthMult":1,
+                "contrailWidthAddedFractionAtEnd":2.5,
+                "contrailMinSeg": 5,
+                "contrailMaxSpeedMult": 0.5,
+                "contrailAngularVelocityMult": 0.5,
+                "contrailColor":[75,75,75,150],
+                "type": "SMOKE"
+            },
+            "width": 4.0,
+            "length": 7.0,
+            "angle": 180.0
+        }
+    ]
+}

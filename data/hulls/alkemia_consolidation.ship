@@ -13,7 +13,8 @@
   "shieldRadius": 250,
   "viewOffset": 0,
   "builtInMods": [
-    "alkemia_droneonlybays"
+    "alkemia_droneonlybays",
+    "alkemia_heavymissile"
   ],
   "builtInWeapons": {
     "WS0001": "alkemia_emp_artillery"
@@ -197,7 +198,10 @@
       "mount": "HIDDEN",
       "arc": 5,
       "angle": 90,
-      "locations": [-46, 57]
+      "locations": [
+        -46, 57,
+        -45.5, 72
+      ]
     },
     {
       "id": "LB0002",
@@ -206,7 +210,10 @@
       "mount": "HIDDEN",
       "arc": 5,
       "angle": -90,
-      "locations": [-46, -57]
+      "locations": [
+        -46, -57,
+        -46, -71
+      ]
     },
     {
       "id": "WS0002",

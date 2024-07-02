@@ -1,5 +1,5 @@
 id,name,cost mult,build time,income,upkeep,downgrade,upgrade,tags,data,image,plugin,desc,order,disruptDanger
-alkemia_workshop,Starship Workshop,60,30,,1,,,"industrial, structure",,graphics/alkemia/icons/industry/shuttle_hangar.png,data.scripts.campaign.econ.AlkemiaWorkshop,"Private starship production and refit workshops. Production is constrained by gravitational conditions of a planet.",3000,MEDIUM
+alkemia_workshop,Starship Workshop,60,30,,1,,,"industrial, structure",,graphics/alkemia/icons/industry/shuttle_hangar.png,data.scripts.campaign.econ.AlkemiaWorkshop,"Planetside private starship production and refit workshops. Production is constrained by gravitational conditions of a planet.",3000,MEDIUM
 alkemia_oasis,Oasis Towers,45,60,,4,,,"structure, unraidable",,graphics/alkemia/icons/industry/desert_outpost.png,data.scripts.campaign.econ.AlkemiaOasisTowers,"Huge enclosed towers made out of the local rock and sealed against the oppressive heat of the surrounding %s, protecting hundreds of people from the harsh environment outside.",270,
 alkemia_orbitalstation_junker,Orbital Station - Salvaged,30,30,,3.4,,alkemia_battlestation_mid_junker,"station, sub_item, unraidable, structure","{
 radius:55,

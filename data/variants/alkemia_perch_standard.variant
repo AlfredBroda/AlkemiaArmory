@@ -4,7 +4,7 @@
   "displayName": "Standard",
   "goalVariant": true,
   "fluxCapacitors": 10,
-  "fluxVents": 3,
+  "fluxVents": 5,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
@@ -40,12 +40,12 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0004": "pdlaser",
-        "WS0005": "pdlaser",
         "WS0000": "pdlaser",
         "WS0001": "pdlaser",
         "WS0002": "pdlaser",
-        "WS0003": "pdlaser"
+        "WS0003": "pdlaser",
+        "WS0004": "pdlaser",
+        "WS0005": "pdlaser"
       }
     }
   ],

@@ -1,7 +1,7 @@
 {
-  "variantId": "alkemia_syreen_standard",
+  "variantId": "alkemia_syreen_assault",
   "hullId": "alkemia_syreen",
-  "displayName": "Interceptor",
+  "displayName": "Assault",
   "goalVariant": true,
   "fluxCapacitors": 0,
   "fluxVents": 0,
@@ -20,8 +20,8 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "ARM_L": "alkemia_syreen_arm_l",
-        "ARM_R": "alkemia_syreen_arm_r"
+        "ARM_L": "alkemia_syreen_armb_l",
+        "ARM_R": "alkemia_syreen_armb_r"
       }
     }
   ],

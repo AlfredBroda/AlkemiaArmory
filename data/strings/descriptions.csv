@@ -13,9 +13,9 @@ alkemia_locust,WEAPON,"Saturation defense launcher with large numbers of guided 
 
 A sizable combat-rated autoloader and missile autoforge system ensures continued usefulness in protracted engagements.",,,,
 alkemia_locust_fighter,WEAPON,Saturation defense launcher with large numbers of guided low-yeld EMP warheads. This rack must be replaced after use.,,,,
-alkemia_breach_fighter,WEAPON,"A heavily armored and fast missile with good guidance and a small, specialized anti-armor warhead. This rack must be replaced after use.",,,,
-alkemia_harpoon_fighter,WEAPON,A short range high payload guided missile: one-shot only. Devastating against ships with downed shields.,,,,
-alkemia_salamander_fighter,WEAPON,Homes in on the target's engines and disables them with a powerful EMP burst. One-shot only.,,,,
+alkemia_breach_fighter,WEAPON,"A heavily armored and fast missile with good guidance and a small, specialized anti-armor warhead. Reduced propellant, this rack must be replaced after use.",,,,
+alkemia_harpoon_fighter,WEAPON,A fast short range high payload guided missile: one-shot only. Devastating against ships with downed shields. Reduced propellant.,,,,
+alkemia_salamander_fighter,WEAPON,Homes in on the target's engines and disables them with a powerful EMP burst. Reduced propellant, this rack must be replaced after use.,,,,
 alkemia_amblaster_fighter,WEAPON,"A slow-firing, high damage energy gun meant to pose a threat to the largest ships in the Sector. Can only be used at close-range.",,,,
 alkemia_acdls,WEAPON,"Fires several bursts in quick succession if allowed to fully recharge. Excellent vs missiles and fighters.
 
@@ -44,9 +44,13 @@ alkemia_atropos_pod,WEAPON,"An advanced, guided torpedo. The payload is smaller 
 The Atropos torpedo is a large guided torpedo with an extended range. The AM-catalyzed nuclear warhead typically used in torpedo warheads is missing here as baryonic interference from the detonator would foul the guidance systems. It is replaced by a smaller, yet still potent chemical charge.",,,,
 alkemia_drone_repair,SHIP,A common Domain remote controlled repair drone. Useful for armour repairs even during battle.,,,,
 alkemia_deluxe,SHIP,"A highly customizable two seat heavy fighter boasting two hybrid and two reconfigurable missile hardpoints, plus an afterburner.",,,,
-alkemia_syreen,SHIP,"The Syreen represents an effective interceptor unit, capable of taking out whole enemy fighter formations on its own.",,,,
+alkemia_syreen,SHIP,"The Syreen represents an effective interceptor unit, capable of taking out whole enemy fighter formations on its own.
+
+Featuring: Jovian Chronicles",,,,
 alkemia_thunder,SHIP,"Extremely fast, well-armed, and with a long engagement range, the Thunder's strength lies in enabling a carrier to rapidly project force at the desired location. Not as damaging as a bomber or as tough as a heavy fighter, it will falter if forced into a prolonged engagement.",,,,
-alkemia_dromader,SHIP,"Versatile trans-atmospheric dropship with a moderately sized cargo hold. Features a ground support package, a limited use nanoforge and a large missile store.",,,,
+alkemia_dromader,SHIP,"Versatile trans-atmospheric dropship with a moderately sized cargo hold. Features a ground support package, a limited use munitions nanoforge and a large missile store.
+
+Featuring: Rebel Galaxy Outlaw",,,,
 alkemia_roost,SHIP,"A retrofit of the Drover, this destroyer now features a universal medium turret and a rear facing small hybrid turret, as well as a hybrid upgrade to the remaining turrets. This came at the cost of additional fighter capacity, but flare launchers were installed to improve protection.",,,,
 alkemia_buzzard,SHIP,"A dedicated missile destroyer based on the Hammerhead. Boasting an impressive ordinance store and rapid autoloaders, the Buzzard can deal a staggering amount of damage for it's size.",,,,
 alkemia_perch,SHIP,"A refit of the Champion, this heavy cruiser trades it's heavy turret and downsizes it's missile slot for three fighter bays. Remaining frontal turrets have been overhauled to fit a wider variety of armaments. The internal capacitors of the original were replaced with an improved fighter manufactory.

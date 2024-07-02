@@ -23,9 +23,10 @@
         "particleColor": [ 200, 150, 255, 255 ]
     },
     "engineSpec": {
-        "turnAcc": 15,
-        "turnRate": 50,
-        "acc": 100,
+        "turnAcc": 180,
+        "turnRate": 180,
+        "maxSpeed": 500,
+        "acc": 300,
         "dec": 40
     },
     "engineSlots": [

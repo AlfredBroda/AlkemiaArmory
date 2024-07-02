@@ -10,7 +10,8 @@
   "hullMods": [
     "adaptiveshields",
     "escort_package",
-    "hiressensors"
+    "hiressensors",
+    "defensive_targeting_array"
   ],
   "weaponGroups": [
     {

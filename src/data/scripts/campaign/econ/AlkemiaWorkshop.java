@@ -115,7 +115,7 @@ public class AlkemiaWorkshop extends BaseIndustry {
     public boolean wantsToUseSpecialItem(SpecialItemData data) {
         Global.getLogger(this.getClass()).warn(special.getId());
         ;
-        if (special != null && AlkemiaIds.ALKEMIA_HULLMOD_NANOFORGE.equals(special.getId()) && data != null) {
+        if (special != null && AlkemiaIds.ALKEMIA_CIVILIAN_NANOFORGE.equals(special.getId()) && data != null) {
             return true;
         }
         return super.wantsToUseSpecialItem(data);
