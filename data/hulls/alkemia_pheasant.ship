@@ -21,7 +21,8 @@
     "ES0003": "alkemia_small_thruster",
     "ES0004": "alkemia_small_thruster",
     "ES0005": "alkemia_small_thruster",
-    "ES0006": "alkemia_small_thruster"
+    "ES0006": "alkemia_small_thruster",
+    "WS0007": "blinker_red"
   },
   "weaponSlots": [
     {
@@ -196,6 +197,15 @@
       "arc": 5,
       "angle": -80,
       "locations": [14, -42]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [88, -9.5]
     }
   ],
   "engineSlots": [

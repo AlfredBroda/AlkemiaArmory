@@ -1,0 +1,44 @@
+{
+  "variantId": "alkemia_pheasant_Siege",
+  "hullId": "alkemia_pheasant",
+  "displayName": "Siege",
+  "goalVariant": true,
+  "fluxCapacitors": 12,
+  "fluxVents": 12,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "auxiliarythrusters"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "alkemia_ion_star"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "mininglaser",
+        "WS0003": "mininglaser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "alkemia_vulcan",
+        "WS0005": "alkemia_vulcan",
+        "WS0006": "alkemia_vulcan"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": [
+    "mining_drone_wing",
+    "alkemia_repair_wing"
+  ]
+}
