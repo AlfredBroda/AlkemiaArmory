@@ -3,7 +3,8 @@ name: GitHub Release
 on:
     # Triggers the workflow on pushing a tag only
     push:
-        tags: "*"
+        tags: 
+            - "*"
         branches:
             - "!*"
 
@@ -37,7 +38,7 @@ jobs:
             - name: Download LazyLib
               uses: wei/wget@v1
               with:
-                args: -O LazyLib.zip https://github.com/LazyWizard/lazylib/releases/download/2.7b/LazyLib.2.7b.zip
+                args: -O LazyLib.zip https://github.com/LazyWizard/lazylib/releases/download/2.8b/LazyLib.2.8b.zip
 
             - name: Extract Libs
               run: |
