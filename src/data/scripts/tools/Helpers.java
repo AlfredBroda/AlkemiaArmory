@@ -209,8 +209,9 @@ public class Helpers {
             StarSystemAPI system = gate.getStarSystem();
 
             // must be unknown
-            if (system.isEnteredByPlayer())
-                continue;
+            // FIXME: This errors in 0.97
+            // if (system.isEnteredByPlayer())
+            //     continue;
             // avoid pulsars
             if (Misc.hasPulsar(system))
                 continue;
