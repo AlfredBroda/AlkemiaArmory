@@ -207,11 +207,12 @@ public class Helpers {
         List<SectorEntityToken> gates = Global.getSector().getEntitiesWithTag(Tags.GATE);
         for (SectorEntityToken gate : gates) {
             StarSystemAPI system = gate.getStarSystem();
+            if (system == null)
+                continue;
 
             // must be unknown
-            // FIXME: This errors in 0.97
-            // if (system.isEnteredByPlayer())
-            //     continue;
+            if (system.isEnteredByPlayer())
+                continue;
             // avoid pulsars
             if (Misc.hasPulsar(system))
                 continue;
